@@ -1,0 +1,336 @@
+// billing.proto
+syntax = "proto3";
+
+package billing_service;
+
+import "google/api/annotations.proto";
+
+option go_package = "./services/billing-service/proto";
+
+// BillingService defines the service for managing invoices and payments
+service BillingService {
+  // Creates an invoice
+  rpc CreateInvoice (CreateInvoiceRequest) returns (CreateInvoiceResponse) {
+    option (google.api.http) = {
+      post: "/v1/invoices"
+      body: "*"
+    };
+  }
+
+  // Retrieves an invoice by ID
+  rpc GetInvoice (GetInvoiceRequest) returns (GetInvoiceResponse) {
+    option (google.api.http) = {
+      get: "/v1/invoices/{invoice_id}"
+    };
+  }
+
+  // Updates an invoice
+  rpc UpdateInvoice (UpdateInvoiceRequest) returns (UpdateInvoiceResponse) {
+    option (google.api.http) = {
+      put: "/v1/invoices/{invoice_id}"
+      body: "*"
+    };
+  }
+
+  // Deletes an invoice
+  rpc DeleteInvoice (DeleteInvoiceRequest) returns (DeleteInvoiceResponse) {
+    option (google.api.http) = {
+      delete: "/v1/invoices/{invoice_id}"
+    };
+  }
+
+  // Lists all invoices (with optional filters)
+  rpc ListInvoices (ListInvoicesRequest) returns (ListInvoicesResponse) {
+    option (google.api.http) = {
+      get: "/v1/invoices"
+    };
+  }
+
+  // Get invoices by patient ID
+  rpc GetInvoicesByPatientId (GetInvoicesByPatientIdRequest) returns (ListInvoicesResponse) {
+    option (google.api.http) = {
+      get: "/v1/invoices/patient/{patient_id}"
+    };
+  }
+
+  // Process payment for an invoice
+  rpc ProcessPayment (ProcessPaymentRequest) returns (ProcessPaymentResponse) {
+    option (google.api.http) = {
+      post: "/v1/invoices/{invoice_id}/payments"
+      body: "*"
+    };
+  }
+
+  // Mark invoice as paid
+  rpc MarkInvoiceAsPaid (MarkInvoiceAsPaidRequest) returns (MarkInvoiceAsPaidResponse) {
+    option (google.api.http) = {
+      put: "/v1/invoices/{invoice_id}/mark-paid"
+      body: "*"
+    };
+  }
+
+  // Send invoice by email
+  rpc SendInvoiceEmail (SendInvoiceEmailRequest) returns (SendInvoiceEmailResponse) {
+    option (google.api.http) = {
+      post: "/v1/invoices/{invoice_id}/send-email"
+      body: "*"
+    };
+  }
+
+ // New Updates
+
+    // Service Record Management
+    rpc CreateServiceRecord (CreateServiceRecordRequest) returns (CreateServiceRecordResponse) {
+        option (google.api.http) = {
+            post: "/v1/service-records"
+            body: "*"
+        };
+    }
+
+    rpc UpdateServiceRecordStatus (UpdateServiceRecordStatusRequest) returns (UpdateServiceRecordStatusResponse) {
+        option (google.api.http) = {
+            put: "/v1/service-records/{record_id}/status"
+            body: "*"
+        };
+    }
+
+    rpc GetServiceRecordsByPatient (GetServiceRecordsByPatientRequest) returns (GetServiceRecordsByPatientResponse) {
+        option (google.api.http) = {
+            get: "/v1/service-records/patient/{patient_id}"
+        };
+    }
+
+  rpc GenerateInvoiceFromRecords (GenerateInvoiceFromRecordsRequest) returns (CreateInvoiceResponse) {
+      option (google.api.http) = {
+          post: "/v1/service-records/generate-invoice"
+          body: "*"
+      };
+  }
+
+  rpc ListServiceRecords (ListServiceRecordsRequest) returns (ListServiceRecordsResponse) {
+    option (google.api.http) = {
+        get: "/v1/service-records"
+    };
+  }
+}
+
+// Payment method structure
+message PaymentMethod {
+  string type = 1;
+  string card_number = 2;
+  string expiry_date = 3;
+  string cvv = 4;
+  string scheme_provider = 5;
+  string scheme_id = 6;
+  int32 percentage = 7;
+}
+
+// Invoice item structure
+message InvoiceItem {
+  string description = 1;
+  string service_record_id = 5;
+  int32 quantity = 2;
+  double unit_price = 3;
+  double total = 4;
+}
+
+// Create Invoice request
+message CreateInvoiceRequest {
+  string patient_id = 1;
+  string invoice_date = 2;
+  string due_date = 3;
+  repeated PaymentMethod payment_methods = 4;
+  string notes = 5;
+  double discount = 6;
+  double tax_rate = 7;
+  repeated InvoiceItem items = 8;
+}
+
+// Create Invoice response
+message CreateInvoiceResponse {
+  string invoice_id = 1;
+  string status = 2;
+}
+
+// Get Invoice request
+message GetInvoiceRequest {
+  string invoice_id = 1;
+}
+
+// Invoice data structure
+message Invoice {
+  string invoice_id = 1;
+  string patient_id = 2;
+  string patient_name = 3;
+  string invoice_date = 4;
+  string due_date = 5;
+  string status = 6;
+  double total = 7;
+  double discount = 8;
+  double tax_rate = 9;
+  repeated PaymentMethod payment_methods = 10;
+  repeated InvoiceItem items = 11;
+  string notes = 12;
+  string created_at = 13;
+}
+
+// Get Invoice response
+message GetInvoiceResponse {
+  Invoice invoice = 1;
+}
+
+// Update Invoice request
+message UpdateInvoiceRequest {
+  string invoice_id = 1;
+  string patient_id = 2;
+  string invoice_date = 3;
+  string due_date = 4;
+  string status = 5;
+  double discount = 6;
+  double tax_rate = 7;
+  repeated PaymentMethod payment_methods = 8;
+  repeated InvoiceItem items = 9;
+  string notes = 10;
+}
+
+// Update Invoice response
+message UpdateInvoiceResponse {
+  bool success = 1;
+}
+
+// Delete Invoice request
+message DeleteInvoiceRequest {
+  string invoice_id = 1;
+}
+
+// Delete Invoice response
+message DeleteInvoiceResponse {
+  bool success = 1;
+}
+
+// List Invoices request
+message ListInvoicesRequest {
+  string status_filter = 1;
+  string patient_filter = 2;
+  string date_from = 3;
+  string date_to = 4;
+  string search_query = 5;
+}
+
+// List Invoices response
+message ListInvoicesResponse {
+  repeated Invoice invoices = 1;
+}
+
+// Get Invoices by Patient ID request
+message GetInvoicesByPatientIdRequest {
+  string patient_id = 1;
+}
+
+// Process Payment request
+message ProcessPaymentRequest {
+  string invoice_id = 1;
+  string payment_method = 2;
+  double amount = 3;
+  string transaction_reference = 4;
+  string payment_date = 5;
+}
+
+// Process Payment response
+message ProcessPaymentResponse {
+  bool success = 1;
+  string payment_id = 2;
+  string status = 3;
+}
+
+// Mark Invoice as Paid request
+message MarkInvoiceAsPaidRequest {
+  string invoice_id = 1;
+}
+
+// Mark Invoice as Paid response
+message MarkInvoiceAsPaidResponse {
+  bool success = 1;
+}
+
+// Send Invoice Email request
+message SendInvoiceEmailRequest {
+  string invoice_id = 1;
+  string email_address = 2;
+  string subject = 3;
+  string message = 4;
+}
+
+// Send Invoice Email response
+message SendInvoiceEmailResponse {
+  bool success = 1;
+  string status = 2;
+}
+
+
+
+
+
+// services/billing-service/proto/service_record.proto
+
+message ServiceRecord {
+    string record_id = 1;
+    string patient_id = 2;
+    string service_type = 3;  // e.g., "appointment", "medication", "lab_test"
+    string service_id = 4;    // ID from the original service
+    string description = 5;
+    double amount = 6;
+    string status = 7;       // "pending", "completed", "billed", "paid"
+    string created_at = 8;
+    string updated_at = 9;
+}
+
+message CreateServiceRecordRequest {
+    string patient_id = 1;
+    string service_type = 2;
+    string service_id = 3;
+    string description = 4;
+    double amount = 5;
+}
+
+message CreateServiceRecordResponse {
+    string record_id = 1;
+    bool success = 2;
+}
+
+message UpdateServiceRecordStatusRequest {
+    string record_id = 1;
+    string status = 2;
+}
+
+message UpdateServiceRecordStatusResponse {
+    bool success = 1;
+}
+
+message GetServiceRecordsByPatientRequest {
+    string patient_id = 1;
+    string status_filter = 2;
+}
+
+message GetServiceRecordsByPatientResponse {
+    repeated ServiceRecord records = 1;
+}
+
+message GenerateInvoiceFromRecordsRequest {
+    repeated string record_ids = 1;
+    string patient_id = 2;
+    string invoice_date = 3;
+    string due_date = 4;
+    repeated PaymentMethod payment_methods = 5;
+    string notes = 6;
+    double discount = 7;
+    double tax_rate = 8;
+}
+
+message ListServiceRecordsRequest {
+    string status_filter = 1;
+}
+
+message ListServiceRecordsResponse {
+    repeated ServiceRecord records = 1;
+}
