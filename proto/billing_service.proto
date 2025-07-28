@@ -5,7 +5,11 @@ package billing_service;
 
 import "google/api/annotations.proto";
 
+<<<<<<< HEAD
 option go_package = "./services/billing-service/proto";
+=======
+option go_package = "./shared/billing-service/proto";
+>>>>>>> 5d2e7a4 (Updated routes)
 
 // BillingService defines the service for managing invoices and payments
 service BillingService {

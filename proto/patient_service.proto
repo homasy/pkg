@@ -6,7 +6,11 @@ package patient_service;
 
 import "google/api/annotations.proto";
 
+<<<<<<< HEAD
 option go_package = "./services/patient-service/proto";
+=======
+option go_package = "./shared/patient-service/proto";
+>>>>>>> 5d2e7a4 (Updated routes)
 
 message PaymentMethod {
   string type = 1;

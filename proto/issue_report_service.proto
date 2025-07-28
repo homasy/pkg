@@ -4,7 +4,11 @@ syntax = "proto3";
 
 package issue_report_service;
 
+<<<<<<< HEAD
 option go_package = "homasy-backend/services/issue-report-service/proto";
+=======
+option go_package = "./shared/issue-report-service/proto";
+>>>>>>> 5d2e7a4 (Updated routes)
 
 import "google/api/annotations.proto";
 

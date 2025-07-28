@@ -6,7 +6,11 @@ package chat_service;
 
 import "google/api/annotations.proto";
 
+<<<<<<< HEAD
 option go_package = "./services/chat-service/proto";
+=======
+option go_package = "./shared/chat-service/proto";
+>>>>>>> 5d2e7a4 (Updated routes)
 
 // ChatService defines the service for managing chat communications
 service ChatService {

@@ -7,18 +7,18 @@ import (
 	"fmt"
 	"log"
 
-	appointment_pb "homasy-backend/services/appointment-service/proto"
-	hr_pb "homasy-backend/services/human-resource-service/proto"
-	patient_pb "homasy-backend/services/patient-service/proto"
-	medical_records_pb "homasy-backend/services/medical-records-service/proto"
-	ward_pb "homasy-backend/services/ward-service/proto"
-	supply_chain_pb "homasy-backend/services/supply-chain-service/proto"
-	pharmacy_pb "homasy-backend/services/pharmacy-service/proto"
-	laboratory_pb "homasy-backend/services/laboratory-service/proto"
-	issue_pb "homasy-backend/services/issue-report-service/proto"
-	user_pb "homasy-backend/services/user-service/proto"
-	billing_pb "homasy-backend/services/billing-service/proto"
-)
+	appointment_pb "github.com/homasy/pkg/shared/appointment-service/proto"
+	hr_pb "github.com/homasy/pkg/shared/human-resource-service/proto"
+	patient_pb "github.com/homasy/pkg/shared/patient-service/proto"
+	medical_records_pb "github.com/homasy/pkg/shared/medical-records-service/proto"
+	ward_pb "github.com/homasy/pkg/shared/ward-service/proto"
+	supply_chain_pb "github.com/homasy/pkg/shared/supply-chain-service/proto"
+	pharmacy_pb "github.com/homasy/pkg/shared/pharmacy-service/proto"
+	laboratory_pb "github.com/homasy/pkg/shared/laboratory-service/proto"
+	issue_pb "github.com/homasy/pkg/shared/issue-report-service/proto"
+	user_pb "github.com/homasy/pkg/shared/user-service/proto"
+	billing_pb "github.com/homasy/pkg/shared/billing-service/proto"
+) 
 
 // Event types
 const (

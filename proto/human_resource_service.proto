@@ -6,7 +6,11 @@ package human_resource_service;
 
 import "google/api/annotations.proto";
 
+<<<<<<< HEAD
 option go_package = "./services/human-resource-service/proto";
+=======
+option go_package = "./shared/human-resource-service/proto";
+>>>>>>> 5d2e7a4 (Updated routes)
 
 // HRService defines the service for managing staff, payroll, leave requests, and departments
 service HRService {

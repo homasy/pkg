@@ -6,7 +6,11 @@ package supply_chain;
 
 import "google/api/annotations.proto";
 
+<<<<<<< HEAD
 option go_package = "./services/supply-chain-service/proto";
+=======
+option go_package = "./shared/supply-chain-service/proto";
+>>>>>>> 5d2e7a4 (Updated routes)
 
 // Common message for items in the supply chain
 message StockItem {

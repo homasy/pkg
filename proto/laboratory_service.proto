@@ -4,7 +4,11 @@ package laboratory_service;
 
 import "google/api/annotations.proto";
 
+<<<<<<< HEAD
 option go_package = "./services/laboratory-service/proto";
+=======
+option go_package = "./shared/laboratory-service/proto";
+>>>>>>> 5d2e7a4 (Updated routes)
 
 service LaboratoryService {
   rpc RequestLab (RequestLabRequest) returns (LabResponse) {

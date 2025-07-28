@@ -8,7 +8,11 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
 
+<<<<<<< HEAD
 option go_package = "./services/medical-records-service/proto";
+=======
+option go_package = "./shared/medical-records-service/proto";
+>>>>>>> 5d2e7a4 (Updated routes)
 
 service MedicalRecordService {
   // Diagnosis endpoints

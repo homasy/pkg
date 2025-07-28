@@ -6,7 +6,11 @@ package appointment_service;
 
 import "google/api/annotations.proto";
 
+<<<<<<< HEAD
 option go_package = "./services/appointment-service/proto";
+=======
+option go_package = "./shared/appointment-service/proto";
+>>>>>>> 5d2e7a4 (Updated routes)
 
 // AppointmentService defines the service for managing appointments
 service AppointmentService {

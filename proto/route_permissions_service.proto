@@ -5,7 +5,11 @@ package route_permissions;
 
 import "google/api/annotations.proto";
 
+<<<<<<< HEAD
 option go_package = "./services/route-permissions-service/proto";
+=======
+option go_package = "./shared/route-permissions-service/proto";
+>>>>>>> 5d2e7a4 (Updated routes)
 
 service RoutePermissionService {
   // Check if a user has permission to access a route

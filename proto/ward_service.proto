@@ -6,7 +6,11 @@ package ward_service;
 
 import "google/api/annotations.proto";
 
+<<<<<<< HEAD
 option go_package = "./services/ward-service/proto";
+=======
+option go_package = "./shared/ward-service/proto";
+>>>>>>> 5d2e7a4 (Updated routes)
 
 service WardService {
     rpc CreateBed(CreateBedRequest) returns (CreateBedResponse) {

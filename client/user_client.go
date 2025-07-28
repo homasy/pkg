@@ -9,7 +9,11 @@ import (
 	"sync"
 	"time"
 
+<<<<<<< HEAD
 	userpb "homasy-backend/services/user-service/proto"
+=======
+	userpb "github.com/homasy/pkg/shared/user-service/proto"
+>>>>>>> 5d2e7a4 (Updated routes)
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

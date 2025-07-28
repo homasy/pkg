@@ -6,7 +6,11 @@ package pharmacy_service;
 
 import "google/api/annotations.proto";
 
+<<<<<<< HEAD
 option go_package = "./services/pharmacy-service/proto";
+=======
+option go_package = "./shared/pharmacy-service/proto";
+>>>>>>> 5d2e7a4 (Updated routes)
 
 service PharmacyService {
 
