@@ -19,7 +19,7 @@ type Email struct {
 }
 
 // SendEmail sends an email using Brevo API.
-func SendEmail(e Email) error {
+func SendUserEmail(e Email) error {
 	// Initialize context and configuration
 	ctx := context.Background()
 	cfg := brevo.NewConfiguration()
