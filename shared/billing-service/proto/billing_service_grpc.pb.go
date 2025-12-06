@@ -4,7 +4,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.0--rc1
-// source: billing_service.proto
+// source: proto/billing_service.proto
 
 package proto
 
@@ -35,6 +35,10 @@ const (
 	BillingService_GetServiceRecordsByPatient_FullMethodName = "/billing_service.BillingService/GetServiceRecordsByPatient"
 	BillingService_GenerateInvoiceFromRecords_FullMethodName = "/billing_service.BillingService/GenerateInvoiceFromRecords"
 	BillingService_ListServiceRecords_FullMethodName         = "/billing_service.BillingService/ListServiceRecords"
+	BillingService_CalculateBillSplit_FullMethodName         = "/billing_service.BillingService/CalculateBillSplit"
+	BillingService_SendInvoice_FullMethodName                = "/billing_service.BillingService/SendInvoice"
+	BillingService_GetPatientPaymentStatus_FullMethodName    = "/billing_service.BillingService/GetPatientPaymentStatus"
+	BillingService_GetPendingBills_FullMethodName            = "/billing_service.BillingService/GetPendingBills"
 )
 
 // BillingServiceClient is the client API for BillingService service.
@@ -67,6 +71,14 @@ type BillingServiceClient interface {
 	GetServiceRecordsByPatient(ctx context.Context, in *GetServiceRecordsByPatientRequest, opts ...grpc.CallOption) (*GetServiceRecordsByPatientResponse, error)
 	GenerateInvoiceFromRecords(ctx context.Context, in *GenerateInvoiceFromRecordsRequest, opts ...grpc.CallOption) (*CreateInvoiceResponse, error)
 	ListServiceRecords(ctx context.Context, in *ListServiceRecordsRequest, opts ...grpc.CallOption) (*ListServiceRecordsResponse, error)
+	// Calculate bill split based on medical scheme
+	CalculateBillSplit(ctx context.Context, in *CalculateBillSplitRequest, opts ...grpc.CallOption) (*CalculateBillSplitResponse, error)
+	// Send invoice to patient or medical scheme
+	SendInvoice(ctx context.Context, in *SendInvoiceRequest, opts ...grpc.CallOption) (*SendInvoiceResponse, error)
+	// Get patient payment status (for consultation restrictions)
+	GetPatientPaymentStatus(ctx context.Context, in *GetPatientPaymentStatusRequest, opts ...grpc.CallOption) (*GetPatientPaymentStatusResponse, error)
+	// Get pending bills for patient
+	GetPendingBills(ctx context.Context, in *GetPendingBillsRequest, opts ...grpc.CallOption) (*GetPendingBillsResponse, error)
 }
 
 type billingServiceClient struct {
@@ -217,6 +229,46 @@ func (c *billingServiceClient) ListServiceRecords(ctx context.Context, in *ListS
 	return out, nil
 }
 
+func (c *billingServiceClient) CalculateBillSplit(ctx context.Context, in *CalculateBillSplitRequest, opts ...grpc.CallOption) (*CalculateBillSplitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CalculateBillSplitResponse)
+	err := c.cc.Invoke(ctx, BillingService_CalculateBillSplit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *billingServiceClient) SendInvoice(ctx context.Context, in *SendInvoiceRequest, opts ...grpc.CallOption) (*SendInvoiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendInvoiceResponse)
+	err := c.cc.Invoke(ctx, BillingService_SendInvoice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *billingServiceClient) GetPatientPaymentStatus(ctx context.Context, in *GetPatientPaymentStatusRequest, opts ...grpc.CallOption) (*GetPatientPaymentStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPatientPaymentStatusResponse)
+	err := c.cc.Invoke(ctx, BillingService_GetPatientPaymentStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *billingServiceClient) GetPendingBills(ctx context.Context, in *GetPendingBillsRequest, opts ...grpc.CallOption) (*GetPendingBillsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPendingBillsResponse)
+	err := c.cc.Invoke(ctx, BillingService_GetPendingBills_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // BillingServiceServer is the server API for BillingService service.
 // All implementations must embed UnimplementedBillingServiceServer
 // for forward compatibility.
@@ -247,6 +299,14 @@ type BillingServiceServer interface {
 	GetServiceRecordsByPatient(context.Context, *GetServiceRecordsByPatientRequest) (*GetServiceRecordsByPatientResponse, error)
 	GenerateInvoiceFromRecords(context.Context, *GenerateInvoiceFromRecordsRequest) (*CreateInvoiceResponse, error)
 	ListServiceRecords(context.Context, *ListServiceRecordsRequest) (*ListServiceRecordsResponse, error)
+	// Calculate bill split based on medical scheme
+	CalculateBillSplit(context.Context, *CalculateBillSplitRequest) (*CalculateBillSplitResponse, error)
+	// Send invoice to patient or medical scheme
+	SendInvoice(context.Context, *SendInvoiceRequest) (*SendInvoiceResponse, error)
+	// Get patient payment status (for consultation restrictions)
+	GetPatientPaymentStatus(context.Context, *GetPatientPaymentStatusRequest) (*GetPatientPaymentStatusResponse, error)
+	// Get pending bills for patient
+	GetPendingBills(context.Context, *GetPendingBillsRequest) (*GetPendingBillsResponse, error)
 	mustEmbedUnimplementedBillingServiceServer()
 }
 
@@ -298,6 +358,18 @@ func (UnimplementedBillingServiceServer) GenerateInvoiceFromRecords(context.Cont
 }
 func (UnimplementedBillingServiceServer) ListServiceRecords(context.Context, *ListServiceRecordsRequest) (*ListServiceRecordsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListServiceRecords not implemented")
+}
+func (UnimplementedBillingServiceServer) CalculateBillSplit(context.Context, *CalculateBillSplitRequest) (*CalculateBillSplitResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CalculateBillSplit not implemented")
+}
+func (UnimplementedBillingServiceServer) SendInvoice(context.Context, *SendInvoiceRequest) (*SendInvoiceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendInvoice not implemented")
+}
+func (UnimplementedBillingServiceServer) GetPatientPaymentStatus(context.Context, *GetPatientPaymentStatusRequest) (*GetPatientPaymentStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPatientPaymentStatus not implemented")
+}
+func (UnimplementedBillingServiceServer) GetPendingBills(context.Context, *GetPendingBillsRequest) (*GetPendingBillsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPendingBills not implemented")
 }
 func (UnimplementedBillingServiceServer) mustEmbedUnimplementedBillingServiceServer() {}
 func (UnimplementedBillingServiceServer) testEmbeddedByValue()                        {}
@@ -572,6 +644,78 @@ func _BillingService_ListServiceRecords_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _BillingService_CalculateBillSplit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CalculateBillSplitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BillingServiceServer).CalculateBillSplit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BillingService_CalculateBillSplit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BillingServiceServer).CalculateBillSplit(ctx, req.(*CalculateBillSplitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BillingService_SendInvoice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendInvoiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BillingServiceServer).SendInvoice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BillingService_SendInvoice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BillingServiceServer).SendInvoice(ctx, req.(*SendInvoiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BillingService_GetPatientPaymentStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPatientPaymentStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BillingServiceServer).GetPatientPaymentStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BillingService_GetPatientPaymentStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BillingServiceServer).GetPatientPaymentStatus(ctx, req.(*GetPatientPaymentStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BillingService_GetPendingBills_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPendingBillsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BillingServiceServer).GetPendingBills(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BillingService_GetPendingBills_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BillingServiceServer).GetPendingBills(ctx, req.(*GetPendingBillsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // BillingService_ServiceDesc is the grpc.ServiceDesc for BillingService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -635,7 +779,23 @@ var BillingService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "ListServiceRecords",
 			Handler:    _BillingService_ListServiceRecords_Handler,
 		},
+		{
+			MethodName: "CalculateBillSplit",
+			Handler:    _BillingService_CalculateBillSplit_Handler,
+		},
+		{
+			MethodName: "SendInvoice",
+			Handler:    _BillingService_SendInvoice_Handler,
+		},
+		{
+			MethodName: "GetPatientPaymentStatus",
+			Handler:    _BillingService_GetPatientPaymentStatus_Handler,
+		},
+		{
+			MethodName: "GetPendingBills",
+			Handler:    _BillingService_GetPendingBills_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "billing_service.proto",
+	Metadata: "proto/billing_service.proto",
 }

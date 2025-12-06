@@ -4,7 +4,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v5.29.0--rc1
-// source: supply_chain_service.proto
+// source: proto/supply_chain_service.proto
 
 package proto
 
@@ -12,6 +12,7 @@ import (
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -51,7 +52,7 @@ type StockItem struct {
 
 func (x *StockItem) Reset() {
 	*x = StockItem{}
-	mi := &file_supply_chain_service_proto_msgTypes[0]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -63,7 +64,7 @@ func (x *StockItem) String() string {
 func (*StockItem) ProtoMessage() {}
 
 func (x *StockItem) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[0]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -76,7 +77,7 @@ func (x *StockItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StockItem.ProtoReflect.Descriptor instead.
 func (*StockItem) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{0}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *StockItem) GetId() string {
@@ -221,7 +222,7 @@ type Store struct {
 
 func (x *Store) Reset() {
 	*x = Store{}
-	mi := &file_supply_chain_service_proto_msgTypes[1]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -233,7 +234,7 @@ func (x *Store) String() string {
 func (*Store) ProtoMessage() {}
 
 func (x *Store) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[1]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -246,7 +247,7 @@ func (x *Store) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Store.ProtoReflect.Descriptor instead.
 func (*Store) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{1}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Store) GetId() string {
@@ -316,7 +317,7 @@ type Supplier struct {
 
 func (x *Supplier) Reset() {
 	*x = Supplier{}
-	mi := &file_supply_chain_service_proto_msgTypes[2]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -328,7 +329,7 @@ func (x *Supplier) String() string {
 func (*Supplier) ProtoMessage() {}
 
 func (x *Supplier) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[2]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -341,7 +342,7 @@ func (x *Supplier) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Supplier.ProtoReflect.Descriptor instead.
 func (*Supplier) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{2}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Supplier) GetId() string {
@@ -423,7 +424,7 @@ type RequisitionItem struct {
 
 func (x *RequisitionItem) Reset() {
 	*x = RequisitionItem{}
-	mi := &file_supply_chain_service_proto_msgTypes[3]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -435,7 +436,7 @@ func (x *RequisitionItem) String() string {
 func (*RequisitionItem) ProtoMessage() {}
 
 func (x *RequisitionItem) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[3]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -448,7 +449,7 @@ func (x *RequisitionItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequisitionItem.ProtoReflect.Descriptor instead.
 func (*RequisitionItem) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{3}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *RequisitionItem) GetItemId() string {
@@ -527,7 +528,7 @@ type Requisition struct {
 
 func (x *Requisition) Reset() {
 	*x = Requisition{}
-	mi := &file_supply_chain_service_proto_msgTypes[4]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -539,7 +540,7 @@ func (x *Requisition) String() string {
 func (*Requisition) ProtoMessage() {}
 
 func (x *Requisition) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[4]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -552,7 +553,7 @@ func (x *Requisition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Requisition.ProtoReflect.Descriptor instead.
 func (*Requisition) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{4}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Requisition) GetId() string {
@@ -694,7 +695,7 @@ type LPOItem struct {
 
 func (x *LPOItem) Reset() {
 	*x = LPOItem{}
-	mi := &file_supply_chain_service_proto_msgTypes[5]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -706,7 +707,7 @@ func (x *LPOItem) String() string {
 func (*LPOItem) ProtoMessage() {}
 
 func (x *LPOItem) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[5]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -719,7 +720,7 @@ func (x *LPOItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LPOItem.ProtoReflect.Descriptor instead.
 func (*LPOItem) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{5}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *LPOItem) GetItemId() string {
@@ -775,7 +776,7 @@ type LocalPurchaseOrder struct {
 
 func (x *LocalPurchaseOrder) Reset() {
 	*x = LocalPurchaseOrder{}
-	mi := &file_supply_chain_service_proto_msgTypes[6]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -787,7 +788,7 @@ func (x *LocalPurchaseOrder) String() string {
 func (*LocalPurchaseOrder) ProtoMessage() {}
 
 func (x *LocalPurchaseOrder) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[6]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -800,7 +801,7 @@ func (x *LocalPurchaseOrder) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LocalPurchaseOrder.ProtoReflect.Descriptor instead.
 func (*LocalPurchaseOrder) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{6}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *LocalPurchaseOrder) GetId() string {
@@ -939,13 +940,14 @@ type GoodsReceivedNote struct {
 	CreatedAt          string                 `protobuf:"bytes,19,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	UpdatedAt          string                 `protobuf:"bytes,20,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	Items              []*GoodsReceivedItem   `protobuf:"bytes,21,rep,name=items,proto3" json:"items,omitempty"`
+	TotalCost          float64                `protobuf:"fixed64,22,opt,name=total_cost,json=totalCost,proto3" json:"total_cost,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
 
 func (x *GoodsReceivedNote) Reset() {
 	*x = GoodsReceivedNote{}
-	mi := &file_supply_chain_service_proto_msgTypes[7]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -957,7 +959,7 @@ func (x *GoodsReceivedNote) String() string {
 func (*GoodsReceivedNote) ProtoMessage() {}
 
 func (x *GoodsReceivedNote) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[7]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -970,7 +972,7 @@ func (x *GoodsReceivedNote) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GoodsReceivedNote.ProtoReflect.Descriptor instead.
 func (*GoodsReceivedNote) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{7}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GoodsReceivedNote) GetId() string {
@@ -1120,6 +1122,13 @@ func (x *GoodsReceivedNote) GetItems() []*GoodsReceivedItem {
 	return nil
 }
 
+func (x *GoodsReceivedNote) GetTotalCost() float64 {
+	if x != nil {
+		return x.TotalCost
+	}
+	return 0
+}
+
 // Message for items in GRN
 type GoodsReceivedItem struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
@@ -1135,13 +1144,15 @@ type GoodsReceivedItem struct {
 	ExpiryDate       string                 `protobuf:"bytes,10,opt,name=expiry_date,json=expiryDate,proto3" json:"expiry_date,omitempty"`
 	BinNumber        string                 `protobuf:"bytes,11,opt,name=bin_number,json=binNumber,proto3" json:"bin_number,omitempty"`
 	Notes            string                 `protobuf:"bytes,12,opt,name=notes,proto3" json:"notes,omitempty"`
+	UnitCost         float64                `protobuf:"fixed64,13,opt,name=unit_cost,json=unitCost,proto3" json:"unit_cost,omitempty"`
+	TotalCost        float64                `protobuf:"fixed64,14,opt,name=total_cost,json=totalCost,proto3" json:"total_cost,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
 
 func (x *GoodsReceivedItem) Reset() {
 	*x = GoodsReceivedItem{}
-	mi := &file_supply_chain_service_proto_msgTypes[8]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1153,7 +1164,7 @@ func (x *GoodsReceivedItem) String() string {
 func (*GoodsReceivedItem) ProtoMessage() {}
 
 func (x *GoodsReceivedItem) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[8]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1166,7 +1177,7 @@ func (x *GoodsReceivedItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GoodsReceivedItem.ProtoReflect.Descriptor instead.
 func (*GoodsReceivedItem) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{8}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GoodsReceivedItem) GetItemId() string {
@@ -1253,6 +1264,20 @@ func (x *GoodsReceivedItem) GetNotes() string {
 	return ""
 }
 
+func (x *GoodsReceivedItem) GetUnitCost() float64 {
+	if x != nil {
+		return x.UnitCost
+	}
+	return 0
+}
+
+func (x *GoodsReceivedItem) GetTotalCost() float64 {
+	if x != nil {
+		return x.TotalCost
+	}
+	return 0
+}
+
 // Message for stock adjustment
 type StockAdjustment struct {
 	state               protoimpl.MessageState `protogen:"open.v1"`
@@ -1275,7 +1300,7 @@ type StockAdjustment struct {
 
 func (x *StockAdjustment) Reset() {
 	*x = StockAdjustment{}
-	mi := &file_supply_chain_service_proto_msgTypes[9]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1287,7 +1312,7 @@ func (x *StockAdjustment) String() string {
 func (*StockAdjustment) ProtoMessage() {}
 
 func (x *StockAdjustment) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[9]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1300,7 +1325,7 @@ func (x *StockAdjustment) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StockAdjustment.ProtoReflect.Descriptor instead.
 func (*StockAdjustment) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{9}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *StockAdjustment) GetId() string {
@@ -1409,7 +1434,7 @@ type StockAdjustmentItem struct {
 
 func (x *StockAdjustmentItem) Reset() {
 	*x = StockAdjustmentItem{}
-	mi := &file_supply_chain_service_proto_msgTypes[10]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1421,7 +1446,7 @@ func (x *StockAdjustmentItem) String() string {
 func (*StockAdjustmentItem) ProtoMessage() {}
 
 func (x *StockAdjustmentItem) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[10]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1434,7 +1459,7 @@ func (x *StockAdjustmentItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StockAdjustmentItem.ProtoReflect.Descriptor instead.
 func (*StockAdjustmentItem) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{10}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *StockAdjustmentItem) GetItemId() string {
@@ -1509,7 +1534,7 @@ type InterStoreTransfer struct {
 
 func (x *InterStoreTransfer) Reset() {
 	*x = InterStoreTransfer{}
-	mi := &file_supply_chain_service_proto_msgTypes[11]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1521,7 +1546,7 @@ func (x *InterStoreTransfer) String() string {
 func (*InterStoreTransfer) ProtoMessage() {}
 
 func (x *InterStoreTransfer) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[11]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1534,7 +1559,7 @@ func (x *InterStoreTransfer) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InterStoreTransfer.ProtoReflect.Descriptor instead.
 func (*InterStoreTransfer) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{11}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *InterStoreTransfer) GetId() string {
@@ -1700,7 +1725,7 @@ type InterStoreTransferItem struct {
 
 func (x *InterStoreTransferItem) Reset() {
 	*x = InterStoreTransferItem{}
-	mi := &file_supply_chain_service_proto_msgTypes[12]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1712,7 +1737,7 @@ func (x *InterStoreTransferItem) String() string {
 func (*InterStoreTransferItem) ProtoMessage() {}
 
 func (x *InterStoreTransferItem) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[12]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1725,7 +1750,7 @@ func (x *InterStoreTransferItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InterStoreTransferItem.ProtoReflect.Descriptor instead.
 func (*InterStoreTransferItem) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{12}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *InterStoreTransferItem) GetItemId() string {
@@ -1806,7 +1831,7 @@ type CreditNote struct {
 
 func (x *CreditNote) Reset() {
 	*x = CreditNote{}
-	mi := &file_supply_chain_service_proto_msgTypes[13]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1818,7 +1843,7 @@ func (x *CreditNote) String() string {
 func (*CreditNote) ProtoMessage() {}
 
 func (x *CreditNote) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[13]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1831,7 +1856,7 @@ func (x *CreditNote) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreditNote.ProtoReflect.Descriptor instead.
 func (*CreditNote) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{13}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CreditNote) GetId() string {
@@ -1993,7 +2018,7 @@ type CreditNoteItem struct {
 
 func (x *CreditNoteItem) Reset() {
 	*x = CreditNoteItem{}
-	mi := &file_supply_chain_service_proto_msgTypes[14]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2005,7 +2030,7 @@ func (x *CreditNoteItem) String() string {
 func (*CreditNoteItem) ProtoMessage() {}
 
 func (x *CreditNoteItem) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[14]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2018,7 +2043,7 @@ func (x *CreditNoteItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreditNoteItem.ProtoReflect.Descriptor instead.
 func (*CreditNoteItem) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{14}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CreditNoteItem) GetItemId() string {
@@ -2091,6 +2116,402 @@ func (x *CreditNoteItem) GetNotes() string {
 	return ""
 }
 
+type PriceList struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	IsActive      bool                   `protobuf:"varint,4,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PriceList) Reset() {
+	*x = PriceList{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PriceList) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PriceList) ProtoMessage() {}
+
+func (x *PriceList) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PriceList.ProtoReflect.Descriptor instead.
+func (*PriceList) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *PriceList) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *PriceList) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *PriceList) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *PriceList) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *PriceList) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
+type PriceListItem struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	PriceListId   int32                  `protobuf:"varint,2,opt,name=price_list_id,json=priceListId,proto3" json:"price_list_id,omitempty"`
+	StockItemId   int32                  `protobuf:"varint,3,opt,name=stock_item_id,json=stockItemId,proto3" json:"stock_item_id,omitempty"`
+	SellingPrice  float64                `protobuf:"fixed64,4,opt,name=selling_price,json=sellingPrice,proto3" json:"selling_price,omitempty"`
+	ValidFrom     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=valid_from,json=validFrom,proto3" json:"valid_from,omitempty"`
+	ValidTo       *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=valid_to,json=validTo,proto3" json:"valid_to,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PriceListItem) Reset() {
+	*x = PriceListItem{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PriceListItem) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PriceListItem) ProtoMessage() {}
+
+func (x *PriceListItem) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PriceListItem.ProtoReflect.Descriptor instead.
+func (*PriceListItem) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *PriceListItem) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *PriceListItem) GetPriceListId() int32 {
+	if x != nil {
+		return x.PriceListId
+	}
+	return 0
+}
+
+func (x *PriceListItem) GetStockItemId() int32 {
+	if x != nil {
+		return x.StockItemId
+	}
+	return 0
+}
+
+func (x *PriceListItem) GetSellingPrice() float64 {
+	if x != nil {
+		return x.SellingPrice
+	}
+	return 0
+}
+
+func (x *PriceListItem) GetValidFrom() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ValidFrom
+	}
+	return nil
+}
+
+func (x *PriceListItem) GetValidTo() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ValidTo
+	}
+	return nil
+}
+
+type MedicalScheme struct {
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	Id                 int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name               string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	PriceListId        int32                  `protobuf:"varint,3,opt,name=price_list_id,json=priceListId,proto3" json:"price_list_id,omitempty"`
+	IsActive           bool                   `protobuf:"varint,4,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	CoveragePercentage float64                `protobuf:"fixed64,5,opt,name=coverage_percentage,json=coveragePercentage,proto3" json:"coverage_percentage,omitempty"` // Percentage covered by scheme (0-100)
+	CoversConsultation bool                   `protobuf:"varint,6,opt,name=covers_consultation,json=coversConsultation,proto3" json:"covers_consultation,omitempty"`  // Whether scheme covers consultations
+	CoversMedication   bool                   `protobuf:"varint,7,opt,name=covers_medication,json=coversMedication,proto3" json:"covers_medication,omitempty"`        // Whether scheme covers medications
+	CoversLaboratory   bool                   `protobuf:"varint,8,opt,name=covers_laboratory,json=coversLaboratory,proto3" json:"covers_laboratory,omitempty"`        // Whether scheme covers lab tests
+	AnnualLimit        float64                `protobuf:"fixed64,9,opt,name=annual_limit,json=annualLimit,proto3" json:"annual_limit,omitempty"`                      // Annual coverage limit per patient
+	ConsultationLimit  float64                `protobuf:"fixed64,10,opt,name=consultation_limit,json=consultationLimit,proto3" json:"consultation_limit,omitempty"`   // Limit per consultation
+	CopayPercentage    float64                `protobuf:"fixed64,11,opt,name=copay_percentage,json=copayPercentage,proto3" json:"copay_percentage,omitempty"`         // Patient copayment percentage
+	CopayFixedAmount   float64                `protobuf:"fixed64,12,opt,name=copay_fixed_amount,json=copayFixedAmount,proto3" json:"copay_fixed_amount,omitempty"`    // Fixed copayment amount
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *MedicalScheme) Reset() {
+	*x = MedicalScheme{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MedicalScheme) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MedicalScheme) ProtoMessage() {}
+
+func (x *MedicalScheme) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MedicalScheme.ProtoReflect.Descriptor instead.
+func (*MedicalScheme) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *MedicalScheme) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *MedicalScheme) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *MedicalScheme) GetPriceListId() int32 {
+	if x != nil {
+		return x.PriceListId
+	}
+	return 0
+}
+
+func (x *MedicalScheme) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *MedicalScheme) GetCoveragePercentage() float64 {
+	if x != nil {
+		return x.CoveragePercentage
+	}
+	return 0
+}
+
+func (x *MedicalScheme) GetCoversConsultation() bool {
+	if x != nil {
+		return x.CoversConsultation
+	}
+	return false
+}
+
+func (x *MedicalScheme) GetCoversMedication() bool {
+	if x != nil {
+		return x.CoversMedication
+	}
+	return false
+}
+
+func (x *MedicalScheme) GetCoversLaboratory() bool {
+	if x != nil {
+		return x.CoversLaboratory
+	}
+	return false
+}
+
+func (x *MedicalScheme) GetAnnualLimit() float64 {
+	if x != nil {
+		return x.AnnualLimit
+	}
+	return 0
+}
+
+func (x *MedicalScheme) GetConsultationLimit() float64 {
+	if x != nil {
+		return x.ConsultationLimit
+	}
+	return 0
+}
+
+func (x *MedicalScheme) GetCopayPercentage() float64 {
+	if x != nil {
+		return x.CopayPercentage
+	}
+	return 0
+}
+
+func (x *MedicalScheme) GetCopayFixedAmount() float64 {
+	if x != nil {
+		return x.CopayFixedAmount
+	}
+	return 0
+}
+
+type ReduceStockItemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	StockItemId   int32                  `protobuf:"varint,1,opt,name=stock_item_id,json=stockItemId,proto3" json:"stock_item_id,omitempty"`
+	Quantity      float64                `protobuf:"fixed64,2,opt,name=quantity,proto3" json:"quantity,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReduceStockItemRequest) Reset() {
+	*x = ReduceStockItemRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReduceStockItemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReduceStockItemRequest) ProtoMessage() {}
+
+func (x *ReduceStockItemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReduceStockItemRequest.ProtoReflect.Descriptor instead.
+func (*ReduceStockItemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *ReduceStockItemRequest) GetStockItemId() int32 {
+	if x != nil {
+		return x.StockItemId
+	}
+	return 0
+}
+
+func (x *ReduceStockItemRequest) GetQuantity() float64 {
+	if x != nil {
+		return x.Quantity
+	}
+	return 0
+}
+
+type ReduceStockItemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	StockItemId   int32                  `protobuf:"varint,1,opt,name=stock_item_id,json=stockItemId,proto3" json:"stock_item_id,omitempty"`
+	Quantity      float64                `protobuf:"fixed64,2,opt,name=quantity,proto3" json:"quantity,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReduceStockItemResponse) Reset() {
+	*x = ReduceStockItemResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReduceStockItemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReduceStockItemResponse) ProtoMessage() {}
+
+func (x *ReduceStockItemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReduceStockItemResponse.ProtoReflect.Descriptor instead.
+func (*ReduceStockItemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *ReduceStockItemResponse) GetStockItemId() int32 {
+	if x != nil {
+		return x.StockItemId
+	}
+	return 0
+}
+
+func (x *ReduceStockItemResponse) GetQuantity() float64 {
+	if x != nil {
+		return x.Quantity
+	}
+	return 0
+}
+
 // Request and Response messages for Stock Items
 type CreateStockItemRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -2101,7 +2522,7 @@ type CreateStockItemRequest struct {
 
 func (x *CreateStockItemRequest) Reset() {
 	*x = CreateStockItemRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[15]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2113,7 +2534,7 @@ func (x *CreateStockItemRequest) String() string {
 func (*CreateStockItemRequest) ProtoMessage() {}
 
 func (x *CreateStockItemRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[15]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2126,7 +2547,7 @@ func (x *CreateStockItemRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateStockItemRequest.ProtoReflect.Descriptor instead.
 func (*CreateStockItemRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{15}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *CreateStockItemRequest) GetItem() *StockItem {
@@ -2145,7 +2566,7 @@ type CreateStockItemResponse struct {
 
 func (x *CreateStockItemResponse) Reset() {
 	*x = CreateStockItemResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[16]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2157,7 +2578,7 @@ func (x *CreateStockItemResponse) String() string {
 func (*CreateStockItemResponse) ProtoMessage() {}
 
 func (x *CreateStockItemResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[16]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2170,7 +2591,7 @@ func (x *CreateStockItemResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateStockItemResponse.ProtoReflect.Descriptor instead.
 func (*CreateStockItemResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{16}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *CreateStockItemResponse) GetId() string {
@@ -2189,7 +2610,7 @@ type GetStockItemRequest struct {
 
 func (x *GetStockItemRequest) Reset() {
 	*x = GetStockItemRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[17]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2201,7 +2622,7 @@ func (x *GetStockItemRequest) String() string {
 func (*GetStockItemRequest) ProtoMessage() {}
 
 func (x *GetStockItemRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[17]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2214,7 +2635,7 @@ func (x *GetStockItemRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStockItemRequest.ProtoReflect.Descriptor instead.
 func (*GetStockItemRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{17}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetStockItemRequest) GetId() string {
@@ -2233,7 +2654,7 @@ type GetStockItemResponse struct {
 
 func (x *GetStockItemResponse) Reset() {
 	*x = GetStockItemResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[18]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2245,7 +2666,7 @@ func (x *GetStockItemResponse) String() string {
 func (*GetStockItemResponse) ProtoMessage() {}
 
 func (x *GetStockItemResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[18]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2258,7 +2679,7 @@ func (x *GetStockItemResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStockItemResponse.ProtoReflect.Descriptor instead.
 func (*GetStockItemResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{18}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetStockItemResponse) GetItem() *StockItem {
@@ -2278,7 +2699,7 @@ type UpdateStockItemRequest struct {
 
 func (x *UpdateStockItemRequest) Reset() {
 	*x = UpdateStockItemRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[19]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2290,7 +2711,7 @@ func (x *UpdateStockItemRequest) String() string {
 func (*UpdateStockItemRequest) ProtoMessage() {}
 
 func (x *UpdateStockItemRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[19]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2303,7 +2724,7 @@ func (x *UpdateStockItemRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateStockItemRequest.ProtoReflect.Descriptor instead.
 func (*UpdateStockItemRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{19}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *UpdateStockItemRequest) GetId() string {
@@ -2329,7 +2750,7 @@ type UpdateStockItemResponse struct {
 
 func (x *UpdateStockItemResponse) Reset() {
 	*x = UpdateStockItemResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[20]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2341,7 +2762,7 @@ func (x *UpdateStockItemResponse) String() string {
 func (*UpdateStockItemResponse) ProtoMessage() {}
 
 func (x *UpdateStockItemResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[20]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2354,7 +2775,7 @@ func (x *UpdateStockItemResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateStockItemResponse.ProtoReflect.Descriptor instead.
 func (*UpdateStockItemResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{20}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *UpdateStockItemResponse) GetSuccess() bool {
@@ -2373,7 +2794,7 @@ type ListStockItemsRequest struct {
 
 func (x *ListStockItemsRequest) Reset() {
 	*x = ListStockItemsRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[21]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2385,7 +2806,7 @@ func (x *ListStockItemsRequest) String() string {
 func (*ListStockItemsRequest) ProtoMessage() {}
 
 func (x *ListStockItemsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[21]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2398,7 +2819,7 @@ func (x *ListStockItemsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListStockItemsRequest.ProtoReflect.Descriptor instead.
 func (*ListStockItemsRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{21}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *ListStockItemsRequest) GetFilter() string {
@@ -2417,7 +2838,7 @@ type ListStockItemsResponse struct {
 
 func (x *ListStockItemsResponse) Reset() {
 	*x = ListStockItemsResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[22]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2429,7 +2850,7 @@ func (x *ListStockItemsResponse) String() string {
 func (*ListStockItemsResponse) ProtoMessage() {}
 
 func (x *ListStockItemsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[22]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2442,7 +2863,7 @@ func (x *ListStockItemsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListStockItemsResponse.ProtoReflect.Descriptor instead.
 func (*ListStockItemsResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{22}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *ListStockItemsResponse) GetItems() []*StockItem {
@@ -2461,7 +2882,7 @@ type GetStockLevelsRequest struct {
 
 func (x *GetStockLevelsRequest) Reset() {
 	*x = GetStockLevelsRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[23]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2473,7 +2894,7 @@ func (x *GetStockLevelsRequest) String() string {
 func (*GetStockLevelsRequest) ProtoMessage() {}
 
 func (x *GetStockLevelsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[23]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2486,7 +2907,7 @@ func (x *GetStockLevelsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStockLevelsRequest.ProtoReflect.Descriptor instead.
 func (*GetStockLevelsRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{23}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *GetStockLevelsRequest) GetStoreId() string {
@@ -2505,7 +2926,7 @@ type GetStockLevelsResponse struct {
 
 func (x *GetStockLevelsResponse) Reset() {
 	*x = GetStockLevelsResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[24]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2517,7 +2938,7 @@ func (x *GetStockLevelsResponse) String() string {
 func (*GetStockLevelsResponse) ProtoMessage() {}
 
 func (x *GetStockLevelsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[24]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2530,7 +2951,7 @@ func (x *GetStockLevelsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStockLevelsResponse.ProtoReflect.Descriptor instead.
 func (*GetStockLevelsResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{24}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetStockLevelsResponse) GetItems() []*StockItem {
@@ -2550,7 +2971,7 @@ type GetExpiringItemsRequest struct {
 
 func (x *GetExpiringItemsRequest) Reset() {
 	*x = GetExpiringItemsRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[25]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2562,7 +2983,7 @@ func (x *GetExpiringItemsRequest) String() string {
 func (*GetExpiringItemsRequest) ProtoMessage() {}
 
 func (x *GetExpiringItemsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[25]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2575,7 +2996,7 @@ func (x *GetExpiringItemsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetExpiringItemsRequest.ProtoReflect.Descriptor instead.
 func (*GetExpiringItemsRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{25}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *GetExpiringItemsRequest) GetStoreId() string {
@@ -2601,7 +3022,7 @@ type GetExpiringItemsResponse struct {
 
 func (x *GetExpiringItemsResponse) Reset() {
 	*x = GetExpiringItemsResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[26]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2613,7 +3034,7 @@ func (x *GetExpiringItemsResponse) String() string {
 func (*GetExpiringItemsResponse) ProtoMessage() {}
 
 func (x *GetExpiringItemsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[26]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2626,7 +3047,7 @@ func (x *GetExpiringItemsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetExpiringItemsResponse.ProtoReflect.Descriptor instead.
 func (*GetExpiringItemsResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{26}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *GetExpiringItemsResponse) GetItems() []*GoodsReceivedItem {
@@ -2645,7 +3066,7 @@ type GetItemsBelowReorderLevelRequest struct {
 
 func (x *GetItemsBelowReorderLevelRequest) Reset() {
 	*x = GetItemsBelowReorderLevelRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[27]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2657,7 +3078,7 @@ func (x *GetItemsBelowReorderLevelRequest) String() string {
 func (*GetItemsBelowReorderLevelRequest) ProtoMessage() {}
 
 func (x *GetItemsBelowReorderLevelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[27]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2670,7 +3091,7 @@ func (x *GetItemsBelowReorderLevelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetItemsBelowReorderLevelRequest.ProtoReflect.Descriptor instead.
 func (*GetItemsBelowReorderLevelRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{27}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *GetItemsBelowReorderLevelRequest) GetStoreId() string {
@@ -2689,7 +3110,7 @@ type GetItemsBelowReorderLevelResponse struct {
 
 func (x *GetItemsBelowReorderLevelResponse) Reset() {
 	*x = GetItemsBelowReorderLevelResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[28]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2701,7 +3122,7 @@ func (x *GetItemsBelowReorderLevelResponse) String() string {
 func (*GetItemsBelowReorderLevelResponse) ProtoMessage() {}
 
 func (x *GetItemsBelowReorderLevelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[28]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2714,7 +3135,7 @@ func (x *GetItemsBelowReorderLevelResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetItemsBelowReorderLevelResponse.ProtoReflect.Descriptor instead.
 func (*GetItemsBelowReorderLevelResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{28}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *GetItemsBelowReorderLevelResponse) GetItems() []*StockItem {
@@ -2734,7 +3155,7 @@ type CreateStoreRequest struct {
 
 func (x *CreateStoreRequest) Reset() {
 	*x = CreateStoreRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[29]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2746,7 +3167,7 @@ func (x *CreateStoreRequest) String() string {
 func (*CreateStoreRequest) ProtoMessage() {}
 
 func (x *CreateStoreRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[29]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2759,7 +3180,7 @@ func (x *CreateStoreRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateStoreRequest.ProtoReflect.Descriptor instead.
 func (*CreateStoreRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{29}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *CreateStoreRequest) GetStore() *Store {
@@ -2778,7 +3199,7 @@ type CreateStoreResponse struct {
 
 func (x *CreateStoreResponse) Reset() {
 	*x = CreateStoreResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[30]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2790,7 +3211,7 @@ func (x *CreateStoreResponse) String() string {
 func (*CreateStoreResponse) ProtoMessage() {}
 
 func (x *CreateStoreResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[30]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2803,7 +3224,7 @@ func (x *CreateStoreResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateStoreResponse.ProtoReflect.Descriptor instead.
 func (*CreateStoreResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{30}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *CreateStoreResponse) GetId() string {
@@ -2821,7 +3242,7 @@ type ListStoresRequest struct {
 
 func (x *ListStoresRequest) Reset() {
 	*x = ListStoresRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[31]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2833,7 +3254,7 @@ func (x *ListStoresRequest) String() string {
 func (*ListStoresRequest) ProtoMessage() {}
 
 func (x *ListStoresRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[31]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2846,7 +3267,7 @@ func (x *ListStoresRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListStoresRequest.ProtoReflect.Descriptor instead.
 func (*ListStoresRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{31}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{36}
 }
 
 type ListStoresResponse struct {
@@ -2858,7 +3279,7 @@ type ListStoresResponse struct {
 
 func (x *ListStoresResponse) Reset() {
 	*x = ListStoresResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[32]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2870,7 +3291,7 @@ func (x *ListStoresResponse) String() string {
 func (*ListStoresResponse) ProtoMessage() {}
 
 func (x *ListStoresResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[32]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2883,7 +3304,7 @@ func (x *ListStoresResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListStoresResponse.ProtoReflect.Descriptor instead.
 func (*ListStoresResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{32}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *ListStoresResponse) GetStores() []*Store {
@@ -2903,7 +3324,7 @@ type CreateSupplierRequest struct {
 
 func (x *CreateSupplierRequest) Reset() {
 	*x = CreateSupplierRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[33]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2915,7 +3336,7 @@ func (x *CreateSupplierRequest) String() string {
 func (*CreateSupplierRequest) ProtoMessage() {}
 
 func (x *CreateSupplierRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[33]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2928,7 +3349,7 @@ func (x *CreateSupplierRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSupplierRequest.ProtoReflect.Descriptor instead.
 func (*CreateSupplierRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{33}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *CreateSupplierRequest) GetSupplier() *Supplier {
@@ -2947,7 +3368,7 @@ type CreateSupplierResponse struct {
 
 func (x *CreateSupplierResponse) Reset() {
 	*x = CreateSupplierResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[34]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2959,7 +3380,7 @@ func (x *CreateSupplierResponse) String() string {
 func (*CreateSupplierResponse) ProtoMessage() {}
 
 func (x *CreateSupplierResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[34]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2972,7 +3393,7 @@ func (x *CreateSupplierResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSupplierResponse.ProtoReflect.Descriptor instead.
 func (*CreateSupplierResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{34}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *CreateSupplierResponse) GetId() string {
@@ -2990,7 +3411,7 @@ type ListSuppliersRequest struct {
 
 func (x *ListSuppliersRequest) Reset() {
 	*x = ListSuppliersRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[35]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3002,7 +3423,7 @@ func (x *ListSuppliersRequest) String() string {
 func (*ListSuppliersRequest) ProtoMessage() {}
 
 func (x *ListSuppliersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[35]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3015,7 +3436,7 @@ func (x *ListSuppliersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListSuppliersRequest.ProtoReflect.Descriptor instead.
 func (*ListSuppliersRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{35}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{40}
 }
 
 type ListSuppliersResponse struct {
@@ -3027,7 +3448,7 @@ type ListSuppliersResponse struct {
 
 func (x *ListSuppliersResponse) Reset() {
 	*x = ListSuppliersResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[36]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3039,7 +3460,7 @@ func (x *ListSuppliersResponse) String() string {
 func (*ListSuppliersResponse) ProtoMessage() {}
 
 func (x *ListSuppliersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[36]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3052,7 +3473,7 @@ func (x *ListSuppliersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListSuppliersResponse.ProtoReflect.Descriptor instead.
 func (*ListSuppliersResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{36}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *ListSuppliersResponse) GetSuppliers() []*Supplier {
@@ -3072,7 +3493,7 @@ type CreateRequisitionRequest struct {
 
 func (x *CreateRequisitionRequest) Reset() {
 	*x = CreateRequisitionRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[37]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3084,7 +3505,7 @@ func (x *CreateRequisitionRequest) String() string {
 func (*CreateRequisitionRequest) ProtoMessage() {}
 
 func (x *CreateRequisitionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[37]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3097,7 +3518,7 @@ func (x *CreateRequisitionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRequisitionRequest.ProtoReflect.Descriptor instead.
 func (*CreateRequisitionRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{37}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *CreateRequisitionRequest) GetRequisition() *Requisition {
@@ -3116,7 +3537,7 @@ type CreateRequisitionResponse struct {
 
 func (x *CreateRequisitionResponse) Reset() {
 	*x = CreateRequisitionResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[38]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3128,7 +3549,7 @@ func (x *CreateRequisitionResponse) String() string {
 func (*CreateRequisitionResponse) ProtoMessage() {}
 
 func (x *CreateRequisitionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[38]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3141,7 +3562,7 @@ func (x *CreateRequisitionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRequisitionResponse.ProtoReflect.Descriptor instead.
 func (*CreateRequisitionResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{38}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *CreateRequisitionResponse) GetId() string {
@@ -3164,7 +3585,7 @@ type ApproveRequisitionRequest struct {
 
 func (x *ApproveRequisitionRequest) Reset() {
 	*x = ApproveRequisitionRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[39]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3176,7 +3597,7 @@ func (x *ApproveRequisitionRequest) String() string {
 func (*ApproveRequisitionRequest) ProtoMessage() {}
 
 func (x *ApproveRequisitionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[39]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3189,7 +3610,7 @@ func (x *ApproveRequisitionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApproveRequisitionRequest.ProtoReflect.Descriptor instead.
 func (*ApproveRequisitionRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{39}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *ApproveRequisitionRequest) GetId() string {
@@ -3236,7 +3657,7 @@ type ApproveRequisitionResponse struct {
 
 func (x *ApproveRequisitionResponse) Reset() {
 	*x = ApproveRequisitionResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[40]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3248,7 +3669,7 @@ func (x *ApproveRequisitionResponse) String() string {
 func (*ApproveRequisitionResponse) ProtoMessage() {}
 
 func (x *ApproveRequisitionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[40]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3261,7 +3682,7 @@ func (x *ApproveRequisitionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApproveRequisitionResponse.ProtoReflect.Descriptor instead.
 func (*ApproveRequisitionResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{40}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *ApproveRequisitionResponse) GetSuccess() bool {
@@ -3280,7 +3701,7 @@ type GetRequisitionRequest struct {
 
 func (x *GetRequisitionRequest) Reset() {
 	*x = GetRequisitionRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[41]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3292,7 +3713,7 @@ func (x *GetRequisitionRequest) String() string {
 func (*GetRequisitionRequest) ProtoMessage() {}
 
 func (x *GetRequisitionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[41]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3305,7 +3726,7 @@ func (x *GetRequisitionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequisitionRequest.ProtoReflect.Descriptor instead.
 func (*GetRequisitionRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{41}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *GetRequisitionRequest) GetId() string {
@@ -3324,7 +3745,7 @@ type GetRequisitionResponse struct {
 
 func (x *GetRequisitionResponse) Reset() {
 	*x = GetRequisitionResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[42]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3336,7 +3757,7 @@ func (x *GetRequisitionResponse) String() string {
 func (*GetRequisitionResponse) ProtoMessage() {}
 
 func (x *GetRequisitionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[42]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3349,7 +3770,7 @@ func (x *GetRequisitionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequisitionResponse.ProtoReflect.Descriptor instead.
 func (*GetRequisitionResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{42}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *GetRequisitionResponse) GetRequisition() *Requisition {
@@ -3369,7 +3790,7 @@ type ListRequisitionsRequest struct {
 
 func (x *ListRequisitionsRequest) Reset() {
 	*x = ListRequisitionsRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[43]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3381,7 +3802,7 @@ func (x *ListRequisitionsRequest) String() string {
 func (*ListRequisitionsRequest) ProtoMessage() {}
 
 func (x *ListRequisitionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[43]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3394,7 +3815,7 @@ func (x *ListRequisitionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRequisitionsRequest.ProtoReflect.Descriptor instead.
 func (*ListRequisitionsRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{43}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *ListRequisitionsRequest) GetStatus() string {
@@ -3420,7 +3841,7 @@ type ListRequisitionsResponse struct {
 
 func (x *ListRequisitionsResponse) Reset() {
 	*x = ListRequisitionsResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[44]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3432,7 +3853,7 @@ func (x *ListRequisitionsResponse) String() string {
 func (*ListRequisitionsResponse) ProtoMessage() {}
 
 func (x *ListRequisitionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[44]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3445,7 +3866,7 @@ func (x *ListRequisitionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRequisitionsResponse.ProtoReflect.Descriptor instead.
 func (*ListRequisitionsResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{44}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *ListRequisitionsResponse) GetRequisitions() []*Requisition {
@@ -3465,7 +3886,7 @@ type CreateLPORequest struct {
 
 func (x *CreateLPORequest) Reset() {
 	*x = CreateLPORequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[45]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3477,7 +3898,7 @@ func (x *CreateLPORequest) String() string {
 func (*CreateLPORequest) ProtoMessage() {}
 
 func (x *CreateLPORequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[45]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3490,7 +3911,7 @@ func (x *CreateLPORequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateLPORequest.ProtoReflect.Descriptor instead.
 func (*CreateLPORequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{45}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *CreateLPORequest) GetLpo() *LocalPurchaseOrder {
@@ -3509,7 +3930,7 @@ type CreateLPOResponse struct {
 
 func (x *CreateLPOResponse) Reset() {
 	*x = CreateLPOResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[46]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3521,7 +3942,7 @@ func (x *CreateLPOResponse) String() string {
 func (*CreateLPOResponse) ProtoMessage() {}
 
 func (x *CreateLPOResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[46]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3534,7 +3955,7 @@ func (x *CreateLPOResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateLPOResponse.ProtoReflect.Descriptor instead.
 func (*CreateLPOResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{46}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *CreateLPOResponse) GetId() string {
@@ -3556,7 +3977,7 @@ type ApproveLPORequest struct {
 
 func (x *ApproveLPORequest) Reset() {
 	*x = ApproveLPORequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[47]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3568,7 +3989,7 @@ func (x *ApproveLPORequest) String() string {
 func (*ApproveLPORequest) ProtoMessage() {}
 
 func (x *ApproveLPORequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[47]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3581,7 +4002,7 @@ func (x *ApproveLPORequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApproveLPORequest.ProtoReflect.Descriptor instead.
 func (*ApproveLPORequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{47}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *ApproveLPORequest) GetId() string {
@@ -3621,7 +4042,7 @@ type ApproveLPOResponse struct {
 
 func (x *ApproveLPOResponse) Reset() {
 	*x = ApproveLPOResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[48]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3633,7 +4054,7 @@ func (x *ApproveLPOResponse) String() string {
 func (*ApproveLPOResponse) ProtoMessage() {}
 
 func (x *ApproveLPOResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[48]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3646,7 +4067,7 @@ func (x *ApproveLPOResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApproveLPOResponse.ProtoReflect.Descriptor instead.
 func (*ApproveLPOResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{48}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *ApproveLPOResponse) GetSuccess() bool {
@@ -3665,7 +4086,7 @@ type GetLPORequest struct {
 
 func (x *GetLPORequest) Reset() {
 	*x = GetLPORequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[49]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3677,7 +4098,7 @@ func (x *GetLPORequest) String() string {
 func (*GetLPORequest) ProtoMessage() {}
 
 func (x *GetLPORequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[49]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3690,7 +4111,7 @@ func (x *GetLPORequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLPORequest.ProtoReflect.Descriptor instead.
 func (*GetLPORequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{49}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *GetLPORequest) GetId() string {
@@ -3709,7 +4130,7 @@ type GetLPOResponse struct {
 
 func (x *GetLPOResponse) Reset() {
 	*x = GetLPOResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[50]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3721,7 +4142,7 @@ func (x *GetLPOResponse) String() string {
 func (*GetLPOResponse) ProtoMessage() {}
 
 func (x *GetLPOResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[50]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3734,7 +4155,7 @@ func (x *GetLPOResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLPOResponse.ProtoReflect.Descriptor instead.
 func (*GetLPOResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{50}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *GetLPOResponse) GetLpo() *LocalPurchaseOrder {
@@ -3755,7 +4176,7 @@ type ListLPOsRequest struct {
 
 func (x *ListLPOsRequest) Reset() {
 	*x = ListLPOsRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[51]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3767,7 +4188,7 @@ func (x *ListLPOsRequest) String() string {
 func (*ListLPOsRequest) ProtoMessage() {}
 
 func (x *ListLPOsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[51]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3780,7 +4201,7 @@ func (x *ListLPOsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListLPOsRequest.ProtoReflect.Descriptor instead.
 func (*ListLPOsRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{51}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *ListLPOsRequest) GetStatus() string {
@@ -3813,7 +4234,7 @@ type ListLPOsResponse struct {
 
 func (x *ListLPOsResponse) Reset() {
 	*x = ListLPOsResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[52]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3825,7 +4246,7 @@ func (x *ListLPOsResponse) String() string {
 func (*ListLPOsResponse) ProtoMessage() {}
 
 func (x *ListLPOsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[52]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3838,7 +4259,7 @@ func (x *ListLPOsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListLPOsResponse.ProtoReflect.Descriptor instead.
 func (*ListLPOsResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{52}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *ListLPOsResponse) GetLpos() []*LocalPurchaseOrder {
@@ -3858,7 +4279,7 @@ type CreateGRNRequest struct {
 
 func (x *CreateGRNRequest) Reset() {
 	*x = CreateGRNRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[53]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3870,7 +4291,7 @@ func (x *CreateGRNRequest) String() string {
 func (*CreateGRNRequest) ProtoMessage() {}
 
 func (x *CreateGRNRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[53]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3883,7 +4304,7 @@ func (x *CreateGRNRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateGRNRequest.ProtoReflect.Descriptor instead.
 func (*CreateGRNRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{53}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *CreateGRNRequest) GetGrn() *GoodsReceivedNote {
@@ -3902,7 +4323,7 @@ type CreateGRNResponse struct {
 
 func (x *CreateGRNResponse) Reset() {
 	*x = CreateGRNResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[54]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3914,7 +4335,7 @@ func (x *CreateGRNResponse) String() string {
 func (*CreateGRNResponse) ProtoMessage() {}
 
 func (x *CreateGRNResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[54]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3927,7 +4348,7 @@ func (x *CreateGRNResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateGRNResponse.ProtoReflect.Descriptor instead.
 func (*CreateGRNResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{54}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *CreateGRNResponse) GetId() string {
@@ -3949,7 +4370,7 @@ type PerformQualityCheckRequest struct {
 
 func (x *PerformQualityCheckRequest) Reset() {
 	*x = PerformQualityCheckRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[55]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3961,7 +4382,7 @@ func (x *PerformQualityCheckRequest) String() string {
 func (*PerformQualityCheckRequest) ProtoMessage() {}
 
 func (x *PerformQualityCheckRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[55]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3974,7 +4395,7 @@ func (x *PerformQualityCheckRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PerformQualityCheckRequest.ProtoReflect.Descriptor instead.
 func (*PerformQualityCheckRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{55}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *PerformQualityCheckRequest) GetId() string {
@@ -4014,7 +4435,7 @@ type PerformQualityCheckResponse struct {
 
 func (x *PerformQualityCheckResponse) Reset() {
 	*x = PerformQualityCheckResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[56]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4026,7 +4447,7 @@ func (x *PerformQualityCheckResponse) String() string {
 func (*PerformQualityCheckResponse) ProtoMessage() {}
 
 func (x *PerformQualityCheckResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[56]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4039,7 +4460,7 @@ func (x *PerformQualityCheckResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PerformQualityCheckResponse.ProtoReflect.Descriptor instead.
 func (*PerformQualityCheckResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{56}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *PerformQualityCheckResponse) GetSuccess() bool {
@@ -4058,7 +4479,7 @@ type GetGRNRequest struct {
 
 func (x *GetGRNRequest) Reset() {
 	*x = GetGRNRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[57]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4070,7 +4491,7 @@ func (x *GetGRNRequest) String() string {
 func (*GetGRNRequest) ProtoMessage() {}
 
 func (x *GetGRNRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[57]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4083,7 +4504,7 @@ func (x *GetGRNRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGRNRequest.ProtoReflect.Descriptor instead.
 func (*GetGRNRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{57}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *GetGRNRequest) GetId() string {
@@ -4102,7 +4523,7 @@ type GetGRNResponse struct {
 
 func (x *GetGRNResponse) Reset() {
 	*x = GetGRNResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[58]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4114,7 +4535,7 @@ func (x *GetGRNResponse) String() string {
 func (*GetGRNResponse) ProtoMessage() {}
 
 func (x *GetGRNResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[58]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4127,7 +4548,7 @@ func (x *GetGRNResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGRNResponse.ProtoReflect.Descriptor instead.
 func (*GetGRNResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{58}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *GetGRNResponse) GetGrn() *GoodsReceivedNote {
@@ -4149,7 +4570,7 @@ type ListGRNsRequest struct {
 
 func (x *ListGRNsRequest) Reset() {
 	*x = ListGRNsRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[59]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4161,7 +4582,7 @@ func (x *ListGRNsRequest) String() string {
 func (*ListGRNsRequest) ProtoMessage() {}
 
 func (x *ListGRNsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[59]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4174,7 +4595,7 @@ func (x *ListGRNsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListGRNsRequest.ProtoReflect.Descriptor instead.
 func (*ListGRNsRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{59}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *ListGRNsRequest) GetStatus() string {
@@ -4214,7 +4635,7 @@ type ListGRNsResponse struct {
 
 func (x *ListGRNsResponse) Reset() {
 	*x = ListGRNsResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[60]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4226,7 +4647,7 @@ func (x *ListGRNsResponse) String() string {
 func (*ListGRNsResponse) ProtoMessage() {}
 
 func (x *ListGRNsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[60]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4239,7 +4660,7 @@ func (x *ListGRNsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListGRNsResponse.ProtoReflect.Descriptor instead.
 func (*ListGRNsResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{60}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *ListGRNsResponse) GetGrns() []*GoodsReceivedNote {
@@ -4259,7 +4680,7 @@ type CreateStockAdjustmentRequest struct {
 
 func (x *CreateStockAdjustmentRequest) Reset() {
 	*x = CreateStockAdjustmentRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[61]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4271,7 +4692,7 @@ func (x *CreateStockAdjustmentRequest) String() string {
 func (*CreateStockAdjustmentRequest) ProtoMessage() {}
 
 func (x *CreateStockAdjustmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[61]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4284,7 +4705,7 @@ func (x *CreateStockAdjustmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateStockAdjustmentRequest.ProtoReflect.Descriptor instead.
 func (*CreateStockAdjustmentRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{61}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *CreateStockAdjustmentRequest) GetAdjustment() *StockAdjustment {
@@ -4303,7 +4724,7 @@ type CreateStockAdjustmentResponse struct {
 
 func (x *CreateStockAdjustmentResponse) Reset() {
 	*x = CreateStockAdjustmentResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[62]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4315,7 +4736,7 @@ func (x *CreateStockAdjustmentResponse) String() string {
 func (*CreateStockAdjustmentResponse) ProtoMessage() {}
 
 func (x *CreateStockAdjustmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[62]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4328,7 +4749,7 @@ func (x *CreateStockAdjustmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateStockAdjustmentResponse.ProtoReflect.Descriptor instead.
 func (*CreateStockAdjustmentResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{62}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *CreateStockAdjustmentResponse) GetId() string {
@@ -4350,7 +4771,7 @@ type ApproveStockAdjustmentRequest struct {
 
 func (x *ApproveStockAdjustmentRequest) Reset() {
 	*x = ApproveStockAdjustmentRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[63]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4362,7 +4783,7 @@ func (x *ApproveStockAdjustmentRequest) String() string {
 func (*ApproveStockAdjustmentRequest) ProtoMessage() {}
 
 func (x *ApproveStockAdjustmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[63]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4375,7 +4796,7 @@ func (x *ApproveStockAdjustmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApproveStockAdjustmentRequest.ProtoReflect.Descriptor instead.
 func (*ApproveStockAdjustmentRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{63}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *ApproveStockAdjustmentRequest) GetId() string {
@@ -4415,7 +4836,7 @@ type ApproveStockAdjustmentResponse struct {
 
 func (x *ApproveStockAdjustmentResponse) Reset() {
 	*x = ApproveStockAdjustmentResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[64]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4427,7 +4848,7 @@ func (x *ApproveStockAdjustmentResponse) String() string {
 func (*ApproveStockAdjustmentResponse) ProtoMessage() {}
 
 func (x *ApproveStockAdjustmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[64]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4440,7 +4861,7 @@ func (x *ApproveStockAdjustmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApproveStockAdjustmentResponse.ProtoReflect.Descriptor instead.
 func (*ApproveStockAdjustmentResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{64}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *ApproveStockAdjustmentResponse) GetSuccess() bool {
@@ -4459,7 +4880,7 @@ type GetStockAdjustmentRequest struct {
 
 func (x *GetStockAdjustmentRequest) Reset() {
 	*x = GetStockAdjustmentRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[65]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4471,7 +4892,7 @@ func (x *GetStockAdjustmentRequest) String() string {
 func (*GetStockAdjustmentRequest) ProtoMessage() {}
 
 func (x *GetStockAdjustmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[65]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4484,7 +4905,7 @@ func (x *GetStockAdjustmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStockAdjustmentRequest.ProtoReflect.Descriptor instead.
 func (*GetStockAdjustmentRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{65}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *GetStockAdjustmentRequest) GetId() string {
@@ -4503,7 +4924,7 @@ type GetStockAdjustmentResponse struct {
 
 func (x *GetStockAdjustmentResponse) Reset() {
 	*x = GetStockAdjustmentResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[66]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4515,7 +4936,7 @@ func (x *GetStockAdjustmentResponse) String() string {
 func (*GetStockAdjustmentResponse) ProtoMessage() {}
 
 func (x *GetStockAdjustmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[66]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4528,7 +4949,7 @@ func (x *GetStockAdjustmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStockAdjustmentResponse.ProtoReflect.Descriptor instead.
 func (*GetStockAdjustmentResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{66}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetStockAdjustmentResponse) GetAdjustment() *StockAdjustment {
@@ -4551,7 +4972,7 @@ type ListStockAdjustmentsRequest struct {
 
 func (x *ListStockAdjustmentsRequest) Reset() {
 	*x = ListStockAdjustmentsRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[67]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4563,7 +4984,7 @@ func (x *ListStockAdjustmentsRequest) String() string {
 func (*ListStockAdjustmentsRequest) ProtoMessage() {}
 
 func (x *ListStockAdjustmentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[67]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4576,7 +4997,7 @@ func (x *ListStockAdjustmentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListStockAdjustmentsRequest.ProtoReflect.Descriptor instead.
 func (*ListStockAdjustmentsRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{67}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *ListStockAdjustmentsRequest) GetStatus() string {
@@ -4623,7 +5044,7 @@ type ListStockAdjustmentsResponse struct {
 
 func (x *ListStockAdjustmentsResponse) Reset() {
 	*x = ListStockAdjustmentsResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[68]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4635,7 +5056,7 @@ func (x *ListStockAdjustmentsResponse) String() string {
 func (*ListStockAdjustmentsResponse) ProtoMessage() {}
 
 func (x *ListStockAdjustmentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[68]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4648,7 +5069,7 @@ func (x *ListStockAdjustmentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListStockAdjustmentsResponse.ProtoReflect.Descriptor instead.
 func (*ListStockAdjustmentsResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{68}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *ListStockAdjustmentsResponse) GetAdjustments() []*StockAdjustment {
@@ -4668,7 +5089,7 @@ type CreateInterStoreTransferRequest struct {
 
 func (x *CreateInterStoreTransferRequest) Reset() {
 	*x = CreateInterStoreTransferRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[69]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4680,7 +5101,7 @@ func (x *CreateInterStoreTransferRequest) String() string {
 func (*CreateInterStoreTransferRequest) ProtoMessage() {}
 
 func (x *CreateInterStoreTransferRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[69]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4693,7 +5114,7 @@ func (x *CreateInterStoreTransferRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateInterStoreTransferRequest.ProtoReflect.Descriptor instead.
 func (*CreateInterStoreTransferRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{69}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *CreateInterStoreTransferRequest) GetTransfer() *InterStoreTransfer {
@@ -4712,7 +5133,7 @@ type CreateInterStoreTransferResponse struct {
 
 func (x *CreateInterStoreTransferResponse) Reset() {
 	*x = CreateInterStoreTransferResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[70]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4724,7 +5145,7 @@ func (x *CreateInterStoreTransferResponse) String() string {
 func (*CreateInterStoreTransferResponse) ProtoMessage() {}
 
 func (x *CreateInterStoreTransferResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[70]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4737,7 +5158,7 @@ func (x *CreateInterStoreTransferResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateInterStoreTransferResponse.ProtoReflect.Descriptor instead.
 func (*CreateInterStoreTransferResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{70}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *CreateInterStoreTransferResponse) GetId() string {
@@ -4759,7 +5180,7 @@ type ApproveInterStoreTransferRequest struct {
 
 func (x *ApproveInterStoreTransferRequest) Reset() {
 	*x = ApproveInterStoreTransferRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[71]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4771,7 +5192,7 @@ func (x *ApproveInterStoreTransferRequest) String() string {
 func (*ApproveInterStoreTransferRequest) ProtoMessage() {}
 
 func (x *ApproveInterStoreTransferRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[71]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4784,7 +5205,7 @@ func (x *ApproveInterStoreTransferRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApproveInterStoreTransferRequest.ProtoReflect.Descriptor instead.
 func (*ApproveInterStoreTransferRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{71}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *ApproveInterStoreTransferRequest) GetId() string {
@@ -4824,7 +5245,7 @@ type ApproveInterStoreTransferResponse struct {
 
 func (x *ApproveInterStoreTransferResponse) Reset() {
 	*x = ApproveInterStoreTransferResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[72]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4836,7 +5257,7 @@ func (x *ApproveInterStoreTransferResponse) String() string {
 func (*ApproveInterStoreTransferResponse) ProtoMessage() {}
 
 func (x *ApproveInterStoreTransferResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[72]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4849,7 +5270,7 @@ func (x *ApproveInterStoreTransferResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ApproveInterStoreTransferResponse.ProtoReflect.Descriptor instead.
 func (*ApproveInterStoreTransferResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{72}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *ApproveInterStoreTransferResponse) GetSuccess() bool {
@@ -4872,7 +5293,7 @@ type ReceiveInterStoreTransferRequest struct {
 
 func (x *ReceiveInterStoreTransferRequest) Reset() {
 	*x = ReceiveInterStoreTransferRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[73]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4884,7 +5305,7 @@ func (x *ReceiveInterStoreTransferRequest) String() string {
 func (*ReceiveInterStoreTransferRequest) ProtoMessage() {}
 
 func (x *ReceiveInterStoreTransferRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[73]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4897,7 +5318,7 @@ func (x *ReceiveInterStoreTransferRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReceiveInterStoreTransferRequest.ProtoReflect.Descriptor instead.
 func (*ReceiveInterStoreTransferRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{73}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *ReceiveInterStoreTransferRequest) GetId() string {
@@ -4944,7 +5365,7 @@ type ReceiveInterStoreTransferResponse struct {
 
 func (x *ReceiveInterStoreTransferResponse) Reset() {
 	*x = ReceiveInterStoreTransferResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[74]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4956,7 +5377,7 @@ func (x *ReceiveInterStoreTransferResponse) String() string {
 func (*ReceiveInterStoreTransferResponse) ProtoMessage() {}
 
 func (x *ReceiveInterStoreTransferResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[74]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4969,7 +5390,7 @@ func (x *ReceiveInterStoreTransferResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ReceiveInterStoreTransferResponse.ProtoReflect.Descriptor instead.
 func (*ReceiveInterStoreTransferResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{74}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *ReceiveInterStoreTransferResponse) GetSuccess() bool {
@@ -4988,7 +5409,7 @@ type GetInterStoreTransferRequest struct {
 
 func (x *GetInterStoreTransferRequest) Reset() {
 	*x = GetInterStoreTransferRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[75]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5000,7 +5421,7 @@ func (x *GetInterStoreTransferRequest) String() string {
 func (*GetInterStoreTransferRequest) ProtoMessage() {}
 
 func (x *GetInterStoreTransferRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[75]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5013,7 +5434,7 @@ func (x *GetInterStoreTransferRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInterStoreTransferRequest.ProtoReflect.Descriptor instead.
 func (*GetInterStoreTransferRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{75}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *GetInterStoreTransferRequest) GetId() string {
@@ -5032,7 +5453,7 @@ type GetInterStoreTransferResponse struct {
 
 func (x *GetInterStoreTransferResponse) Reset() {
 	*x = GetInterStoreTransferResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[76]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5044,7 +5465,7 @@ func (x *GetInterStoreTransferResponse) String() string {
 func (*GetInterStoreTransferResponse) ProtoMessage() {}
 
 func (x *GetInterStoreTransferResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[76]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5057,7 +5478,7 @@ func (x *GetInterStoreTransferResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInterStoreTransferResponse.ProtoReflect.Descriptor instead.
 func (*GetInterStoreTransferResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{76}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *GetInterStoreTransferResponse) GetTransfer() *InterStoreTransfer {
@@ -5078,7 +5499,7 @@ type ListInterStoreTransfersRequest struct {
 
 func (x *ListInterStoreTransfersRequest) Reset() {
 	*x = ListInterStoreTransfersRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[77]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5090,7 +5511,7 @@ func (x *ListInterStoreTransfersRequest) String() string {
 func (*ListInterStoreTransfersRequest) ProtoMessage() {}
 
 func (x *ListInterStoreTransfersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[77]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5103,7 +5524,7 @@ func (x *ListInterStoreTransfersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListInterStoreTransfersRequest.ProtoReflect.Descriptor instead.
 func (*ListInterStoreTransfersRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{77}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *ListInterStoreTransfersRequest) GetStatus() string {
@@ -5136,7 +5557,7 @@ type ListInterStoreTransfersResponse struct {
 
 func (x *ListInterStoreTransfersResponse) Reset() {
 	*x = ListInterStoreTransfersResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[78]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5148,7 +5569,7 @@ func (x *ListInterStoreTransfersResponse) String() string {
 func (*ListInterStoreTransfersResponse) ProtoMessage() {}
 
 func (x *ListInterStoreTransfersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[78]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5161,7 +5582,7 @@ func (x *ListInterStoreTransfersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListInterStoreTransfersResponse.ProtoReflect.Descriptor instead.
 func (*ListInterStoreTransfersResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{78}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *ListInterStoreTransfersResponse) GetTransfers() []*InterStoreTransfer {
@@ -5181,7 +5602,7 @@ type CreateCreditNoteRequest struct {
 
 func (x *CreateCreditNoteRequest) Reset() {
 	*x = CreateCreditNoteRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[79]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5193,7 +5614,7 @@ func (x *CreateCreditNoteRequest) String() string {
 func (*CreateCreditNoteRequest) ProtoMessage() {}
 
 func (x *CreateCreditNoteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[79]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5206,7 +5627,7 @@ func (x *CreateCreditNoteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCreditNoteRequest.ProtoReflect.Descriptor instead.
 func (*CreateCreditNoteRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{79}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *CreateCreditNoteRequest) GetCreditNote() *CreditNote {
@@ -5225,7 +5646,7 @@ type CreateCreditNoteResponse struct {
 
 func (x *CreateCreditNoteResponse) Reset() {
 	*x = CreateCreditNoteResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[80]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5237,7 +5658,7 @@ func (x *CreateCreditNoteResponse) String() string {
 func (*CreateCreditNoteResponse) ProtoMessage() {}
 
 func (x *CreateCreditNoteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[80]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5250,7 +5671,7 @@ func (x *CreateCreditNoteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCreditNoteResponse.ProtoReflect.Descriptor instead.
 func (*CreateCreditNoteResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{80}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *CreateCreditNoteResponse) GetId() string {
@@ -5272,7 +5693,7 @@ type ApproveCreditNoteRequest struct {
 
 func (x *ApproveCreditNoteRequest) Reset() {
 	*x = ApproveCreditNoteRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[81]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5284,7 +5705,7 @@ func (x *ApproveCreditNoteRequest) String() string {
 func (*ApproveCreditNoteRequest) ProtoMessage() {}
 
 func (x *ApproveCreditNoteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[81]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5297,7 +5718,7 @@ func (x *ApproveCreditNoteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApproveCreditNoteRequest.ProtoReflect.Descriptor instead.
 func (*ApproveCreditNoteRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{81}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *ApproveCreditNoteRequest) GetId() string {
@@ -5337,7 +5758,7 @@ type ApproveCreditNoteResponse struct {
 
 func (x *ApproveCreditNoteResponse) Reset() {
 	*x = ApproveCreditNoteResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[82]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5349,7 +5770,7 @@ func (x *ApproveCreditNoteResponse) String() string {
 func (*ApproveCreditNoteResponse) ProtoMessage() {}
 
 func (x *ApproveCreditNoteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[82]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5362,7 +5783,7 @@ func (x *ApproveCreditNoteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApproveCreditNoteResponse.ProtoReflect.Descriptor instead.
 func (*ApproveCreditNoteResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{82}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *ApproveCreditNoteResponse) GetSuccess() bool {
@@ -5381,7 +5802,7 @@ type GetCreditNoteRequest struct {
 
 func (x *GetCreditNoteRequest) Reset() {
 	*x = GetCreditNoteRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[83]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5393,7 +5814,7 @@ func (x *GetCreditNoteRequest) String() string {
 func (*GetCreditNoteRequest) ProtoMessage() {}
 
 func (x *GetCreditNoteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[83]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5406,7 +5827,7 @@ func (x *GetCreditNoteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCreditNoteRequest.ProtoReflect.Descriptor instead.
 func (*GetCreditNoteRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{83}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *GetCreditNoteRequest) GetId() string {
@@ -5425,7 +5846,7 @@ type GetCreditNoteResponse struct {
 
 func (x *GetCreditNoteResponse) Reset() {
 	*x = GetCreditNoteResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[84]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5437,7 +5858,7 @@ func (x *GetCreditNoteResponse) String() string {
 func (*GetCreditNoteResponse) ProtoMessage() {}
 
 func (x *GetCreditNoteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[84]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5450,7 +5871,7 @@ func (x *GetCreditNoteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCreditNoteResponse.ProtoReflect.Descriptor instead.
 func (*GetCreditNoteResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{84}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *GetCreditNoteResponse) GetCreditNote() *CreditNote {
@@ -5470,7 +5891,7 @@ type ListCreditNotesRequest struct {
 
 func (x *ListCreditNotesRequest) Reset() {
 	*x = ListCreditNotesRequest{}
-	mi := &file_supply_chain_service_proto_msgTypes[85]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5482,7 +5903,7 @@ func (x *ListCreditNotesRequest) String() string {
 func (*ListCreditNotesRequest) ProtoMessage() {}
 
 func (x *ListCreditNotesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[85]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5495,7 +5916,7 @@ func (x *ListCreditNotesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListCreditNotesRequest.ProtoReflect.Descriptor instead.
 func (*ListCreditNotesRequest) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{85}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *ListCreditNotesRequest) GetStatus() string {
@@ -5521,7 +5942,7 @@ type ListCreditNotesResponse struct {
 
 func (x *ListCreditNotesResponse) Reset() {
 	*x = ListCreditNotesResponse{}
-	mi := &file_supply_chain_service_proto_msgTypes[86]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5533,7 +5954,7 @@ func (x *ListCreditNotesResponse) String() string {
 func (*ListCreditNotesResponse) ProtoMessage() {}
 
 func (x *ListCreditNotesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_supply_chain_service_proto_msgTypes[86]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5546,7 +5967,7 @@ func (x *ListCreditNotesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListCreditNotesResponse.ProtoReflect.Descriptor instead.
 func (*ListCreditNotesResponse) Descriptor() ([]byte, []int) {
-	return file_supply_chain_service_proto_rawDescGZIP(), []int{86}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *ListCreditNotesResponse) GetCreditNotes() []*CreditNote {
@@ -5556,11 +5977,1590 @@ func (x *ListCreditNotesResponse) GetCreditNotes() []*CreditNote {
 	return nil
 }
 
-var File_supply_chain_service_proto protoreflect.FileDescriptor
+// Price List Request and Response messages
+type CreatePriceListRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Description   string                 `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	IsActive      bool                   `protobuf:"varint,3,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
 
-const file_supply_chain_service_proto_rawDesc = "" +
+func (x *CreatePriceListRequest) Reset() {
+	*x = CreatePriceListRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreatePriceListRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreatePriceListRequest) ProtoMessage() {}
+
+func (x *CreatePriceListRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreatePriceListRequest.ProtoReflect.Descriptor instead.
+func (*CreatePriceListRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *CreatePriceListRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *CreatePriceListRequest) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *CreatePriceListRequest) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+type CreatePriceListResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreatePriceListResponse) Reset() {
+	*x = CreatePriceListResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreatePriceListResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreatePriceListResponse) ProtoMessage() {}
+
+func (x *CreatePriceListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreatePriceListResponse.ProtoReflect.Descriptor instead.
+func (*CreatePriceListResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *CreatePriceListResponse) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *CreatePriceListResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type GetPriceListRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPriceListRequest) Reset() {
+	*x = GetPriceListRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPriceListRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPriceListRequest) ProtoMessage() {}
+
+func (x *GetPriceListRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPriceListRequest.ProtoReflect.Descriptor instead.
+func (*GetPriceListRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *GetPriceListRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type GetPriceListResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PriceList     *PriceList             `protobuf:"bytes,1,opt,name=price_list,json=priceList,proto3" json:"price_list,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPriceListResponse) Reset() {
+	*x = GetPriceListResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPriceListResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPriceListResponse) ProtoMessage() {}
+
+func (x *GetPriceListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPriceListResponse.ProtoReflect.Descriptor instead.
+func (*GetPriceListResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *GetPriceListResponse) GetPriceList() *PriceList {
+	if x != nil {
+		return x.PriceList
+	}
+	return nil
+}
+
+type UpdatePriceListRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	IsActive      bool                   `protobuf:"varint,4,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdatePriceListRequest) Reset() {
+	*x = UpdatePriceListRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdatePriceListRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdatePriceListRequest) ProtoMessage() {}
+
+func (x *UpdatePriceListRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdatePriceListRequest.ProtoReflect.Descriptor instead.
+func (*UpdatePriceListRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *UpdatePriceListRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdatePriceListRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *UpdatePriceListRequest) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *UpdatePriceListRequest) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+type UpdatePriceListResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdatePriceListResponse) Reset() {
+	*x = UpdatePriceListResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdatePriceListResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdatePriceListResponse) ProtoMessage() {}
+
+func (x *UpdatePriceListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdatePriceListResponse.ProtoReflect.Descriptor instead.
+func (*UpdatePriceListResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *UpdatePriceListResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *UpdatePriceListResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type ListPriceListsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ActiveOnly    bool                   `protobuf:"varint,1,opt,name=active_only,json=activeOnly,proto3" json:"active_only,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListPriceListsRequest) Reset() {
+	*x = ListPriceListsRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPriceListsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPriceListsRequest) ProtoMessage() {}
+
+func (x *ListPriceListsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListPriceListsRequest.ProtoReflect.Descriptor instead.
+func (*ListPriceListsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *ListPriceListsRequest) GetActiveOnly() bool {
+	if x != nil {
+		return x.ActiveOnly
+	}
+	return false
+}
+
+type ListPriceListsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PriceLists    []*PriceList           `protobuf:"bytes,1,rep,name=price_lists,json=priceLists,proto3" json:"price_lists,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListPriceListsResponse) Reset() {
+	*x = ListPriceListsResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPriceListsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPriceListsResponse) ProtoMessage() {}
+
+func (x *ListPriceListsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListPriceListsResponse.ProtoReflect.Descriptor instead.
+func (*ListPriceListsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *ListPriceListsResponse) GetPriceLists() []*PriceList {
+	if x != nil {
+		return x.PriceLists
+	}
+	return nil
+}
+
+// Price List Item Request and Response messages
+type CreatePriceListItemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PriceListId   int32                  `protobuf:"varint,1,opt,name=price_list_id,json=priceListId,proto3" json:"price_list_id,omitempty"`
+	StockItemId   int32                  `protobuf:"varint,2,opt,name=stock_item_id,json=stockItemId,proto3" json:"stock_item_id,omitempty"`
+	SellingPrice  float64                `protobuf:"fixed64,3,opt,name=selling_price,json=sellingPrice,proto3" json:"selling_price,omitempty"`
+	ValidFrom     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=valid_from,json=validFrom,proto3" json:"valid_from,omitempty"`
+	ValidTo       *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=valid_to,json=validTo,proto3" json:"valid_to,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreatePriceListItemRequest) Reset() {
+	*x = CreatePriceListItemRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreatePriceListItemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreatePriceListItemRequest) ProtoMessage() {}
+
+func (x *CreatePriceListItemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreatePriceListItemRequest.ProtoReflect.Descriptor instead.
+func (*CreatePriceListItemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *CreatePriceListItemRequest) GetPriceListId() int32 {
+	if x != nil {
+		return x.PriceListId
+	}
+	return 0
+}
+
+func (x *CreatePriceListItemRequest) GetStockItemId() int32 {
+	if x != nil {
+		return x.StockItemId
+	}
+	return 0
+}
+
+func (x *CreatePriceListItemRequest) GetSellingPrice() float64 {
+	if x != nil {
+		return x.SellingPrice
+	}
+	return 0
+}
+
+func (x *CreatePriceListItemRequest) GetValidFrom() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ValidFrom
+	}
+	return nil
+}
+
+func (x *CreatePriceListItemRequest) GetValidTo() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ValidTo
+	}
+	return nil
+}
+
+type CreatePriceListItemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreatePriceListItemResponse) Reset() {
+	*x = CreatePriceListItemResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreatePriceListItemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreatePriceListItemResponse) ProtoMessage() {}
+
+func (x *CreatePriceListItemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreatePriceListItemResponse.ProtoReflect.Descriptor instead.
+func (*CreatePriceListItemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *CreatePriceListItemResponse) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *CreatePriceListItemResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type GetPriceListItemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPriceListItemRequest) Reset() {
+	*x = GetPriceListItemRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPriceListItemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPriceListItemRequest) ProtoMessage() {}
+
+func (x *GetPriceListItemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPriceListItemRequest.ProtoReflect.Descriptor instead.
+func (*GetPriceListItemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *GetPriceListItemRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type GetPriceListItemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PriceListItem *PriceListItem         `protobuf:"bytes,1,opt,name=price_list_item,json=priceListItem,proto3" json:"price_list_item,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPriceListItemResponse) Reset() {
+	*x = GetPriceListItemResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPriceListItemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPriceListItemResponse) ProtoMessage() {}
+
+func (x *GetPriceListItemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPriceListItemResponse.ProtoReflect.Descriptor instead.
+func (*GetPriceListItemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *GetPriceListItemResponse) GetPriceListItem() *PriceListItem {
+	if x != nil {
+		return x.PriceListItem
+	}
+	return nil
+}
+
+type UpdatePriceListItemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	PriceListId   int32                  `protobuf:"varint,2,opt,name=price_list_id,json=priceListId,proto3" json:"price_list_id,omitempty"`
+	StockItemId   int32                  `protobuf:"varint,3,opt,name=stock_item_id,json=stockItemId,proto3" json:"stock_item_id,omitempty"`
+	SellingPrice  float64                `protobuf:"fixed64,4,opt,name=selling_price,json=sellingPrice,proto3" json:"selling_price,omitempty"`
+	ValidFrom     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=valid_from,json=validFrom,proto3" json:"valid_from,omitempty"`
+	ValidTo       *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=valid_to,json=validTo,proto3" json:"valid_to,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdatePriceListItemRequest) Reset() {
+	*x = UpdatePriceListItemRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdatePriceListItemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdatePriceListItemRequest) ProtoMessage() {}
+
+func (x *UpdatePriceListItemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdatePriceListItemRequest.ProtoReflect.Descriptor instead.
+func (*UpdatePriceListItemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *UpdatePriceListItemRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdatePriceListItemRequest) GetPriceListId() int32 {
+	if x != nil {
+		return x.PriceListId
+	}
+	return 0
+}
+
+func (x *UpdatePriceListItemRequest) GetStockItemId() int32 {
+	if x != nil {
+		return x.StockItemId
+	}
+	return 0
+}
+
+func (x *UpdatePriceListItemRequest) GetSellingPrice() float64 {
+	if x != nil {
+		return x.SellingPrice
+	}
+	return 0
+}
+
+func (x *UpdatePriceListItemRequest) GetValidFrom() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ValidFrom
+	}
+	return nil
+}
+
+func (x *UpdatePriceListItemRequest) GetValidTo() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ValidTo
+	}
+	return nil
+}
+
+type UpdatePriceListItemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdatePriceListItemResponse) Reset() {
+	*x = UpdatePriceListItemResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdatePriceListItemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdatePriceListItemResponse) ProtoMessage() {}
+
+func (x *UpdatePriceListItemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdatePriceListItemResponse.ProtoReflect.Descriptor instead.
+func (*UpdatePriceListItemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *UpdatePriceListItemResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *UpdatePriceListItemResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type DeletePriceListItemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeletePriceListItemRequest) Reset() {
+	*x = DeletePriceListItemRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeletePriceListItemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeletePriceListItemRequest) ProtoMessage() {}
+
+func (x *DeletePriceListItemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeletePriceListItemRequest.ProtoReflect.Descriptor instead.
+func (*DeletePriceListItemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *DeletePriceListItemRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type DeletePriceListItemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeletePriceListItemResponse) Reset() {
+	*x = DeletePriceListItemResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeletePriceListItemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeletePriceListItemResponse) ProtoMessage() {}
+
+func (x *DeletePriceListItemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeletePriceListItemResponse.ProtoReflect.Descriptor instead.
+func (*DeletePriceListItemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *DeletePriceListItemResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *DeletePriceListItemResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type ListPriceListItemsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PriceListId   int32                  `protobuf:"varint,1,opt,name=price_list_id,json=priceListId,proto3" json:"price_list_id,omitempty"`
+	StockItemId   int32                  `protobuf:"varint,2,opt,name=stock_item_id,json=stockItemId,proto3" json:"stock_item_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListPriceListItemsRequest) Reset() {
+	*x = ListPriceListItemsRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPriceListItemsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPriceListItemsRequest) ProtoMessage() {}
+
+func (x *ListPriceListItemsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListPriceListItemsRequest.ProtoReflect.Descriptor instead.
+func (*ListPriceListItemsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *ListPriceListItemsRequest) GetPriceListId() int32 {
+	if x != nil {
+		return x.PriceListId
+	}
+	return 0
+}
+
+func (x *ListPriceListItemsRequest) GetStockItemId() int32 {
+	if x != nil {
+		return x.StockItemId
+	}
+	return 0
+}
+
+type ListPriceListItemsResponse struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	PriceListItems []*PriceListItem       `protobuf:"bytes,1,rep,name=price_list_items,json=priceListItems,proto3" json:"price_list_items,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *ListPriceListItemsResponse) Reset() {
+	*x = ListPriceListItemsResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPriceListItemsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPriceListItemsResponse) ProtoMessage() {}
+
+func (x *ListPriceListItemsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListPriceListItemsResponse.ProtoReflect.Descriptor instead.
+func (*ListPriceListItemsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *ListPriceListItemsResponse) GetPriceListItems() []*PriceListItem {
+	if x != nil {
+		return x.PriceListItems
+	}
+	return nil
+}
+
+type GetPriceListItemsByPriceListRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PriceListId   int32                  `protobuf:"varint,1,opt,name=price_list_id,json=priceListId,proto3" json:"price_list_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPriceListItemsByPriceListRequest) Reset() {
+	*x = GetPriceListItemsByPriceListRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPriceListItemsByPriceListRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPriceListItemsByPriceListRequest) ProtoMessage() {}
+
+func (x *GetPriceListItemsByPriceListRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPriceListItemsByPriceListRequest.ProtoReflect.Descriptor instead.
+func (*GetPriceListItemsByPriceListRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *GetPriceListItemsByPriceListRequest) GetPriceListId() int32 {
+	if x != nil {
+		return x.PriceListId
+	}
+	return 0
+}
+
+type GetPriceListItemsByPriceListResponse struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	PriceListItems []*PriceListItem       `protobuf:"bytes,1,rep,name=price_list_items,json=priceListItems,proto3" json:"price_list_items,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *GetPriceListItemsByPriceListResponse) Reset() {
+	*x = GetPriceListItemsByPriceListResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPriceListItemsByPriceListResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPriceListItemsByPriceListResponse) ProtoMessage() {}
+
+func (x *GetPriceListItemsByPriceListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPriceListItemsByPriceListResponse.ProtoReflect.Descriptor instead.
+func (*GetPriceListItemsByPriceListResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *GetPriceListItemsByPriceListResponse) GetPriceListItems() []*PriceListItem {
+	if x != nil {
+		return x.PriceListItems
+	}
+	return nil
+}
+
+// Medical Scheme Request and Response messages
+type CreateMedicalSchemeRequest struct {
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	Name               string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	PriceListId        int32                  `protobuf:"varint,2,opt,name=price_list_id,json=priceListId,proto3" json:"price_list_id,omitempty"`
+	IsActive           bool                   `protobuf:"varint,3,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	CoveragePercentage float64                `protobuf:"fixed64,4,opt,name=coverage_percentage,json=coveragePercentage,proto3" json:"coverage_percentage,omitempty"`
+	CoversConsultation bool                   `protobuf:"varint,5,opt,name=covers_consultation,json=coversConsultation,proto3" json:"covers_consultation,omitempty"`
+	CoversMedication   bool                   `protobuf:"varint,6,opt,name=covers_medication,json=coversMedication,proto3" json:"covers_medication,omitempty"`
+	CoversLaboratory   bool                   `protobuf:"varint,7,opt,name=covers_laboratory,json=coversLaboratory,proto3" json:"covers_laboratory,omitempty"`
+	AnnualLimit        float64                `protobuf:"fixed64,8,opt,name=annual_limit,json=annualLimit,proto3" json:"annual_limit,omitempty"`
+	ConsultationLimit  float64                `protobuf:"fixed64,9,opt,name=consultation_limit,json=consultationLimit,proto3" json:"consultation_limit,omitempty"`
+	CopayPercentage    float64                `protobuf:"fixed64,10,opt,name=copay_percentage,json=copayPercentage,proto3" json:"copay_percentage,omitempty"`
+	CopayFixedAmount   float64                `protobuf:"fixed64,11,opt,name=copay_fixed_amount,json=copayFixedAmount,proto3" json:"copay_fixed_amount,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *CreateMedicalSchemeRequest) Reset() {
+	*x = CreateMedicalSchemeRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateMedicalSchemeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateMedicalSchemeRequest) ProtoMessage() {}
+
+func (x *CreateMedicalSchemeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateMedicalSchemeRequest.ProtoReflect.Descriptor instead.
+func (*CreateMedicalSchemeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *CreateMedicalSchemeRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *CreateMedicalSchemeRequest) GetPriceListId() int32 {
+	if x != nil {
+		return x.PriceListId
+	}
+	return 0
+}
+
+func (x *CreateMedicalSchemeRequest) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *CreateMedicalSchemeRequest) GetCoveragePercentage() float64 {
+	if x != nil {
+		return x.CoveragePercentage
+	}
+	return 0
+}
+
+func (x *CreateMedicalSchemeRequest) GetCoversConsultation() bool {
+	if x != nil {
+		return x.CoversConsultation
+	}
+	return false
+}
+
+func (x *CreateMedicalSchemeRequest) GetCoversMedication() bool {
+	if x != nil {
+		return x.CoversMedication
+	}
+	return false
+}
+
+func (x *CreateMedicalSchemeRequest) GetCoversLaboratory() bool {
+	if x != nil {
+		return x.CoversLaboratory
+	}
+	return false
+}
+
+func (x *CreateMedicalSchemeRequest) GetAnnualLimit() float64 {
+	if x != nil {
+		return x.AnnualLimit
+	}
+	return 0
+}
+
+func (x *CreateMedicalSchemeRequest) GetConsultationLimit() float64 {
+	if x != nil {
+		return x.ConsultationLimit
+	}
+	return 0
+}
+
+func (x *CreateMedicalSchemeRequest) GetCopayPercentage() float64 {
+	if x != nil {
+		return x.CopayPercentage
+	}
+	return 0
+}
+
+func (x *CreateMedicalSchemeRequest) GetCopayFixedAmount() float64 {
+	if x != nil {
+		return x.CopayFixedAmount
+	}
+	return 0
+}
+
+type CreateMedicalSchemeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateMedicalSchemeResponse) Reset() {
+	*x = CreateMedicalSchemeResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateMedicalSchemeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateMedicalSchemeResponse) ProtoMessage() {}
+
+func (x *CreateMedicalSchemeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateMedicalSchemeResponse.ProtoReflect.Descriptor instead.
+func (*CreateMedicalSchemeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *CreateMedicalSchemeResponse) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *CreateMedicalSchemeResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type GetMedicalSchemeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMedicalSchemeRequest) Reset() {
+	*x = GetMedicalSchemeRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMedicalSchemeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMedicalSchemeRequest) ProtoMessage() {}
+
+func (x *GetMedicalSchemeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMedicalSchemeRequest.ProtoReflect.Descriptor instead.
+func (*GetMedicalSchemeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *GetMedicalSchemeRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type GetMedicalSchemeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MedicalScheme *MedicalScheme         `protobuf:"bytes,1,opt,name=medical_scheme,json=medicalScheme,proto3" json:"medical_scheme,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMedicalSchemeResponse) Reset() {
+	*x = GetMedicalSchemeResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMedicalSchemeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMedicalSchemeResponse) ProtoMessage() {}
+
+func (x *GetMedicalSchemeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMedicalSchemeResponse.ProtoReflect.Descriptor instead.
+func (*GetMedicalSchemeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *GetMedicalSchemeResponse) GetMedicalScheme() *MedicalScheme {
+	if x != nil {
+		return x.MedicalScheme
+	}
+	return nil
+}
+
+type UpdateMedicalSchemeRequest struct {
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	Id                 int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name               string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	PriceListId        int32                  `protobuf:"varint,3,opt,name=price_list_id,json=priceListId,proto3" json:"price_list_id,omitempty"`
+	IsActive           bool                   `protobuf:"varint,4,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	CoveragePercentage float64                `protobuf:"fixed64,5,opt,name=coverage_percentage,json=coveragePercentage,proto3" json:"coverage_percentage,omitempty"`
+	CoversConsultation bool                   `protobuf:"varint,6,opt,name=covers_consultation,json=coversConsultation,proto3" json:"covers_consultation,omitempty"`
+	CoversMedication   bool                   `protobuf:"varint,7,opt,name=covers_medication,json=coversMedication,proto3" json:"covers_medication,omitempty"`
+	CoversLaboratory   bool                   `protobuf:"varint,8,opt,name=covers_laboratory,json=coversLaboratory,proto3" json:"covers_laboratory,omitempty"`
+	AnnualLimit        float64                `protobuf:"fixed64,9,opt,name=annual_limit,json=annualLimit,proto3" json:"annual_limit,omitempty"`
+	ConsultationLimit  float64                `protobuf:"fixed64,10,opt,name=consultation_limit,json=consultationLimit,proto3" json:"consultation_limit,omitempty"`
+	CopayPercentage    float64                `protobuf:"fixed64,11,opt,name=copay_percentage,json=copayPercentage,proto3" json:"copay_percentage,omitempty"`
+	CopayFixedAmount   float64                `protobuf:"fixed64,12,opt,name=copay_fixed_amount,json=copayFixedAmount,proto3" json:"copay_fixed_amount,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *UpdateMedicalSchemeRequest) Reset() {
+	*x = UpdateMedicalSchemeRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateMedicalSchemeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateMedicalSchemeRequest) ProtoMessage() {}
+
+func (x *UpdateMedicalSchemeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateMedicalSchemeRequest.ProtoReflect.Descriptor instead.
+func (*UpdateMedicalSchemeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *UpdateMedicalSchemeRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateMedicalSchemeRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *UpdateMedicalSchemeRequest) GetPriceListId() int32 {
+	if x != nil {
+		return x.PriceListId
+	}
+	return 0
+}
+
+func (x *UpdateMedicalSchemeRequest) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *UpdateMedicalSchemeRequest) GetCoveragePercentage() float64 {
+	if x != nil {
+		return x.CoveragePercentage
+	}
+	return 0
+}
+
+func (x *UpdateMedicalSchemeRequest) GetCoversConsultation() bool {
+	if x != nil {
+		return x.CoversConsultation
+	}
+	return false
+}
+
+func (x *UpdateMedicalSchemeRequest) GetCoversMedication() bool {
+	if x != nil {
+		return x.CoversMedication
+	}
+	return false
+}
+
+func (x *UpdateMedicalSchemeRequest) GetCoversLaboratory() bool {
+	if x != nil {
+		return x.CoversLaboratory
+	}
+	return false
+}
+
+func (x *UpdateMedicalSchemeRequest) GetAnnualLimit() float64 {
+	if x != nil {
+		return x.AnnualLimit
+	}
+	return 0
+}
+
+func (x *UpdateMedicalSchemeRequest) GetConsultationLimit() float64 {
+	if x != nil {
+		return x.ConsultationLimit
+	}
+	return 0
+}
+
+func (x *UpdateMedicalSchemeRequest) GetCopayPercentage() float64 {
+	if x != nil {
+		return x.CopayPercentage
+	}
+	return 0
+}
+
+func (x *UpdateMedicalSchemeRequest) GetCopayFixedAmount() float64 {
+	if x != nil {
+		return x.CopayFixedAmount
+	}
+	return 0
+}
+
+type UpdateMedicalSchemeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateMedicalSchemeResponse) Reset() {
+	*x = UpdateMedicalSchemeResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateMedicalSchemeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateMedicalSchemeResponse) ProtoMessage() {}
+
+func (x *UpdateMedicalSchemeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateMedicalSchemeResponse.ProtoReflect.Descriptor instead.
+func (*UpdateMedicalSchemeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{117}
+}
+
+func (x *UpdateMedicalSchemeResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *UpdateMedicalSchemeResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type ListMedicalSchemesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ActiveOnly    bool                   `protobuf:"varint,1,opt,name=active_only,json=activeOnly,proto3" json:"active_only,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListMedicalSchemesRequest) Reset() {
+	*x = ListMedicalSchemesRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListMedicalSchemesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListMedicalSchemesRequest) ProtoMessage() {}
+
+func (x *ListMedicalSchemesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListMedicalSchemesRequest.ProtoReflect.Descriptor instead.
+func (*ListMedicalSchemesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *ListMedicalSchemesRequest) GetActiveOnly() bool {
+	if x != nil {
+		return x.ActiveOnly
+	}
+	return false
+}
+
+type ListMedicalSchemesResponse struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	MedicalSchemes []*MedicalScheme       `protobuf:"bytes,1,rep,name=medical_schemes,json=medicalSchemes,proto3" json:"medical_schemes,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *ListMedicalSchemesResponse) Reset() {
+	*x = ListMedicalSchemesResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListMedicalSchemesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListMedicalSchemesResponse) ProtoMessage() {}
+
+func (x *ListMedicalSchemesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListMedicalSchemesResponse.ProtoReflect.Descriptor instead.
+func (*ListMedicalSchemesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{119}
+}
+
+func (x *ListMedicalSchemesResponse) GetMedicalSchemes() []*MedicalScheme {
+	if x != nil {
+		return x.MedicalSchemes
+	}
+	return nil
+}
+
+var File_proto_supply_chain_service_proto protoreflect.FileDescriptor
+
+const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\n" +
-	"\x1asupply_chain_service.proto\x12\fsupply_chain\x1a\x1cgoogle/api/annotations.proto\"\xc1\x04\n" +
+	" proto/supply_chain_service.proto\x12\fsupply_chain\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc1\x04\n" +
 	"\tStockItem\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -5665,7 +7665,7 @@ const file_supply_chain_service_proto_rawDesc = "" +
 	"created_at\x18\x0e \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
 	"updated_at\x18\x0f \x01(\tR\tupdatedAt\x12+\n" +
-	"\x05items\x18\x10 \x03(\v2\x15.supply_chain.LPOItemR\x05items\"\xca\x05\n" +
+	"\x05items\x18\x10 \x03(\v2\x15.supply_chain.LPOItemR\x05items\"\xe9\x05\n" +
 	"\x11GoodsReceivedNote\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
@@ -5697,7 +7697,9 @@ const file_supply_chain_service_proto_rawDesc = "" +
 	"created_at\x18\x13 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
 	"updated_at\x18\x14 \x01(\tR\tupdatedAt\x125\n" +
-	"\x05items\x18\x15 \x03(\v2\x1f.supply_chain.GoodsReceivedItemR\x05items\"\xc7\x03\n" +
+	"\x05items\x18\x15 \x03(\v2\x1f.supply_chain.GoodsReceivedItemR\x05items\x12\x1d\n" +
+	"\n" +
+	"total_cost\x18\x16 \x01(\x01R\ttotalCost\"\x83\x04\n" +
 	"\x11GoodsReceivedItem\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\tR\x06itemId\x12\x1b\n" +
 	"\titem_name\x18\x02 \x01(\tR\bitemName\x12)\n" +
@@ -5713,7 +7715,10 @@ const file_supply_chain_service_proto_rawDesc = "" +
 	"expiryDate\x12\x1d\n" +
 	"\n" +
 	"bin_number\x18\v \x01(\tR\tbinNumber\x12\x14\n" +
-	"\x05notes\x18\f \x01(\tR\x05notes\"\xc6\x03\n" +
+	"\x05notes\x18\f \x01(\tR\x05notes\x12\x1b\n" +
+	"\tunit_cost\x18\r \x01(\x01R\bunitCost\x12\x1d\n" +
+	"\n" +
+	"total_cost\x18\x0e \x01(\x01R\ttotalCost\"\xc6\x03\n" +
 	"\x0fStockAdjustment\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12+\n" +
 	"\x11adjustment_number\x18\x02 \x01(\tR\x10adjustmentNumber\x12\x19\n" +
@@ -5816,7 +7821,42 @@ const file_supply_chain_service_proto_rawDesc = "" +
 	"expiryDate\x12\x16\n" +
 	"\x06reason\x18\t \x01(\tR\x06reason\x12\x14\n" +
 	"\x05notes\x18\n" +
-	" \x01(\tR\x05notes\"E\n" +
+	" \x01(\tR\x05notes\"\xa9\x01\n" +
+	"\tPriceList\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x1b\n" +
+	"\tis_active\x18\x04 \x01(\bR\bisActive\x129\n" +
+	"\n" +
+	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\"\xfe\x01\n" +
+	"\rPriceListItem\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\"\n" +
+	"\rprice_list_id\x18\x02 \x01(\x05R\vpriceListId\x12\"\n" +
+	"\rstock_item_id\x18\x03 \x01(\x05R\vstockItemId\x12#\n" +
+	"\rselling_price\x18\x04 \x01(\x01R\fsellingPrice\x129\n" +
+	"\n" +
+	"valid_from\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tvalidFrom\x125\n" +
+	"\bvalid_to\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\avalidTo\"\xdb\x03\n" +
+	"\rMedicalScheme\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\"\n" +
+	"\rprice_list_id\x18\x03 \x01(\x05R\vpriceListId\x12\x1b\n" +
+	"\tis_active\x18\x04 \x01(\bR\bisActive\x12/\n" +
+	"\x13coverage_percentage\x18\x05 \x01(\x01R\x12coveragePercentage\x12/\n" +
+	"\x13covers_consultation\x18\x06 \x01(\bR\x12coversConsultation\x12+\n" +
+	"\x11covers_medication\x18\a \x01(\bR\x10coversMedication\x12+\n" +
+	"\x11covers_laboratory\x18\b \x01(\bR\x10coversLaboratory\x12!\n" +
+	"\fannual_limit\x18\t \x01(\x01R\vannualLimit\x12-\n" +
+	"\x12consultation_limit\x18\n" +
+	" \x01(\x01R\x11consultationLimit\x12)\n" +
+	"\x10copay_percentage\x18\v \x01(\x01R\x0fcopayPercentage\x12,\n" +
+	"\x12copay_fixed_amount\x18\f \x01(\x01R\x10copayFixedAmount\"X\n" +
+	"\x16ReduceStockItemRequest\x12\"\n" +
+	"\rstock_item_id\x18\x01 \x01(\x05R\vstockItemId\x12\x1a\n" +
+	"\bquantity\x18\x02 \x01(\x01R\bquantity\"Y\n" +
+	"\x17ReduceStockItemResponse\x12\"\n" +
+	"\rstock_item_id\x18\x01 \x01(\x05R\vstockItemId\x12\x1a\n" +
+	"\bquantity\x18\x02 \x01(\x01R\bquantity\"E\n" +
 	"\x16CreateStockItemRequest\x12+\n" +
 	"\x04item\x18\x01 \x01(\v2\x17.supply_chain.StockItemR\x04item\")\n" +
 	"\x17CreateStockItemResponse\x12\x0e\n" +
@@ -6013,7 +8053,114 @@ const file_supply_chain_service_proto_rawDesc = "" +
 	"\vsupplier_id\x18\x02 \x01(\tR\n" +
 	"supplierId\"V\n" +
 	"\x17ListCreditNotesResponse\x12;\n" +
-	"\fcredit_notes\x18\x01 \x03(\v2\x18.supply_chain.CreditNoteR\vcreditNotes2\xaf$\n" +
+	"\fcredit_notes\x18\x01 \x03(\v2\x18.supply_chain.CreditNoteR\vcreditNotes\"k\n" +
+	"\x16CreatePriceListRequest\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
+	"\vdescription\x18\x02 \x01(\tR\vdescription\x12\x1b\n" +
+	"\tis_active\x18\x03 \x01(\bR\bisActive\"C\n" +
+	"\x17CreatePriceListResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"%\n" +
+	"\x13GetPriceListRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\"N\n" +
+	"\x14GetPriceListResponse\x126\n" +
+	"\n" +
+	"price_list\x18\x01 \x01(\v2\x17.supply_chain.PriceListR\tpriceList\"{\n" +
+	"\x16UpdatePriceListRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x1b\n" +
+	"\tis_active\x18\x04 \x01(\bR\bisActive\"M\n" +
+	"\x17UpdatePriceListResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"8\n" +
+	"\x15ListPriceListsRequest\x12\x1f\n" +
+	"\vactive_only\x18\x01 \x01(\bR\n" +
+	"activeOnly\"R\n" +
+	"\x16ListPriceListsResponse\x128\n" +
+	"\vprice_lists\x18\x01 \x03(\v2\x17.supply_chain.PriceListR\n" +
+	"priceLists\"\xfb\x01\n" +
+	"\x1aCreatePriceListItemRequest\x12\"\n" +
+	"\rprice_list_id\x18\x01 \x01(\x05R\vpriceListId\x12\"\n" +
+	"\rstock_item_id\x18\x02 \x01(\x05R\vstockItemId\x12#\n" +
+	"\rselling_price\x18\x03 \x01(\x01R\fsellingPrice\x129\n" +
+	"\n" +
+	"valid_from\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tvalidFrom\x125\n" +
+	"\bvalid_to\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\avalidTo\"G\n" +
+	"\x1bCreatePriceListItemResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\")\n" +
+	"\x17GetPriceListItemRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\"_\n" +
+	"\x18GetPriceListItemResponse\x12C\n" +
+	"\x0fprice_list_item\x18\x01 \x01(\v2\x1b.supply_chain.PriceListItemR\rpriceListItem\"\x8b\x02\n" +
+	"\x1aUpdatePriceListItemRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\"\n" +
+	"\rprice_list_id\x18\x02 \x01(\x05R\vpriceListId\x12\"\n" +
+	"\rstock_item_id\x18\x03 \x01(\x05R\vstockItemId\x12#\n" +
+	"\rselling_price\x18\x04 \x01(\x01R\fsellingPrice\x129\n" +
+	"\n" +
+	"valid_from\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tvalidFrom\x125\n" +
+	"\bvalid_to\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\avalidTo\"Q\n" +
+	"\x1bUpdatePriceListItemResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\",\n" +
+	"\x1aDeletePriceListItemRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\"Q\n" +
+	"\x1bDeletePriceListItemResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"c\n" +
+	"\x19ListPriceListItemsRequest\x12\"\n" +
+	"\rprice_list_id\x18\x01 \x01(\x05R\vpriceListId\x12\"\n" +
+	"\rstock_item_id\x18\x02 \x01(\x05R\vstockItemId\"c\n" +
+	"\x1aListPriceListItemsResponse\x12E\n" +
+	"\x10price_list_items\x18\x01 \x03(\v2\x1b.supply_chain.PriceListItemR\x0epriceListItems\"I\n" +
+	"#GetPriceListItemsByPriceListRequest\x12\"\n" +
+	"\rprice_list_id\x18\x01 \x01(\x05R\vpriceListId\"m\n" +
+	"$GetPriceListItemsByPriceListResponse\x12E\n" +
+	"\x10price_list_items\x18\x01 \x03(\v2\x1b.supply_chain.PriceListItemR\x0epriceListItems\"\xd8\x03\n" +
+	"\x1aCreateMedicalSchemeRequest\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\"\n" +
+	"\rprice_list_id\x18\x02 \x01(\x05R\vpriceListId\x12\x1b\n" +
+	"\tis_active\x18\x03 \x01(\bR\bisActive\x12/\n" +
+	"\x13coverage_percentage\x18\x04 \x01(\x01R\x12coveragePercentage\x12/\n" +
+	"\x13covers_consultation\x18\x05 \x01(\bR\x12coversConsultation\x12+\n" +
+	"\x11covers_medication\x18\x06 \x01(\bR\x10coversMedication\x12+\n" +
+	"\x11covers_laboratory\x18\a \x01(\bR\x10coversLaboratory\x12!\n" +
+	"\fannual_limit\x18\b \x01(\x01R\vannualLimit\x12-\n" +
+	"\x12consultation_limit\x18\t \x01(\x01R\x11consultationLimit\x12)\n" +
+	"\x10copay_percentage\x18\n" +
+	" \x01(\x01R\x0fcopayPercentage\x12,\n" +
+	"\x12copay_fixed_amount\x18\v \x01(\x01R\x10copayFixedAmount\"G\n" +
+	"\x1bCreateMedicalSchemeResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\")\n" +
+	"\x17GetMedicalSchemeRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\"^\n" +
+	"\x18GetMedicalSchemeResponse\x12B\n" +
+	"\x0emedical_scheme\x18\x01 \x01(\v2\x1b.supply_chain.MedicalSchemeR\rmedicalScheme\"\xe8\x03\n" +
+	"\x1aUpdateMedicalSchemeRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\"\n" +
+	"\rprice_list_id\x18\x03 \x01(\x05R\vpriceListId\x12\x1b\n" +
+	"\tis_active\x18\x04 \x01(\bR\bisActive\x12/\n" +
+	"\x13coverage_percentage\x18\x05 \x01(\x01R\x12coveragePercentage\x12/\n" +
+	"\x13covers_consultation\x18\x06 \x01(\bR\x12coversConsultation\x12+\n" +
+	"\x11covers_medication\x18\a \x01(\bR\x10coversMedication\x12+\n" +
+	"\x11covers_laboratory\x18\b \x01(\bR\x10coversLaboratory\x12!\n" +
+	"\fannual_limit\x18\t \x01(\x01R\vannualLimit\x12-\n" +
+	"\x12consultation_limit\x18\n" +
+	" \x01(\x01R\x11consultationLimit\x12)\n" +
+	"\x10copay_percentage\x18\v \x01(\x01R\x0fcopayPercentage\x12,\n" +
+	"\x12copay_fixed_amount\x18\f \x01(\x01R\x10copayFixedAmount\"Q\n" +
+	"\x1bUpdateMedicalSchemeResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"<\n" +
+	"\x19ListMedicalSchemesRequest\x12\x1f\n" +
+	"\vactive_only\x18\x01 \x01(\bR\n" +
+	"activeOnly\"b\n" +
+	"\x1aListMedicalSchemesResponse\x12D\n" +
+	"\x0fmedical_schemes\x18\x01 \x03(\v2\x1b.supply_chain.MedicalSchemeR\x0emedicalSchemes2\xba3\n" +
 	"\x12SupplyChainService\x12z\n" +
 	"\x0fCreateStockItem\x12$.supply_chain.CreateStockItemRequest\x1a%.supply_chain.CreateStockItemResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/stock-items\x12s\n" +
 	"\fGetStockItem\x12!.supply_chain.GetStockItemRequest\x1a\".supply_chain.GetStockItemResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/stock-items/{id}\x12\x7f\n" +
@@ -6056,248 +8203,338 @@ const file_supply_chain_service_proto_rawDesc = "" +
 	"\x10CreateCreditNote\x12%.supply_chain.CreateCreditNoteRequest\x1a&.supply_chain.CreateCreditNoteResponse\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/v1/credit-notes\x12\x8e\x01\n" +
 	"\x11ApproveCreditNote\x12&.supply_chain.ApproveCreditNoteRequest\x1a'.supply_chain.ApproveCreditNoteResponse\"(\x82\xd3\xe4\x93\x02\":\x01*\"\x1d/v1/credit-notes/{id}/approve\x12w\n" +
 	"\rGetCreditNote\x12\".supply_chain.GetCreditNoteRequest\x1a#.supply_chain.GetCreditNoteResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/v1/credit-notes/{id}\x12x\n" +
-	"\x0fListCreditNotes\x12$.supply_chain.ListCreditNotesRequest\x1a%.supply_chain.ListCreditNotesResponse\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/credit-notesB'Z%./services/supply-chain-service/protob\x06proto3"
+	"\x0fListCreditNotes\x12$.supply_chain.ListCreditNotesRequest\x1a%.supply_chain.ListCreditNotesResponse\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/credit-notes\x12z\n" +
+	"\x0fCreatePriceList\x12$.supply_chain.CreatePriceListRequest\x1a%.supply_chain.CreatePriceListResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/price-lists\x12s\n" +
+	"\fGetPriceList\x12!.supply_chain.GetPriceListRequest\x1a\".supply_chain.GetPriceListResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/price-lists/{id}\x12\x7f\n" +
+	"\x0fUpdatePriceList\x12$.supply_chain.UpdatePriceListRequest\x1a%.supply_chain.UpdatePriceListResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\x1a\x14/v1/price-lists/{id}\x12t\n" +
+	"\x0eListPriceLists\x12#.supply_chain.ListPriceListsRequest\x1a$.supply_chain.ListPriceListsResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v1/price-lists\x12\x8b\x01\n" +
+	"\x13CreatePriceListItem\x12(.supply_chain.CreatePriceListItemRequest\x1a).supply_chain.CreatePriceListItemResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\"\x14/v1/price-list-items\x12\x84\x01\n" +
+	"\x10GetPriceListItem\x12%.supply_chain.GetPriceListItemRequest\x1a&.supply_chain.GetPriceListItemResponse\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1/price-list-items/{id}\x12\x90\x01\n" +
+	"\x13UpdatePriceListItem\x12(.supply_chain.UpdatePriceListItemRequest\x1a).supply_chain.UpdatePriceListItemResponse\"$\x82\xd3\xe4\x93\x02\x1e:\x01*\x1a\x19/v1/price-list-items/{id}\x12\x8d\x01\n" +
+	"\x13DeletePriceListItem\x12(.supply_chain.DeletePriceListItemRequest\x1a).supply_chain.DeletePriceListItemResponse\"!\x82\xd3\xe4\x93\x02\x1b*\x19/v1/price-list-items/{id}\x12\x85\x01\n" +
+	"\x12ListPriceListItems\x12'.supply_chain.ListPriceListItemsRequest\x1a(.supply_chain.ListPriceListItemsResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/price-list-items\x12\xb4\x01\n" +
+	"\x1cGetPriceListItemsByPriceList\x121.supply_chain.GetPriceListItemsByPriceListRequest\x1a2.supply_chain.GetPriceListItemsByPriceListResponse\"-\x82\xd3\xe4\x93\x02'\x12%/v1/price-lists/{price_list_id}/items\x12\x8a\x01\n" +
+	"\x13CreateMedicalScheme\x12(.supply_chain.CreateMedicalSchemeRequest\x1a).supply_chain.CreateMedicalSchemeResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/v1/medical-schemes\x12\x83\x01\n" +
+	"\x10GetMedicalScheme\x12%.supply_chain.GetMedicalSchemeRequest\x1a&.supply_chain.GetMedicalSchemeResponse\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/v1/medical-schemes/{id}\x12\x8f\x01\n" +
+	"\x13UpdateMedicalScheme\x12(.supply_chain.UpdateMedicalSchemeRequest\x1a).supply_chain.UpdateMedicalSchemeResponse\"#\x82\xd3\xe4\x93\x02\x1d:\x01*\x1a\x18/v1/medical-schemes/{id}\x12\x84\x01\n" +
+	"\x12ListMedicalSchemes\x12'.supply_chain.ListMedicalSchemesRequest\x1a(.supply_chain.ListMedicalSchemesResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/medical-schemesB%Z#./shared/supply-chain-service/protob\x06proto3"
 
 var (
-	file_supply_chain_service_proto_rawDescOnce sync.Once
-	file_supply_chain_service_proto_rawDescData []byte
+	file_proto_supply_chain_service_proto_rawDescOnce sync.Once
+	file_proto_supply_chain_service_proto_rawDescData []byte
 )
 
-func file_supply_chain_service_proto_rawDescGZIP() []byte {
-	file_supply_chain_service_proto_rawDescOnce.Do(func() {
-		file_supply_chain_service_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_supply_chain_service_proto_rawDesc), len(file_supply_chain_service_proto_rawDesc)))
+func file_proto_supply_chain_service_proto_rawDescGZIP() []byte {
+	file_proto_supply_chain_service_proto_rawDescOnce.Do(func() {
+		file_proto_supply_chain_service_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_supply_chain_service_proto_rawDesc), len(file_proto_supply_chain_service_proto_rawDesc)))
 	})
-	return file_supply_chain_service_proto_rawDescData
+	return file_proto_supply_chain_service_proto_rawDescData
 }
 
-var file_supply_chain_service_proto_msgTypes = make([]protoimpl.MessageInfo, 87)
-var file_supply_chain_service_proto_goTypes = []any{
-	(*StockItem)(nil),                         // 0: supply_chain.StockItem
-	(*Store)(nil),                             // 1: supply_chain.Store
-	(*Supplier)(nil),                          // 2: supply_chain.Supplier
-	(*RequisitionItem)(nil),                   // 3: supply_chain.RequisitionItem
-	(*Requisition)(nil),                       // 4: supply_chain.Requisition
-	(*LPOItem)(nil),                           // 5: supply_chain.LPOItem
-	(*LocalPurchaseOrder)(nil),                // 6: supply_chain.LocalPurchaseOrder
-	(*GoodsReceivedNote)(nil),                 // 7: supply_chain.GoodsReceivedNote
-	(*GoodsReceivedItem)(nil),                 // 8: supply_chain.GoodsReceivedItem
-	(*StockAdjustment)(nil),                   // 9: supply_chain.StockAdjustment
-	(*StockAdjustmentItem)(nil),               // 10: supply_chain.StockAdjustmentItem
-	(*InterStoreTransfer)(nil),                // 11: supply_chain.InterStoreTransfer
-	(*InterStoreTransferItem)(nil),            // 12: supply_chain.InterStoreTransferItem
-	(*CreditNote)(nil),                        // 13: supply_chain.CreditNote
-	(*CreditNoteItem)(nil),                    // 14: supply_chain.CreditNoteItem
-	(*CreateStockItemRequest)(nil),            // 15: supply_chain.CreateStockItemRequest
-	(*CreateStockItemResponse)(nil),           // 16: supply_chain.CreateStockItemResponse
-	(*GetStockItemRequest)(nil),               // 17: supply_chain.GetStockItemRequest
-	(*GetStockItemResponse)(nil),              // 18: supply_chain.GetStockItemResponse
-	(*UpdateStockItemRequest)(nil),            // 19: supply_chain.UpdateStockItemRequest
-	(*UpdateStockItemResponse)(nil),           // 20: supply_chain.UpdateStockItemResponse
-	(*ListStockItemsRequest)(nil),             // 21: supply_chain.ListStockItemsRequest
-	(*ListStockItemsResponse)(nil),            // 22: supply_chain.ListStockItemsResponse
-	(*GetStockLevelsRequest)(nil),             // 23: supply_chain.GetStockLevelsRequest
-	(*GetStockLevelsResponse)(nil),            // 24: supply_chain.GetStockLevelsResponse
-	(*GetExpiringItemsRequest)(nil),           // 25: supply_chain.GetExpiringItemsRequest
-	(*GetExpiringItemsResponse)(nil),          // 26: supply_chain.GetExpiringItemsResponse
-	(*GetItemsBelowReorderLevelRequest)(nil),  // 27: supply_chain.GetItemsBelowReorderLevelRequest
-	(*GetItemsBelowReorderLevelResponse)(nil), // 28: supply_chain.GetItemsBelowReorderLevelResponse
-	(*CreateStoreRequest)(nil),                // 29: supply_chain.CreateStoreRequest
-	(*CreateStoreResponse)(nil),               // 30: supply_chain.CreateStoreResponse
-	(*ListStoresRequest)(nil),                 // 31: supply_chain.ListStoresRequest
-	(*ListStoresResponse)(nil),                // 32: supply_chain.ListStoresResponse
-	(*CreateSupplierRequest)(nil),             // 33: supply_chain.CreateSupplierRequest
-	(*CreateSupplierResponse)(nil),            // 34: supply_chain.CreateSupplierResponse
-	(*ListSuppliersRequest)(nil),              // 35: supply_chain.ListSuppliersRequest
-	(*ListSuppliersResponse)(nil),             // 36: supply_chain.ListSuppliersResponse
-	(*CreateRequisitionRequest)(nil),          // 37: supply_chain.CreateRequisitionRequest
-	(*CreateRequisitionResponse)(nil),         // 38: supply_chain.CreateRequisitionResponse
-	(*ApproveRequisitionRequest)(nil),         // 39: supply_chain.ApproveRequisitionRequest
-	(*ApproveRequisitionResponse)(nil),        // 40: supply_chain.ApproveRequisitionResponse
-	(*GetRequisitionRequest)(nil),             // 41: supply_chain.GetRequisitionRequest
-	(*GetRequisitionResponse)(nil),            // 42: supply_chain.GetRequisitionResponse
-	(*ListRequisitionsRequest)(nil),           // 43: supply_chain.ListRequisitionsRequest
-	(*ListRequisitionsResponse)(nil),          // 44: supply_chain.ListRequisitionsResponse
-	(*CreateLPORequest)(nil),                  // 45: supply_chain.CreateLPORequest
-	(*CreateLPOResponse)(nil),                 // 46: supply_chain.CreateLPOResponse
-	(*ApproveLPORequest)(nil),                 // 47: supply_chain.ApproveLPORequest
-	(*ApproveLPOResponse)(nil),                // 48: supply_chain.ApproveLPOResponse
-	(*GetLPORequest)(nil),                     // 49: supply_chain.GetLPORequest
-	(*GetLPOResponse)(nil),                    // 50: supply_chain.GetLPOResponse
-	(*ListLPOsRequest)(nil),                   // 51: supply_chain.ListLPOsRequest
-	(*ListLPOsResponse)(nil),                  // 52: supply_chain.ListLPOsResponse
-	(*CreateGRNRequest)(nil),                  // 53: supply_chain.CreateGRNRequest
-	(*CreateGRNResponse)(nil),                 // 54: supply_chain.CreateGRNResponse
-	(*PerformQualityCheckRequest)(nil),        // 55: supply_chain.PerformQualityCheckRequest
-	(*PerformQualityCheckResponse)(nil),       // 56: supply_chain.PerformQualityCheckResponse
-	(*GetGRNRequest)(nil),                     // 57: supply_chain.GetGRNRequest
-	(*GetGRNResponse)(nil),                    // 58: supply_chain.GetGRNResponse
-	(*ListGRNsRequest)(nil),                   // 59: supply_chain.ListGRNsRequest
-	(*ListGRNsResponse)(nil),                  // 60: supply_chain.ListGRNsResponse
-	(*CreateStockAdjustmentRequest)(nil),      // 61: supply_chain.CreateStockAdjustmentRequest
-	(*CreateStockAdjustmentResponse)(nil),     // 62: supply_chain.CreateStockAdjustmentResponse
-	(*ApproveStockAdjustmentRequest)(nil),     // 63: supply_chain.ApproveStockAdjustmentRequest
-	(*ApproveStockAdjustmentResponse)(nil),    // 64: supply_chain.ApproveStockAdjustmentResponse
-	(*GetStockAdjustmentRequest)(nil),         // 65: supply_chain.GetStockAdjustmentRequest
-	(*GetStockAdjustmentResponse)(nil),        // 66: supply_chain.GetStockAdjustmentResponse
-	(*ListStockAdjustmentsRequest)(nil),       // 67: supply_chain.ListStockAdjustmentsRequest
-	(*ListStockAdjustmentsResponse)(nil),      // 68: supply_chain.ListStockAdjustmentsResponse
-	(*CreateInterStoreTransferRequest)(nil),   // 69: supply_chain.CreateInterStoreTransferRequest
-	(*CreateInterStoreTransferResponse)(nil),  // 70: supply_chain.CreateInterStoreTransferResponse
-	(*ApproveInterStoreTransferRequest)(nil),  // 71: supply_chain.ApproveInterStoreTransferRequest
-	(*ApproveInterStoreTransferResponse)(nil), // 72: supply_chain.ApproveInterStoreTransferResponse
-	(*ReceiveInterStoreTransferRequest)(nil),  // 73: supply_chain.ReceiveInterStoreTransferRequest
-	(*ReceiveInterStoreTransferResponse)(nil), // 74: supply_chain.ReceiveInterStoreTransferResponse
-	(*GetInterStoreTransferRequest)(nil),      // 75: supply_chain.GetInterStoreTransferRequest
-	(*GetInterStoreTransferResponse)(nil),     // 76: supply_chain.GetInterStoreTransferResponse
-	(*ListInterStoreTransfersRequest)(nil),    // 77: supply_chain.ListInterStoreTransfersRequest
-	(*ListInterStoreTransfersResponse)(nil),   // 78: supply_chain.ListInterStoreTransfersResponse
-	(*CreateCreditNoteRequest)(nil),           // 79: supply_chain.CreateCreditNoteRequest
-	(*CreateCreditNoteResponse)(nil),          // 80: supply_chain.CreateCreditNoteResponse
-	(*ApproveCreditNoteRequest)(nil),          // 81: supply_chain.ApproveCreditNoteRequest
-	(*ApproveCreditNoteResponse)(nil),         // 82: supply_chain.ApproveCreditNoteResponse
-	(*GetCreditNoteRequest)(nil),              // 83: supply_chain.GetCreditNoteRequest
-	(*GetCreditNoteResponse)(nil),             // 84: supply_chain.GetCreditNoteResponse
-	(*ListCreditNotesRequest)(nil),            // 85: supply_chain.ListCreditNotesRequest
-	(*ListCreditNotesResponse)(nil),           // 86: supply_chain.ListCreditNotesResponse
+var file_proto_supply_chain_service_proto_msgTypes = make([]protoimpl.MessageInfo, 120)
+var file_proto_supply_chain_service_proto_goTypes = []any{
+	(*StockItem)(nil),                            // 0: supply_chain.StockItem
+	(*Store)(nil),                                // 1: supply_chain.Store
+	(*Supplier)(nil),                             // 2: supply_chain.Supplier
+	(*RequisitionItem)(nil),                      // 3: supply_chain.RequisitionItem
+	(*Requisition)(nil),                          // 4: supply_chain.Requisition
+	(*LPOItem)(nil),                              // 5: supply_chain.LPOItem
+	(*LocalPurchaseOrder)(nil),                   // 6: supply_chain.LocalPurchaseOrder
+	(*GoodsReceivedNote)(nil),                    // 7: supply_chain.GoodsReceivedNote
+	(*GoodsReceivedItem)(nil),                    // 8: supply_chain.GoodsReceivedItem
+	(*StockAdjustment)(nil),                      // 9: supply_chain.StockAdjustment
+	(*StockAdjustmentItem)(nil),                  // 10: supply_chain.StockAdjustmentItem
+	(*InterStoreTransfer)(nil),                   // 11: supply_chain.InterStoreTransfer
+	(*InterStoreTransferItem)(nil),               // 12: supply_chain.InterStoreTransferItem
+	(*CreditNote)(nil),                           // 13: supply_chain.CreditNote
+	(*CreditNoteItem)(nil),                       // 14: supply_chain.CreditNoteItem
+	(*PriceList)(nil),                            // 15: supply_chain.PriceList
+	(*PriceListItem)(nil),                        // 16: supply_chain.PriceListItem
+	(*MedicalScheme)(nil),                        // 17: supply_chain.MedicalScheme
+	(*ReduceStockItemRequest)(nil),               // 18: supply_chain.ReduceStockItemRequest
+	(*ReduceStockItemResponse)(nil),              // 19: supply_chain.ReduceStockItemResponse
+	(*CreateStockItemRequest)(nil),               // 20: supply_chain.CreateStockItemRequest
+	(*CreateStockItemResponse)(nil),              // 21: supply_chain.CreateStockItemResponse
+	(*GetStockItemRequest)(nil),                  // 22: supply_chain.GetStockItemRequest
+	(*GetStockItemResponse)(nil),                 // 23: supply_chain.GetStockItemResponse
+	(*UpdateStockItemRequest)(nil),               // 24: supply_chain.UpdateStockItemRequest
+	(*UpdateStockItemResponse)(nil),              // 25: supply_chain.UpdateStockItemResponse
+	(*ListStockItemsRequest)(nil),                // 26: supply_chain.ListStockItemsRequest
+	(*ListStockItemsResponse)(nil),               // 27: supply_chain.ListStockItemsResponse
+	(*GetStockLevelsRequest)(nil),                // 28: supply_chain.GetStockLevelsRequest
+	(*GetStockLevelsResponse)(nil),               // 29: supply_chain.GetStockLevelsResponse
+	(*GetExpiringItemsRequest)(nil),              // 30: supply_chain.GetExpiringItemsRequest
+	(*GetExpiringItemsResponse)(nil),             // 31: supply_chain.GetExpiringItemsResponse
+	(*GetItemsBelowReorderLevelRequest)(nil),     // 32: supply_chain.GetItemsBelowReorderLevelRequest
+	(*GetItemsBelowReorderLevelResponse)(nil),    // 33: supply_chain.GetItemsBelowReorderLevelResponse
+	(*CreateStoreRequest)(nil),                   // 34: supply_chain.CreateStoreRequest
+	(*CreateStoreResponse)(nil),                  // 35: supply_chain.CreateStoreResponse
+	(*ListStoresRequest)(nil),                    // 36: supply_chain.ListStoresRequest
+	(*ListStoresResponse)(nil),                   // 37: supply_chain.ListStoresResponse
+	(*CreateSupplierRequest)(nil),                // 38: supply_chain.CreateSupplierRequest
+	(*CreateSupplierResponse)(nil),               // 39: supply_chain.CreateSupplierResponse
+	(*ListSuppliersRequest)(nil),                 // 40: supply_chain.ListSuppliersRequest
+	(*ListSuppliersResponse)(nil),                // 41: supply_chain.ListSuppliersResponse
+	(*CreateRequisitionRequest)(nil),             // 42: supply_chain.CreateRequisitionRequest
+	(*CreateRequisitionResponse)(nil),            // 43: supply_chain.CreateRequisitionResponse
+	(*ApproveRequisitionRequest)(nil),            // 44: supply_chain.ApproveRequisitionRequest
+	(*ApproveRequisitionResponse)(nil),           // 45: supply_chain.ApproveRequisitionResponse
+	(*GetRequisitionRequest)(nil),                // 46: supply_chain.GetRequisitionRequest
+	(*GetRequisitionResponse)(nil),               // 47: supply_chain.GetRequisitionResponse
+	(*ListRequisitionsRequest)(nil),              // 48: supply_chain.ListRequisitionsRequest
+	(*ListRequisitionsResponse)(nil),             // 49: supply_chain.ListRequisitionsResponse
+	(*CreateLPORequest)(nil),                     // 50: supply_chain.CreateLPORequest
+	(*CreateLPOResponse)(nil),                    // 51: supply_chain.CreateLPOResponse
+	(*ApproveLPORequest)(nil),                    // 52: supply_chain.ApproveLPORequest
+	(*ApproveLPOResponse)(nil),                   // 53: supply_chain.ApproveLPOResponse
+	(*GetLPORequest)(nil),                        // 54: supply_chain.GetLPORequest
+	(*GetLPOResponse)(nil),                       // 55: supply_chain.GetLPOResponse
+	(*ListLPOsRequest)(nil),                      // 56: supply_chain.ListLPOsRequest
+	(*ListLPOsResponse)(nil),                     // 57: supply_chain.ListLPOsResponse
+	(*CreateGRNRequest)(nil),                     // 58: supply_chain.CreateGRNRequest
+	(*CreateGRNResponse)(nil),                    // 59: supply_chain.CreateGRNResponse
+	(*PerformQualityCheckRequest)(nil),           // 60: supply_chain.PerformQualityCheckRequest
+	(*PerformQualityCheckResponse)(nil),          // 61: supply_chain.PerformQualityCheckResponse
+	(*GetGRNRequest)(nil),                        // 62: supply_chain.GetGRNRequest
+	(*GetGRNResponse)(nil),                       // 63: supply_chain.GetGRNResponse
+	(*ListGRNsRequest)(nil),                      // 64: supply_chain.ListGRNsRequest
+	(*ListGRNsResponse)(nil),                     // 65: supply_chain.ListGRNsResponse
+	(*CreateStockAdjustmentRequest)(nil),         // 66: supply_chain.CreateStockAdjustmentRequest
+	(*CreateStockAdjustmentResponse)(nil),        // 67: supply_chain.CreateStockAdjustmentResponse
+	(*ApproveStockAdjustmentRequest)(nil),        // 68: supply_chain.ApproveStockAdjustmentRequest
+	(*ApproveStockAdjustmentResponse)(nil),       // 69: supply_chain.ApproveStockAdjustmentResponse
+	(*GetStockAdjustmentRequest)(nil),            // 70: supply_chain.GetStockAdjustmentRequest
+	(*GetStockAdjustmentResponse)(nil),           // 71: supply_chain.GetStockAdjustmentResponse
+	(*ListStockAdjustmentsRequest)(nil),          // 72: supply_chain.ListStockAdjustmentsRequest
+	(*ListStockAdjustmentsResponse)(nil),         // 73: supply_chain.ListStockAdjustmentsResponse
+	(*CreateInterStoreTransferRequest)(nil),      // 74: supply_chain.CreateInterStoreTransferRequest
+	(*CreateInterStoreTransferResponse)(nil),     // 75: supply_chain.CreateInterStoreTransferResponse
+	(*ApproveInterStoreTransferRequest)(nil),     // 76: supply_chain.ApproveInterStoreTransferRequest
+	(*ApproveInterStoreTransferResponse)(nil),    // 77: supply_chain.ApproveInterStoreTransferResponse
+	(*ReceiveInterStoreTransferRequest)(nil),     // 78: supply_chain.ReceiveInterStoreTransferRequest
+	(*ReceiveInterStoreTransferResponse)(nil),    // 79: supply_chain.ReceiveInterStoreTransferResponse
+	(*GetInterStoreTransferRequest)(nil),         // 80: supply_chain.GetInterStoreTransferRequest
+	(*GetInterStoreTransferResponse)(nil),        // 81: supply_chain.GetInterStoreTransferResponse
+	(*ListInterStoreTransfersRequest)(nil),       // 82: supply_chain.ListInterStoreTransfersRequest
+	(*ListInterStoreTransfersResponse)(nil),      // 83: supply_chain.ListInterStoreTransfersResponse
+	(*CreateCreditNoteRequest)(nil),              // 84: supply_chain.CreateCreditNoteRequest
+	(*CreateCreditNoteResponse)(nil),             // 85: supply_chain.CreateCreditNoteResponse
+	(*ApproveCreditNoteRequest)(nil),             // 86: supply_chain.ApproveCreditNoteRequest
+	(*ApproveCreditNoteResponse)(nil),            // 87: supply_chain.ApproveCreditNoteResponse
+	(*GetCreditNoteRequest)(nil),                 // 88: supply_chain.GetCreditNoteRequest
+	(*GetCreditNoteResponse)(nil),                // 89: supply_chain.GetCreditNoteResponse
+	(*ListCreditNotesRequest)(nil),               // 90: supply_chain.ListCreditNotesRequest
+	(*ListCreditNotesResponse)(nil),              // 91: supply_chain.ListCreditNotesResponse
+	(*CreatePriceListRequest)(nil),               // 92: supply_chain.CreatePriceListRequest
+	(*CreatePriceListResponse)(nil),              // 93: supply_chain.CreatePriceListResponse
+	(*GetPriceListRequest)(nil),                  // 94: supply_chain.GetPriceListRequest
+	(*GetPriceListResponse)(nil),                 // 95: supply_chain.GetPriceListResponse
+	(*UpdatePriceListRequest)(nil),               // 96: supply_chain.UpdatePriceListRequest
+	(*UpdatePriceListResponse)(nil),              // 97: supply_chain.UpdatePriceListResponse
+	(*ListPriceListsRequest)(nil),                // 98: supply_chain.ListPriceListsRequest
+	(*ListPriceListsResponse)(nil),               // 99: supply_chain.ListPriceListsResponse
+	(*CreatePriceListItemRequest)(nil),           // 100: supply_chain.CreatePriceListItemRequest
+	(*CreatePriceListItemResponse)(nil),          // 101: supply_chain.CreatePriceListItemResponse
+	(*GetPriceListItemRequest)(nil),              // 102: supply_chain.GetPriceListItemRequest
+	(*GetPriceListItemResponse)(nil),             // 103: supply_chain.GetPriceListItemResponse
+	(*UpdatePriceListItemRequest)(nil),           // 104: supply_chain.UpdatePriceListItemRequest
+	(*UpdatePriceListItemResponse)(nil),          // 105: supply_chain.UpdatePriceListItemResponse
+	(*DeletePriceListItemRequest)(nil),           // 106: supply_chain.DeletePriceListItemRequest
+	(*DeletePriceListItemResponse)(nil),          // 107: supply_chain.DeletePriceListItemResponse
+	(*ListPriceListItemsRequest)(nil),            // 108: supply_chain.ListPriceListItemsRequest
+	(*ListPriceListItemsResponse)(nil),           // 109: supply_chain.ListPriceListItemsResponse
+	(*GetPriceListItemsByPriceListRequest)(nil),  // 110: supply_chain.GetPriceListItemsByPriceListRequest
+	(*GetPriceListItemsByPriceListResponse)(nil), // 111: supply_chain.GetPriceListItemsByPriceListResponse
+	(*CreateMedicalSchemeRequest)(nil),           // 112: supply_chain.CreateMedicalSchemeRequest
+	(*CreateMedicalSchemeResponse)(nil),          // 113: supply_chain.CreateMedicalSchemeResponse
+	(*GetMedicalSchemeRequest)(nil),              // 114: supply_chain.GetMedicalSchemeRequest
+	(*GetMedicalSchemeResponse)(nil),             // 115: supply_chain.GetMedicalSchemeResponse
+	(*UpdateMedicalSchemeRequest)(nil),           // 116: supply_chain.UpdateMedicalSchemeRequest
+	(*UpdateMedicalSchemeResponse)(nil),          // 117: supply_chain.UpdateMedicalSchemeResponse
+	(*ListMedicalSchemesRequest)(nil),            // 118: supply_chain.ListMedicalSchemesRequest
+	(*ListMedicalSchemesResponse)(nil),           // 119: supply_chain.ListMedicalSchemesResponse
+	(*timestamppb.Timestamp)(nil),                // 120: google.protobuf.Timestamp
 }
-var file_supply_chain_service_proto_depIdxs = []int32{
-	3,  // 0: supply_chain.Requisition.items:type_name -> supply_chain.RequisitionItem
-	5,  // 1: supply_chain.LocalPurchaseOrder.items:type_name -> supply_chain.LPOItem
-	8,  // 2: supply_chain.GoodsReceivedNote.items:type_name -> supply_chain.GoodsReceivedItem
-	10, // 3: supply_chain.StockAdjustment.items:type_name -> supply_chain.StockAdjustmentItem
-	12, // 4: supply_chain.InterStoreTransfer.items:type_name -> supply_chain.InterStoreTransferItem
-	14, // 5: supply_chain.CreditNote.items:type_name -> supply_chain.CreditNoteItem
-	0,  // 6: supply_chain.CreateStockItemRequest.item:type_name -> supply_chain.StockItem
-	0,  // 7: supply_chain.GetStockItemResponse.item:type_name -> supply_chain.StockItem
-	0,  // 8: supply_chain.UpdateStockItemRequest.item:type_name -> supply_chain.StockItem
-	0,  // 9: supply_chain.ListStockItemsResponse.items:type_name -> supply_chain.StockItem
-	0,  // 10: supply_chain.GetStockLevelsResponse.items:type_name -> supply_chain.StockItem
-	8,  // 11: supply_chain.GetExpiringItemsResponse.items:type_name -> supply_chain.GoodsReceivedItem
-	0,  // 12: supply_chain.GetItemsBelowReorderLevelResponse.items:type_name -> supply_chain.StockItem
-	1,  // 13: supply_chain.CreateStoreRequest.store:type_name -> supply_chain.Store
-	1,  // 14: supply_chain.ListStoresResponse.stores:type_name -> supply_chain.Store
-	2,  // 15: supply_chain.CreateSupplierRequest.supplier:type_name -> supply_chain.Supplier
-	2,  // 16: supply_chain.ListSuppliersResponse.suppliers:type_name -> supply_chain.Supplier
-	4,  // 17: supply_chain.CreateRequisitionRequest.requisition:type_name -> supply_chain.Requisition
-	3,  // 18: supply_chain.ApproveRequisitionRequest.approved_items:type_name -> supply_chain.RequisitionItem
-	4,  // 19: supply_chain.GetRequisitionResponse.requisition:type_name -> supply_chain.Requisition
-	4,  // 20: supply_chain.ListRequisitionsResponse.requisitions:type_name -> supply_chain.Requisition
-	6,  // 21: supply_chain.CreateLPORequest.lpo:type_name -> supply_chain.LocalPurchaseOrder
-	6,  // 22: supply_chain.GetLPOResponse.lpo:type_name -> supply_chain.LocalPurchaseOrder
-	6,  // 23: supply_chain.ListLPOsResponse.lpos:type_name -> supply_chain.LocalPurchaseOrder
-	7,  // 24: supply_chain.CreateGRNRequest.grn:type_name -> supply_chain.GoodsReceivedNote
-	8,  // 25: supply_chain.PerformQualityCheckRequest.items:type_name -> supply_chain.GoodsReceivedItem
-	7,  // 26: supply_chain.GetGRNResponse.grn:type_name -> supply_chain.GoodsReceivedNote
-	7,  // 27: supply_chain.ListGRNsResponse.grns:type_name -> supply_chain.GoodsReceivedNote
-	9,  // 28: supply_chain.CreateStockAdjustmentRequest.adjustment:type_name -> supply_chain.StockAdjustment
-	9,  // 29: supply_chain.GetStockAdjustmentResponse.adjustment:type_name -> supply_chain.StockAdjustment
-	9,  // 30: supply_chain.ListStockAdjustmentsResponse.adjustments:type_name -> supply_chain.StockAdjustment
-	11, // 31: supply_chain.CreateInterStoreTransferRequest.transfer:type_name -> supply_chain.InterStoreTransfer
-	12, // 32: supply_chain.ReceiveInterStoreTransferRequest.received_items:type_name -> supply_chain.InterStoreTransferItem
-	11, // 33: supply_chain.GetInterStoreTransferResponse.transfer:type_name -> supply_chain.InterStoreTransfer
-	11, // 34: supply_chain.ListInterStoreTransfersResponse.transfers:type_name -> supply_chain.InterStoreTransfer
-	13, // 35: supply_chain.CreateCreditNoteRequest.credit_note:type_name -> supply_chain.CreditNote
-	13, // 36: supply_chain.GetCreditNoteResponse.credit_note:type_name -> supply_chain.CreditNote
-	13, // 37: supply_chain.ListCreditNotesResponse.credit_notes:type_name -> supply_chain.CreditNote
-	15, // 38: supply_chain.SupplyChainService.CreateStockItem:input_type -> supply_chain.CreateStockItemRequest
-	17, // 39: supply_chain.SupplyChainService.GetStockItem:input_type -> supply_chain.GetStockItemRequest
-	19, // 40: supply_chain.SupplyChainService.UpdateStockItem:input_type -> supply_chain.UpdateStockItemRequest
-	21, // 41: supply_chain.SupplyChainService.ListStockItems:input_type -> supply_chain.ListStockItemsRequest
-	23, // 42: supply_chain.SupplyChainService.GetStockLevels:input_type -> supply_chain.GetStockLevelsRequest
-	25, // 43: supply_chain.SupplyChainService.GetExpiringItems:input_type -> supply_chain.GetExpiringItemsRequest
-	27, // 44: supply_chain.SupplyChainService.GetItemsBelowReorderLevel:input_type -> supply_chain.GetItemsBelowReorderLevelRequest
-	29, // 45: supply_chain.SupplyChainService.CreateStore:input_type -> supply_chain.CreateStoreRequest
-	31, // 46: supply_chain.SupplyChainService.ListStores:input_type -> supply_chain.ListStoresRequest
-	33, // 47: supply_chain.SupplyChainService.CreateSupplier:input_type -> supply_chain.CreateSupplierRequest
-	35, // 48: supply_chain.SupplyChainService.ListSuppliers:input_type -> supply_chain.ListSuppliersRequest
-	37, // 49: supply_chain.SupplyChainService.CreateRequisition:input_type -> supply_chain.CreateRequisitionRequest
-	39, // 50: supply_chain.SupplyChainService.ApproveRequisition:input_type -> supply_chain.ApproveRequisitionRequest
-	41, // 51: supply_chain.SupplyChainService.GetRequisition:input_type -> supply_chain.GetRequisitionRequest
-	43, // 52: supply_chain.SupplyChainService.ListRequisitions:input_type -> supply_chain.ListRequisitionsRequest
-	45, // 53: supply_chain.SupplyChainService.CreateLPO:input_type -> supply_chain.CreateLPORequest
-	47, // 54: supply_chain.SupplyChainService.ApproveLPO:input_type -> supply_chain.ApproveLPORequest
-	49, // 55: supply_chain.SupplyChainService.GetLPO:input_type -> supply_chain.GetLPORequest
-	51, // 56: supply_chain.SupplyChainService.ListLPOs:input_type -> supply_chain.ListLPOsRequest
-	53, // 57: supply_chain.SupplyChainService.CreateGRN:input_type -> supply_chain.CreateGRNRequest
-	55, // 58: supply_chain.SupplyChainService.PerformQualityCheck:input_type -> supply_chain.PerformQualityCheckRequest
-	57, // 59: supply_chain.SupplyChainService.GetGRN:input_type -> supply_chain.GetGRNRequest
-	59, // 60: supply_chain.SupplyChainService.ListGRNs:input_type -> supply_chain.ListGRNsRequest
-	61, // 61: supply_chain.SupplyChainService.CreateStockAdjustment:input_type -> supply_chain.CreateStockAdjustmentRequest
-	67, // 62: supply_chain.SupplyChainService.ListStockAdjustments:input_type -> supply_chain.ListStockAdjustmentsRequest
-	63, // 63: supply_chain.SupplyChainService.ApproveStockAdjustment:input_type -> supply_chain.ApproveStockAdjustmentRequest
-	65, // 64: supply_chain.SupplyChainService.GetStockAdjustment:input_type -> supply_chain.GetStockAdjustmentRequest
-	69, // 65: supply_chain.SupplyChainService.CreateInterStoreTransfer:input_type -> supply_chain.CreateInterStoreTransferRequest
-	71, // 66: supply_chain.SupplyChainService.ApproveInterStoreTransfer:input_type -> supply_chain.ApproveInterStoreTransferRequest
-	73, // 67: supply_chain.SupplyChainService.ReceiveInterStoreTransfer:input_type -> supply_chain.ReceiveInterStoreTransferRequest
-	75, // 68: supply_chain.SupplyChainService.GetInterStoreTransfer:input_type -> supply_chain.GetInterStoreTransferRequest
-	77, // 69: supply_chain.SupplyChainService.ListInterStoreTransfers:input_type -> supply_chain.ListInterStoreTransfersRequest
-	79, // 70: supply_chain.SupplyChainService.CreateCreditNote:input_type -> supply_chain.CreateCreditNoteRequest
-	81, // 71: supply_chain.SupplyChainService.ApproveCreditNote:input_type -> supply_chain.ApproveCreditNoteRequest
-	83, // 72: supply_chain.SupplyChainService.GetCreditNote:input_type -> supply_chain.GetCreditNoteRequest
-	85, // 73: supply_chain.SupplyChainService.ListCreditNotes:input_type -> supply_chain.ListCreditNotesRequest
-	16, // 74: supply_chain.SupplyChainService.CreateStockItem:output_type -> supply_chain.CreateStockItemResponse
-	18, // 75: supply_chain.SupplyChainService.GetStockItem:output_type -> supply_chain.GetStockItemResponse
-	20, // 76: supply_chain.SupplyChainService.UpdateStockItem:output_type -> supply_chain.UpdateStockItemResponse
-	22, // 77: supply_chain.SupplyChainService.ListStockItems:output_type -> supply_chain.ListStockItemsResponse
-	24, // 78: supply_chain.SupplyChainService.GetStockLevels:output_type -> supply_chain.GetStockLevelsResponse
-	26, // 79: supply_chain.SupplyChainService.GetExpiringItems:output_type -> supply_chain.GetExpiringItemsResponse
-	28, // 80: supply_chain.SupplyChainService.GetItemsBelowReorderLevel:output_type -> supply_chain.GetItemsBelowReorderLevelResponse
-	30, // 81: supply_chain.SupplyChainService.CreateStore:output_type -> supply_chain.CreateStoreResponse
-	32, // 82: supply_chain.SupplyChainService.ListStores:output_type -> supply_chain.ListStoresResponse
-	34, // 83: supply_chain.SupplyChainService.CreateSupplier:output_type -> supply_chain.CreateSupplierResponse
-	36, // 84: supply_chain.SupplyChainService.ListSuppliers:output_type -> supply_chain.ListSuppliersResponse
-	38, // 85: supply_chain.SupplyChainService.CreateRequisition:output_type -> supply_chain.CreateRequisitionResponse
-	40, // 86: supply_chain.SupplyChainService.ApproveRequisition:output_type -> supply_chain.ApproveRequisitionResponse
-	42, // 87: supply_chain.SupplyChainService.GetRequisition:output_type -> supply_chain.GetRequisitionResponse
-	44, // 88: supply_chain.SupplyChainService.ListRequisitions:output_type -> supply_chain.ListRequisitionsResponse
-	46, // 89: supply_chain.SupplyChainService.CreateLPO:output_type -> supply_chain.CreateLPOResponse
-	48, // 90: supply_chain.SupplyChainService.ApproveLPO:output_type -> supply_chain.ApproveLPOResponse
-	50, // 91: supply_chain.SupplyChainService.GetLPO:output_type -> supply_chain.GetLPOResponse
-	52, // 92: supply_chain.SupplyChainService.ListLPOs:output_type -> supply_chain.ListLPOsResponse
-	54, // 93: supply_chain.SupplyChainService.CreateGRN:output_type -> supply_chain.CreateGRNResponse
-	56, // 94: supply_chain.SupplyChainService.PerformQualityCheck:output_type -> supply_chain.PerformQualityCheckResponse
-	58, // 95: supply_chain.SupplyChainService.GetGRN:output_type -> supply_chain.GetGRNResponse
-	60, // 96: supply_chain.SupplyChainService.ListGRNs:output_type -> supply_chain.ListGRNsResponse
-	62, // 97: supply_chain.SupplyChainService.CreateStockAdjustment:output_type -> supply_chain.CreateStockAdjustmentResponse
-	68, // 98: supply_chain.SupplyChainService.ListStockAdjustments:output_type -> supply_chain.ListStockAdjustmentsResponse
-	64, // 99: supply_chain.SupplyChainService.ApproveStockAdjustment:output_type -> supply_chain.ApproveStockAdjustmentResponse
-	66, // 100: supply_chain.SupplyChainService.GetStockAdjustment:output_type -> supply_chain.GetStockAdjustmentResponse
-	70, // 101: supply_chain.SupplyChainService.CreateInterStoreTransfer:output_type -> supply_chain.CreateInterStoreTransferResponse
-	72, // 102: supply_chain.SupplyChainService.ApproveInterStoreTransfer:output_type -> supply_chain.ApproveInterStoreTransferResponse
-	74, // 103: supply_chain.SupplyChainService.ReceiveInterStoreTransfer:output_type -> supply_chain.ReceiveInterStoreTransferResponse
-	76, // 104: supply_chain.SupplyChainService.GetInterStoreTransfer:output_type -> supply_chain.GetInterStoreTransferResponse
-	78, // 105: supply_chain.SupplyChainService.ListInterStoreTransfers:output_type -> supply_chain.ListInterStoreTransfersResponse
-	80, // 106: supply_chain.SupplyChainService.CreateCreditNote:output_type -> supply_chain.CreateCreditNoteResponse
-	82, // 107: supply_chain.SupplyChainService.ApproveCreditNote:output_type -> supply_chain.ApproveCreditNoteResponse
-	84, // 108: supply_chain.SupplyChainService.GetCreditNote:output_type -> supply_chain.GetCreditNoteResponse
-	86, // 109: supply_chain.SupplyChainService.ListCreditNotes:output_type -> supply_chain.ListCreditNotesResponse
-	74, // [74:110] is the sub-list for method output_type
-	38, // [38:74] is the sub-list for method input_type
-	38, // [38:38] is the sub-list for extension type_name
-	38, // [38:38] is the sub-list for extension extendee
-	0,  // [0:38] is the sub-list for field type_name
+var file_proto_supply_chain_service_proto_depIdxs = []int32{
+	3,   // 0: supply_chain.Requisition.items:type_name -> supply_chain.RequisitionItem
+	5,   // 1: supply_chain.LocalPurchaseOrder.items:type_name -> supply_chain.LPOItem
+	8,   // 2: supply_chain.GoodsReceivedNote.items:type_name -> supply_chain.GoodsReceivedItem
+	10,  // 3: supply_chain.StockAdjustment.items:type_name -> supply_chain.StockAdjustmentItem
+	12,  // 4: supply_chain.InterStoreTransfer.items:type_name -> supply_chain.InterStoreTransferItem
+	14,  // 5: supply_chain.CreditNote.items:type_name -> supply_chain.CreditNoteItem
+	120, // 6: supply_chain.PriceList.created_at:type_name -> google.protobuf.Timestamp
+	120, // 7: supply_chain.PriceListItem.valid_from:type_name -> google.protobuf.Timestamp
+	120, // 8: supply_chain.PriceListItem.valid_to:type_name -> google.protobuf.Timestamp
+	0,   // 9: supply_chain.CreateStockItemRequest.item:type_name -> supply_chain.StockItem
+	0,   // 10: supply_chain.GetStockItemResponse.item:type_name -> supply_chain.StockItem
+	0,   // 11: supply_chain.UpdateStockItemRequest.item:type_name -> supply_chain.StockItem
+	0,   // 12: supply_chain.ListStockItemsResponse.items:type_name -> supply_chain.StockItem
+	0,   // 13: supply_chain.GetStockLevelsResponse.items:type_name -> supply_chain.StockItem
+	8,   // 14: supply_chain.GetExpiringItemsResponse.items:type_name -> supply_chain.GoodsReceivedItem
+	0,   // 15: supply_chain.GetItemsBelowReorderLevelResponse.items:type_name -> supply_chain.StockItem
+	1,   // 16: supply_chain.CreateStoreRequest.store:type_name -> supply_chain.Store
+	1,   // 17: supply_chain.ListStoresResponse.stores:type_name -> supply_chain.Store
+	2,   // 18: supply_chain.CreateSupplierRequest.supplier:type_name -> supply_chain.Supplier
+	2,   // 19: supply_chain.ListSuppliersResponse.suppliers:type_name -> supply_chain.Supplier
+	4,   // 20: supply_chain.CreateRequisitionRequest.requisition:type_name -> supply_chain.Requisition
+	3,   // 21: supply_chain.ApproveRequisitionRequest.approved_items:type_name -> supply_chain.RequisitionItem
+	4,   // 22: supply_chain.GetRequisitionResponse.requisition:type_name -> supply_chain.Requisition
+	4,   // 23: supply_chain.ListRequisitionsResponse.requisitions:type_name -> supply_chain.Requisition
+	6,   // 24: supply_chain.CreateLPORequest.lpo:type_name -> supply_chain.LocalPurchaseOrder
+	6,   // 25: supply_chain.GetLPOResponse.lpo:type_name -> supply_chain.LocalPurchaseOrder
+	6,   // 26: supply_chain.ListLPOsResponse.lpos:type_name -> supply_chain.LocalPurchaseOrder
+	7,   // 27: supply_chain.CreateGRNRequest.grn:type_name -> supply_chain.GoodsReceivedNote
+	8,   // 28: supply_chain.PerformQualityCheckRequest.items:type_name -> supply_chain.GoodsReceivedItem
+	7,   // 29: supply_chain.GetGRNResponse.grn:type_name -> supply_chain.GoodsReceivedNote
+	7,   // 30: supply_chain.ListGRNsResponse.grns:type_name -> supply_chain.GoodsReceivedNote
+	9,   // 31: supply_chain.CreateStockAdjustmentRequest.adjustment:type_name -> supply_chain.StockAdjustment
+	9,   // 32: supply_chain.GetStockAdjustmentResponse.adjustment:type_name -> supply_chain.StockAdjustment
+	9,   // 33: supply_chain.ListStockAdjustmentsResponse.adjustments:type_name -> supply_chain.StockAdjustment
+	11,  // 34: supply_chain.CreateInterStoreTransferRequest.transfer:type_name -> supply_chain.InterStoreTransfer
+	12,  // 35: supply_chain.ReceiveInterStoreTransferRequest.received_items:type_name -> supply_chain.InterStoreTransferItem
+	11,  // 36: supply_chain.GetInterStoreTransferResponse.transfer:type_name -> supply_chain.InterStoreTransfer
+	11,  // 37: supply_chain.ListInterStoreTransfersResponse.transfers:type_name -> supply_chain.InterStoreTransfer
+	13,  // 38: supply_chain.CreateCreditNoteRequest.credit_note:type_name -> supply_chain.CreditNote
+	13,  // 39: supply_chain.GetCreditNoteResponse.credit_note:type_name -> supply_chain.CreditNote
+	13,  // 40: supply_chain.ListCreditNotesResponse.credit_notes:type_name -> supply_chain.CreditNote
+	15,  // 41: supply_chain.GetPriceListResponse.price_list:type_name -> supply_chain.PriceList
+	15,  // 42: supply_chain.ListPriceListsResponse.price_lists:type_name -> supply_chain.PriceList
+	120, // 43: supply_chain.CreatePriceListItemRequest.valid_from:type_name -> google.protobuf.Timestamp
+	120, // 44: supply_chain.CreatePriceListItemRequest.valid_to:type_name -> google.protobuf.Timestamp
+	16,  // 45: supply_chain.GetPriceListItemResponse.price_list_item:type_name -> supply_chain.PriceListItem
+	120, // 46: supply_chain.UpdatePriceListItemRequest.valid_from:type_name -> google.protobuf.Timestamp
+	120, // 47: supply_chain.UpdatePriceListItemRequest.valid_to:type_name -> google.protobuf.Timestamp
+	16,  // 48: supply_chain.ListPriceListItemsResponse.price_list_items:type_name -> supply_chain.PriceListItem
+	16,  // 49: supply_chain.GetPriceListItemsByPriceListResponse.price_list_items:type_name -> supply_chain.PriceListItem
+	17,  // 50: supply_chain.GetMedicalSchemeResponse.medical_scheme:type_name -> supply_chain.MedicalScheme
+	17,  // 51: supply_chain.ListMedicalSchemesResponse.medical_schemes:type_name -> supply_chain.MedicalScheme
+	20,  // 52: supply_chain.SupplyChainService.CreateStockItem:input_type -> supply_chain.CreateStockItemRequest
+	22,  // 53: supply_chain.SupplyChainService.GetStockItem:input_type -> supply_chain.GetStockItemRequest
+	24,  // 54: supply_chain.SupplyChainService.UpdateStockItem:input_type -> supply_chain.UpdateStockItemRequest
+	26,  // 55: supply_chain.SupplyChainService.ListStockItems:input_type -> supply_chain.ListStockItemsRequest
+	28,  // 56: supply_chain.SupplyChainService.GetStockLevels:input_type -> supply_chain.GetStockLevelsRequest
+	30,  // 57: supply_chain.SupplyChainService.GetExpiringItems:input_type -> supply_chain.GetExpiringItemsRequest
+	32,  // 58: supply_chain.SupplyChainService.GetItemsBelowReorderLevel:input_type -> supply_chain.GetItemsBelowReorderLevelRequest
+	34,  // 59: supply_chain.SupplyChainService.CreateStore:input_type -> supply_chain.CreateStoreRequest
+	36,  // 60: supply_chain.SupplyChainService.ListStores:input_type -> supply_chain.ListStoresRequest
+	38,  // 61: supply_chain.SupplyChainService.CreateSupplier:input_type -> supply_chain.CreateSupplierRequest
+	40,  // 62: supply_chain.SupplyChainService.ListSuppliers:input_type -> supply_chain.ListSuppliersRequest
+	42,  // 63: supply_chain.SupplyChainService.CreateRequisition:input_type -> supply_chain.CreateRequisitionRequest
+	44,  // 64: supply_chain.SupplyChainService.ApproveRequisition:input_type -> supply_chain.ApproveRequisitionRequest
+	46,  // 65: supply_chain.SupplyChainService.GetRequisition:input_type -> supply_chain.GetRequisitionRequest
+	48,  // 66: supply_chain.SupplyChainService.ListRequisitions:input_type -> supply_chain.ListRequisitionsRequest
+	50,  // 67: supply_chain.SupplyChainService.CreateLPO:input_type -> supply_chain.CreateLPORequest
+	52,  // 68: supply_chain.SupplyChainService.ApproveLPO:input_type -> supply_chain.ApproveLPORequest
+	54,  // 69: supply_chain.SupplyChainService.GetLPO:input_type -> supply_chain.GetLPORequest
+	56,  // 70: supply_chain.SupplyChainService.ListLPOs:input_type -> supply_chain.ListLPOsRequest
+	58,  // 71: supply_chain.SupplyChainService.CreateGRN:input_type -> supply_chain.CreateGRNRequest
+	60,  // 72: supply_chain.SupplyChainService.PerformQualityCheck:input_type -> supply_chain.PerformQualityCheckRequest
+	62,  // 73: supply_chain.SupplyChainService.GetGRN:input_type -> supply_chain.GetGRNRequest
+	64,  // 74: supply_chain.SupplyChainService.ListGRNs:input_type -> supply_chain.ListGRNsRequest
+	66,  // 75: supply_chain.SupplyChainService.CreateStockAdjustment:input_type -> supply_chain.CreateStockAdjustmentRequest
+	72,  // 76: supply_chain.SupplyChainService.ListStockAdjustments:input_type -> supply_chain.ListStockAdjustmentsRequest
+	68,  // 77: supply_chain.SupplyChainService.ApproveStockAdjustment:input_type -> supply_chain.ApproveStockAdjustmentRequest
+	70,  // 78: supply_chain.SupplyChainService.GetStockAdjustment:input_type -> supply_chain.GetStockAdjustmentRequest
+	74,  // 79: supply_chain.SupplyChainService.CreateInterStoreTransfer:input_type -> supply_chain.CreateInterStoreTransferRequest
+	76,  // 80: supply_chain.SupplyChainService.ApproveInterStoreTransfer:input_type -> supply_chain.ApproveInterStoreTransferRequest
+	78,  // 81: supply_chain.SupplyChainService.ReceiveInterStoreTransfer:input_type -> supply_chain.ReceiveInterStoreTransferRequest
+	80,  // 82: supply_chain.SupplyChainService.GetInterStoreTransfer:input_type -> supply_chain.GetInterStoreTransferRequest
+	82,  // 83: supply_chain.SupplyChainService.ListInterStoreTransfers:input_type -> supply_chain.ListInterStoreTransfersRequest
+	84,  // 84: supply_chain.SupplyChainService.CreateCreditNote:input_type -> supply_chain.CreateCreditNoteRequest
+	86,  // 85: supply_chain.SupplyChainService.ApproveCreditNote:input_type -> supply_chain.ApproveCreditNoteRequest
+	88,  // 86: supply_chain.SupplyChainService.GetCreditNote:input_type -> supply_chain.GetCreditNoteRequest
+	90,  // 87: supply_chain.SupplyChainService.ListCreditNotes:input_type -> supply_chain.ListCreditNotesRequest
+	92,  // 88: supply_chain.SupplyChainService.CreatePriceList:input_type -> supply_chain.CreatePriceListRequest
+	94,  // 89: supply_chain.SupplyChainService.GetPriceList:input_type -> supply_chain.GetPriceListRequest
+	96,  // 90: supply_chain.SupplyChainService.UpdatePriceList:input_type -> supply_chain.UpdatePriceListRequest
+	98,  // 91: supply_chain.SupplyChainService.ListPriceLists:input_type -> supply_chain.ListPriceListsRequest
+	100, // 92: supply_chain.SupplyChainService.CreatePriceListItem:input_type -> supply_chain.CreatePriceListItemRequest
+	102, // 93: supply_chain.SupplyChainService.GetPriceListItem:input_type -> supply_chain.GetPriceListItemRequest
+	104, // 94: supply_chain.SupplyChainService.UpdatePriceListItem:input_type -> supply_chain.UpdatePriceListItemRequest
+	106, // 95: supply_chain.SupplyChainService.DeletePriceListItem:input_type -> supply_chain.DeletePriceListItemRequest
+	108, // 96: supply_chain.SupplyChainService.ListPriceListItems:input_type -> supply_chain.ListPriceListItemsRequest
+	110, // 97: supply_chain.SupplyChainService.GetPriceListItemsByPriceList:input_type -> supply_chain.GetPriceListItemsByPriceListRequest
+	112, // 98: supply_chain.SupplyChainService.CreateMedicalScheme:input_type -> supply_chain.CreateMedicalSchemeRequest
+	114, // 99: supply_chain.SupplyChainService.GetMedicalScheme:input_type -> supply_chain.GetMedicalSchemeRequest
+	116, // 100: supply_chain.SupplyChainService.UpdateMedicalScheme:input_type -> supply_chain.UpdateMedicalSchemeRequest
+	118, // 101: supply_chain.SupplyChainService.ListMedicalSchemes:input_type -> supply_chain.ListMedicalSchemesRequest
+	21,  // 102: supply_chain.SupplyChainService.CreateStockItem:output_type -> supply_chain.CreateStockItemResponse
+	23,  // 103: supply_chain.SupplyChainService.GetStockItem:output_type -> supply_chain.GetStockItemResponse
+	25,  // 104: supply_chain.SupplyChainService.UpdateStockItem:output_type -> supply_chain.UpdateStockItemResponse
+	27,  // 105: supply_chain.SupplyChainService.ListStockItems:output_type -> supply_chain.ListStockItemsResponse
+	29,  // 106: supply_chain.SupplyChainService.GetStockLevels:output_type -> supply_chain.GetStockLevelsResponse
+	31,  // 107: supply_chain.SupplyChainService.GetExpiringItems:output_type -> supply_chain.GetExpiringItemsResponse
+	33,  // 108: supply_chain.SupplyChainService.GetItemsBelowReorderLevel:output_type -> supply_chain.GetItemsBelowReorderLevelResponse
+	35,  // 109: supply_chain.SupplyChainService.CreateStore:output_type -> supply_chain.CreateStoreResponse
+	37,  // 110: supply_chain.SupplyChainService.ListStores:output_type -> supply_chain.ListStoresResponse
+	39,  // 111: supply_chain.SupplyChainService.CreateSupplier:output_type -> supply_chain.CreateSupplierResponse
+	41,  // 112: supply_chain.SupplyChainService.ListSuppliers:output_type -> supply_chain.ListSuppliersResponse
+	43,  // 113: supply_chain.SupplyChainService.CreateRequisition:output_type -> supply_chain.CreateRequisitionResponse
+	45,  // 114: supply_chain.SupplyChainService.ApproveRequisition:output_type -> supply_chain.ApproveRequisitionResponse
+	47,  // 115: supply_chain.SupplyChainService.GetRequisition:output_type -> supply_chain.GetRequisitionResponse
+	49,  // 116: supply_chain.SupplyChainService.ListRequisitions:output_type -> supply_chain.ListRequisitionsResponse
+	51,  // 117: supply_chain.SupplyChainService.CreateLPO:output_type -> supply_chain.CreateLPOResponse
+	53,  // 118: supply_chain.SupplyChainService.ApproveLPO:output_type -> supply_chain.ApproveLPOResponse
+	55,  // 119: supply_chain.SupplyChainService.GetLPO:output_type -> supply_chain.GetLPOResponse
+	57,  // 120: supply_chain.SupplyChainService.ListLPOs:output_type -> supply_chain.ListLPOsResponse
+	59,  // 121: supply_chain.SupplyChainService.CreateGRN:output_type -> supply_chain.CreateGRNResponse
+	61,  // 122: supply_chain.SupplyChainService.PerformQualityCheck:output_type -> supply_chain.PerformQualityCheckResponse
+	63,  // 123: supply_chain.SupplyChainService.GetGRN:output_type -> supply_chain.GetGRNResponse
+	65,  // 124: supply_chain.SupplyChainService.ListGRNs:output_type -> supply_chain.ListGRNsResponse
+	67,  // 125: supply_chain.SupplyChainService.CreateStockAdjustment:output_type -> supply_chain.CreateStockAdjustmentResponse
+	73,  // 126: supply_chain.SupplyChainService.ListStockAdjustments:output_type -> supply_chain.ListStockAdjustmentsResponse
+	69,  // 127: supply_chain.SupplyChainService.ApproveStockAdjustment:output_type -> supply_chain.ApproveStockAdjustmentResponse
+	71,  // 128: supply_chain.SupplyChainService.GetStockAdjustment:output_type -> supply_chain.GetStockAdjustmentResponse
+	75,  // 129: supply_chain.SupplyChainService.CreateInterStoreTransfer:output_type -> supply_chain.CreateInterStoreTransferResponse
+	77,  // 130: supply_chain.SupplyChainService.ApproveInterStoreTransfer:output_type -> supply_chain.ApproveInterStoreTransferResponse
+	79,  // 131: supply_chain.SupplyChainService.ReceiveInterStoreTransfer:output_type -> supply_chain.ReceiveInterStoreTransferResponse
+	81,  // 132: supply_chain.SupplyChainService.GetInterStoreTransfer:output_type -> supply_chain.GetInterStoreTransferResponse
+	83,  // 133: supply_chain.SupplyChainService.ListInterStoreTransfers:output_type -> supply_chain.ListInterStoreTransfersResponse
+	85,  // 134: supply_chain.SupplyChainService.CreateCreditNote:output_type -> supply_chain.CreateCreditNoteResponse
+	87,  // 135: supply_chain.SupplyChainService.ApproveCreditNote:output_type -> supply_chain.ApproveCreditNoteResponse
+	89,  // 136: supply_chain.SupplyChainService.GetCreditNote:output_type -> supply_chain.GetCreditNoteResponse
+	91,  // 137: supply_chain.SupplyChainService.ListCreditNotes:output_type -> supply_chain.ListCreditNotesResponse
+	93,  // 138: supply_chain.SupplyChainService.CreatePriceList:output_type -> supply_chain.CreatePriceListResponse
+	95,  // 139: supply_chain.SupplyChainService.GetPriceList:output_type -> supply_chain.GetPriceListResponse
+	97,  // 140: supply_chain.SupplyChainService.UpdatePriceList:output_type -> supply_chain.UpdatePriceListResponse
+	99,  // 141: supply_chain.SupplyChainService.ListPriceLists:output_type -> supply_chain.ListPriceListsResponse
+	101, // 142: supply_chain.SupplyChainService.CreatePriceListItem:output_type -> supply_chain.CreatePriceListItemResponse
+	103, // 143: supply_chain.SupplyChainService.GetPriceListItem:output_type -> supply_chain.GetPriceListItemResponse
+	105, // 144: supply_chain.SupplyChainService.UpdatePriceListItem:output_type -> supply_chain.UpdatePriceListItemResponse
+	107, // 145: supply_chain.SupplyChainService.DeletePriceListItem:output_type -> supply_chain.DeletePriceListItemResponse
+	109, // 146: supply_chain.SupplyChainService.ListPriceListItems:output_type -> supply_chain.ListPriceListItemsResponse
+	111, // 147: supply_chain.SupplyChainService.GetPriceListItemsByPriceList:output_type -> supply_chain.GetPriceListItemsByPriceListResponse
+	113, // 148: supply_chain.SupplyChainService.CreateMedicalScheme:output_type -> supply_chain.CreateMedicalSchemeResponse
+	115, // 149: supply_chain.SupplyChainService.GetMedicalScheme:output_type -> supply_chain.GetMedicalSchemeResponse
+	117, // 150: supply_chain.SupplyChainService.UpdateMedicalScheme:output_type -> supply_chain.UpdateMedicalSchemeResponse
+	119, // 151: supply_chain.SupplyChainService.ListMedicalSchemes:output_type -> supply_chain.ListMedicalSchemesResponse
+	102, // [102:152] is the sub-list for method output_type
+	52,  // [52:102] is the sub-list for method input_type
+	52,  // [52:52] is the sub-list for extension type_name
+	52,  // [52:52] is the sub-list for extension extendee
+	0,   // [0:52] is the sub-list for field type_name
 }
 
-func init() { file_supply_chain_service_proto_init() }
-func file_supply_chain_service_proto_init() {
-	if File_supply_chain_service_proto != nil {
+func init() { file_proto_supply_chain_service_proto_init() }
+func file_proto_supply_chain_service_proto_init() {
+	if File_proto_supply_chain_service_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_supply_chain_service_proto_rawDesc), len(file_supply_chain_service_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_supply_chain_service_proto_rawDesc), len(file_proto_supply_chain_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   87,
+			NumMessages:   120,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_supply_chain_service_proto_goTypes,
-		DependencyIndexes: file_supply_chain_service_proto_depIdxs,
-		MessageInfos:      file_supply_chain_service_proto_msgTypes,
+		GoTypes:           file_proto_supply_chain_service_proto_goTypes,
+		DependencyIndexes: file_proto_supply_chain_service_proto_depIdxs,
+		MessageInfos:      file_proto_supply_chain_service_proto_msgTypes,
 	}.Build()
-	File_supply_chain_service_proto = out.File
-	file_supply_chain_service_proto_goTypes = nil
-	file_supply_chain_service_proto_depIdxs = nil
+	File_proto_supply_chain_service_proto = out.File
+	file_proto_supply_chain_service_proto_goTypes = nil
+	file_proto_supply_chain_service_proto_depIdxs = nil
 }

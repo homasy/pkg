@@ -5,6 +5,7 @@ syntax = "proto3";
 package pharmacy_service;
 
 import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "./shared/pharmacy-service/proto";
 
@@ -388,6 +389,65 @@ rpc UpdateStockRequestItem(UpdateStockRequestItemRequest) returns (UpdateStockRe
   rpc GetTimeSlotMedications(GetTimeSlotMedicationsRequest) returns (GetTimeSlotMedicationsResponse) {
     option (google.api.http) = {
       get: "/v1/patients/{patient_id}/time_slots/{time_slot}/medications"
+    };
+  }
+
+  // Medication Pricing Endpoints
+  rpc CreateMedicationPricing(CreateMedicationPricingRequest) returns (CreateMedicationPricingResponse) {
+    option (google.api.http) = {
+      post: "/v1/medication_pricing"
+      body: "*"
+    };
+  }
+
+  rpc GetMedicationPricing(GetMedicationPricingRequest) returns (GetMedicationPricingResponse) {
+    option (google.api.http) = {
+      get: "/v1/medication_pricing/{id}"
+    };
+  }
+
+  rpc UpdateMedicationPricing(UpdateMedicationPricingRequest) returns (UpdateMedicationPricingResponse) {
+    option (google.api.http) = {
+      put: "/v1/medication_pricing/{id}"
+      body: "*"
+    };
+  }
+
+  rpc DeleteMedicationPricing(DeleteMedicationPricingRequest) returns (DeleteMedicationPricingResponse) {
+    option (google.api.http) = {
+      delete: "/v1/medication_pricing/{id}"
+    };
+  }
+
+  rpc ListMedicationPricings(ListMedicationPricingsRequest) returns (ListMedicationPricingsResponse) {
+    option (google.api.http) = {
+      get: "/v1/medication_pricing"
+    };
+  }
+
+  rpc GetMedicationPricingByScheme(GetMedicationPricingBySchemeRequest) returns (GetMedicationPricingBySchemeResponse) {
+    option (google.api.http) = {
+      get: "/v1/medications/{medication_id}/pricing/scheme/{medical_scheme_id}"
+    };
+  }
+
+  // POS Sale Endpoints
+  rpc CreatePOSSale(CreatePOSSaleRequest) returns (CreatePOSSaleResponse) {
+    option (google.api.http) = {
+      post: "/v1/pharmacy/pos/sale"
+      body: "*"
+    };
+  }
+
+  rpc GetPOSSale(GetPOSSaleRequest) returns (GetPOSSaleResponse) {
+    option (google.api.http) = {
+      get: "/v1/pharmacy/pos/sale/{sale_id}"
+    };
+  }
+
+  rpc ListPOSSales(ListPOSSalesRequest) returns (ListPOSSalesResponse) {
+    option (google.api.http) = {
+      get: "/v1/pharmacy/pos/sales"
     };
   }
 
@@ -1098,4 +1158,164 @@ message GetTimeSlotMedicationsRequest {
 
 message GetTimeSlotMedicationsResponse {
   repeated TimeSlotMedication medications = 1;
+}
+
+message MedicationPricing {
+    int32 id = 1;
+    int32 medication_id = 2;
+    int32 medical_scheme_id = 3;
+    int32 price_list_id = 4;
+    double selling_price = 5;
+    google.protobuf.Timestamp valid_from = 6;
+    google.protobuf.Timestamp valid_to = 7;
+}
+
+message DispenseMedicationRequest {
+    int32 prescription_id = 1;
+    int32 medication_id = 2;
+    int32 quantity = 3;
+    int32 medical_scheme_id = 4;
+    int32 dispensed_by = 5; // staff ID
+}
+
+message DispenseMedicationResponse {
+    bool success = 1;
+    string message = 2;
+    double total_price = 3;
+    string transaction_id = 4;
+}
+
+// Medication Pricing Request and Response messages
+message CreateMedicationPricingRequest {
+    int32 medication_id = 1;
+    int32 medical_scheme_id = 2;
+    int32 price_list_id = 3;
+    double selling_price = 4;
+    google.protobuf.Timestamp valid_from = 5;
+    google.protobuf.Timestamp valid_to = 6;
+}
+
+message CreateMedicationPricingResponse {
+    int32 id = 1;
+    string message = 2;
+}
+
+message GetMedicationPricingRequest {
+    int32 id = 1;
+}
+
+message GetMedicationPricingResponse {
+    MedicationPricing medication_pricing = 1;
+}
+
+message UpdateMedicationPricingRequest {
+    int32 id = 1;
+    int32 medication_id = 2;
+    int32 medical_scheme_id = 3;
+    int32 price_list_id = 4;
+    double selling_price = 5;
+    google.protobuf.Timestamp valid_from = 6;
+    google.protobuf.Timestamp valid_to = 7;
+}
+
+message UpdateMedicationPricingResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message DeleteMedicationPricingRequest {
+    int32 id = 1;
+}
+
+message DeleteMedicationPricingResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message ListMedicationPricingsRequest {
+    int32 medication_id = 1;
+    int32 medical_scheme_id = 2;
+    int32 price_list_id = 3;
+}
+
+message ListMedicationPricingsResponse {
+    repeated MedicationPricing medication_pricings = 1;
+}
+
+message GetMedicationPricingBySchemeRequest {
+    int32 medication_id = 1;
+    int32 medical_scheme_id = 2;
+}
+
+message GetMedicationPricingBySchemeResponse {
+    MedicationPricing medication_pricing = 1;
+}
+
+// POS Sale Messages
+message POSSaleItem {
+    int32 medication_id = 1;
+    string medication_name = 2;
+    int32 quantity = 3;
+    double unit_price = 4;
+    double discount_percentage = 5;
+    double item_total = 6;
+}
+
+message CreatePOSSaleRequest {
+    string patient_id = 1; // Optional - empty for walk-in customers
+    int32 medical_scheme_id = 2; // 0 for cash patients
+    int32 cashier_id = 3;
+    int32 store_id = 4;
+    repeated POSSaleItem items = 5;
+    double subtotal = 6;
+    double invoice_discount_percentage = 7;
+    double vat_amount = 8;
+    double total_amount = 9;
+    double paid_amount = 10;
+    string payment_method = 11; // "cash", "bank", "mobile"
+    string customer_name = 12; // For walk-in customers
+    string customer_phone = 13; // Optional
+}
+
+message CreatePOSSaleResponse {
+    string sale_id = 1;
+    string invoice_id = 2;
+    string receipt_number = 3;
+    double change_amount = 4;
+    string message = 5;
+}
+
+message GetPOSSaleRequest {
+    string sale_id = 1;
+}
+
+message GetPOSSaleResponse {
+    string sale_id = 1;
+    string patient_id = 2;
+    string customer_name = 3;
+    int32 cashier_id = 4;
+    string cashier_name = 5;
+    int32 store_id = 6;
+    string store_name = 7;
+    repeated POSSaleItem items = 8;
+    double subtotal = 9;
+    double total_discount = 10;
+    double vat_amount = 11;
+    double total_amount = 12;
+    double paid_amount = 13;
+    string payment_method = 14;
+    string sale_date = 15;
+    string receipt_number = 16;
+}
+
+message ListPOSSalesRequest {
+    string start_date = 1;
+    string end_date = 2;
+    int32 cashier_id = 3;
+}
+
+message ListPOSSalesResponse {
+    repeated GetPOSSaleResponse sales = 1;
+    double total_sales_amount = 2;
+    int32 total_sales_count = 3;
 }

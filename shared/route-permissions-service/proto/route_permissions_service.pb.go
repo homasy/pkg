@@ -4,7 +4,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v5.29.0--rc1
-// source: permissions.proto
+// source: proto/route_permissions_service.proto
 
 package proto
 
@@ -35,7 +35,7 @@ type CheckPermissionRequest struct {
 
 func (x *CheckPermissionRequest) Reset() {
 	*x = CheckPermissionRequest{}
-	mi := &file_permissions_proto_msgTypes[0]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -47,7 +47,7 @@ func (x *CheckPermissionRequest) String() string {
 func (*CheckPermissionRequest) ProtoMessage() {}
 
 func (x *CheckPermissionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_proto_msgTypes[0]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,7 +60,7 @@ func (x *CheckPermissionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckPermissionRequest.ProtoReflect.Descriptor instead.
 func (*CheckPermissionRequest) Descriptor() ([]byte, []int) {
-	return file_permissions_proto_rawDescGZIP(), []int{0}
+	return file_proto_route_permissions_service_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *CheckPermissionRequest) GetRoute() string {
@@ -93,7 +93,7 @@ type CheckPermissionResponse struct {
 
 func (x *CheckPermissionResponse) Reset() {
 	*x = CheckPermissionResponse{}
-	mi := &file_permissions_proto_msgTypes[1]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -105,7 +105,7 @@ func (x *CheckPermissionResponse) String() string {
 func (*CheckPermissionResponse) ProtoMessage() {}
 
 func (x *CheckPermissionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_proto_msgTypes[1]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -118,7 +118,7 @@ func (x *CheckPermissionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckPermissionResponse.ProtoReflect.Descriptor instead.
 func (*CheckPermissionResponse) Descriptor() ([]byte, []int) {
-	return file_permissions_proto_rawDescGZIP(), []int{1}
+	return file_proto_route_permissions_service_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CheckPermissionResponse) GetHasPermission() bool {
@@ -139,7 +139,7 @@ type RoutePermission struct {
 
 func (x *RoutePermission) Reset() {
 	*x = RoutePermission{}
-	mi := &file_permissions_proto_msgTypes[2]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -151,7 +151,7 @@ func (x *RoutePermission) String() string {
 func (*RoutePermission) ProtoMessage() {}
 
 func (x *RoutePermission) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_proto_msgTypes[2]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -164,7 +164,7 @@ func (x *RoutePermission) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RoutePermission.ProtoReflect.Descriptor instead.
 func (*RoutePermission) Descriptor() ([]byte, []int) {
-	return file_permissions_proto_rawDescGZIP(), []int{2}
+	return file_proto_route_permissions_service_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *RoutePermission) GetRoute() string {
@@ -196,7 +196,7 @@ type GetAllRoutePermissionsRequest struct {
 
 func (x *GetAllRoutePermissionsRequest) Reset() {
 	*x = GetAllRoutePermissionsRequest{}
-	mi := &file_permissions_proto_msgTypes[3]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -208,7 +208,7 @@ func (x *GetAllRoutePermissionsRequest) String() string {
 func (*GetAllRoutePermissionsRequest) ProtoMessage() {}
 
 func (x *GetAllRoutePermissionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_proto_msgTypes[3]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -221,7 +221,7 @@ func (x *GetAllRoutePermissionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllRoutePermissionsRequest.ProtoReflect.Descriptor instead.
 func (*GetAllRoutePermissionsRequest) Descriptor() ([]byte, []int) {
-	return file_permissions_proto_rawDescGZIP(), []int{3}
+	return file_proto_route_permissions_service_proto_rawDescGZIP(), []int{3}
 }
 
 type GetAllRoutePermissionsResponse struct {
@@ -233,7 +233,7 @@ type GetAllRoutePermissionsResponse struct {
 
 func (x *GetAllRoutePermissionsResponse) Reset() {
 	*x = GetAllRoutePermissionsResponse{}
-	mi := &file_permissions_proto_msgTypes[4]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -245,7 +245,7 @@ func (x *GetAllRoutePermissionsResponse) String() string {
 func (*GetAllRoutePermissionsResponse) ProtoMessage() {}
 
 func (x *GetAllRoutePermissionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_proto_msgTypes[4]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -258,7 +258,7 @@ func (x *GetAllRoutePermissionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllRoutePermissionsResponse.ProtoReflect.Descriptor instead.
 func (*GetAllRoutePermissionsResponse) Descriptor() ([]byte, []int) {
-	return file_permissions_proto_rawDescGZIP(), []int{4}
+	return file_proto_route_permissions_service_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetAllRoutePermissionsResponse) GetPermissions() []*RoutePermission {
@@ -279,7 +279,7 @@ type UpdateRoutePermissionRequest struct {
 
 func (x *UpdateRoutePermissionRequest) Reset() {
 	*x = UpdateRoutePermissionRequest{}
-	mi := &file_permissions_proto_msgTypes[5]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -291,7 +291,7 @@ func (x *UpdateRoutePermissionRequest) String() string {
 func (*UpdateRoutePermissionRequest) ProtoMessage() {}
 
 func (x *UpdateRoutePermissionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_proto_msgTypes[5]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -304,7 +304,7 @@ func (x *UpdateRoutePermissionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateRoutePermissionRequest.ProtoReflect.Descriptor instead.
 func (*UpdateRoutePermissionRequest) Descriptor() ([]byte, []int) {
-	return file_permissions_proto_rawDescGZIP(), []int{5}
+	return file_proto_route_permissions_service_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *UpdateRoutePermissionRequest) GetRoute() string {
@@ -337,7 +337,7 @@ type UpdateRoutePermissionResponse struct {
 
 func (x *UpdateRoutePermissionResponse) Reset() {
 	*x = UpdateRoutePermissionResponse{}
-	mi := &file_permissions_proto_msgTypes[6]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -349,7 +349,7 @@ func (x *UpdateRoutePermissionResponse) String() string {
 func (*UpdateRoutePermissionResponse) ProtoMessage() {}
 
 func (x *UpdateRoutePermissionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_proto_msgTypes[6]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -362,7 +362,7 @@ func (x *UpdateRoutePermissionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateRoutePermissionResponse.ProtoReflect.Descriptor instead.
 func (*UpdateRoutePermissionResponse) Descriptor() ([]byte, []int) {
-	return file_permissions_proto_rawDescGZIP(), []int{6}
+	return file_proto_route_permissions_service_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *UpdateRoutePermissionResponse) GetSuccess() bool {
@@ -383,7 +383,7 @@ type AddRoutePermissionRequest struct {
 
 func (x *AddRoutePermissionRequest) Reset() {
 	*x = AddRoutePermissionRequest{}
-	mi := &file_permissions_proto_msgTypes[7]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -395,7 +395,7 @@ func (x *AddRoutePermissionRequest) String() string {
 func (*AddRoutePermissionRequest) ProtoMessage() {}
 
 func (x *AddRoutePermissionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_proto_msgTypes[7]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -408,7 +408,7 @@ func (x *AddRoutePermissionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddRoutePermissionRequest.ProtoReflect.Descriptor instead.
 func (*AddRoutePermissionRequest) Descriptor() ([]byte, []int) {
-	return file_permissions_proto_rawDescGZIP(), []int{7}
+	return file_proto_route_permissions_service_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *AddRoutePermissionRequest) GetRoute() string {
@@ -441,7 +441,7 @@ type AddRoutePermissionResponse struct {
 
 func (x *AddRoutePermissionResponse) Reset() {
 	*x = AddRoutePermissionResponse{}
-	mi := &file_permissions_proto_msgTypes[8]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -453,7 +453,7 @@ func (x *AddRoutePermissionResponse) String() string {
 func (*AddRoutePermissionResponse) ProtoMessage() {}
 
 func (x *AddRoutePermissionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_permissions_proto_msgTypes[8]
+	mi := &file_proto_route_permissions_service_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -466,7 +466,7 @@ func (x *AddRoutePermissionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddRoutePermissionResponse.ProtoReflect.Descriptor instead.
 func (*AddRoutePermissionResponse) Descriptor() ([]byte, []int) {
-	return file_permissions_proto_rawDescGZIP(), []int{8}
+	return file_proto_route_permissions_service_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *AddRoutePermissionResponse) GetSuccess() bool {
@@ -476,11 +476,11 @@ func (x *AddRoutePermissionResponse) GetSuccess() bool {
 	return false
 }
 
-var File_permissions_proto protoreflect.FileDescriptor
+var File_proto_route_permissions_service_proto protoreflect.FileDescriptor
 
-const file_permissions_proto_rawDesc = "" +
+const file_proto_route_permissions_service_proto_rawDesc = "" +
 	"\n" +
-	"\x11permissions.proto\x12\x11route_permissions\x1a\x1cgoogle/api/annotations.proto\"f\n" +
+	"%proto/route_permissions_service.proto\x12\x11route_permissions\x1a\x1cgoogle/api/annotations.proto\"f\n" +
 	"\x16CheckPermissionRequest\x12\x14\n" +
 	"\x05route\x18\x01 \x01(\tR\x05route\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x1d\n" +
@@ -511,22 +511,22 @@ const file_permissions_proto_rawDesc = "" +
 	"\x0fCheckPermission\x12).route_permissions.CheckPermissionRequest\x1a*.route_permissions.CheckPermissionResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\"\x15/v1/permissions/check\x12\x96\x01\n" +
 	"\x16GetAllRoutePermissions\x120.route_permissions.GetAllRoutePermissionsRequest\x1a1.route_permissions.GetAllRoutePermissionsResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v1/permissions\x12\x96\x01\n" +
 	"\x15UpdateRoutePermission\x12/.route_permissions.UpdateRoutePermissionRequest\x1a0.route_permissions.UpdateRoutePermissionResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\x1a\x0f/v1/permissions\x12\x8d\x01\n" +
-	"\x12AddRoutePermission\x12,.route_permissions.AddRoutePermissionRequest\x1a-.route_permissions.AddRoutePermissionResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/permissionsB,Z*./services/route-permissions-service/protob\x06proto3"
+	"\x12AddRoutePermission\x12,.route_permissions.AddRoutePermissionRequest\x1a-.route_permissions.AddRoutePermissionResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/permissionsB*Z(./shared/route-permissions-service/protob\x06proto3"
 
 var (
-	file_permissions_proto_rawDescOnce sync.Once
-	file_permissions_proto_rawDescData []byte
+	file_proto_route_permissions_service_proto_rawDescOnce sync.Once
+	file_proto_route_permissions_service_proto_rawDescData []byte
 )
 
-func file_permissions_proto_rawDescGZIP() []byte {
-	file_permissions_proto_rawDescOnce.Do(func() {
-		file_permissions_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_permissions_proto_rawDesc), len(file_permissions_proto_rawDesc)))
+func file_proto_route_permissions_service_proto_rawDescGZIP() []byte {
+	file_proto_route_permissions_service_proto_rawDescOnce.Do(func() {
+		file_proto_route_permissions_service_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_route_permissions_service_proto_rawDesc), len(file_proto_route_permissions_service_proto_rawDesc)))
 	})
-	return file_permissions_proto_rawDescData
+	return file_proto_route_permissions_service_proto_rawDescData
 }
 
-var file_permissions_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
-var file_permissions_proto_goTypes = []any{
+var file_proto_route_permissions_service_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_proto_route_permissions_service_proto_goTypes = []any{
 	(*CheckPermissionRequest)(nil),         // 0: route_permissions.CheckPermissionRequest
 	(*CheckPermissionResponse)(nil),        // 1: route_permissions.CheckPermissionResponse
 	(*RoutePermission)(nil),                // 2: route_permissions.RoutePermission
@@ -537,7 +537,7 @@ var file_permissions_proto_goTypes = []any{
 	(*AddRoutePermissionRequest)(nil),      // 7: route_permissions.AddRoutePermissionRequest
 	(*AddRoutePermissionResponse)(nil),     // 8: route_permissions.AddRoutePermissionResponse
 }
-var file_permissions_proto_depIdxs = []int32{
+var file_proto_route_permissions_service_proto_depIdxs = []int32{
 	2, // 0: route_permissions.GetAllRoutePermissionsResponse.permissions:type_name -> route_permissions.RoutePermission
 	0, // 1: route_permissions.RoutePermissionService.CheckPermission:input_type -> route_permissions.CheckPermissionRequest
 	3, // 2: route_permissions.RoutePermissionService.GetAllRoutePermissions:input_type -> route_permissions.GetAllRoutePermissionsRequest
@@ -554,26 +554,26 @@ var file_permissions_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_permissions_proto_init() }
-func file_permissions_proto_init() {
-	if File_permissions_proto != nil {
+func init() { file_proto_route_permissions_service_proto_init() }
+func file_proto_route_permissions_service_proto_init() {
+	if File_proto_route_permissions_service_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_permissions_proto_rawDesc), len(file_permissions_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_route_permissions_service_proto_rawDesc), len(file_proto_route_permissions_service_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_permissions_proto_goTypes,
-		DependencyIndexes: file_permissions_proto_depIdxs,
-		MessageInfos:      file_permissions_proto_msgTypes,
+		GoTypes:           file_proto_route_permissions_service_proto_goTypes,
+		DependencyIndexes: file_proto_route_permissions_service_proto_depIdxs,
+		MessageInfos:      file_proto_route_permissions_service_proto_msgTypes,
 	}.Build()
-	File_permissions_proto = out.File
-	file_permissions_proto_goTypes = nil
-	file_permissions_proto_depIdxs = nil
+	File_proto_route_permissions_service_proto = out.File
+	file_proto_route_permissions_service_proto_goTypes = nil
+	file_proto_route_permissions_service_proto_depIdxs = nil
 }

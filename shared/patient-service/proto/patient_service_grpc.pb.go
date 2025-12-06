@@ -4,7 +4,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.0--rc1
-// source: patient_service.proto
+// source: proto/patient_service.proto
 
 package proto
 
@@ -309,5 +309,5 @@ var PatientService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "patient_service.proto",
+	Metadata: "proto/patient_service.proto",
 }

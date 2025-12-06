@@ -4,7 +4,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v5.29.0--rc1
-// source: billing_service.proto
+// source: proto/billing_service.proto
 
 package proto
 
@@ -40,7 +40,7 @@ type PaymentMethod struct {
 
 func (x *PaymentMethod) Reset() {
 	*x = PaymentMethod{}
-	mi := &file_billing_service_proto_msgTypes[0]
+	mi := &file_proto_billing_service_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -52,7 +52,7 @@ func (x *PaymentMethod) String() string {
 func (*PaymentMethod) ProtoMessage() {}
 
 func (x *PaymentMethod) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[0]
+	mi := &file_proto_billing_service_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -65,7 +65,7 @@ func (x *PaymentMethod) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PaymentMethod.ProtoReflect.Descriptor instead.
 func (*PaymentMethod) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{0}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *PaymentMethod) GetType() string {
@@ -131,7 +131,7 @@ type InvoiceItem struct {
 
 func (x *InvoiceItem) Reset() {
 	*x = InvoiceItem{}
-	mi := &file_billing_service_proto_msgTypes[1]
+	mi := &file_proto_billing_service_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -143,7 +143,7 @@ func (x *InvoiceItem) String() string {
 func (*InvoiceItem) ProtoMessage() {}
 
 func (x *InvoiceItem) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[1]
+	mi := &file_proto_billing_service_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -156,7 +156,7 @@ func (x *InvoiceItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InvoiceItem.ProtoReflect.Descriptor instead.
 func (*InvoiceItem) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{1}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *InvoiceItem) GetDescription() string {
@@ -211,7 +211,7 @@ type CreateInvoiceRequest struct {
 
 func (x *CreateInvoiceRequest) Reset() {
 	*x = CreateInvoiceRequest{}
-	mi := &file_billing_service_proto_msgTypes[2]
+	mi := &file_proto_billing_service_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -223,7 +223,7 @@ func (x *CreateInvoiceRequest) String() string {
 func (*CreateInvoiceRequest) ProtoMessage() {}
 
 func (x *CreateInvoiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[2]
+	mi := &file_proto_billing_service_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -236,7 +236,7 @@ func (x *CreateInvoiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateInvoiceRequest.ProtoReflect.Descriptor instead.
 func (*CreateInvoiceRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{2}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateInvoiceRequest) GetPatientId() string {
@@ -306,7 +306,7 @@ type CreateInvoiceResponse struct {
 
 func (x *CreateInvoiceResponse) Reset() {
 	*x = CreateInvoiceResponse{}
-	mi := &file_billing_service_proto_msgTypes[3]
+	mi := &file_proto_billing_service_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -318,7 +318,7 @@ func (x *CreateInvoiceResponse) String() string {
 func (*CreateInvoiceResponse) ProtoMessage() {}
 
 func (x *CreateInvoiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[3]
+	mi := &file_proto_billing_service_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -331,7 +331,7 @@ func (x *CreateInvoiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateInvoiceResponse.ProtoReflect.Descriptor instead.
 func (*CreateInvoiceResponse) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{3}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CreateInvoiceResponse) GetInvoiceId() string {
@@ -358,7 +358,7 @@ type GetInvoiceRequest struct {
 
 func (x *GetInvoiceRequest) Reset() {
 	*x = GetInvoiceRequest{}
-	mi := &file_billing_service_proto_msgTypes[4]
+	mi := &file_proto_billing_service_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -370,7 +370,7 @@ func (x *GetInvoiceRequest) String() string {
 func (*GetInvoiceRequest) ProtoMessage() {}
 
 func (x *GetInvoiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[4]
+	mi := &file_proto_billing_service_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -383,7 +383,7 @@ func (x *GetInvoiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInvoiceRequest.ProtoReflect.Descriptor instead.
 func (*GetInvoiceRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{4}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetInvoiceRequest) GetInvoiceId() string {
@@ -415,7 +415,7 @@ type Invoice struct {
 
 func (x *Invoice) Reset() {
 	*x = Invoice{}
-	mi := &file_billing_service_proto_msgTypes[5]
+	mi := &file_proto_billing_service_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -427,7 +427,7 @@ func (x *Invoice) String() string {
 func (*Invoice) ProtoMessage() {}
 
 func (x *Invoice) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[5]
+	mi := &file_proto_billing_service_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -440,7 +440,7 @@ func (x *Invoice) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Invoice.ProtoReflect.Descriptor instead.
 func (*Invoice) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{5}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *Invoice) GetInvoiceId() string {
@@ -544,7 +544,7 @@ type GetInvoiceResponse struct {
 
 func (x *GetInvoiceResponse) Reset() {
 	*x = GetInvoiceResponse{}
-	mi := &file_billing_service_proto_msgTypes[6]
+	mi := &file_proto_billing_service_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -556,7 +556,7 @@ func (x *GetInvoiceResponse) String() string {
 func (*GetInvoiceResponse) ProtoMessage() {}
 
 func (x *GetInvoiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[6]
+	mi := &file_proto_billing_service_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -569,7 +569,7 @@ func (x *GetInvoiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInvoiceResponse.ProtoReflect.Descriptor instead.
 func (*GetInvoiceResponse) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{6}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetInvoiceResponse) GetInvoice() *Invoice {
@@ -598,7 +598,7 @@ type UpdateInvoiceRequest struct {
 
 func (x *UpdateInvoiceRequest) Reset() {
 	*x = UpdateInvoiceRequest{}
-	mi := &file_billing_service_proto_msgTypes[7]
+	mi := &file_proto_billing_service_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -610,7 +610,7 @@ func (x *UpdateInvoiceRequest) String() string {
 func (*UpdateInvoiceRequest) ProtoMessage() {}
 
 func (x *UpdateInvoiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[7]
+	mi := &file_proto_billing_service_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -623,7 +623,7 @@ func (x *UpdateInvoiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateInvoiceRequest.ProtoReflect.Descriptor instead.
 func (*UpdateInvoiceRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{7}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *UpdateInvoiceRequest) GetInvoiceId() string {
@@ -706,7 +706,7 @@ type UpdateInvoiceResponse struct {
 
 func (x *UpdateInvoiceResponse) Reset() {
 	*x = UpdateInvoiceResponse{}
-	mi := &file_billing_service_proto_msgTypes[8]
+	mi := &file_proto_billing_service_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -718,7 +718,7 @@ func (x *UpdateInvoiceResponse) String() string {
 func (*UpdateInvoiceResponse) ProtoMessage() {}
 
 func (x *UpdateInvoiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[8]
+	mi := &file_proto_billing_service_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -731,7 +731,7 @@ func (x *UpdateInvoiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateInvoiceResponse.ProtoReflect.Descriptor instead.
 func (*UpdateInvoiceResponse) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{8}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *UpdateInvoiceResponse) GetSuccess() bool {
@@ -751,7 +751,7 @@ type DeleteInvoiceRequest struct {
 
 func (x *DeleteInvoiceRequest) Reset() {
 	*x = DeleteInvoiceRequest{}
-	mi := &file_billing_service_proto_msgTypes[9]
+	mi := &file_proto_billing_service_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -763,7 +763,7 @@ func (x *DeleteInvoiceRequest) String() string {
 func (*DeleteInvoiceRequest) ProtoMessage() {}
 
 func (x *DeleteInvoiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[9]
+	mi := &file_proto_billing_service_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -776,7 +776,7 @@ func (x *DeleteInvoiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteInvoiceRequest.ProtoReflect.Descriptor instead.
 func (*DeleteInvoiceRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{9}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *DeleteInvoiceRequest) GetInvoiceId() string {
@@ -796,7 +796,7 @@ type DeleteInvoiceResponse struct {
 
 func (x *DeleteInvoiceResponse) Reset() {
 	*x = DeleteInvoiceResponse{}
-	mi := &file_billing_service_proto_msgTypes[10]
+	mi := &file_proto_billing_service_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -808,7 +808,7 @@ func (x *DeleteInvoiceResponse) String() string {
 func (*DeleteInvoiceResponse) ProtoMessage() {}
 
 func (x *DeleteInvoiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[10]
+	mi := &file_proto_billing_service_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -821,7 +821,7 @@ func (x *DeleteInvoiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteInvoiceResponse.ProtoReflect.Descriptor instead.
 func (*DeleteInvoiceResponse) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{10}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *DeleteInvoiceResponse) GetSuccess() bool {
@@ -845,7 +845,7 @@ type ListInvoicesRequest struct {
 
 func (x *ListInvoicesRequest) Reset() {
 	*x = ListInvoicesRequest{}
-	mi := &file_billing_service_proto_msgTypes[11]
+	mi := &file_proto_billing_service_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -857,7 +857,7 @@ func (x *ListInvoicesRequest) String() string {
 func (*ListInvoicesRequest) ProtoMessage() {}
 
 func (x *ListInvoicesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[11]
+	mi := &file_proto_billing_service_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -870,7 +870,7 @@ func (x *ListInvoicesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListInvoicesRequest.ProtoReflect.Descriptor instead.
 func (*ListInvoicesRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{11}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *ListInvoicesRequest) GetStatusFilter() string {
@@ -918,7 +918,7 @@ type ListInvoicesResponse struct {
 
 func (x *ListInvoicesResponse) Reset() {
 	*x = ListInvoicesResponse{}
-	mi := &file_billing_service_proto_msgTypes[12]
+	mi := &file_proto_billing_service_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -930,7 +930,7 @@ func (x *ListInvoicesResponse) String() string {
 func (*ListInvoicesResponse) ProtoMessage() {}
 
 func (x *ListInvoicesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[12]
+	mi := &file_proto_billing_service_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -943,7 +943,7 @@ func (x *ListInvoicesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListInvoicesResponse.ProtoReflect.Descriptor instead.
 func (*ListInvoicesResponse) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{12}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *ListInvoicesResponse) GetInvoices() []*Invoice {
@@ -963,7 +963,7 @@ type GetInvoicesByPatientIdRequest struct {
 
 func (x *GetInvoicesByPatientIdRequest) Reset() {
 	*x = GetInvoicesByPatientIdRequest{}
-	mi := &file_billing_service_proto_msgTypes[13]
+	mi := &file_proto_billing_service_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -975,7 +975,7 @@ func (x *GetInvoicesByPatientIdRequest) String() string {
 func (*GetInvoicesByPatientIdRequest) ProtoMessage() {}
 
 func (x *GetInvoicesByPatientIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[13]
+	mi := &file_proto_billing_service_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -988,7 +988,7 @@ func (x *GetInvoicesByPatientIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInvoicesByPatientIdRequest.ProtoReflect.Descriptor instead.
 func (*GetInvoicesByPatientIdRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{13}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetInvoicesByPatientIdRequest) GetPatientId() string {
@@ -1012,7 +1012,7 @@ type ProcessPaymentRequest struct {
 
 func (x *ProcessPaymentRequest) Reset() {
 	*x = ProcessPaymentRequest{}
-	mi := &file_billing_service_proto_msgTypes[14]
+	mi := &file_proto_billing_service_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1024,7 +1024,7 @@ func (x *ProcessPaymentRequest) String() string {
 func (*ProcessPaymentRequest) ProtoMessage() {}
 
 func (x *ProcessPaymentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[14]
+	mi := &file_proto_billing_service_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1037,7 +1037,7 @@ func (x *ProcessPaymentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProcessPaymentRequest.ProtoReflect.Descriptor instead.
 func (*ProcessPaymentRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{14}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *ProcessPaymentRequest) GetInvoiceId() string {
@@ -1087,7 +1087,7 @@ type ProcessPaymentResponse struct {
 
 func (x *ProcessPaymentResponse) Reset() {
 	*x = ProcessPaymentResponse{}
-	mi := &file_billing_service_proto_msgTypes[15]
+	mi := &file_proto_billing_service_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1099,7 +1099,7 @@ func (x *ProcessPaymentResponse) String() string {
 func (*ProcessPaymentResponse) ProtoMessage() {}
 
 func (x *ProcessPaymentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[15]
+	mi := &file_proto_billing_service_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1112,7 +1112,7 @@ func (x *ProcessPaymentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProcessPaymentResponse.ProtoReflect.Descriptor instead.
 func (*ProcessPaymentResponse) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{15}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *ProcessPaymentResponse) GetSuccess() bool {
@@ -1146,7 +1146,7 @@ type MarkInvoiceAsPaidRequest struct {
 
 func (x *MarkInvoiceAsPaidRequest) Reset() {
 	*x = MarkInvoiceAsPaidRequest{}
-	mi := &file_billing_service_proto_msgTypes[16]
+	mi := &file_proto_billing_service_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1158,7 +1158,7 @@ func (x *MarkInvoiceAsPaidRequest) String() string {
 func (*MarkInvoiceAsPaidRequest) ProtoMessage() {}
 
 func (x *MarkInvoiceAsPaidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[16]
+	mi := &file_proto_billing_service_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1171,7 +1171,7 @@ func (x *MarkInvoiceAsPaidRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MarkInvoiceAsPaidRequest.ProtoReflect.Descriptor instead.
 func (*MarkInvoiceAsPaidRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{16}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *MarkInvoiceAsPaidRequest) GetInvoiceId() string {
@@ -1191,7 +1191,7 @@ type MarkInvoiceAsPaidResponse struct {
 
 func (x *MarkInvoiceAsPaidResponse) Reset() {
 	*x = MarkInvoiceAsPaidResponse{}
-	mi := &file_billing_service_proto_msgTypes[17]
+	mi := &file_proto_billing_service_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1203,7 +1203,7 @@ func (x *MarkInvoiceAsPaidResponse) String() string {
 func (*MarkInvoiceAsPaidResponse) ProtoMessage() {}
 
 func (x *MarkInvoiceAsPaidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[17]
+	mi := &file_proto_billing_service_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1216,7 +1216,7 @@ func (x *MarkInvoiceAsPaidResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MarkInvoiceAsPaidResponse.ProtoReflect.Descriptor instead.
 func (*MarkInvoiceAsPaidResponse) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{17}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *MarkInvoiceAsPaidResponse) GetSuccess() bool {
@@ -1239,7 +1239,7 @@ type SendInvoiceEmailRequest struct {
 
 func (x *SendInvoiceEmailRequest) Reset() {
 	*x = SendInvoiceEmailRequest{}
-	mi := &file_billing_service_proto_msgTypes[18]
+	mi := &file_proto_billing_service_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1251,7 +1251,7 @@ func (x *SendInvoiceEmailRequest) String() string {
 func (*SendInvoiceEmailRequest) ProtoMessage() {}
 
 func (x *SendInvoiceEmailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[18]
+	mi := &file_proto_billing_service_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1264,7 +1264,7 @@ func (x *SendInvoiceEmailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendInvoiceEmailRequest.ProtoReflect.Descriptor instead.
 func (*SendInvoiceEmailRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{18}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *SendInvoiceEmailRequest) GetInvoiceId() string {
@@ -1306,7 +1306,7 @@ type SendInvoiceEmailResponse struct {
 
 func (x *SendInvoiceEmailResponse) Reset() {
 	*x = SendInvoiceEmailResponse{}
-	mi := &file_billing_service_proto_msgTypes[19]
+	mi := &file_proto_billing_service_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1318,7 +1318,7 @@ func (x *SendInvoiceEmailResponse) String() string {
 func (*SendInvoiceEmailResponse) ProtoMessage() {}
 
 func (x *SendInvoiceEmailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[19]
+	mi := &file_proto_billing_service_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1331,7 +1331,7 @@ func (x *SendInvoiceEmailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendInvoiceEmailResponse.ProtoReflect.Descriptor instead.
 func (*SendInvoiceEmailResponse) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{19}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *SendInvoiceEmailResponse) GetSuccess() bool {
@@ -1349,23 +1349,30 @@ func (x *SendInvoiceEmailResponse) GetStatus() string {
 }
 
 type ServiceRecord struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	RecordId      string                 `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"record_id,omitempty"`
-	PatientId     string                 `protobuf:"bytes,2,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
-	ServiceType   string                 `protobuf:"bytes,3,opt,name=service_type,json=serviceType,proto3" json:"service_type,omitempty"` // e.g., "appointment", "medication", "lab_test"
-	ServiceId     string                 `protobuf:"bytes,4,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`       // ID from the original service
-	Description   string                 `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
-	Amount        float64                `protobuf:"fixed64,6,opt,name=amount,proto3" json:"amount,omitempty"`
-	Status        string                 `protobuf:"bytes,7,opt,name=status,proto3" json:"status,omitempty"` // "pending", "completed", "billed", "paid"
-	CreatedAt     string                 `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	RecordId        string                 `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"record_id,omitempty"`
+	PatientId       string                 `protobuf:"bytes,2,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
+	ServiceType     string                 `protobuf:"bytes,3,opt,name=service_type,json=serviceType,proto3" json:"service_type,omitempty"` // e.g., "appointment", "medication", "lab_test"
+	ServiceId       string                 `protobuf:"bytes,4,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`       // ID from the original service
+	Description     string                 `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
+	Amount          float64                `protobuf:"fixed64,6,opt,name=amount,proto3" json:"amount,omitempty"`
+	Status          string                 `protobuf:"bytes,7,opt,name=status,proto3" json:"status,omitempty"` // "pending", "completed", "billed", "paid"
+	CreatedAt       string                 `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt       string                 `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	Department      string                 `protobuf:"bytes,10,opt,name=department,proto3" json:"department,omitempty"`                   // Department where service was provided
+	ProviderId      string                 `protobuf:"bytes,11,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"` // Doctor/Pharmacist/Lab Tech ID
+	ProviderName    string                 `protobuf:"bytes,12,opt,name=provider_name,json=providerName,proto3" json:"provider_name,omitempty"`
+	MedicalSchemeId int32                  `protobuf:"varint,13,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"` // Patient's medical scheme
+	SchemeCovered   bool                   `protobuf:"varint,14,opt,name=scheme_covered,json=schemeCovered,proto3" json:"scheme_covered,omitempty"`         // Whether scheme covers this service
+	SchemeAmount    float64                `protobuf:"fixed64,15,opt,name=scheme_amount,json=schemeAmount,proto3" json:"scheme_amount,omitempty"`           // Amount covered by scheme
+	PatientAmount   float64                `protobuf:"fixed64,16,opt,name=patient_amount,json=patientAmount,proto3" json:"patient_amount,omitempty"`        // Amount patient must pay
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *ServiceRecord) Reset() {
 	*x = ServiceRecord{}
-	mi := &file_billing_service_proto_msgTypes[20]
+	mi := &file_proto_billing_service_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1377,7 +1384,7 @@ func (x *ServiceRecord) String() string {
 func (*ServiceRecord) ProtoMessage() {}
 
 func (x *ServiceRecord) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[20]
+	mi := &file_proto_billing_service_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1390,7 +1397,7 @@ func (x *ServiceRecord) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServiceRecord.ProtoReflect.Descriptor instead.
 func (*ServiceRecord) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{20}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *ServiceRecord) GetRecordId() string {
@@ -1456,20 +1463,73 @@ func (x *ServiceRecord) GetUpdatedAt() string {
 	return ""
 }
 
+func (x *ServiceRecord) GetDepartment() string {
+	if x != nil {
+		return x.Department
+	}
+	return ""
+}
+
+func (x *ServiceRecord) GetProviderId() string {
+	if x != nil {
+		return x.ProviderId
+	}
+	return ""
+}
+
+func (x *ServiceRecord) GetProviderName() string {
+	if x != nil {
+		return x.ProviderName
+	}
+	return ""
+}
+
+func (x *ServiceRecord) GetMedicalSchemeId() int32 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *ServiceRecord) GetSchemeCovered() bool {
+	if x != nil {
+		return x.SchemeCovered
+	}
+	return false
+}
+
+func (x *ServiceRecord) GetSchemeAmount() float64 {
+	if x != nil {
+		return x.SchemeAmount
+	}
+	return 0
+}
+
+func (x *ServiceRecord) GetPatientAmount() float64 {
+	if x != nil {
+		return x.PatientAmount
+	}
+	return 0
+}
+
 type CreateServiceRecordRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	PatientId     string                 `protobuf:"bytes,1,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
-	ServiceType   string                 `protobuf:"bytes,2,opt,name=service_type,json=serviceType,proto3" json:"service_type,omitempty"`
-	ServiceId     string                 `protobuf:"bytes,3,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
-	Description   string                 `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
-	Amount        float64                `protobuf:"fixed64,5,opt,name=amount,proto3" json:"amount,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	PatientId       string                 `protobuf:"bytes,1,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
+	ServiceType     string                 `protobuf:"bytes,2,opt,name=service_type,json=serviceType,proto3" json:"service_type,omitempty"`
+	ServiceId       string                 `protobuf:"bytes,3,opt,name=service_id,json=serviceId,proto3" json:"service_id,omitempty"`
+	Description     string                 `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	Amount          float64                `protobuf:"fixed64,5,opt,name=amount,proto3" json:"amount,omitempty"`
+	Department      string                 `protobuf:"bytes,6,opt,name=department,proto3" json:"department,omitempty"`
+	ProviderId      string                 `protobuf:"bytes,7,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
+	ProviderName    string                 `protobuf:"bytes,8,opt,name=provider_name,json=providerName,proto3" json:"provider_name,omitempty"`
+	MedicalSchemeId int32                  `protobuf:"varint,9,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *CreateServiceRecordRequest) Reset() {
 	*x = CreateServiceRecordRequest{}
-	mi := &file_billing_service_proto_msgTypes[21]
+	mi := &file_proto_billing_service_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1481,7 +1541,7 @@ func (x *CreateServiceRecordRequest) String() string {
 func (*CreateServiceRecordRequest) ProtoMessage() {}
 
 func (x *CreateServiceRecordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[21]
+	mi := &file_proto_billing_service_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1494,7 +1554,7 @@ func (x *CreateServiceRecordRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateServiceRecordRequest.ProtoReflect.Descriptor instead.
 func (*CreateServiceRecordRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{21}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *CreateServiceRecordRequest) GetPatientId() string {
@@ -1532,6 +1592,34 @@ func (x *CreateServiceRecordRequest) GetAmount() float64 {
 	return 0
 }
 
+func (x *CreateServiceRecordRequest) GetDepartment() string {
+	if x != nil {
+		return x.Department
+	}
+	return ""
+}
+
+func (x *CreateServiceRecordRequest) GetProviderId() string {
+	if x != nil {
+		return x.ProviderId
+	}
+	return ""
+}
+
+func (x *CreateServiceRecordRequest) GetProviderName() string {
+	if x != nil {
+		return x.ProviderName
+	}
+	return ""
+}
+
+func (x *CreateServiceRecordRequest) GetMedicalSchemeId() int32 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
 type CreateServiceRecordResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RecordId      string                 `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"record_id,omitempty"`
@@ -1542,7 +1630,7 @@ type CreateServiceRecordResponse struct {
 
 func (x *CreateServiceRecordResponse) Reset() {
 	*x = CreateServiceRecordResponse{}
-	mi := &file_billing_service_proto_msgTypes[22]
+	mi := &file_proto_billing_service_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1554,7 +1642,7 @@ func (x *CreateServiceRecordResponse) String() string {
 func (*CreateServiceRecordResponse) ProtoMessage() {}
 
 func (x *CreateServiceRecordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[22]
+	mi := &file_proto_billing_service_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1567,7 +1655,7 @@ func (x *CreateServiceRecordResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateServiceRecordResponse.ProtoReflect.Descriptor instead.
 func (*CreateServiceRecordResponse) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{22}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CreateServiceRecordResponse) GetRecordId() string {
@@ -1594,7 +1682,7 @@ type UpdateServiceRecordStatusRequest struct {
 
 func (x *UpdateServiceRecordStatusRequest) Reset() {
 	*x = UpdateServiceRecordStatusRequest{}
-	mi := &file_billing_service_proto_msgTypes[23]
+	mi := &file_proto_billing_service_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1606,7 +1694,7 @@ func (x *UpdateServiceRecordStatusRequest) String() string {
 func (*UpdateServiceRecordStatusRequest) ProtoMessage() {}
 
 func (x *UpdateServiceRecordStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[23]
+	mi := &file_proto_billing_service_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1619,7 +1707,7 @@ func (x *UpdateServiceRecordStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateServiceRecordStatusRequest.ProtoReflect.Descriptor instead.
 func (*UpdateServiceRecordStatusRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{23}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *UpdateServiceRecordStatusRequest) GetRecordId() string {
@@ -1645,7 +1733,7 @@ type UpdateServiceRecordStatusResponse struct {
 
 func (x *UpdateServiceRecordStatusResponse) Reset() {
 	*x = UpdateServiceRecordStatusResponse{}
-	mi := &file_billing_service_proto_msgTypes[24]
+	mi := &file_proto_billing_service_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1657,7 +1745,7 @@ func (x *UpdateServiceRecordStatusResponse) String() string {
 func (*UpdateServiceRecordStatusResponse) ProtoMessage() {}
 
 func (x *UpdateServiceRecordStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[24]
+	mi := &file_proto_billing_service_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1670,7 +1758,7 @@ func (x *UpdateServiceRecordStatusResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use UpdateServiceRecordStatusResponse.ProtoReflect.Descriptor instead.
 func (*UpdateServiceRecordStatusResponse) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{24}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *UpdateServiceRecordStatusResponse) GetSuccess() bool {
@@ -1690,7 +1778,7 @@ type GetServiceRecordsByPatientRequest struct {
 
 func (x *GetServiceRecordsByPatientRequest) Reset() {
 	*x = GetServiceRecordsByPatientRequest{}
-	mi := &file_billing_service_proto_msgTypes[25]
+	mi := &file_proto_billing_service_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1702,7 +1790,7 @@ func (x *GetServiceRecordsByPatientRequest) String() string {
 func (*GetServiceRecordsByPatientRequest) ProtoMessage() {}
 
 func (x *GetServiceRecordsByPatientRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[25]
+	mi := &file_proto_billing_service_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1715,7 +1803,7 @@ func (x *GetServiceRecordsByPatientRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetServiceRecordsByPatientRequest.ProtoReflect.Descriptor instead.
 func (*GetServiceRecordsByPatientRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{25}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *GetServiceRecordsByPatientRequest) GetPatientId() string {
@@ -1741,7 +1829,7 @@ type GetServiceRecordsByPatientResponse struct {
 
 func (x *GetServiceRecordsByPatientResponse) Reset() {
 	*x = GetServiceRecordsByPatientResponse{}
-	mi := &file_billing_service_proto_msgTypes[26]
+	mi := &file_proto_billing_service_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1753,7 +1841,7 @@ func (x *GetServiceRecordsByPatientResponse) String() string {
 func (*GetServiceRecordsByPatientResponse) ProtoMessage() {}
 
 func (x *GetServiceRecordsByPatientResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[26]
+	mi := &file_proto_billing_service_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1766,7 +1854,7 @@ func (x *GetServiceRecordsByPatientResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetServiceRecordsByPatientResponse.ProtoReflect.Descriptor instead.
 func (*GetServiceRecordsByPatientResponse) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{26}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *GetServiceRecordsByPatientResponse) GetRecords() []*ServiceRecord {
@@ -1792,7 +1880,7 @@ type GenerateInvoiceFromRecordsRequest struct {
 
 func (x *GenerateInvoiceFromRecordsRequest) Reset() {
 	*x = GenerateInvoiceFromRecordsRequest{}
-	mi := &file_billing_service_proto_msgTypes[27]
+	mi := &file_proto_billing_service_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1804,7 +1892,7 @@ func (x *GenerateInvoiceFromRecordsRequest) String() string {
 func (*GenerateInvoiceFromRecordsRequest) ProtoMessage() {}
 
 func (x *GenerateInvoiceFromRecordsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[27]
+	mi := &file_proto_billing_service_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1817,7 +1905,7 @@ func (x *GenerateInvoiceFromRecordsRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GenerateInvoiceFromRecordsRequest.ProtoReflect.Descriptor instead.
 func (*GenerateInvoiceFromRecordsRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{27}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GenerateInvoiceFromRecordsRequest) GetRecordIds() []string {
@@ -1885,7 +1973,7 @@ type ListServiceRecordsRequest struct {
 
 func (x *ListServiceRecordsRequest) Reset() {
 	*x = ListServiceRecordsRequest{}
-	mi := &file_billing_service_proto_msgTypes[28]
+	mi := &file_proto_billing_service_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1897,7 +1985,7 @@ func (x *ListServiceRecordsRequest) String() string {
 func (*ListServiceRecordsRequest) ProtoMessage() {}
 
 func (x *ListServiceRecordsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[28]
+	mi := &file_proto_billing_service_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1910,7 +1998,7 @@ func (x *ListServiceRecordsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListServiceRecordsRequest.ProtoReflect.Descriptor instead.
 func (*ListServiceRecordsRequest) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{28}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *ListServiceRecordsRequest) GetStatusFilter() string {
@@ -1929,7 +2017,7 @@ type ListServiceRecordsResponse struct {
 
 func (x *ListServiceRecordsResponse) Reset() {
 	*x = ListServiceRecordsResponse{}
-	mi := &file_billing_service_proto_msgTypes[29]
+	mi := &file_proto_billing_service_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1941,7 +2029,7 @@ func (x *ListServiceRecordsResponse) String() string {
 func (*ListServiceRecordsResponse) ProtoMessage() {}
 
 func (x *ListServiceRecordsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_service_proto_msgTypes[29]
+	mi := &file_proto_billing_service_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1954,7 +2042,7 @@ func (x *ListServiceRecordsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListServiceRecordsResponse.ProtoReflect.Descriptor instead.
 func (*ListServiceRecordsResponse) Descriptor() ([]byte, []int) {
-	return file_billing_service_proto_rawDescGZIP(), []int{29}
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *ListServiceRecordsResponse) GetRecords() []*ServiceRecord {
@@ -1964,11 +2052,987 @@ func (x *ListServiceRecordsResponse) GetRecords() []*ServiceRecord {
 	return nil
 }
 
-var File_billing_service_proto protoreflect.FileDescriptor
+// Bill Splitting Messages
+type CalculateBillSplitRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	PatientId       string                 `protobuf:"bytes,1,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
+	MedicalSchemeId int32                  `protobuf:"varint,2,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	Items           []*BillItem            `protobuf:"bytes,3,rep,name=items,proto3" json:"items,omitempty"`
+	Subtotal        float64                `protobuf:"fixed64,4,opt,name=subtotal,proto3" json:"subtotal,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
 
-const file_billing_service_proto_rawDesc = "" +
+func (x *CalculateBillSplitRequest) Reset() {
+	*x = CalculateBillSplitRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CalculateBillSplitRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CalculateBillSplitRequest) ProtoMessage() {}
+
+func (x *CalculateBillSplitRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CalculateBillSplitRequest.ProtoReflect.Descriptor instead.
+func (*CalculateBillSplitRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *CalculateBillSplitRequest) GetPatientId() string {
+	if x != nil {
+		return x.PatientId
+	}
+	return ""
+}
+
+func (x *CalculateBillSplitRequest) GetMedicalSchemeId() int32 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *CalculateBillSplitRequest) GetItems() []*BillItem {
+	if x != nil {
+		return x.Items
+	}
+	return nil
+}
+
+func (x *CalculateBillSplitRequest) GetSubtotal() float64 {
+	if x != nil {
+		return x.Subtotal
+	}
+	return 0
+}
+
+type BillItem struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ServiceType   string                 `protobuf:"bytes,1,opt,name=service_type,json=serviceType,proto3" json:"service_type,omitempty"` // "consultation", "medication", "laboratory"
+	Description   string                 `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	Amount        float64                `protobuf:"fixed64,3,opt,name=amount,proto3" json:"amount,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BillItem) Reset() {
+	*x = BillItem{}
+	mi := &file_proto_billing_service_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BillItem) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BillItem) ProtoMessage() {}
+
+func (x *BillItem) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BillItem.ProtoReflect.Descriptor instead.
+func (*BillItem) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *BillItem) GetServiceType() string {
+	if x != nil {
+		return x.ServiceType
+	}
+	return ""
+}
+
+func (x *BillItem) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *BillItem) GetAmount() float64 {
+	if x != nil {
+		return x.Amount
+	}
+	return 0
+}
+
+type BillSplit struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	SchemeAmount      float64                `protobuf:"fixed64,1,opt,name=scheme_amount,json=schemeAmount,proto3" json:"scheme_amount,omitempty"`                // Amount covered by scheme
+	PatientAmount     float64                `protobuf:"fixed64,2,opt,name=patient_amount,json=patientAmount,proto3" json:"patient_amount,omitempty"`             // Amount patient must pay
+	CopayAmount       float64                `protobuf:"fixed64,3,opt,name=copay_amount,json=copayAmount,proto3" json:"copay_amount,omitempty"`                   // Fixed copayment amount
+	SchemePercentage  float64                `protobuf:"fixed64,4,opt,name=scheme_percentage,json=schemePercentage,proto3" json:"scheme_percentage,omitempty"`    // Percentage covered by scheme
+	PatientPercentage float64                `protobuf:"fixed64,5,opt,name=patient_percentage,json=patientPercentage,proto3" json:"patient_percentage,omitempty"` // Percentage patient must pay
+	CoverageDetails   string                 `protobuf:"bytes,6,opt,name=coverage_details,json=coverageDetails,proto3" json:"coverage_details,omitempty"`         // Human-readable coverage breakdown
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *BillSplit) Reset() {
+	*x = BillSplit{}
+	mi := &file_proto_billing_service_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BillSplit) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BillSplit) ProtoMessage() {}
+
+func (x *BillSplit) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BillSplit.ProtoReflect.Descriptor instead.
+func (*BillSplit) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *BillSplit) GetSchemeAmount() float64 {
+	if x != nil {
+		return x.SchemeAmount
+	}
+	return 0
+}
+
+func (x *BillSplit) GetPatientAmount() float64 {
+	if x != nil {
+		return x.PatientAmount
+	}
+	return 0
+}
+
+func (x *BillSplit) GetCopayAmount() float64 {
+	if x != nil {
+		return x.CopayAmount
+	}
+	return 0
+}
+
+func (x *BillSplit) GetSchemePercentage() float64 {
+	if x != nil {
+		return x.SchemePercentage
+	}
+	return 0
+}
+
+func (x *BillSplit) GetPatientPercentage() float64 {
+	if x != nil {
+		return x.PatientPercentage
+	}
+	return 0
+}
+
+func (x *BillSplit) GetCoverageDetails() string {
+	if x != nil {
+		return x.CoverageDetails
+	}
+	return ""
+}
+
+type BillItemSplit struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	ServiceType     string                 `protobuf:"bytes,1,opt,name=service_type,json=serviceType,proto3" json:"service_type,omitempty"`
+	Description     string                 `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	TotalAmount     float64                `protobuf:"fixed64,3,opt,name=total_amount,json=totalAmount,proto3" json:"total_amount,omitempty"`
+	SchemeCovers    float64                `protobuf:"fixed64,4,opt,name=scheme_covers,json=schemeCovers,proto3" json:"scheme_covers,omitempty"`
+	PatientPays     float64                `protobuf:"fixed64,5,opt,name=patient_pays,json=patientPays,proto3" json:"patient_pays,omitempty"`
+	CoveredByScheme bool                   `protobuf:"varint,6,opt,name=covered_by_scheme,json=coveredByScheme,proto3" json:"covered_by_scheme,omitempty"`
+	Reason          string                 `protobuf:"bytes,7,opt,name=reason,proto3" json:"reason,omitempty"` // Reason if not covered
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *BillItemSplit) Reset() {
+	*x = BillItemSplit{}
+	mi := &file_proto_billing_service_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BillItemSplit) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BillItemSplit) ProtoMessage() {}
+
+func (x *BillItemSplit) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BillItemSplit.ProtoReflect.Descriptor instead.
+func (*BillItemSplit) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *BillItemSplit) GetServiceType() string {
+	if x != nil {
+		return x.ServiceType
+	}
+	return ""
+}
+
+func (x *BillItemSplit) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *BillItemSplit) GetTotalAmount() float64 {
+	if x != nil {
+		return x.TotalAmount
+	}
+	return 0
+}
+
+func (x *BillItemSplit) GetSchemeCovers() float64 {
+	if x != nil {
+		return x.SchemeCovers
+	}
+	return 0
+}
+
+func (x *BillItemSplit) GetPatientPays() float64 {
+	if x != nil {
+		return x.PatientPays
+	}
+	return 0
+}
+
+func (x *BillItemSplit) GetCoveredByScheme() bool {
+	if x != nil {
+		return x.CoveredByScheme
+	}
+	return false
+}
+
+func (x *BillItemSplit) GetReason() string {
+	if x != nil {
+		return x.Reason
+	}
+	return ""
+}
+
+type CalculateBillSplitResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	OverallSplit  *BillSplit             `protobuf:"bytes,1,opt,name=overall_split,json=overallSplit,proto3" json:"overall_split,omitempty"`
+	ItemSplits    []*BillItemSplit       `protobuf:"bytes,2,rep,name=item_splits,json=itemSplits,proto3" json:"item_splits,omitempty"`
+	TotalAmount   float64                `protobuf:"fixed64,3,opt,name=total_amount,json=totalAmount,proto3" json:"total_amount,omitempty"`
+	SchemeTotal   float64                `protobuf:"fixed64,4,opt,name=scheme_total,json=schemeTotal,proto3" json:"scheme_total,omitempty"`
+	PatientTotal  float64                `protobuf:"fixed64,5,opt,name=patient_total,json=patientTotal,proto3" json:"patient_total,omitempty"`
+	Message       string                 `protobuf:"bytes,6,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CalculateBillSplitResponse) Reset() {
+	*x = CalculateBillSplitResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CalculateBillSplitResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CalculateBillSplitResponse) ProtoMessage() {}
+
+func (x *CalculateBillSplitResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CalculateBillSplitResponse.ProtoReflect.Descriptor instead.
+func (*CalculateBillSplitResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *CalculateBillSplitResponse) GetOverallSplit() *BillSplit {
+	if x != nil {
+		return x.OverallSplit
+	}
+	return nil
+}
+
+func (x *CalculateBillSplitResponse) GetItemSplits() []*BillItemSplit {
+	if x != nil {
+		return x.ItemSplits
+	}
+	return nil
+}
+
+func (x *CalculateBillSplitResponse) GetTotalAmount() float64 {
+	if x != nil {
+		return x.TotalAmount
+	}
+	return 0
+}
+
+func (x *CalculateBillSplitResponse) GetSchemeTotal() float64 {
+	if x != nil {
+		return x.SchemeTotal
+	}
+	return 0
+}
+
+func (x *CalculateBillSplitResponse) GetPatientTotal() float64 {
+	if x != nil {
+		return x.PatientTotal
+	}
+	return 0
+}
+
+func (x *CalculateBillSplitResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+// Invoice Sending Messages
+type SendInvoiceRequest struct {
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	InvoiceId          string                 `protobuf:"bytes,1,opt,name=invoice_id,json=invoiceId,proto3" json:"invoice_id,omitempty"`
+	RecipientType      string                 `protobuf:"bytes,2,opt,name=recipient_type,json=recipientType,proto3" json:"recipient_type,omitempty"` // "patient", "scheme", "both"
+	EmailAddress       string                 `protobuf:"bytes,3,opt,name=email_address,json=emailAddress,proto3" json:"email_address,omitempty"`    // Optional: override default email
+	IncludePaymentLink bool                   `protobuf:"varint,4,opt,name=include_payment_link,json=includePaymentLink,proto3" json:"include_payment_link,omitempty"`
+	Message            string                 `protobuf:"bytes,5,opt,name=message,proto3" json:"message,omitempty"` // Optional custom message
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *SendInvoiceRequest) Reset() {
+	*x = SendInvoiceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendInvoiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendInvoiceRequest) ProtoMessage() {}
+
+func (x *SendInvoiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendInvoiceRequest.ProtoReflect.Descriptor instead.
+func (*SendInvoiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *SendInvoiceRequest) GetInvoiceId() string {
+	if x != nil {
+		return x.InvoiceId
+	}
+	return ""
+}
+
+func (x *SendInvoiceRequest) GetRecipientType() string {
+	if x != nil {
+		return x.RecipientType
+	}
+	return ""
+}
+
+func (x *SendInvoiceRequest) GetEmailAddress() string {
+	if x != nil {
+		return x.EmailAddress
+	}
+	return ""
+}
+
+func (x *SendInvoiceRequest) GetIncludePaymentLink() bool {
+	if x != nil {
+		return x.IncludePaymentLink
+	}
+	return false
+}
+
+func (x *SendInvoiceRequest) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type SendInvoiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	TrackingId    string                 `protobuf:"bytes,3,opt,name=tracking_id,json=trackingId,proto3" json:"tracking_id,omitempty"` // Email tracking ID
+	SentTo        string                 `protobuf:"bytes,4,opt,name=sent_to,json=sentTo,proto3" json:"sent_to,omitempty"`             // Email address(es) sent to
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendInvoiceResponse) Reset() {
+	*x = SendInvoiceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendInvoiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendInvoiceResponse) ProtoMessage() {}
+
+func (x *SendInvoiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendInvoiceResponse.ProtoReflect.Descriptor instead.
+func (*SendInvoiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SendInvoiceResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *SendInvoiceResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *SendInvoiceResponse) GetTrackingId() string {
+	if x != nil {
+		return x.TrackingId
+	}
+	return ""
+}
+
+func (x *SendInvoiceResponse) GetSentTo() string {
+	if x != nil {
+		return x.SentTo
+	}
+	return ""
+}
+
+// Patient Payment Status Messages
+type GetPatientPaymentStatusRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PatientId     string                 `protobuf:"bytes,1,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPatientPaymentStatusRequest) Reset() {
+	*x = GetPatientPaymentStatusRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPatientPaymentStatusRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPatientPaymentStatusRequest) ProtoMessage() {}
+
+func (x *GetPatientPaymentStatusRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPatientPaymentStatusRequest.ProtoReflect.Descriptor instead.
+func (*GetPatientPaymentStatusRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetPatientPaymentStatusRequest) GetPatientId() string {
+	if x != nil {
+		return x.PatientId
+	}
+	return ""
+}
+
+type PaymentStatus struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	HasPendingBills   bool                   `protobuf:"varint,1,opt,name=has_pending_bills,json=hasPendingBills,proto3" json:"has_pending_bills,omitempty"`
+	PendingAmount     float64                `protobuf:"fixed64,2,opt,name=pending_amount,json=pendingAmount,proto3" json:"pending_amount,omitempty"`
+	PendingBillCount  int32                  `protobuf:"varint,3,opt,name=pending_bill_count,json=pendingBillCount,proto3" json:"pending_bill_count,omitempty"`
+	HasOverdueBills   bool                   `protobuf:"varint,4,opt,name=has_overdue_bills,json=hasOverdueBills,proto3" json:"has_overdue_bills,omitempty"`
+	OverdueAmount     float64                `protobuf:"fixed64,5,opt,name=overdue_amount,json=overdueAmount,proto3" json:"overdue_amount,omitempty"`
+	OverdueBillCount  int32                  `protobuf:"varint,6,opt,name=overdue_bill_count,json=overdueBillCount,proto3" json:"overdue_bill_count,omitempty"`
+	PaymentPlanActive bool                   `protobuf:"varint,7,opt,name=payment_plan_active,json=paymentPlanActive,proto3" json:"payment_plan_active,omitempty"`
+	PaymentStatus     string                 `protobuf:"bytes,8,opt,name=payment_status,json=paymentStatus,proto3" json:"payment_status,omitempty"` // "good_standing", "pending", "overdue", "blocked"
+	CanAccessServices bool                   `protobuf:"varint,9,opt,name=can_access_services,json=canAccessServices,proto3" json:"can_access_services,omitempty"`
+	RestrictionReason string                 `protobuf:"bytes,10,opt,name=restriction_reason,json=restrictionReason,proto3" json:"restriction_reason,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *PaymentStatus) Reset() {
+	*x = PaymentStatus{}
+	mi := &file_proto_billing_service_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PaymentStatus) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PaymentStatus) ProtoMessage() {}
+
+func (x *PaymentStatus) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PaymentStatus.ProtoReflect.Descriptor instead.
+func (*PaymentStatus) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *PaymentStatus) GetHasPendingBills() bool {
+	if x != nil {
+		return x.HasPendingBills
+	}
+	return false
+}
+
+func (x *PaymentStatus) GetPendingAmount() float64 {
+	if x != nil {
+		return x.PendingAmount
+	}
+	return 0
+}
+
+func (x *PaymentStatus) GetPendingBillCount() int32 {
+	if x != nil {
+		return x.PendingBillCount
+	}
+	return 0
+}
+
+func (x *PaymentStatus) GetHasOverdueBills() bool {
+	if x != nil {
+		return x.HasOverdueBills
+	}
+	return false
+}
+
+func (x *PaymentStatus) GetOverdueAmount() float64 {
+	if x != nil {
+		return x.OverdueAmount
+	}
+	return 0
+}
+
+func (x *PaymentStatus) GetOverdueBillCount() int32 {
+	if x != nil {
+		return x.OverdueBillCount
+	}
+	return 0
+}
+
+func (x *PaymentStatus) GetPaymentPlanActive() bool {
+	if x != nil {
+		return x.PaymentPlanActive
+	}
+	return false
+}
+
+func (x *PaymentStatus) GetPaymentStatus() string {
+	if x != nil {
+		return x.PaymentStatus
+	}
+	return ""
+}
+
+func (x *PaymentStatus) GetCanAccessServices() bool {
+	if x != nil {
+		return x.CanAccessServices
+	}
+	return false
+}
+
+func (x *PaymentStatus) GetRestrictionReason() string {
+	if x != nil {
+		return x.RestrictionReason
+	}
+	return ""
+}
+
+type GetPatientPaymentStatusResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Status        *PaymentStatus         `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPatientPaymentStatusResponse) Reset() {
+	*x = GetPatientPaymentStatusResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPatientPaymentStatusResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPatientPaymentStatusResponse) ProtoMessage() {}
+
+func (x *GetPatientPaymentStatusResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPatientPaymentStatusResponse.ProtoReflect.Descriptor instead.
+func (*GetPatientPaymentStatusResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetPatientPaymentStatusResponse) GetStatus() *PaymentStatus {
+	if x != nil {
+		return x.Status
+	}
+	return nil
+}
+
+func (x *GetPatientPaymentStatusResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+// Pending Bills Messages
+type GetPendingBillsRequest struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	PatientId      string                 `protobuf:"bytes,1,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
+	IncludeOverdue bool                   `protobuf:"varint,2,opt,name=include_overdue,json=includeOverdue,proto3" json:"include_overdue,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *GetPendingBillsRequest) Reset() {
+	*x = GetPendingBillsRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPendingBillsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPendingBillsRequest) ProtoMessage() {}
+
+func (x *GetPendingBillsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPendingBillsRequest.ProtoReflect.Descriptor instead.
+func (*GetPendingBillsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *GetPendingBillsRequest) GetPatientId() string {
+	if x != nil {
+		return x.PatientId
+	}
+	return ""
+}
+
+func (x *GetPendingBillsRequest) GetIncludeOverdue() bool {
+	if x != nil {
+		return x.IncludeOverdue
+	}
+	return false
+}
+
+type PendingBill struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	InvoiceId     string                 `protobuf:"bytes,1,opt,name=invoice_id,json=invoiceId,proto3" json:"invoice_id,omitempty"`
+	InvoiceDate   string                 `protobuf:"bytes,2,opt,name=invoice_date,json=invoiceDate,proto3" json:"invoice_date,omitempty"`
+	DueDate       string                 `protobuf:"bytes,3,opt,name=due_date,json=dueDate,proto3" json:"due_date,omitempty"`
+	Amount        float64                `protobuf:"fixed64,4,opt,name=amount,proto3" json:"amount,omitempty"`
+	AmountPaid    float64                `protobuf:"fixed64,5,opt,name=amount_paid,json=amountPaid,proto3" json:"amount_paid,omitempty"`
+	Balance       float64                `protobuf:"fixed64,6,opt,name=balance,proto3" json:"balance,omitempty"`
+	Status        string                 `protobuf:"bytes,7,opt,name=status,proto3" json:"status,omitempty"`
+	DaysOverdue   int32                  `protobuf:"varint,8,opt,name=days_overdue,json=daysOverdue,proto3" json:"days_overdue,omitempty"`
+	Services      []*ServiceRecord       `protobuf:"bytes,9,rep,name=services,proto3" json:"services,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PendingBill) Reset() {
+	*x = PendingBill{}
+	mi := &file_proto_billing_service_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PendingBill) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PendingBill) ProtoMessage() {}
+
+func (x *PendingBill) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PendingBill.ProtoReflect.Descriptor instead.
+func (*PendingBill) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *PendingBill) GetInvoiceId() string {
+	if x != nil {
+		return x.InvoiceId
+	}
+	return ""
+}
+
+func (x *PendingBill) GetInvoiceDate() string {
+	if x != nil {
+		return x.InvoiceDate
+	}
+	return ""
+}
+
+func (x *PendingBill) GetDueDate() string {
+	if x != nil {
+		return x.DueDate
+	}
+	return ""
+}
+
+func (x *PendingBill) GetAmount() float64 {
+	if x != nil {
+		return x.Amount
+	}
+	return 0
+}
+
+func (x *PendingBill) GetAmountPaid() float64 {
+	if x != nil {
+		return x.AmountPaid
+	}
+	return 0
+}
+
+func (x *PendingBill) GetBalance() float64 {
+	if x != nil {
+		return x.Balance
+	}
+	return 0
+}
+
+func (x *PendingBill) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+func (x *PendingBill) GetDaysOverdue() int32 {
+	if x != nil {
+		return x.DaysOverdue
+	}
+	return 0
+}
+
+func (x *PendingBill) GetServices() []*ServiceRecord {
+	if x != nil {
+		return x.Services
+	}
+	return nil
+}
+
+type GetPendingBillsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Bills         []*PendingBill         `protobuf:"bytes,1,rep,name=bills,proto3" json:"bills,omitempty"`
+	TotalPending  float64                `protobuf:"fixed64,2,opt,name=total_pending,json=totalPending,proto3" json:"total_pending,omitempty"`
+	TotalOverdue  float64                `protobuf:"fixed64,3,opt,name=total_overdue,json=totalOverdue,proto3" json:"total_overdue,omitempty"`
+	Message       string                 `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPendingBillsResponse) Reset() {
+	*x = GetPendingBillsResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPendingBillsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPendingBillsResponse) ProtoMessage() {}
+
+func (x *GetPendingBillsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPendingBillsResponse.ProtoReflect.Descriptor instead.
+func (*GetPendingBillsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *GetPendingBillsResponse) GetBills() []*PendingBill {
+	if x != nil {
+		return x.Bills
+	}
+	return nil
+}
+
+func (x *GetPendingBillsResponse) GetTotalPending() float64 {
+	if x != nil {
+		return x.TotalPending
+	}
+	return 0
+}
+
+func (x *GetPendingBillsResponse) GetTotalOverdue() float64 {
+	if x != nil {
+		return x.TotalOverdue
+	}
+	return 0
+}
+
+func (x *GetPendingBillsResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+var File_proto_billing_service_proto protoreflect.FileDescriptor
+
+const file_proto_billing_service_proto_rawDesc = "" +
 	"\n" +
-	"\x15billing_service.proto\x12\x0fbilling_service\x1a\x1cgoogle/api/annotations.proto\"\xdd\x01\n" +
+	"\x1bproto/billing_service.proto\x12\x0fbilling_service\x1a\x1cgoogle/api/annotations.proto\"\xdd\x01\n" +
 	"\rPaymentMethod\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\tR\x04type\x12\x1f\n" +
 	"\vcard_number\x18\x02 \x01(\tR\n" +
@@ -2082,7 +3146,7 @@ const file_billing_service_proto_rawDesc = "" +
 	"\amessage\x18\x04 \x01(\tR\amessage\"L\n" +
 	"\x18SendInvoiceEmailResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x16\n" +
-	"\x06status\x18\x02 \x01(\tR\x06status\"\x9d\x02\n" +
+	"\x06status\x18\x02 \x01(\tR\x06status\"\xa2\x04\n" +
 	"\rServiceRecord\x12\x1b\n" +
 	"\trecord_id\x18\x01 \x01(\tR\brecordId\x12\x1d\n" +
 	"\n" +
@@ -2096,7 +3160,18 @@ const file_billing_service_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\b \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\t \x01(\tR\tupdatedAt\"\xb7\x01\n" +
+	"updated_at\x18\t \x01(\tR\tupdatedAt\x12\x1e\n" +
+	"\n" +
+	"department\x18\n" +
+	" \x01(\tR\n" +
+	"department\x12\x1f\n" +
+	"\vprovider_id\x18\v \x01(\tR\n" +
+	"providerId\x12#\n" +
+	"\rprovider_name\x18\f \x01(\tR\fproviderName\x12*\n" +
+	"\x11medical_scheme_id\x18\r \x01(\x05R\x0fmedicalSchemeId\x12%\n" +
+	"\x0escheme_covered\x18\x0e \x01(\bR\rschemeCovered\x12#\n" +
+	"\rscheme_amount\x18\x0f \x01(\x01R\fschemeAmount\x12%\n" +
+	"\x0epatient_amount\x18\x10 \x01(\x01R\rpatientAmount\"\xc9\x02\n" +
 	"\x1aCreateServiceRecordRequest\x12\x1d\n" +
 	"\n" +
 	"patient_id\x18\x01 \x01(\tR\tpatientId\x12!\n" +
@@ -2104,7 +3179,14 @@ const file_billing_service_proto_rawDesc = "" +
 	"\n" +
 	"service_id\x18\x03 \x01(\tR\tserviceId\x12 \n" +
 	"\vdescription\x18\x04 \x01(\tR\vdescription\x12\x16\n" +
-	"\x06amount\x18\x05 \x01(\x01R\x06amount\"T\n" +
+	"\x06amount\x18\x05 \x01(\x01R\x06amount\x12\x1e\n" +
+	"\n" +
+	"department\x18\x06 \x01(\tR\n" +
+	"department\x12\x1f\n" +
+	"\vprovider_id\x18\a \x01(\tR\n" +
+	"providerId\x12#\n" +
+	"\rprovider_name\x18\b \x01(\tR\fproviderName\x12*\n" +
+	"\x11medical_scheme_id\x18\t \x01(\x05R\x0fmedicalSchemeId\"T\n" +
 	"\x1bCreateServiceRecordResponse\x12\x1b\n" +
 	"\trecord_id\x18\x01 \x01(\tR\brecordId\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\"W\n" +
@@ -2133,7 +3215,92 @@ const file_billing_service_proto_rawDesc = "" +
 	"\x19ListServiceRecordsRequest\x12#\n" +
 	"\rstatus_filter\x18\x01 \x01(\tR\fstatusFilter\"V\n" +
 	"\x1aListServiceRecordsResponse\x128\n" +
-	"\arecords\x18\x01 \x03(\v2\x1e.billing_service.ServiceRecordR\arecords2\xa7\x10\n" +
+	"\arecords\x18\x01 \x03(\v2\x1e.billing_service.ServiceRecordR\arecords\"\xb3\x01\n" +
+	"\x19CalculateBillSplitRequest\x12\x1d\n" +
+	"\n" +
+	"patient_id\x18\x01 \x01(\tR\tpatientId\x12*\n" +
+	"\x11medical_scheme_id\x18\x02 \x01(\x05R\x0fmedicalSchemeId\x12/\n" +
+	"\x05items\x18\x03 \x03(\v2\x19.billing_service.BillItemR\x05items\x12\x1a\n" +
+	"\bsubtotal\x18\x04 \x01(\x01R\bsubtotal\"g\n" +
+	"\bBillItem\x12!\n" +
+	"\fservice_type\x18\x01 \x01(\tR\vserviceType\x12 \n" +
+	"\vdescription\x18\x02 \x01(\tR\vdescription\x12\x16\n" +
+	"\x06amount\x18\x03 \x01(\x01R\x06amount\"\x81\x02\n" +
+	"\tBillSplit\x12#\n" +
+	"\rscheme_amount\x18\x01 \x01(\x01R\fschemeAmount\x12%\n" +
+	"\x0epatient_amount\x18\x02 \x01(\x01R\rpatientAmount\x12!\n" +
+	"\fcopay_amount\x18\x03 \x01(\x01R\vcopayAmount\x12+\n" +
+	"\x11scheme_percentage\x18\x04 \x01(\x01R\x10schemePercentage\x12-\n" +
+	"\x12patient_percentage\x18\x05 \x01(\x01R\x11patientPercentage\x12)\n" +
+	"\x10coverage_details\x18\x06 \x01(\tR\x0fcoverageDetails\"\x83\x02\n" +
+	"\rBillItemSplit\x12!\n" +
+	"\fservice_type\x18\x01 \x01(\tR\vserviceType\x12 \n" +
+	"\vdescription\x18\x02 \x01(\tR\vdescription\x12!\n" +
+	"\ftotal_amount\x18\x03 \x01(\x01R\vtotalAmount\x12#\n" +
+	"\rscheme_covers\x18\x04 \x01(\x01R\fschemeCovers\x12!\n" +
+	"\fpatient_pays\x18\x05 \x01(\x01R\vpatientPays\x12*\n" +
+	"\x11covered_by_scheme\x18\x06 \x01(\bR\x0fcoveredByScheme\x12\x16\n" +
+	"\x06reason\x18\a \x01(\tR\x06reason\"\xa3\x02\n" +
+	"\x1aCalculateBillSplitResponse\x12?\n" +
+	"\roverall_split\x18\x01 \x01(\v2\x1a.billing_service.BillSplitR\foverallSplit\x12?\n" +
+	"\vitem_splits\x18\x02 \x03(\v2\x1e.billing_service.BillItemSplitR\n" +
+	"itemSplits\x12!\n" +
+	"\ftotal_amount\x18\x03 \x01(\x01R\vtotalAmount\x12!\n" +
+	"\fscheme_total\x18\x04 \x01(\x01R\vschemeTotal\x12#\n" +
+	"\rpatient_total\x18\x05 \x01(\x01R\fpatientTotal\x12\x18\n" +
+	"\amessage\x18\x06 \x01(\tR\amessage\"\xcb\x01\n" +
+	"\x12SendInvoiceRequest\x12\x1d\n" +
+	"\n" +
+	"invoice_id\x18\x01 \x01(\tR\tinvoiceId\x12%\n" +
+	"\x0erecipient_type\x18\x02 \x01(\tR\rrecipientType\x12#\n" +
+	"\remail_address\x18\x03 \x01(\tR\femailAddress\x120\n" +
+	"\x14include_payment_link\x18\x04 \x01(\bR\x12includePaymentLink\x12\x18\n" +
+	"\amessage\x18\x05 \x01(\tR\amessage\"\x83\x01\n" +
+	"\x13SendInvoiceResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1f\n" +
+	"\vtracking_id\x18\x03 \x01(\tR\n" +
+	"trackingId\x12\x17\n" +
+	"\asent_to\x18\x04 \x01(\tR\x06sentTo\"?\n" +
+	"\x1eGetPatientPaymentStatusRequest\x12\x1d\n" +
+	"\n" +
+	"patient_id\x18\x01 \x01(\tR\tpatientId\"\xc7\x03\n" +
+	"\rPaymentStatus\x12*\n" +
+	"\x11has_pending_bills\x18\x01 \x01(\bR\x0fhasPendingBills\x12%\n" +
+	"\x0epending_amount\x18\x02 \x01(\x01R\rpendingAmount\x12,\n" +
+	"\x12pending_bill_count\x18\x03 \x01(\x05R\x10pendingBillCount\x12*\n" +
+	"\x11has_overdue_bills\x18\x04 \x01(\bR\x0fhasOverdueBills\x12%\n" +
+	"\x0eoverdue_amount\x18\x05 \x01(\x01R\roverdueAmount\x12,\n" +
+	"\x12overdue_bill_count\x18\x06 \x01(\x05R\x10overdueBillCount\x12.\n" +
+	"\x13payment_plan_active\x18\a \x01(\bR\x11paymentPlanActive\x12%\n" +
+	"\x0epayment_status\x18\b \x01(\tR\rpaymentStatus\x12.\n" +
+	"\x13can_access_services\x18\t \x01(\bR\x11canAccessServices\x12-\n" +
+	"\x12restriction_reason\x18\n" +
+	" \x01(\tR\x11restrictionReason\"s\n" +
+	"\x1fGetPatientPaymentStatusResponse\x126\n" +
+	"\x06status\x18\x01 \x01(\v2\x1e.billing_service.PaymentStatusR\x06status\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"`\n" +
+	"\x16GetPendingBillsRequest\x12\x1d\n" +
+	"\n" +
+	"patient_id\x18\x01 \x01(\tR\tpatientId\x12'\n" +
+	"\x0finclude_overdue\x18\x02 \x01(\bR\x0eincludeOverdue\"\xb4\x02\n" +
+	"\vPendingBill\x12\x1d\n" +
+	"\n" +
+	"invoice_id\x18\x01 \x01(\tR\tinvoiceId\x12!\n" +
+	"\finvoice_date\x18\x02 \x01(\tR\vinvoiceDate\x12\x19\n" +
+	"\bdue_date\x18\x03 \x01(\tR\adueDate\x12\x16\n" +
+	"\x06amount\x18\x04 \x01(\x01R\x06amount\x12\x1f\n" +
+	"\vamount_paid\x18\x05 \x01(\x01R\n" +
+	"amountPaid\x12\x18\n" +
+	"\abalance\x18\x06 \x01(\x01R\abalance\x12\x16\n" +
+	"\x06status\x18\a \x01(\tR\x06status\x12!\n" +
+	"\fdays_overdue\x18\b \x01(\x05R\vdaysOverdue\x12:\n" +
+	"\bservices\x18\t \x03(\v2\x1e.billing_service.ServiceRecordR\bservices\"\xb1\x01\n" +
+	"\x17GetPendingBillsResponse\x122\n" +
+	"\x05bills\x18\x01 \x03(\v2\x1c.billing_service.PendingBillR\x05bills\x12#\n" +
+	"\rtotal_pending\x18\x02 \x01(\x01R\ftotalPending\x12#\n" +
+	"\rtotal_overdue\x18\x03 \x01(\x01R\ftotalOverdue\x12\x18\n" +
+	"\amessage\x18\x04 \x01(\tR\amessage2\x8f\x15\n" +
 	"\x0eBillingService\x12w\n" +
 	"\rCreateInvoice\x12%.billing_service.CreateInvoiceRequest\x1a&.billing_service.CreateInvoiceResponse\"\x17\x82\xd3\xe4\x93\x02\x11:\x01*\"\f/v1/invoices\x12x\n" +
 	"\n" +
@@ -2149,22 +3316,26 @@ const file_billing_service_proto_rawDesc = "" +
 	"\x19UpdateServiceRecordStatus\x121.billing_service.UpdateServiceRecordStatusRequest\x1a2.billing_service.UpdateServiceRecordStatusResponse\"1\x82\xd3\xe4\x93\x02+:\x01*\x1a&/v1/service-records/{record_id}/status\x12\xb7\x01\n" +
 	"\x1aGetServiceRecordsByPatient\x122.billing_service.GetServiceRecordsByPatientRequest\x1a3.billing_service.GetServiceRecordsByPatientResponse\"0\x82\xd3\xe4\x93\x02*\x12(/v1/service-records/patient/{patient_id}\x12\xa9\x01\n" +
 	"\x1aGenerateInvoiceFromRecords\x122.billing_service.GenerateInvoiceFromRecordsRequest\x1a&.billing_service.CreateInvoiceResponse\"/\x82\xd3\xe4\x93\x02):\x01*\"$/v1/service-records/generate-invoice\x12\x8a\x01\n" +
-	"\x12ListServiceRecords\x12*.billing_service.ListServiceRecordsRequest\x1a+.billing_service.ListServiceRecordsResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/service-recordsB\"Z ./services/billing-service/protob\x06proto3"
+	"\x12ListServiceRecords\x12*.billing_service.ListServiceRecordsRequest\x1a+.billing_service.ListServiceRecordsResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/service-records\x12\x96\x01\n" +
+	"\x12CalculateBillSplit\x12*.billing_service.CalculateBillSplitRequest\x1a+.billing_service.CalculateBillSplitResponse\"'\x82\xd3\xe4\x93\x02!:\x01*\"\x1c/v1/invoices/calculate-split\x12\x83\x01\n" +
+	"\vSendInvoice\x12#.billing_service.SendInvoiceRequest\x1a$.billing_service.SendInvoiceResponse\")\x82\xd3\xe4\x93\x02#:\x01*\"\x1e/v1/invoices/{invoice_id}/send\x12\xae\x01\n" +
+	"\x17GetPatientPaymentStatus\x12/.billing_service.GetPatientPaymentStatusRequest\x1a0.billing_service.GetPatientPaymentStatusResponse\"0\x82\xd3\xe4\x93\x02*\x12(/v1/patients/{patient_id}/payment-status\x12\x95\x01\n" +
+	"\x0fGetPendingBills\x12'.billing_service.GetPendingBillsRequest\x1a(.billing_service.GetPendingBillsResponse\"/\x82\xd3\xe4\x93\x02)\x12'/v1/patients/{patient_id}/pending-billsB Z\x1e./shared/billing-service/protob\x06proto3"
 
 var (
-	file_billing_service_proto_rawDescOnce sync.Once
-	file_billing_service_proto_rawDescData []byte
+	file_proto_billing_service_proto_rawDescOnce sync.Once
+	file_proto_billing_service_proto_rawDescData []byte
 )
 
-func file_billing_service_proto_rawDescGZIP() []byte {
-	file_billing_service_proto_rawDescOnce.Do(func() {
-		file_billing_service_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_billing_service_proto_rawDesc), len(file_billing_service_proto_rawDesc)))
+func file_proto_billing_service_proto_rawDescGZIP() []byte {
+	file_proto_billing_service_proto_rawDescOnce.Do(func() {
+		file_proto_billing_service_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_billing_service_proto_rawDesc), len(file_proto_billing_service_proto_rawDesc)))
 	})
-	return file_billing_service_proto_rawDescData
+	return file_proto_billing_service_proto_rawDescData
 }
 
-var file_billing_service_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
-var file_billing_service_proto_goTypes = []any{
+var file_proto_billing_service_proto_msgTypes = make([]protoimpl.MessageInfo, 43)
+var file_proto_billing_service_proto_goTypes = []any{
 	(*PaymentMethod)(nil),                      // 0: billing_service.PaymentMethod
 	(*InvoiceItem)(nil),                        // 1: billing_service.InvoiceItem
 	(*CreateInvoiceRequest)(nil),               // 2: billing_service.CreateInvoiceRequest
@@ -2195,8 +3366,21 @@ var file_billing_service_proto_goTypes = []any{
 	(*GenerateInvoiceFromRecordsRequest)(nil),  // 27: billing_service.GenerateInvoiceFromRecordsRequest
 	(*ListServiceRecordsRequest)(nil),          // 28: billing_service.ListServiceRecordsRequest
 	(*ListServiceRecordsResponse)(nil),         // 29: billing_service.ListServiceRecordsResponse
+	(*CalculateBillSplitRequest)(nil),          // 30: billing_service.CalculateBillSplitRequest
+	(*BillItem)(nil),                           // 31: billing_service.BillItem
+	(*BillSplit)(nil),                          // 32: billing_service.BillSplit
+	(*BillItemSplit)(nil),                      // 33: billing_service.BillItemSplit
+	(*CalculateBillSplitResponse)(nil),         // 34: billing_service.CalculateBillSplitResponse
+	(*SendInvoiceRequest)(nil),                 // 35: billing_service.SendInvoiceRequest
+	(*SendInvoiceResponse)(nil),                // 36: billing_service.SendInvoiceResponse
+	(*GetPatientPaymentStatusRequest)(nil),     // 37: billing_service.GetPatientPaymentStatusRequest
+	(*PaymentStatus)(nil),                      // 38: billing_service.PaymentStatus
+	(*GetPatientPaymentStatusResponse)(nil),    // 39: billing_service.GetPatientPaymentStatusResponse
+	(*GetPendingBillsRequest)(nil),             // 40: billing_service.GetPendingBillsRequest
+	(*PendingBill)(nil),                        // 41: billing_service.PendingBill
+	(*GetPendingBillsResponse)(nil),            // 42: billing_service.GetPendingBillsResponse
 }
-var file_billing_service_proto_depIdxs = []int32{
+var file_proto_billing_service_proto_depIdxs = []int32{
 	0,  // 0: billing_service.CreateInvoiceRequest.payment_methods:type_name -> billing_service.PaymentMethod
 	1,  // 1: billing_service.CreateInvoiceRequest.items:type_name -> billing_service.InvoiceItem
 	0,  // 2: billing_service.Invoice.payment_methods:type_name -> billing_service.PaymentMethod
@@ -2208,61 +3392,75 @@ var file_billing_service_proto_depIdxs = []int32{
 	20, // 8: billing_service.GetServiceRecordsByPatientResponse.records:type_name -> billing_service.ServiceRecord
 	0,  // 9: billing_service.GenerateInvoiceFromRecordsRequest.payment_methods:type_name -> billing_service.PaymentMethod
 	20, // 10: billing_service.ListServiceRecordsResponse.records:type_name -> billing_service.ServiceRecord
-	2,  // 11: billing_service.BillingService.CreateInvoice:input_type -> billing_service.CreateInvoiceRequest
-	4,  // 12: billing_service.BillingService.GetInvoice:input_type -> billing_service.GetInvoiceRequest
-	7,  // 13: billing_service.BillingService.UpdateInvoice:input_type -> billing_service.UpdateInvoiceRequest
-	9,  // 14: billing_service.BillingService.DeleteInvoice:input_type -> billing_service.DeleteInvoiceRequest
-	11, // 15: billing_service.BillingService.ListInvoices:input_type -> billing_service.ListInvoicesRequest
-	13, // 16: billing_service.BillingService.GetInvoicesByPatientId:input_type -> billing_service.GetInvoicesByPatientIdRequest
-	14, // 17: billing_service.BillingService.ProcessPayment:input_type -> billing_service.ProcessPaymentRequest
-	16, // 18: billing_service.BillingService.MarkInvoiceAsPaid:input_type -> billing_service.MarkInvoiceAsPaidRequest
-	18, // 19: billing_service.BillingService.SendInvoiceEmail:input_type -> billing_service.SendInvoiceEmailRequest
-	21, // 20: billing_service.BillingService.CreateServiceRecord:input_type -> billing_service.CreateServiceRecordRequest
-	23, // 21: billing_service.BillingService.UpdateServiceRecordStatus:input_type -> billing_service.UpdateServiceRecordStatusRequest
-	25, // 22: billing_service.BillingService.GetServiceRecordsByPatient:input_type -> billing_service.GetServiceRecordsByPatientRequest
-	27, // 23: billing_service.BillingService.GenerateInvoiceFromRecords:input_type -> billing_service.GenerateInvoiceFromRecordsRequest
-	28, // 24: billing_service.BillingService.ListServiceRecords:input_type -> billing_service.ListServiceRecordsRequest
-	3,  // 25: billing_service.BillingService.CreateInvoice:output_type -> billing_service.CreateInvoiceResponse
-	6,  // 26: billing_service.BillingService.GetInvoice:output_type -> billing_service.GetInvoiceResponse
-	8,  // 27: billing_service.BillingService.UpdateInvoice:output_type -> billing_service.UpdateInvoiceResponse
-	10, // 28: billing_service.BillingService.DeleteInvoice:output_type -> billing_service.DeleteInvoiceResponse
-	12, // 29: billing_service.BillingService.ListInvoices:output_type -> billing_service.ListInvoicesResponse
-	12, // 30: billing_service.BillingService.GetInvoicesByPatientId:output_type -> billing_service.ListInvoicesResponse
-	15, // 31: billing_service.BillingService.ProcessPayment:output_type -> billing_service.ProcessPaymentResponse
-	17, // 32: billing_service.BillingService.MarkInvoiceAsPaid:output_type -> billing_service.MarkInvoiceAsPaidResponse
-	19, // 33: billing_service.BillingService.SendInvoiceEmail:output_type -> billing_service.SendInvoiceEmailResponse
-	22, // 34: billing_service.BillingService.CreateServiceRecord:output_type -> billing_service.CreateServiceRecordResponse
-	24, // 35: billing_service.BillingService.UpdateServiceRecordStatus:output_type -> billing_service.UpdateServiceRecordStatusResponse
-	26, // 36: billing_service.BillingService.GetServiceRecordsByPatient:output_type -> billing_service.GetServiceRecordsByPatientResponse
-	3,  // 37: billing_service.BillingService.GenerateInvoiceFromRecords:output_type -> billing_service.CreateInvoiceResponse
-	29, // 38: billing_service.BillingService.ListServiceRecords:output_type -> billing_service.ListServiceRecordsResponse
-	25, // [25:39] is the sub-list for method output_type
-	11, // [11:25] is the sub-list for method input_type
-	11, // [11:11] is the sub-list for extension type_name
-	11, // [11:11] is the sub-list for extension extendee
-	0,  // [0:11] is the sub-list for field type_name
+	31, // 11: billing_service.CalculateBillSplitRequest.items:type_name -> billing_service.BillItem
+	32, // 12: billing_service.CalculateBillSplitResponse.overall_split:type_name -> billing_service.BillSplit
+	33, // 13: billing_service.CalculateBillSplitResponse.item_splits:type_name -> billing_service.BillItemSplit
+	38, // 14: billing_service.GetPatientPaymentStatusResponse.status:type_name -> billing_service.PaymentStatus
+	20, // 15: billing_service.PendingBill.services:type_name -> billing_service.ServiceRecord
+	41, // 16: billing_service.GetPendingBillsResponse.bills:type_name -> billing_service.PendingBill
+	2,  // 17: billing_service.BillingService.CreateInvoice:input_type -> billing_service.CreateInvoiceRequest
+	4,  // 18: billing_service.BillingService.GetInvoice:input_type -> billing_service.GetInvoiceRequest
+	7,  // 19: billing_service.BillingService.UpdateInvoice:input_type -> billing_service.UpdateInvoiceRequest
+	9,  // 20: billing_service.BillingService.DeleteInvoice:input_type -> billing_service.DeleteInvoiceRequest
+	11, // 21: billing_service.BillingService.ListInvoices:input_type -> billing_service.ListInvoicesRequest
+	13, // 22: billing_service.BillingService.GetInvoicesByPatientId:input_type -> billing_service.GetInvoicesByPatientIdRequest
+	14, // 23: billing_service.BillingService.ProcessPayment:input_type -> billing_service.ProcessPaymentRequest
+	16, // 24: billing_service.BillingService.MarkInvoiceAsPaid:input_type -> billing_service.MarkInvoiceAsPaidRequest
+	18, // 25: billing_service.BillingService.SendInvoiceEmail:input_type -> billing_service.SendInvoiceEmailRequest
+	21, // 26: billing_service.BillingService.CreateServiceRecord:input_type -> billing_service.CreateServiceRecordRequest
+	23, // 27: billing_service.BillingService.UpdateServiceRecordStatus:input_type -> billing_service.UpdateServiceRecordStatusRequest
+	25, // 28: billing_service.BillingService.GetServiceRecordsByPatient:input_type -> billing_service.GetServiceRecordsByPatientRequest
+	27, // 29: billing_service.BillingService.GenerateInvoiceFromRecords:input_type -> billing_service.GenerateInvoiceFromRecordsRequest
+	28, // 30: billing_service.BillingService.ListServiceRecords:input_type -> billing_service.ListServiceRecordsRequest
+	30, // 31: billing_service.BillingService.CalculateBillSplit:input_type -> billing_service.CalculateBillSplitRequest
+	35, // 32: billing_service.BillingService.SendInvoice:input_type -> billing_service.SendInvoiceRequest
+	37, // 33: billing_service.BillingService.GetPatientPaymentStatus:input_type -> billing_service.GetPatientPaymentStatusRequest
+	40, // 34: billing_service.BillingService.GetPendingBills:input_type -> billing_service.GetPendingBillsRequest
+	3,  // 35: billing_service.BillingService.CreateInvoice:output_type -> billing_service.CreateInvoiceResponse
+	6,  // 36: billing_service.BillingService.GetInvoice:output_type -> billing_service.GetInvoiceResponse
+	8,  // 37: billing_service.BillingService.UpdateInvoice:output_type -> billing_service.UpdateInvoiceResponse
+	10, // 38: billing_service.BillingService.DeleteInvoice:output_type -> billing_service.DeleteInvoiceResponse
+	12, // 39: billing_service.BillingService.ListInvoices:output_type -> billing_service.ListInvoicesResponse
+	12, // 40: billing_service.BillingService.GetInvoicesByPatientId:output_type -> billing_service.ListInvoicesResponse
+	15, // 41: billing_service.BillingService.ProcessPayment:output_type -> billing_service.ProcessPaymentResponse
+	17, // 42: billing_service.BillingService.MarkInvoiceAsPaid:output_type -> billing_service.MarkInvoiceAsPaidResponse
+	19, // 43: billing_service.BillingService.SendInvoiceEmail:output_type -> billing_service.SendInvoiceEmailResponse
+	22, // 44: billing_service.BillingService.CreateServiceRecord:output_type -> billing_service.CreateServiceRecordResponse
+	24, // 45: billing_service.BillingService.UpdateServiceRecordStatus:output_type -> billing_service.UpdateServiceRecordStatusResponse
+	26, // 46: billing_service.BillingService.GetServiceRecordsByPatient:output_type -> billing_service.GetServiceRecordsByPatientResponse
+	3,  // 47: billing_service.BillingService.GenerateInvoiceFromRecords:output_type -> billing_service.CreateInvoiceResponse
+	29, // 48: billing_service.BillingService.ListServiceRecords:output_type -> billing_service.ListServiceRecordsResponse
+	34, // 49: billing_service.BillingService.CalculateBillSplit:output_type -> billing_service.CalculateBillSplitResponse
+	36, // 50: billing_service.BillingService.SendInvoice:output_type -> billing_service.SendInvoiceResponse
+	39, // 51: billing_service.BillingService.GetPatientPaymentStatus:output_type -> billing_service.GetPatientPaymentStatusResponse
+	42, // 52: billing_service.BillingService.GetPendingBills:output_type -> billing_service.GetPendingBillsResponse
+	35, // [35:53] is the sub-list for method output_type
+	17, // [17:35] is the sub-list for method input_type
+	17, // [17:17] is the sub-list for extension type_name
+	17, // [17:17] is the sub-list for extension extendee
+	0,  // [0:17] is the sub-list for field type_name
 }
 
-func init() { file_billing_service_proto_init() }
-func file_billing_service_proto_init() {
-	if File_billing_service_proto != nil {
+func init() { file_proto_billing_service_proto_init() }
+func file_proto_billing_service_proto_init() {
+	if File_proto_billing_service_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_billing_service_proto_rawDesc), len(file_billing_service_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_billing_service_proto_rawDesc), len(file_proto_billing_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   30,
+			NumMessages:   43,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_billing_service_proto_goTypes,
-		DependencyIndexes: file_billing_service_proto_depIdxs,
-		MessageInfos:      file_billing_service_proto_msgTypes,
+		GoTypes:           file_proto_billing_service_proto_goTypes,
+		DependencyIndexes: file_proto_billing_service_proto_depIdxs,
+		MessageInfos:      file_proto_billing_service_proto_msgTypes,
 	}.Build()
-	File_billing_service_proto = out.File
-	file_billing_service_proto_goTypes = nil
-	file_billing_service_proto_depIdxs = nil
+	File_proto_billing_service_proto = out.File
+	file_proto_billing_service_proto_goTypes = nil
+	file_proto_billing_service_proto_depIdxs = nil
 }

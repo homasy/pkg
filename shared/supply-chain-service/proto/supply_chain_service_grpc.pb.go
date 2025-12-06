@@ -4,7 +4,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.0--rc1
-// source: supply_chain_service.proto
+// source: proto/supply_chain_service.proto
 
 package proto
 
@@ -21,42 +21,56 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	SupplyChainService_CreateStockItem_FullMethodName           = "/supply_chain.SupplyChainService/CreateStockItem"
-	SupplyChainService_GetStockItem_FullMethodName              = "/supply_chain.SupplyChainService/GetStockItem"
-	SupplyChainService_UpdateStockItem_FullMethodName           = "/supply_chain.SupplyChainService/UpdateStockItem"
-	SupplyChainService_ListStockItems_FullMethodName            = "/supply_chain.SupplyChainService/ListStockItems"
-	SupplyChainService_GetStockLevels_FullMethodName            = "/supply_chain.SupplyChainService/GetStockLevels"
-	SupplyChainService_GetExpiringItems_FullMethodName          = "/supply_chain.SupplyChainService/GetExpiringItems"
-	SupplyChainService_GetItemsBelowReorderLevel_FullMethodName = "/supply_chain.SupplyChainService/GetItemsBelowReorderLevel"
-	SupplyChainService_CreateStore_FullMethodName               = "/supply_chain.SupplyChainService/CreateStore"
-	SupplyChainService_ListStores_FullMethodName                = "/supply_chain.SupplyChainService/ListStores"
-	SupplyChainService_CreateSupplier_FullMethodName            = "/supply_chain.SupplyChainService/CreateSupplier"
-	SupplyChainService_ListSuppliers_FullMethodName             = "/supply_chain.SupplyChainService/ListSuppliers"
-	SupplyChainService_CreateRequisition_FullMethodName         = "/supply_chain.SupplyChainService/CreateRequisition"
-	SupplyChainService_ApproveRequisition_FullMethodName        = "/supply_chain.SupplyChainService/ApproveRequisition"
-	SupplyChainService_GetRequisition_FullMethodName            = "/supply_chain.SupplyChainService/GetRequisition"
-	SupplyChainService_ListRequisitions_FullMethodName          = "/supply_chain.SupplyChainService/ListRequisitions"
-	SupplyChainService_CreateLPO_FullMethodName                 = "/supply_chain.SupplyChainService/CreateLPO"
-	SupplyChainService_ApproveLPO_FullMethodName                = "/supply_chain.SupplyChainService/ApproveLPO"
-	SupplyChainService_GetLPO_FullMethodName                    = "/supply_chain.SupplyChainService/GetLPO"
-	SupplyChainService_ListLPOs_FullMethodName                  = "/supply_chain.SupplyChainService/ListLPOs"
-	SupplyChainService_CreateGRN_FullMethodName                 = "/supply_chain.SupplyChainService/CreateGRN"
-	SupplyChainService_PerformQualityCheck_FullMethodName       = "/supply_chain.SupplyChainService/PerformQualityCheck"
-	SupplyChainService_GetGRN_FullMethodName                    = "/supply_chain.SupplyChainService/GetGRN"
-	SupplyChainService_ListGRNs_FullMethodName                  = "/supply_chain.SupplyChainService/ListGRNs"
-	SupplyChainService_CreateStockAdjustment_FullMethodName     = "/supply_chain.SupplyChainService/CreateStockAdjustment"
-	SupplyChainService_ListStockAdjustments_FullMethodName      = "/supply_chain.SupplyChainService/ListStockAdjustments"
-	SupplyChainService_ApproveStockAdjustment_FullMethodName    = "/supply_chain.SupplyChainService/ApproveStockAdjustment"
-	SupplyChainService_GetStockAdjustment_FullMethodName        = "/supply_chain.SupplyChainService/GetStockAdjustment"
-	SupplyChainService_CreateInterStoreTransfer_FullMethodName  = "/supply_chain.SupplyChainService/CreateInterStoreTransfer"
-	SupplyChainService_ApproveInterStoreTransfer_FullMethodName = "/supply_chain.SupplyChainService/ApproveInterStoreTransfer"
-	SupplyChainService_ReceiveInterStoreTransfer_FullMethodName = "/supply_chain.SupplyChainService/ReceiveInterStoreTransfer"
-	SupplyChainService_GetInterStoreTransfer_FullMethodName     = "/supply_chain.SupplyChainService/GetInterStoreTransfer"
-	SupplyChainService_ListInterStoreTransfers_FullMethodName   = "/supply_chain.SupplyChainService/ListInterStoreTransfers"
-	SupplyChainService_CreateCreditNote_FullMethodName          = "/supply_chain.SupplyChainService/CreateCreditNote"
-	SupplyChainService_ApproveCreditNote_FullMethodName         = "/supply_chain.SupplyChainService/ApproveCreditNote"
-	SupplyChainService_GetCreditNote_FullMethodName             = "/supply_chain.SupplyChainService/GetCreditNote"
-	SupplyChainService_ListCreditNotes_FullMethodName           = "/supply_chain.SupplyChainService/ListCreditNotes"
+	SupplyChainService_CreateStockItem_FullMethodName              = "/supply_chain.SupplyChainService/CreateStockItem"
+	SupplyChainService_GetStockItem_FullMethodName                 = "/supply_chain.SupplyChainService/GetStockItem"
+	SupplyChainService_UpdateStockItem_FullMethodName              = "/supply_chain.SupplyChainService/UpdateStockItem"
+	SupplyChainService_ListStockItems_FullMethodName               = "/supply_chain.SupplyChainService/ListStockItems"
+	SupplyChainService_GetStockLevels_FullMethodName               = "/supply_chain.SupplyChainService/GetStockLevels"
+	SupplyChainService_GetExpiringItems_FullMethodName             = "/supply_chain.SupplyChainService/GetExpiringItems"
+	SupplyChainService_GetItemsBelowReorderLevel_FullMethodName    = "/supply_chain.SupplyChainService/GetItemsBelowReorderLevel"
+	SupplyChainService_CreateStore_FullMethodName                  = "/supply_chain.SupplyChainService/CreateStore"
+	SupplyChainService_ListStores_FullMethodName                   = "/supply_chain.SupplyChainService/ListStores"
+	SupplyChainService_CreateSupplier_FullMethodName               = "/supply_chain.SupplyChainService/CreateSupplier"
+	SupplyChainService_ListSuppliers_FullMethodName                = "/supply_chain.SupplyChainService/ListSuppliers"
+	SupplyChainService_CreateRequisition_FullMethodName            = "/supply_chain.SupplyChainService/CreateRequisition"
+	SupplyChainService_ApproveRequisition_FullMethodName           = "/supply_chain.SupplyChainService/ApproveRequisition"
+	SupplyChainService_GetRequisition_FullMethodName               = "/supply_chain.SupplyChainService/GetRequisition"
+	SupplyChainService_ListRequisitions_FullMethodName             = "/supply_chain.SupplyChainService/ListRequisitions"
+	SupplyChainService_CreateLPO_FullMethodName                    = "/supply_chain.SupplyChainService/CreateLPO"
+	SupplyChainService_ApproveLPO_FullMethodName                   = "/supply_chain.SupplyChainService/ApproveLPO"
+	SupplyChainService_GetLPO_FullMethodName                       = "/supply_chain.SupplyChainService/GetLPO"
+	SupplyChainService_ListLPOs_FullMethodName                     = "/supply_chain.SupplyChainService/ListLPOs"
+	SupplyChainService_CreateGRN_FullMethodName                    = "/supply_chain.SupplyChainService/CreateGRN"
+	SupplyChainService_PerformQualityCheck_FullMethodName          = "/supply_chain.SupplyChainService/PerformQualityCheck"
+	SupplyChainService_GetGRN_FullMethodName                       = "/supply_chain.SupplyChainService/GetGRN"
+	SupplyChainService_ListGRNs_FullMethodName                     = "/supply_chain.SupplyChainService/ListGRNs"
+	SupplyChainService_CreateStockAdjustment_FullMethodName        = "/supply_chain.SupplyChainService/CreateStockAdjustment"
+	SupplyChainService_ListStockAdjustments_FullMethodName         = "/supply_chain.SupplyChainService/ListStockAdjustments"
+	SupplyChainService_ApproveStockAdjustment_FullMethodName       = "/supply_chain.SupplyChainService/ApproveStockAdjustment"
+	SupplyChainService_GetStockAdjustment_FullMethodName           = "/supply_chain.SupplyChainService/GetStockAdjustment"
+	SupplyChainService_CreateInterStoreTransfer_FullMethodName     = "/supply_chain.SupplyChainService/CreateInterStoreTransfer"
+	SupplyChainService_ApproveInterStoreTransfer_FullMethodName    = "/supply_chain.SupplyChainService/ApproveInterStoreTransfer"
+	SupplyChainService_ReceiveInterStoreTransfer_FullMethodName    = "/supply_chain.SupplyChainService/ReceiveInterStoreTransfer"
+	SupplyChainService_GetInterStoreTransfer_FullMethodName        = "/supply_chain.SupplyChainService/GetInterStoreTransfer"
+	SupplyChainService_ListInterStoreTransfers_FullMethodName      = "/supply_chain.SupplyChainService/ListInterStoreTransfers"
+	SupplyChainService_CreateCreditNote_FullMethodName             = "/supply_chain.SupplyChainService/CreateCreditNote"
+	SupplyChainService_ApproveCreditNote_FullMethodName            = "/supply_chain.SupplyChainService/ApproveCreditNote"
+	SupplyChainService_GetCreditNote_FullMethodName                = "/supply_chain.SupplyChainService/GetCreditNote"
+	SupplyChainService_ListCreditNotes_FullMethodName              = "/supply_chain.SupplyChainService/ListCreditNotes"
+	SupplyChainService_CreatePriceList_FullMethodName              = "/supply_chain.SupplyChainService/CreatePriceList"
+	SupplyChainService_GetPriceList_FullMethodName                 = "/supply_chain.SupplyChainService/GetPriceList"
+	SupplyChainService_UpdatePriceList_FullMethodName              = "/supply_chain.SupplyChainService/UpdatePriceList"
+	SupplyChainService_ListPriceLists_FullMethodName               = "/supply_chain.SupplyChainService/ListPriceLists"
+	SupplyChainService_CreatePriceListItem_FullMethodName          = "/supply_chain.SupplyChainService/CreatePriceListItem"
+	SupplyChainService_GetPriceListItem_FullMethodName             = "/supply_chain.SupplyChainService/GetPriceListItem"
+	SupplyChainService_UpdatePriceListItem_FullMethodName          = "/supply_chain.SupplyChainService/UpdatePriceListItem"
+	SupplyChainService_DeletePriceListItem_FullMethodName          = "/supply_chain.SupplyChainService/DeletePriceListItem"
+	SupplyChainService_ListPriceListItems_FullMethodName           = "/supply_chain.SupplyChainService/ListPriceListItems"
+	SupplyChainService_GetPriceListItemsByPriceList_FullMethodName = "/supply_chain.SupplyChainService/GetPriceListItemsByPriceList"
+	SupplyChainService_CreateMedicalScheme_FullMethodName          = "/supply_chain.SupplyChainService/CreateMedicalScheme"
+	SupplyChainService_GetMedicalScheme_FullMethodName             = "/supply_chain.SupplyChainService/GetMedicalScheme"
+	SupplyChainService_UpdateMedicalScheme_FullMethodName          = "/supply_chain.SupplyChainService/UpdateMedicalScheme"
+	SupplyChainService_ListMedicalSchemes_FullMethodName           = "/supply_chain.SupplyChainService/ListMedicalSchemes"
 )
 
 // SupplyChainServiceClient is the client API for SupplyChainService service.
@@ -108,6 +122,23 @@ type SupplyChainServiceClient interface {
 	ApproveCreditNote(ctx context.Context, in *ApproveCreditNoteRequest, opts ...grpc.CallOption) (*ApproveCreditNoteResponse, error)
 	GetCreditNote(ctx context.Context, in *GetCreditNoteRequest, opts ...grpc.CallOption) (*GetCreditNoteResponse, error)
 	ListCreditNotes(ctx context.Context, in *ListCreditNotesRequest, opts ...grpc.CallOption) (*ListCreditNotesResponse, error)
+	// Price List Management
+	CreatePriceList(ctx context.Context, in *CreatePriceListRequest, opts ...grpc.CallOption) (*CreatePriceListResponse, error)
+	GetPriceList(ctx context.Context, in *GetPriceListRequest, opts ...grpc.CallOption) (*GetPriceListResponse, error)
+	UpdatePriceList(ctx context.Context, in *UpdatePriceListRequest, opts ...grpc.CallOption) (*UpdatePriceListResponse, error)
+	ListPriceLists(ctx context.Context, in *ListPriceListsRequest, opts ...grpc.CallOption) (*ListPriceListsResponse, error)
+	// Price List Item Management
+	CreatePriceListItem(ctx context.Context, in *CreatePriceListItemRequest, opts ...grpc.CallOption) (*CreatePriceListItemResponse, error)
+	GetPriceListItem(ctx context.Context, in *GetPriceListItemRequest, opts ...grpc.CallOption) (*GetPriceListItemResponse, error)
+	UpdatePriceListItem(ctx context.Context, in *UpdatePriceListItemRequest, opts ...grpc.CallOption) (*UpdatePriceListItemResponse, error)
+	DeletePriceListItem(ctx context.Context, in *DeletePriceListItemRequest, opts ...grpc.CallOption) (*DeletePriceListItemResponse, error)
+	ListPriceListItems(ctx context.Context, in *ListPriceListItemsRequest, opts ...grpc.CallOption) (*ListPriceListItemsResponse, error)
+	GetPriceListItemsByPriceList(ctx context.Context, in *GetPriceListItemsByPriceListRequest, opts ...grpc.CallOption) (*GetPriceListItemsByPriceListResponse, error)
+	// Medical Scheme Management
+	CreateMedicalScheme(ctx context.Context, in *CreateMedicalSchemeRequest, opts ...grpc.CallOption) (*CreateMedicalSchemeResponse, error)
+	GetMedicalScheme(ctx context.Context, in *GetMedicalSchemeRequest, opts ...grpc.CallOption) (*GetMedicalSchemeResponse, error)
+	UpdateMedicalScheme(ctx context.Context, in *UpdateMedicalSchemeRequest, opts ...grpc.CallOption) (*UpdateMedicalSchemeResponse, error)
+	ListMedicalSchemes(ctx context.Context, in *ListMedicalSchemesRequest, opts ...grpc.CallOption) (*ListMedicalSchemesResponse, error)
 }
 
 type supplyChainServiceClient struct {
@@ -478,6 +509,146 @@ func (c *supplyChainServiceClient) ListCreditNotes(ctx context.Context, in *List
 	return out, nil
 }
 
+func (c *supplyChainServiceClient) CreatePriceList(ctx context.Context, in *CreatePriceListRequest, opts ...grpc.CallOption) (*CreatePriceListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreatePriceListResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_CreatePriceList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) GetPriceList(ctx context.Context, in *GetPriceListRequest, opts ...grpc.CallOption) (*GetPriceListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPriceListResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_GetPriceList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) UpdatePriceList(ctx context.Context, in *UpdatePriceListRequest, opts ...grpc.CallOption) (*UpdatePriceListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdatePriceListResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_UpdatePriceList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) ListPriceLists(ctx context.Context, in *ListPriceListsRequest, opts ...grpc.CallOption) (*ListPriceListsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListPriceListsResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_ListPriceLists_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) CreatePriceListItem(ctx context.Context, in *CreatePriceListItemRequest, opts ...grpc.CallOption) (*CreatePriceListItemResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreatePriceListItemResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_CreatePriceListItem_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) GetPriceListItem(ctx context.Context, in *GetPriceListItemRequest, opts ...grpc.CallOption) (*GetPriceListItemResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPriceListItemResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_GetPriceListItem_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) UpdatePriceListItem(ctx context.Context, in *UpdatePriceListItemRequest, opts ...grpc.CallOption) (*UpdatePriceListItemResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdatePriceListItemResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_UpdatePriceListItem_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) DeletePriceListItem(ctx context.Context, in *DeletePriceListItemRequest, opts ...grpc.CallOption) (*DeletePriceListItemResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeletePriceListItemResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_DeletePriceListItem_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) ListPriceListItems(ctx context.Context, in *ListPriceListItemsRequest, opts ...grpc.CallOption) (*ListPriceListItemsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListPriceListItemsResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_ListPriceListItems_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) GetPriceListItemsByPriceList(ctx context.Context, in *GetPriceListItemsByPriceListRequest, opts ...grpc.CallOption) (*GetPriceListItemsByPriceListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPriceListItemsByPriceListResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_GetPriceListItemsByPriceList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) CreateMedicalScheme(ctx context.Context, in *CreateMedicalSchemeRequest, opts ...grpc.CallOption) (*CreateMedicalSchemeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateMedicalSchemeResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_CreateMedicalScheme_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) GetMedicalScheme(ctx context.Context, in *GetMedicalSchemeRequest, opts ...grpc.CallOption) (*GetMedicalSchemeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMedicalSchemeResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_GetMedicalScheme_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) UpdateMedicalScheme(ctx context.Context, in *UpdateMedicalSchemeRequest, opts ...grpc.CallOption) (*UpdateMedicalSchemeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateMedicalSchemeResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_UpdateMedicalScheme_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) ListMedicalSchemes(ctx context.Context, in *ListMedicalSchemesRequest, opts ...grpc.CallOption) (*ListMedicalSchemesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListMedicalSchemesResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_ListMedicalSchemes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // SupplyChainServiceServer is the server API for SupplyChainService service.
 // All implementations must embed UnimplementedSupplyChainServiceServer
 // for forward compatibility.
@@ -527,6 +698,23 @@ type SupplyChainServiceServer interface {
 	ApproveCreditNote(context.Context, *ApproveCreditNoteRequest) (*ApproveCreditNoteResponse, error)
 	GetCreditNote(context.Context, *GetCreditNoteRequest) (*GetCreditNoteResponse, error)
 	ListCreditNotes(context.Context, *ListCreditNotesRequest) (*ListCreditNotesResponse, error)
+	// Price List Management
+	CreatePriceList(context.Context, *CreatePriceListRequest) (*CreatePriceListResponse, error)
+	GetPriceList(context.Context, *GetPriceListRequest) (*GetPriceListResponse, error)
+	UpdatePriceList(context.Context, *UpdatePriceListRequest) (*UpdatePriceListResponse, error)
+	ListPriceLists(context.Context, *ListPriceListsRequest) (*ListPriceListsResponse, error)
+	// Price List Item Management
+	CreatePriceListItem(context.Context, *CreatePriceListItemRequest) (*CreatePriceListItemResponse, error)
+	GetPriceListItem(context.Context, *GetPriceListItemRequest) (*GetPriceListItemResponse, error)
+	UpdatePriceListItem(context.Context, *UpdatePriceListItemRequest) (*UpdatePriceListItemResponse, error)
+	DeletePriceListItem(context.Context, *DeletePriceListItemRequest) (*DeletePriceListItemResponse, error)
+	ListPriceListItems(context.Context, *ListPriceListItemsRequest) (*ListPriceListItemsResponse, error)
+	GetPriceListItemsByPriceList(context.Context, *GetPriceListItemsByPriceListRequest) (*GetPriceListItemsByPriceListResponse, error)
+	// Medical Scheme Management
+	CreateMedicalScheme(context.Context, *CreateMedicalSchemeRequest) (*CreateMedicalSchemeResponse, error)
+	GetMedicalScheme(context.Context, *GetMedicalSchemeRequest) (*GetMedicalSchemeResponse, error)
+	UpdateMedicalScheme(context.Context, *UpdateMedicalSchemeRequest) (*UpdateMedicalSchemeResponse, error)
+	ListMedicalSchemes(context.Context, *ListMedicalSchemesRequest) (*ListMedicalSchemesResponse, error)
 	mustEmbedUnimplementedSupplyChainServiceServer()
 }
 
@@ -644,6 +832,48 @@ func (UnimplementedSupplyChainServiceServer) GetCreditNote(context.Context, *Get
 }
 func (UnimplementedSupplyChainServiceServer) ListCreditNotes(context.Context, *ListCreditNotesRequest) (*ListCreditNotesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListCreditNotes not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) CreatePriceList(context.Context, *CreatePriceListRequest) (*CreatePriceListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePriceList not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) GetPriceList(context.Context, *GetPriceListRequest) (*GetPriceListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPriceList not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) UpdatePriceList(context.Context, *UpdatePriceListRequest) (*UpdatePriceListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePriceList not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) ListPriceLists(context.Context, *ListPriceListsRequest) (*ListPriceListsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPriceLists not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) CreatePriceListItem(context.Context, *CreatePriceListItemRequest) (*CreatePriceListItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePriceListItem not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) GetPriceListItem(context.Context, *GetPriceListItemRequest) (*GetPriceListItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPriceListItem not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) UpdatePriceListItem(context.Context, *UpdatePriceListItemRequest) (*UpdatePriceListItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePriceListItem not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) DeletePriceListItem(context.Context, *DeletePriceListItemRequest) (*DeletePriceListItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePriceListItem not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) ListPriceListItems(context.Context, *ListPriceListItemsRequest) (*ListPriceListItemsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPriceListItems not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) GetPriceListItemsByPriceList(context.Context, *GetPriceListItemsByPriceListRequest) (*GetPriceListItemsByPriceListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPriceListItemsByPriceList not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) CreateMedicalScheme(context.Context, *CreateMedicalSchemeRequest) (*CreateMedicalSchemeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateMedicalScheme not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) GetMedicalScheme(context.Context, *GetMedicalSchemeRequest) (*GetMedicalSchemeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMedicalScheme not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) UpdateMedicalScheme(context.Context, *UpdateMedicalSchemeRequest) (*UpdateMedicalSchemeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateMedicalScheme not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) ListMedicalSchemes(context.Context, *ListMedicalSchemesRequest) (*ListMedicalSchemesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListMedicalSchemes not implemented")
 }
 func (UnimplementedSupplyChainServiceServer) mustEmbedUnimplementedSupplyChainServiceServer() {}
 func (UnimplementedSupplyChainServiceServer) testEmbeddedByValue()                            {}
@@ -1314,6 +1544,258 @@ func _SupplyChainService_ListCreditNotes_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SupplyChainService_CreatePriceList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePriceListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).CreatePriceList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_CreatePriceList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).CreatePriceList(ctx, req.(*CreatePriceListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_GetPriceList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPriceListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).GetPriceList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_GetPriceList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).GetPriceList(ctx, req.(*GetPriceListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_UpdatePriceList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdatePriceListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).UpdatePriceList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_UpdatePriceList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).UpdatePriceList(ctx, req.(*UpdatePriceListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_ListPriceLists_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListPriceListsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).ListPriceLists(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_ListPriceLists_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).ListPriceLists(ctx, req.(*ListPriceListsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_CreatePriceListItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePriceListItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).CreatePriceListItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_CreatePriceListItem_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).CreatePriceListItem(ctx, req.(*CreatePriceListItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_GetPriceListItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPriceListItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).GetPriceListItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_GetPriceListItem_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).GetPriceListItem(ctx, req.(*GetPriceListItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_UpdatePriceListItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdatePriceListItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).UpdatePriceListItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_UpdatePriceListItem_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).UpdatePriceListItem(ctx, req.(*UpdatePriceListItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_DeletePriceListItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeletePriceListItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).DeletePriceListItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_DeletePriceListItem_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).DeletePriceListItem(ctx, req.(*DeletePriceListItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_ListPriceListItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListPriceListItemsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).ListPriceListItems(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_ListPriceListItems_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).ListPriceListItems(ctx, req.(*ListPriceListItemsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_GetPriceListItemsByPriceList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPriceListItemsByPriceListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).GetPriceListItemsByPriceList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_GetPriceListItemsByPriceList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).GetPriceListItemsByPriceList(ctx, req.(*GetPriceListItemsByPriceListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_CreateMedicalScheme_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateMedicalSchemeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).CreateMedicalScheme(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_CreateMedicalScheme_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).CreateMedicalScheme(ctx, req.(*CreateMedicalSchemeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_GetMedicalScheme_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMedicalSchemeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).GetMedicalScheme(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_GetMedicalScheme_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).GetMedicalScheme(ctx, req.(*GetMedicalSchemeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_UpdateMedicalScheme_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateMedicalSchemeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).UpdateMedicalScheme(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_UpdateMedicalScheme_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).UpdateMedicalScheme(ctx, req.(*UpdateMedicalSchemeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_ListMedicalSchemes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListMedicalSchemesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).ListMedicalSchemes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_ListMedicalSchemes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).ListMedicalSchemes(ctx, req.(*ListMedicalSchemesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // SupplyChainService_ServiceDesc is the grpc.ServiceDesc for SupplyChainService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1465,7 +1947,63 @@ var SupplyChainService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "ListCreditNotes",
 			Handler:    _SupplyChainService_ListCreditNotes_Handler,
 		},
+		{
+			MethodName: "CreatePriceList",
+			Handler:    _SupplyChainService_CreatePriceList_Handler,
+		},
+		{
+			MethodName: "GetPriceList",
+			Handler:    _SupplyChainService_GetPriceList_Handler,
+		},
+		{
+			MethodName: "UpdatePriceList",
+			Handler:    _SupplyChainService_UpdatePriceList_Handler,
+		},
+		{
+			MethodName: "ListPriceLists",
+			Handler:    _SupplyChainService_ListPriceLists_Handler,
+		},
+		{
+			MethodName: "CreatePriceListItem",
+			Handler:    _SupplyChainService_CreatePriceListItem_Handler,
+		},
+		{
+			MethodName: "GetPriceListItem",
+			Handler:    _SupplyChainService_GetPriceListItem_Handler,
+		},
+		{
+			MethodName: "UpdatePriceListItem",
+			Handler:    _SupplyChainService_UpdatePriceListItem_Handler,
+		},
+		{
+			MethodName: "DeletePriceListItem",
+			Handler:    _SupplyChainService_DeletePriceListItem_Handler,
+		},
+		{
+			MethodName: "ListPriceListItems",
+			Handler:    _SupplyChainService_ListPriceListItems_Handler,
+		},
+		{
+			MethodName: "GetPriceListItemsByPriceList",
+			Handler:    _SupplyChainService_GetPriceListItemsByPriceList_Handler,
+		},
+		{
+			MethodName: "CreateMedicalScheme",
+			Handler:    _SupplyChainService_CreateMedicalScheme_Handler,
+		},
+		{
+			MethodName: "GetMedicalScheme",
+			Handler:    _SupplyChainService_GetMedicalScheme_Handler,
+		},
+		{
+			MethodName: "UpdateMedicalScheme",
+			Handler:    _SupplyChainService_UpdateMedicalScheme_Handler,
+		},
+		{
+			MethodName: "ListMedicalSchemes",
+			Handler:    _SupplyChainService_ListMedicalSchemes_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "supply_chain_service.proto",
+	Metadata: "proto/supply_chain_service.proto",
 }

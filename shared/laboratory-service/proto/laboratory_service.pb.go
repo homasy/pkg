@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v5.29.0--rc1
-// source: laboratory_service.proto
+// source: proto/laboratory_service.proto
 
 package proto
 
@@ -38,7 +38,7 @@ type RequestLabRequest struct {
 
 func (x *RequestLabRequest) Reset() {
 	*x = RequestLabRequest{}
-	mi := &file_laboratory_service_proto_msgTypes[0]
+	mi := &file_proto_laboratory_service_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -50,7 +50,7 @@ func (x *RequestLabRequest) String() string {
 func (*RequestLabRequest) ProtoMessage() {}
 
 func (x *RequestLabRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[0]
+	mi := &file_proto_laboratory_service_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -63,7 +63,7 @@ func (x *RequestLabRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLabRequest.ProtoReflect.Descriptor instead.
 func (*RequestLabRequest) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{0}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *RequestLabRequest) GetId() int64 {
@@ -137,7 +137,7 @@ type AddTestResultRequest struct {
 
 func (x *AddTestResultRequest) Reset() {
 	*x = AddTestResultRequest{}
-	mi := &file_laboratory_service_proto_msgTypes[1]
+	mi := &file_proto_laboratory_service_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -149,7 +149,7 @@ func (x *AddTestResultRequest) String() string {
 func (*AddTestResultRequest) ProtoMessage() {}
 
 func (x *AddTestResultRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[1]
+	mi := &file_proto_laboratory_service_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -162,7 +162,7 @@ func (x *AddTestResultRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddTestResultRequest.ProtoReflect.Descriptor instead.
 func (*AddTestResultRequest) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{1}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *AddTestResultRequest) GetPatientInfo() *PatientInfo {
@@ -222,7 +222,7 @@ type ViewLabRequestsRequest struct {
 
 func (x *ViewLabRequestsRequest) Reset() {
 	*x = ViewLabRequestsRequest{}
-	mi := &file_laboratory_service_proto_msgTypes[2]
+	mi := &file_proto_laboratory_service_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -234,7 +234,7 @@ func (x *ViewLabRequestsRequest) String() string {
 func (*ViewLabRequestsRequest) ProtoMessage() {}
 
 func (x *ViewLabRequestsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[2]
+	mi := &file_proto_laboratory_service_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -247,7 +247,7 @@ func (x *ViewLabRequestsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ViewLabRequestsRequest.ProtoReflect.Descriptor instead.
 func (*ViewLabRequestsRequest) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{2}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{2}
 }
 
 type ViewLabRequestsResponse struct {
@@ -259,7 +259,7 @@ type ViewLabRequestsResponse struct {
 
 func (x *ViewLabRequestsResponse) Reset() {
 	*x = ViewLabRequestsResponse{}
-	mi := &file_laboratory_service_proto_msgTypes[3]
+	mi := &file_proto_laboratory_service_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -271,7 +271,7 @@ func (x *ViewLabRequestsResponse) String() string {
 func (*ViewLabRequestsResponse) ProtoMessage() {}
 
 func (x *ViewLabRequestsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[3]
+	mi := &file_proto_laboratory_service_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -284,7 +284,7 @@ func (x *ViewLabRequestsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ViewLabRequestsResponse.ProtoReflect.Descriptor instead.
 func (*ViewLabRequestsResponse) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{3}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ViewLabRequestsResponse) GetRequests() []*RequestLabRequest {
@@ -303,7 +303,7 @@ type LabResponse struct {
 
 func (x *LabResponse) Reset() {
 	*x = LabResponse{}
-	mi := &file_laboratory_service_proto_msgTypes[4]
+	mi := &file_proto_laboratory_service_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -315,7 +315,7 @@ func (x *LabResponse) String() string {
 func (*LabResponse) ProtoMessage() {}
 
 func (x *LabResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[4]
+	mi := &file_proto_laboratory_service_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -328,7 +328,7 @@ func (x *LabResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LabResponse.ProtoReflect.Descriptor instead.
 func (*LabResponse) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{4}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *LabResponse) GetMessage() string {
@@ -347,7 +347,7 @@ type PatientInfo struct {
 
 func (x *PatientInfo) Reset() {
 	*x = PatientInfo{}
-	mi := &file_laboratory_service_proto_msgTypes[5]
+	mi := &file_proto_laboratory_service_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -359,7 +359,7 @@ func (x *PatientInfo) String() string {
 func (*PatientInfo) ProtoMessage() {}
 
 func (x *PatientInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[5]
+	mi := &file_proto_laboratory_service_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -372,7 +372,7 @@ func (x *PatientInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PatientInfo.ProtoReflect.Descriptor instead.
 func (*PatientInfo) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{5}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *PatientInfo) GetPatientId() string {
@@ -395,7 +395,7 @@ type RequestDetails struct {
 
 func (x *RequestDetails) Reset() {
 	*x = RequestDetails{}
-	mi := &file_laboratory_service_proto_msgTypes[6]
+	mi := &file_proto_laboratory_service_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -407,7 +407,7 @@ func (x *RequestDetails) String() string {
 func (*RequestDetails) ProtoMessage() {}
 
 func (x *RequestDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[6]
+	mi := &file_proto_laboratory_service_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -420,7 +420,7 @@ func (x *RequestDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestDetails.ProtoReflect.Descriptor instead.
 func (*RequestDetails) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{6}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *RequestDetails) GetDoctor() string {
@@ -470,7 +470,7 @@ type TestInfo struct {
 
 func (x *TestInfo) Reset() {
 	*x = TestInfo{}
-	mi := &file_laboratory_service_proto_msgTypes[7]
+	mi := &file_proto_laboratory_service_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -482,7 +482,7 @@ func (x *TestInfo) String() string {
 func (*TestInfo) ProtoMessage() {}
 
 func (x *TestInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[7]
+	mi := &file_proto_laboratory_service_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -495,7 +495,7 @@ func (x *TestInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TestInfo.ProtoReflect.Descriptor instead.
 func (*TestInfo) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{7}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *TestInfo) GetTestName() string {
@@ -538,7 +538,7 @@ type SampleCollection struct {
 
 func (x *SampleCollection) Reset() {
 	*x = SampleCollection{}
-	mi := &file_laboratory_service_proto_msgTypes[8]
+	mi := &file_proto_laboratory_service_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -550,7 +550,7 @@ func (x *SampleCollection) String() string {
 func (*SampleCollection) ProtoMessage() {}
 
 func (x *SampleCollection) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[8]
+	mi := &file_proto_laboratory_service_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -563,7 +563,7 @@ func (x *SampleCollection) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SampleCollection.ProtoReflect.Descriptor instead.
 func (*SampleCollection) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{8}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *SampleCollection) GetSampleId() string {
@@ -603,7 +603,7 @@ type Timestamps struct {
 
 func (x *Timestamps) Reset() {
 	*x = Timestamps{}
-	mi := &file_laboratory_service_proto_msgTypes[9]
+	mi := &file_proto_laboratory_service_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -615,7 +615,7 @@ func (x *Timestamps) String() string {
 func (*Timestamps) ProtoMessage() {}
 
 func (x *Timestamps) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[9]
+	mi := &file_proto_laboratory_service_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -628,7 +628,7 @@ func (x *Timestamps) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Timestamps.ProtoReflect.Descriptor instead.
 func (*Timestamps) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{9}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *Timestamps) GetRequestInitiationTime() string {
@@ -651,7 +651,7 @@ type ResultDetails struct {
 
 func (x *ResultDetails) Reset() {
 	*x = ResultDetails{}
-	mi := &file_laboratory_service_proto_msgTypes[10]
+	mi := &file_proto_laboratory_service_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -663,7 +663,7 @@ func (x *ResultDetails) String() string {
 func (*ResultDetails) ProtoMessage() {}
 
 func (x *ResultDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[10]
+	mi := &file_proto_laboratory_service_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -676,7 +676,7 @@ func (x *ResultDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResultDetails.ProtoReflect.Descriptor instead.
 func (*ResultDetails) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{10}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ResultDetails) GetParameter() string {
@@ -726,7 +726,7 @@ type QualityIndicators struct {
 
 func (x *QualityIndicators) Reset() {
 	*x = QualityIndicators{}
-	mi := &file_laboratory_service_proto_msgTypes[11]
+	mi := &file_proto_laboratory_service_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -738,7 +738,7 @@ func (x *QualityIndicators) String() string {
 func (*QualityIndicators) ProtoMessage() {}
 
 func (x *QualityIndicators) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[11]
+	mi := &file_proto_laboratory_service_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -751,7 +751,7 @@ func (x *QualityIndicators) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QualityIndicators.ProtoReflect.Descriptor instead.
 func (*QualityIndicators) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{11}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *QualityIndicators) GetMethodology() string {
@@ -792,7 +792,7 @@ type AdditionalInfo struct {
 
 func (x *AdditionalInfo) Reset() {
 	*x = AdditionalInfo{}
-	mi := &file_laboratory_service_proto_msgTypes[12]
+	mi := &file_proto_laboratory_service_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -804,7 +804,7 @@ func (x *AdditionalInfo) String() string {
 func (*AdditionalInfo) ProtoMessage() {}
 
 func (x *AdditionalInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[12]
+	mi := &file_proto_laboratory_service_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -817,7 +817,7 @@ func (x *AdditionalInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdditionalInfo.ProtoReflect.Descriptor instead.
 func (*AdditionalInfo) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{12}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *AdditionalInfo) GetRemarks() string {
@@ -844,7 +844,7 @@ type File struct {
 
 func (x *File) Reset() {
 	*x = File{}
-	mi := &file_laboratory_service_proto_msgTypes[13]
+	mi := &file_proto_laboratory_service_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -856,7 +856,7 @@ func (x *File) String() string {
 func (*File) ProtoMessage() {}
 
 func (x *File) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[13]
+	mi := &file_proto_laboratory_service_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -869,7 +869,7 @@ func (x *File) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use File.ProtoReflect.Descriptor instead.
 func (*File) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{13}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *File) GetName() string {
@@ -896,7 +896,7 @@ type ViewTestResultsRequest struct {
 
 func (x *ViewTestResultsRequest) Reset() {
 	*x = ViewTestResultsRequest{}
-	mi := &file_laboratory_service_proto_msgTypes[14]
+	mi := &file_proto_laboratory_service_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -908,7 +908,7 @@ func (x *ViewTestResultsRequest) String() string {
 func (*ViewTestResultsRequest) ProtoMessage() {}
 
 func (x *ViewTestResultsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[14]
+	mi := &file_proto_laboratory_service_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -921,7 +921,7 @@ func (x *ViewTestResultsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ViewTestResultsRequest.ProtoReflect.Descriptor instead.
 func (*ViewTestResultsRequest) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{14}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *ViewTestResultsRequest) GetPatientId() string {
@@ -947,7 +947,7 @@ type ViewTestResultsResponse struct {
 
 func (x *ViewTestResultsResponse) Reset() {
 	*x = ViewTestResultsResponse{}
-	mi := &file_laboratory_service_proto_msgTypes[15]
+	mi := &file_proto_laboratory_service_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -959,7 +959,7 @@ func (x *ViewTestResultsResponse) String() string {
 func (*ViewTestResultsResponse) ProtoMessage() {}
 
 func (x *ViewTestResultsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[15]
+	mi := &file_proto_laboratory_service_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -972,7 +972,7 @@ func (x *ViewTestResultsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ViewTestResultsResponse.ProtoReflect.Descriptor instead.
 func (*ViewTestResultsResponse) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{15}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *ViewTestResultsResponse) GetResults() []*TestResult {
@@ -1001,7 +1001,7 @@ type TestResult struct {
 
 func (x *TestResult) Reset() {
 	*x = TestResult{}
-	mi := &file_laboratory_service_proto_msgTypes[16]
+	mi := &file_proto_laboratory_service_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1013,7 +1013,7 @@ func (x *TestResult) String() string {
 func (*TestResult) ProtoMessage() {}
 
 func (x *TestResult) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[16]
+	mi := &file_proto_laboratory_service_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1026,7 +1026,7 @@ func (x *TestResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TestResult.ProtoReflect.Descriptor instead.
 func (*TestResult) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{16}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *TestResult) GetId() int64 {
@@ -1115,7 +1115,7 @@ type ViewLabRequestsByPatientIDRequest struct {
 
 func (x *ViewLabRequestsByPatientIDRequest) Reset() {
 	*x = ViewLabRequestsByPatientIDRequest{}
-	mi := &file_laboratory_service_proto_msgTypes[17]
+	mi := &file_proto_laboratory_service_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1127,7 +1127,7 @@ func (x *ViewLabRequestsByPatientIDRequest) String() string {
 func (*ViewLabRequestsByPatientIDRequest) ProtoMessage() {}
 
 func (x *ViewLabRequestsByPatientIDRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[17]
+	mi := &file_proto_laboratory_service_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1140,7 +1140,7 @@ func (x *ViewLabRequestsByPatientIDRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ViewLabRequestsByPatientIDRequest.ProtoReflect.Descriptor instead.
 func (*ViewLabRequestsByPatientIDRequest) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{17}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *ViewLabRequestsByPatientIDRequest) GetPatientId() string {
@@ -1164,7 +1164,7 @@ type UpdateLabRequestRequest struct {
 
 func (x *UpdateLabRequestRequest) Reset() {
 	*x = UpdateLabRequestRequest{}
-	mi := &file_laboratory_service_proto_msgTypes[18]
+	mi := &file_proto_laboratory_service_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1176,7 +1176,7 @@ func (x *UpdateLabRequestRequest) String() string {
 func (*UpdateLabRequestRequest) ProtoMessage() {}
 
 func (x *UpdateLabRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[18]
+	mi := &file_proto_laboratory_service_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1189,7 +1189,7 @@ func (x *UpdateLabRequestRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateLabRequestRequest.ProtoReflect.Descriptor instead.
 func (*UpdateLabRequestRequest) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{18}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *UpdateLabRequestRequest) GetId() int64 {
@@ -1247,7 +1247,7 @@ type UpdateTestResultRequest struct {
 
 func (x *UpdateTestResultRequest) Reset() {
 	*x = UpdateTestResultRequest{}
-	mi := &file_laboratory_service_proto_msgTypes[19]
+	mi := &file_proto_laboratory_service_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1259,7 +1259,7 @@ func (x *UpdateTestResultRequest) String() string {
 func (*UpdateTestResultRequest) ProtoMessage() {}
 
 func (x *UpdateTestResultRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_laboratory_service_proto_msgTypes[19]
+	mi := &file_proto_laboratory_service_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1272,7 +1272,7 @@ func (x *UpdateTestResultRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateTestResultRequest.ProtoReflect.Descriptor instead.
 func (*UpdateTestResultRequest) Descriptor() ([]byte, []int) {
-	return file_laboratory_service_proto_rawDescGZIP(), []int{19}
+	return file_proto_laboratory_service_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *UpdateTestResultRequest) GetId() int64 {
@@ -1310,11 +1310,11 @@ func (x *UpdateTestResultRequest) GetAdditionalInfo() *AdditionalInfo {
 	return nil
 }
 
-var File_laboratory_service_proto protoreflect.FileDescriptor
+var File_proto_laboratory_service_proto protoreflect.FileDescriptor
 
-const file_laboratory_service_proto_rawDesc = "" +
+const file_proto_laboratory_service_proto_rawDesc = "" +
 	"\n" +
-	"\x18laboratory_service.proto\x12\x12laboratory_service\x1a\x1cgoogle/api/annotations.proto\"\xc0\x03\n" +
+	"\x1eproto/laboratory_service.proto\x12\x12laboratory_service\x1a\x1cgoogle/api/annotations.proto\"\xc0\x03\n" +
 	"\x11RequestLabRequest\x12\x0e\n" +
 	"\x02id\x18\a \x01(\x03R\x02id\x12\x16\n" +
 	"\x06status\x18\b \x01(\tR\x06status\x12B\n" +
@@ -1432,22 +1432,22 @@ const file_laboratory_service_proto_rawDesc = "" +
 	"\x0fViewTestResults\x12*.laboratory_service.ViewTestResultsRequest\x1a+.laboratory_service.ViewTestResultsResponse\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/labs/results\x12\xa7\x01\n" +
 	"\x1aViewLabRequestsByPatientID\x125.laboratory_service.ViewLabRequestsByPatientIDRequest\x1a+.laboratory_service.ViewLabRequestsResponse\"%\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1/labs/patient/{patient_id}\x12z\n" +
 	"\x10UpdateLabRequest\x12+.laboratory_service.UpdateLabRequestRequest\x1a\x1f.laboratory_service.LabResponse\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\x1a\r/v1/labs/{id}\x12\x82\x01\n" +
-	"\x10UpdateTestResult\x12+.laboratory_service.UpdateTestResultRequest\x1a\x1f.laboratory_service.LabResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\x1a\x15/v1/labs/results/{id}B%Z#./services/laboratory-service/protob\x06proto3"
+	"\x10UpdateTestResult\x12+.laboratory_service.UpdateTestResultRequest\x1a\x1f.laboratory_service.LabResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\x1a\x15/v1/labs/results/{id}B#Z!./shared/laboratory-service/protob\x06proto3"
 
 var (
-	file_laboratory_service_proto_rawDescOnce sync.Once
-	file_laboratory_service_proto_rawDescData []byte
+	file_proto_laboratory_service_proto_rawDescOnce sync.Once
+	file_proto_laboratory_service_proto_rawDescData []byte
 )
 
-func file_laboratory_service_proto_rawDescGZIP() []byte {
-	file_laboratory_service_proto_rawDescOnce.Do(func() {
-		file_laboratory_service_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_laboratory_service_proto_rawDesc), len(file_laboratory_service_proto_rawDesc)))
+func file_proto_laboratory_service_proto_rawDescGZIP() []byte {
+	file_proto_laboratory_service_proto_rawDescOnce.Do(func() {
+		file_proto_laboratory_service_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_laboratory_service_proto_rawDesc), len(file_proto_laboratory_service_proto_rawDesc)))
 	})
-	return file_laboratory_service_proto_rawDescData
+	return file_proto_laboratory_service_proto_rawDescData
 }
 
-var file_laboratory_service_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
-var file_laboratory_service_proto_goTypes = []any{
+var file_proto_laboratory_service_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
+var file_proto_laboratory_service_proto_goTypes = []any{
 	(*RequestLabRequest)(nil),                 // 0: laboratory_service.RequestLabRequest
 	(*AddTestResultRequest)(nil),              // 1: laboratory_service.AddTestResultRequest
 	(*ViewLabRequestsRequest)(nil),            // 2: laboratory_service.ViewLabRequestsRequest
@@ -1469,7 +1469,7 @@ var file_laboratory_service_proto_goTypes = []any{
 	(*UpdateLabRequestRequest)(nil),           // 18: laboratory_service.UpdateLabRequestRequest
 	(*UpdateTestResultRequest)(nil),           // 19: laboratory_service.UpdateTestResultRequest
 }
-var file_laboratory_service_proto_depIdxs = []int32{
+var file_proto_laboratory_service_proto_depIdxs = []int32{
 	5,  // 0: laboratory_service.RequestLabRequest.patient_info:type_name -> laboratory_service.PatientInfo
 	6,  // 1: laboratory_service.RequestLabRequest.request_details:type_name -> laboratory_service.RequestDetails
 	7,  // 2: laboratory_service.RequestLabRequest.test_info:type_name -> laboratory_service.TestInfo
@@ -1514,26 +1514,26 @@ var file_laboratory_service_proto_depIdxs = []int32{
 	0,  // [0:23] is the sub-list for field type_name
 }
 
-func init() { file_laboratory_service_proto_init() }
-func file_laboratory_service_proto_init() {
-	if File_laboratory_service_proto != nil {
+func init() { file_proto_laboratory_service_proto_init() }
+func file_proto_laboratory_service_proto_init() {
+	if File_proto_laboratory_service_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_laboratory_service_proto_rawDesc), len(file_laboratory_service_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_laboratory_service_proto_rawDesc), len(file_proto_laboratory_service_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   20,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_laboratory_service_proto_goTypes,
-		DependencyIndexes: file_laboratory_service_proto_depIdxs,
-		MessageInfos:      file_laboratory_service_proto_msgTypes,
+		GoTypes:           file_proto_laboratory_service_proto_goTypes,
+		DependencyIndexes: file_proto_laboratory_service_proto_depIdxs,
+		MessageInfos:      file_proto_laboratory_service_proto_msgTypes,
 	}.Build()
-	File_laboratory_service_proto = out.File
-	file_laboratory_service_proto_goTypes = nil
-	file_laboratory_service_proto_depIdxs = nil
+	File_proto_laboratory_service_proto = out.File
+	file_proto_laboratory_service_proto_goTypes = nil
+	file_proto_laboratory_service_proto_depIdxs = nil
 }

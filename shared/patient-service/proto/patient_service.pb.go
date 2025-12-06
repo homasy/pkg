@@ -4,7 +4,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v5.29.0--rc1
-// source: patient_service.proto
+// source: proto/patient_service.proto
 
 package proto
 
@@ -38,7 +38,7 @@ type PaymentMethod struct {
 
 func (x *PaymentMethod) Reset() {
 	*x = PaymentMethod{}
-	mi := &file_patient_service_proto_msgTypes[0]
+	mi := &file_proto_patient_service_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -50,7 +50,7 @@ func (x *PaymentMethod) String() string {
 func (*PaymentMethod) ProtoMessage() {}
 
 func (x *PaymentMethod) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[0]
+	mi := &file_proto_patient_service_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -63,7 +63,7 @@ func (x *PaymentMethod) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PaymentMethod.ProtoReflect.Descriptor instead.
 func (*PaymentMethod) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{0}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *PaymentMethod) GetType() string {
@@ -120,7 +120,7 @@ type PatientAllergy struct {
 
 func (x *PatientAllergy) Reset() {
 	*x = PatientAllergy{}
-	mi := &file_patient_service_proto_msgTypes[1]
+	mi := &file_proto_patient_service_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -132,7 +132,7 @@ func (x *PatientAllergy) String() string {
 func (*PatientAllergy) ProtoMessage() {}
 
 func (x *PatientAllergy) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[1]
+	mi := &file_proto_patient_service_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -145,7 +145,7 @@ func (x *PatientAllergy) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PatientAllergy.ProtoReflect.Descriptor instead.
 func (*PatientAllergy) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{1}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *PatientAllergy) GetName() string {
@@ -190,7 +190,7 @@ type EmergencyContact struct {
 
 func (x *EmergencyContact) Reset() {
 	*x = EmergencyContact{}
-	mi := &file_patient_service_proto_msgTypes[2]
+	mi := &file_proto_patient_service_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -202,7 +202,7 @@ func (x *EmergencyContact) String() string {
 func (*EmergencyContact) ProtoMessage() {}
 
 func (x *EmergencyContact) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[2]
+	mi := &file_proto_patient_service_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -215,7 +215,7 @@ func (x *EmergencyContact) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EmergencyContact.ProtoReflect.Descriptor instead.
 func (*EmergencyContact) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{2}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *EmergencyContact) GetName() string {
@@ -272,7 +272,7 @@ type MedicalConditions struct {
 
 func (x *MedicalConditions) Reset() {
 	*x = MedicalConditions{}
-	mi := &file_patient_service_proto_msgTypes[3]
+	mi := &file_proto_patient_service_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -284,7 +284,7 @@ func (x *MedicalConditions) String() string {
 func (*MedicalConditions) ProtoMessage() {}
 
 func (x *MedicalConditions) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[3]
+	mi := &file_proto_patient_service_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -297,7 +297,7 @@ func (x *MedicalConditions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MedicalConditions.ProtoReflect.Descriptor instead.
 func (*MedicalConditions) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{3}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *MedicalConditions) GetConditionName() string {
@@ -361,7 +361,7 @@ type AddPatientRequest struct {
 
 func (x *AddPatientRequest) Reset() {
 	*x = AddPatientRequest{}
-	mi := &file_patient_service_proto_msgTypes[4]
+	mi := &file_proto_patient_service_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -373,7 +373,7 @@ func (x *AddPatientRequest) String() string {
 func (*AddPatientRequest) ProtoMessage() {}
 
 func (x *AddPatientRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[4]
+	mi := &file_proto_patient_service_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -386,7 +386,7 @@ func (x *AddPatientRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddPatientRequest.ProtoReflect.Descriptor instead.
 func (*AddPatientRequest) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{4}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *AddPatientRequest) GetFirstName() string {
@@ -573,7 +573,7 @@ type AddPatientResponse struct {
 
 func (x *AddPatientResponse) Reset() {
 	*x = AddPatientResponse{}
-	mi := &file_patient_service_proto_msgTypes[5]
+	mi := &file_proto_patient_service_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -585,7 +585,7 @@ func (x *AddPatientResponse) String() string {
 func (*AddPatientResponse) ProtoMessage() {}
 
 func (x *AddPatientResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[5]
+	mi := &file_proto_patient_service_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -598,7 +598,7 @@ func (x *AddPatientResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddPatientResponse.ProtoReflect.Descriptor instead.
 func (*AddPatientResponse) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{5}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *AddPatientResponse) GetId() string {
@@ -617,7 +617,7 @@ type GetPatientRequest struct {
 
 func (x *GetPatientRequest) Reset() {
 	*x = GetPatientRequest{}
-	mi := &file_patient_service_proto_msgTypes[6]
+	mi := &file_proto_patient_service_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -629,7 +629,7 @@ func (x *GetPatientRequest) String() string {
 func (*GetPatientRequest) ProtoMessage() {}
 
 func (x *GetPatientRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[6]
+	mi := &file_proto_patient_service_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -642,7 +642,7 @@ func (x *GetPatientRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPatientRequest.ProtoReflect.Descriptor instead.
 func (*GetPatientRequest) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{6}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetPatientRequest) GetId() string {
@@ -686,7 +686,7 @@ type GetPatientResponse struct {
 
 func (x *GetPatientResponse) Reset() {
 	*x = GetPatientResponse{}
-	mi := &file_patient_service_proto_msgTypes[7]
+	mi := &file_proto_patient_service_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -698,7 +698,7 @@ func (x *GetPatientResponse) String() string {
 func (*GetPatientResponse) ProtoMessage() {}
 
 func (x *GetPatientResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[7]
+	mi := &file_proto_patient_service_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -711,7 +711,7 @@ func (x *GetPatientResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPatientResponse.ProtoReflect.Descriptor instead.
 func (*GetPatientResponse) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{7}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetPatientResponse) GetId() string {
@@ -929,7 +929,7 @@ type UpdatePatientRequest struct {
 
 func (x *UpdatePatientRequest) Reset() {
 	*x = UpdatePatientRequest{}
-	mi := &file_patient_service_proto_msgTypes[8]
+	mi := &file_proto_patient_service_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -941,7 +941,7 @@ func (x *UpdatePatientRequest) String() string {
 func (*UpdatePatientRequest) ProtoMessage() {}
 
 func (x *UpdatePatientRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[8]
+	mi := &file_proto_patient_service_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -954,7 +954,7 @@ func (x *UpdatePatientRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdatePatientRequest.ProtoReflect.Descriptor instead.
 func (*UpdatePatientRequest) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{8}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *UpdatePatientRequest) GetId() string {
@@ -1141,7 +1141,7 @@ type UpdatePatientResponse struct {
 
 func (x *UpdatePatientResponse) Reset() {
 	*x = UpdatePatientResponse{}
-	mi := &file_patient_service_proto_msgTypes[9]
+	mi := &file_proto_patient_service_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1153,7 +1153,7 @@ func (x *UpdatePatientResponse) String() string {
 func (*UpdatePatientResponse) ProtoMessage() {}
 
 func (x *UpdatePatientResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[9]
+	mi := &file_proto_patient_service_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1166,7 +1166,7 @@ func (x *UpdatePatientResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdatePatientResponse.ProtoReflect.Descriptor instead.
 func (*UpdatePatientResponse) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{9}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UpdatePatientResponse) GetSuccess() bool {
@@ -1185,7 +1185,7 @@ type DeletePatientRequest struct {
 
 func (x *DeletePatientRequest) Reset() {
 	*x = DeletePatientRequest{}
-	mi := &file_patient_service_proto_msgTypes[10]
+	mi := &file_proto_patient_service_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1197,7 +1197,7 @@ func (x *DeletePatientRequest) String() string {
 func (*DeletePatientRequest) ProtoMessage() {}
 
 func (x *DeletePatientRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[10]
+	mi := &file_proto_patient_service_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1210,7 +1210,7 @@ func (x *DeletePatientRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeletePatientRequest.ProtoReflect.Descriptor instead.
 func (*DeletePatientRequest) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{10}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *DeletePatientRequest) GetId() string {
@@ -1229,7 +1229,7 @@ type DeletePatientResponse struct {
 
 func (x *DeletePatientResponse) Reset() {
 	*x = DeletePatientResponse{}
-	mi := &file_patient_service_proto_msgTypes[11]
+	mi := &file_proto_patient_service_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1241,7 +1241,7 @@ func (x *DeletePatientResponse) String() string {
 func (*DeletePatientResponse) ProtoMessage() {}
 
 func (x *DeletePatientResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[11]
+	mi := &file_proto_patient_service_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1254,7 +1254,7 @@ func (x *DeletePatientResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeletePatientResponse.ProtoReflect.Descriptor instead.
 func (*DeletePatientResponse) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{11}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *DeletePatientResponse) GetSuccess() bool {
@@ -1272,7 +1272,7 @@ type ListPatientsRequest struct {
 
 func (x *ListPatientsRequest) Reset() {
 	*x = ListPatientsRequest{}
-	mi := &file_patient_service_proto_msgTypes[12]
+	mi := &file_proto_patient_service_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1284,7 +1284,7 @@ func (x *ListPatientsRequest) String() string {
 func (*ListPatientsRequest) ProtoMessage() {}
 
 func (x *ListPatientsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[12]
+	mi := &file_proto_patient_service_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1297,7 +1297,7 @@ func (x *ListPatientsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListPatientsRequest.ProtoReflect.Descriptor instead.
 func (*ListPatientsRequest) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{12}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{12}
 }
 
 type ListPatientsResponse struct {
@@ -1309,7 +1309,7 @@ type ListPatientsResponse struct {
 
 func (x *ListPatientsResponse) Reset() {
 	*x = ListPatientsResponse{}
-	mi := &file_patient_service_proto_msgTypes[13]
+	mi := &file_proto_patient_service_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1321,7 +1321,7 @@ func (x *ListPatientsResponse) String() string {
 func (*ListPatientsResponse) ProtoMessage() {}
 
 func (x *ListPatientsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[13]
+	mi := &file_proto_patient_service_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1334,7 +1334,7 @@ func (x *ListPatientsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListPatientsResponse.ProtoReflect.Descriptor instead.
 func (*ListPatientsResponse) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{13}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *ListPatientsResponse) GetPatients() []*GetPatientResponse {
@@ -1356,7 +1356,7 @@ type CheckDuplicateRequest struct {
 
 func (x *CheckDuplicateRequest) Reset() {
 	*x = CheckDuplicateRequest{}
-	mi := &file_patient_service_proto_msgTypes[14]
+	mi := &file_proto_patient_service_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1368,7 +1368,7 @@ func (x *CheckDuplicateRequest) String() string {
 func (*CheckDuplicateRequest) ProtoMessage() {}
 
 func (x *CheckDuplicateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[14]
+	mi := &file_proto_patient_service_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1381,7 +1381,7 @@ func (x *CheckDuplicateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckDuplicateRequest.ProtoReflect.Descriptor instead.
 func (*CheckDuplicateRequest) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{14}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CheckDuplicateRequest) GetEmail() string {
@@ -1421,7 +1421,7 @@ type CheckDuplicateResponse struct {
 
 func (x *CheckDuplicateResponse) Reset() {
 	*x = CheckDuplicateResponse{}
-	mi := &file_patient_service_proto_msgTypes[15]
+	mi := &file_proto_patient_service_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1433,7 +1433,7 @@ func (x *CheckDuplicateResponse) String() string {
 func (*CheckDuplicateResponse) ProtoMessage() {}
 
 func (x *CheckDuplicateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_patient_service_proto_msgTypes[15]
+	mi := &file_proto_patient_service_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1446,7 +1446,7 @@ func (x *CheckDuplicateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckDuplicateResponse.ProtoReflect.Descriptor instead.
 func (*CheckDuplicateResponse) Descriptor() ([]byte, []int) {
-	return file_patient_service_proto_rawDescGZIP(), []int{15}
+	return file_proto_patient_service_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CheckDuplicateResponse) GetIsDuplicate() bool {
@@ -1456,11 +1456,11 @@ func (x *CheckDuplicateResponse) GetIsDuplicate() bool {
 	return false
 }
 
-var File_patient_service_proto protoreflect.FileDescriptor
+var File_proto_patient_service_proto protoreflect.FileDescriptor
 
-const file_patient_service_proto_rawDesc = "" +
+const file_proto_patient_service_proto_rawDesc = "" +
 	"\n" +
-	"\x15patient_service.proto\x12\x0fpatient_service\x1a\x1cgoogle/api/annotations.proto\"\xbd\x01\n" +
+	"\x1bproto/patient_service.proto\x12\x0fpatient_service\x1a\x1cgoogle/api/annotations.proto\"\xbd\x01\n" +
 	"\rPaymentMethod\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\tR\x04type\x12\x1f\n" +
 	"\vcard_number\x18\x02 \x01(\tR\n" +
@@ -1628,22 +1628,22 @@ const file_patient_service_proto_rawDesc = "" +
 	"\rUpdatePatient\x12%.patient_service.UpdatePatientRequest\x1a&.patient_service.UpdatePatientResponse\"\x1c\x82\xd3\xe4\x93\x02\x16:\x01*\x1a\x11/v1/patients/{id}\x12y\n" +
 	"\rDeletePatient\x12%.patient_service.DeletePatientRequest\x1a&.patient_service.DeletePatientResponse\"\x19\x82\xd3\xe4\x93\x02\x13*\x11/v1/patients/{id}\x12q\n" +
 	"\fListPatients\x12$.patient_service.ListPatientsRequest\x1a%.patient_service.ListPatientsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\f/v1/patients\x12\x8a\x01\n" +
-	"\x0eCheckDuplicate\x12&.patient_service.CheckDuplicateRequest\x1a'.patient_service.CheckDuplicateResponse\"'\x82\xd3\xe4\x93\x02!:\x01*\"\x1c/v1/patients/check-duplicateB\"Z ./services/patient-service/protob\x06proto3"
+	"\x0eCheckDuplicate\x12&.patient_service.CheckDuplicateRequest\x1a'.patient_service.CheckDuplicateResponse\"'\x82\xd3\xe4\x93\x02!:\x01*\"\x1c/v1/patients/check-duplicateB Z\x1e./shared/patient-service/protob\x06proto3"
 
 var (
-	file_patient_service_proto_rawDescOnce sync.Once
-	file_patient_service_proto_rawDescData []byte
+	file_proto_patient_service_proto_rawDescOnce sync.Once
+	file_proto_patient_service_proto_rawDescData []byte
 )
 
-func file_patient_service_proto_rawDescGZIP() []byte {
-	file_patient_service_proto_rawDescOnce.Do(func() {
-		file_patient_service_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_patient_service_proto_rawDesc), len(file_patient_service_proto_rawDesc)))
+func file_proto_patient_service_proto_rawDescGZIP() []byte {
+	file_proto_patient_service_proto_rawDescOnce.Do(func() {
+		file_proto_patient_service_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_patient_service_proto_rawDesc), len(file_proto_patient_service_proto_rawDesc)))
 	})
-	return file_patient_service_proto_rawDescData
+	return file_proto_patient_service_proto_rawDescData
 }
 
-var file_patient_service_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
-var file_patient_service_proto_goTypes = []any{
+var file_proto_patient_service_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
+var file_proto_patient_service_proto_goTypes = []any{
 	(*PaymentMethod)(nil),          // 0: patient_service.PaymentMethod
 	(*PatientAllergy)(nil),         // 1: patient_service.PatientAllergy
 	(*EmergencyContact)(nil),       // 2: patient_service.EmergencyContact
@@ -1661,7 +1661,7 @@ var file_patient_service_proto_goTypes = []any{
 	(*CheckDuplicateRequest)(nil),  // 14: patient_service.CheckDuplicateRequest
 	(*CheckDuplicateResponse)(nil), // 15: patient_service.CheckDuplicateResponse
 }
-var file_patient_service_proto_depIdxs = []int32{
+var file_proto_patient_service_proto_depIdxs = []int32{
 	0,  // 0: patient_service.AddPatientRequest.payment_methods:type_name -> patient_service.PaymentMethod
 	1,  // 1: patient_service.AddPatientRequest.allergies:type_name -> patient_service.PatientAllergy
 	2,  // 2: patient_service.AddPatientRequest.emergency_contacts:type_name -> patient_service.EmergencyContact
@@ -1694,26 +1694,26 @@ var file_patient_service_proto_depIdxs = []int32{
 	0,  // [0:13] is the sub-list for field type_name
 }
 
-func init() { file_patient_service_proto_init() }
-func file_patient_service_proto_init() {
-	if File_patient_service_proto != nil {
+func init() { file_proto_patient_service_proto_init() }
+func file_proto_patient_service_proto_init() {
+	if File_proto_patient_service_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_patient_service_proto_rawDesc), len(file_patient_service_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_patient_service_proto_rawDesc), len(file_proto_patient_service_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_patient_service_proto_goTypes,
-		DependencyIndexes: file_patient_service_proto_depIdxs,
-		MessageInfos:      file_patient_service_proto_msgTypes,
+		GoTypes:           file_proto_patient_service_proto_goTypes,
+		DependencyIndexes: file_proto_patient_service_proto_depIdxs,
+		MessageInfos:      file_proto_patient_service_proto_msgTypes,
 	}.Build()
-	File_patient_service_proto = out.File
-	file_patient_service_proto_goTypes = nil
-	file_patient_service_proto_depIdxs = nil
+	File_proto_patient_service_proto = out.File
+	file_proto_patient_service_proto_goTypes = nil
+	file_proto_patient_service_proto_depIdxs = nil
 }

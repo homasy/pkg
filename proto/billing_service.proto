@@ -112,6 +112,36 @@ service BillingService {
         get: "/v1/service-records"
     };
   }
+
+  // Calculate bill split based on medical scheme
+  rpc CalculateBillSplit (CalculateBillSplitRequest) returns (CalculateBillSplitResponse) {
+    option (google.api.http) = {
+        post: "/v1/invoices/calculate-split"
+        body: "*"
+    };
+  }
+
+  // Send invoice to patient or medical scheme
+  rpc SendInvoice (SendInvoiceRequest) returns (SendInvoiceResponse) {
+    option (google.api.http) = {
+        post: "/v1/invoices/{invoice_id}/send"
+        body: "*"
+    };
+  }
+
+  // Get patient payment status (for consultation restrictions)
+  rpc GetPatientPaymentStatus (GetPatientPaymentStatusRequest) returns (GetPatientPaymentStatusResponse) {
+    option (google.api.http) = {
+        get: "/v1/patients/{patient_id}/payment-status"
+    };
+  }
+
+  // Get pending bills for patient
+  rpc GetPendingBills (GetPendingBillsRequest) returns (GetPendingBillsResponse) {
+    option (google.api.http) = {
+        get: "/v1/patients/{patient_id}/pending-bills"
+    };
+  }
 }
 
 // Payment method structure
@@ -283,6 +313,13 @@ message ServiceRecord {
     string status = 7;       // "pending", "completed", "billed", "paid"
     string created_at = 8;
     string updated_at = 9;
+    string department = 10;   // Department where service was provided
+    string provider_id = 11;  // Doctor/Pharmacist/Lab Tech ID
+    string provider_name = 12;
+    int32 medical_scheme_id = 13;  // Patient's medical scheme
+    bool scheme_covered = 14;      // Whether scheme covers this service
+    double scheme_amount = 15;     // Amount covered by scheme
+    double patient_amount = 16;    // Amount patient must pay
 }
 
 message CreateServiceRecordRequest {
@@ -291,6 +328,10 @@ message CreateServiceRecordRequest {
     string service_id = 3;
     string description = 4;
     double amount = 5;
+    string department = 6;
+    string provider_id = 7;
+    string provider_name = 8;
+    int32 medical_scheme_id = 9;
 }
 
 message CreateServiceRecordResponse {
@@ -333,4 +374,110 @@ message ListServiceRecordsRequest {
 
 message ListServiceRecordsResponse {
     repeated ServiceRecord records = 1;
+}
+
+// Bill Splitting Messages
+message CalculateBillSplitRequest {
+    string patient_id = 1;
+    int32 medical_scheme_id = 2;
+    repeated BillItem items = 3;
+    double subtotal = 4;
+}
+
+message BillItem {
+    string service_type = 1;  // "consultation", "medication", "laboratory"
+    string description = 2;
+    double amount = 3;
+}
+
+message BillSplit {
+    double scheme_amount = 1;         // Amount covered by scheme
+    double patient_amount = 2;        // Amount patient must pay
+    double copay_amount = 3;          // Fixed copayment amount
+    double scheme_percentage = 4;     // Percentage covered by scheme
+    double patient_percentage = 5;    // Percentage patient must pay
+    string coverage_details = 6;      // Human-readable coverage breakdown
+}
+
+message BillItemSplit {
+    string service_type = 1;
+    string description = 2;
+    double total_amount = 3;
+    double scheme_covers = 4;
+    double patient_pays = 5;
+    bool covered_by_scheme = 6;
+    string reason = 7;  // Reason if not covered
+}
+
+message CalculateBillSplitResponse {
+    BillSplit overall_split = 1;
+    repeated BillItemSplit item_splits = 2;
+    double total_amount = 3;
+    double scheme_total = 4;
+    double patient_total = 5;
+    string message = 6;
+}
+
+// Invoice Sending Messages
+message SendInvoiceRequest {
+    string invoice_id = 1;
+    string recipient_type = 2;  // "patient", "scheme", "both"
+    string email_address = 3;   // Optional: override default email
+    bool include_payment_link = 4;
+    string message = 5;         // Optional custom message
+}
+
+message SendInvoiceResponse {
+    bool success = 1;
+    string message = 2;
+    string tracking_id = 3;     // Email tracking ID
+    string sent_to = 4;         // Email address(es) sent to
+}
+
+// Patient Payment Status Messages
+message GetPatientPaymentStatusRequest {
+    string patient_id = 1;
+}
+
+message PaymentStatus {
+    bool has_pending_bills = 1;
+    double pending_amount = 2;
+    int32 pending_bill_count = 3;
+    bool has_overdue_bills = 4;
+    double overdue_amount = 5;
+    int32 overdue_bill_count = 6;
+    bool payment_plan_active = 7;
+    string payment_status = 8;  // "good_standing", "pending", "overdue", "blocked"
+    bool can_access_services = 9;
+    string restriction_reason = 10;
+}
+
+message GetPatientPaymentStatusResponse {
+    PaymentStatus status = 1;
+    string message = 2;
+}
+
+// Pending Bills Messages
+message GetPendingBillsRequest {
+    string patient_id = 1;
+    bool include_overdue = 2;
+}
+
+message PendingBill {
+    string invoice_id = 1;
+    string invoice_date = 2;
+    string due_date = 3;
+    double amount = 4;
+    double amount_paid = 5;
+    double balance = 6;
+    string status = 7;
+    int32 days_overdue = 8;
+    repeated ServiceRecord services = 9;
+}
+
+message GetPendingBillsResponse {
+    repeated PendingBill bills = 1;
+    double total_pending = 2;
+    double total_overdue = 3;
+    string message = 4;
 }

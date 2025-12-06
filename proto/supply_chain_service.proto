@@ -5,6 +5,7 @@ syntax = "proto3";
 package supply_chain;
 
 import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "./shared/supply-chain-service/proto";
 
@@ -138,6 +139,7 @@ message GoodsReceivedNote {
   string created_at = 19;
   string updated_at = 20;
   repeated GoodsReceivedItem items = 21;
+  double total_cost = 22;
 }
 
 // Message for items in GRN
@@ -154,6 +156,8 @@ message GoodsReceivedItem {
   string expiry_date = 10;
   string bin_number = 11;
   string notes = 12;
+  double unit_cost = 13;
+  double total_cost = 14;
 }
 
 // Message for stock adjustment
@@ -255,6 +259,48 @@ message CreditNoteItem {
   string expiry_date = 8;
   string reason = 9;
   string notes = 10;
+}
+
+message PriceList {
+    int32 id = 1;
+    string name = 2;
+    string description = 3;
+    bool is_active = 4;
+    google.protobuf.Timestamp created_at = 5;
+}
+
+message PriceListItem {
+    int32 id = 1;
+    int32 price_list_id = 2;
+    int32 stock_item_id = 3;
+    double selling_price = 4;
+    google.protobuf.Timestamp valid_from = 5;
+    google.protobuf.Timestamp valid_to = 6;
+}
+
+message MedicalScheme {
+    int32 id = 1;
+    string name = 2;
+    int32 price_list_id = 3;
+    bool is_active = 4;
+    double coverage_percentage = 5;        // Percentage covered by scheme (0-100)
+    bool covers_consultation = 6;          // Whether scheme covers consultations
+    bool covers_medication = 7;            // Whether scheme covers medications
+    bool covers_laboratory = 8;            // Whether scheme covers lab tests
+    double annual_limit = 9;               // Annual coverage limit per patient
+    double consultation_limit = 10;        // Limit per consultation
+    double copay_percentage = 11;          // Patient copayment percentage
+    double copay_fixed_amount = 12;        // Fixed copayment amount
+}
+
+message ReduceStockItemRequest {
+    int32 stock_item_id = 1;
+    double quantity = 2;
+}
+
+message ReduceStockItemResponse {
+    int32 stock_item_id = 1;
+    double quantity = 2;
 }
 
 service SupplyChainService {
@@ -497,6 +543,99 @@ service SupplyChainService {
   rpc ListCreditNotes (ListCreditNotesRequest) returns (ListCreditNotesResponse) {
     option (google.api.http) = {
       get: "/v1/credit-notes"
+    };
+  }
+
+  // Price List Management
+  rpc CreatePriceList (CreatePriceListRequest) returns (CreatePriceListResponse) {
+    option (google.api.http) = {
+      post: "/v1/price-lists"
+      body: "*"
+    };
+  }
+
+  rpc GetPriceList (GetPriceListRequest) returns (GetPriceListResponse) {
+    option (google.api.http) = {
+      get: "/v1/price-lists/{id}"
+    };
+  }
+
+  rpc UpdatePriceList (UpdatePriceListRequest) returns (UpdatePriceListResponse) {
+    option (google.api.http) = {
+      put: "/v1/price-lists/{id}"
+      body: "*"
+    };
+  }
+
+  rpc ListPriceLists (ListPriceListsRequest) returns (ListPriceListsResponse) {
+    option (google.api.http) = {
+      get: "/v1/price-lists"
+    };
+  }
+
+  // Price List Item Management
+  rpc CreatePriceListItem (CreatePriceListItemRequest) returns (CreatePriceListItemResponse) {
+    option (google.api.http) = {
+      post: "/v1/price-list-items"
+      body: "*"
+    };
+  }
+
+  rpc GetPriceListItem (GetPriceListItemRequest) returns (GetPriceListItemResponse) {
+    option (google.api.http) = {
+      get: "/v1/price-list-items/{id}"
+    };
+  }
+
+  rpc UpdatePriceListItem (UpdatePriceListItemRequest) returns (UpdatePriceListItemResponse) {
+    option (google.api.http) = {
+      put: "/v1/price-list-items/{id}"
+      body: "*"
+    };
+  }
+
+  rpc DeletePriceListItem (DeletePriceListItemRequest) returns (DeletePriceListItemResponse) {
+    option (google.api.http) = {
+      delete: "/v1/price-list-items/{id}"
+    };
+  }
+
+  rpc ListPriceListItems (ListPriceListItemsRequest) returns (ListPriceListItemsResponse) {
+    option (google.api.http) = {
+      get: "/v1/price-list-items"
+    };
+  }
+
+  rpc GetPriceListItemsByPriceList (GetPriceListItemsByPriceListRequest) returns (GetPriceListItemsByPriceListResponse) {
+    option (google.api.http) = {
+      get: "/v1/price-lists/{price_list_id}/items"
+    };
+  }
+
+  // Medical Scheme Management
+  rpc CreateMedicalScheme (CreateMedicalSchemeRequest) returns (CreateMedicalSchemeResponse) {
+    option (google.api.http) = {
+      post: "/v1/medical-schemes"
+      body: "*"
+    };
+  }
+
+  rpc GetMedicalScheme (GetMedicalSchemeRequest) returns (GetMedicalSchemeResponse) {
+    option (google.api.http) = {
+      get: "/v1/medical-schemes/{id}"
+    };
+  }
+
+  rpc UpdateMedicalScheme (UpdateMedicalSchemeRequest) returns (UpdateMedicalSchemeResponse) {
+    option (google.api.http) = {
+      put: "/v1/medical-schemes/{id}"
+      body: "*"
+    };
+  }
+
+  rpc ListMedicalSchemes (ListMedicalSchemesRequest) returns (ListMedicalSchemesResponse) {
+    option (google.api.http) = {
+      get: "/v1/medical-schemes"
     };
   }
 }
@@ -830,4 +969,162 @@ message ListCreditNotesRequest {
 
 message ListCreditNotesResponse {
   repeated CreditNote credit_notes = 1;
+}
+
+// Price List Request and Response messages
+message CreatePriceListRequest {
+  string name = 1;
+  string description = 2;
+  bool is_active = 3;
+}
+
+message CreatePriceListResponse {
+  int32 id = 1;
+  string message = 2;
+}
+
+message GetPriceListRequest {
+  int32 id = 1;
+}
+
+message GetPriceListResponse {
+  PriceList price_list = 1;
+}
+
+message UpdatePriceListRequest {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  bool is_active = 4;
+}
+
+message UpdatePriceListResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message ListPriceListsRequest {
+  bool active_only = 1;
+}
+
+message ListPriceListsResponse {
+  repeated PriceList price_lists = 1;
+}
+
+// Price List Item Request and Response messages
+message CreatePriceListItemRequest {
+  int32 price_list_id = 1;
+  int32 stock_item_id = 2;
+  double selling_price = 3;
+  google.protobuf.Timestamp valid_from = 4;
+  google.protobuf.Timestamp valid_to = 5;
+}
+
+message CreatePriceListItemResponse {
+  int32 id = 1;
+  string message = 2;
+}
+
+message GetPriceListItemRequest {
+  int32 id = 1;
+}
+
+message GetPriceListItemResponse {
+  PriceListItem price_list_item = 1;
+}
+
+message UpdatePriceListItemRequest {
+  int32 id = 1;
+  int32 price_list_id = 2;
+  int32 stock_item_id = 3;
+  double selling_price = 4;
+  google.protobuf.Timestamp valid_from = 5;
+  google.protobuf.Timestamp valid_to = 6;
+}
+
+message UpdatePriceListItemResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message DeletePriceListItemRequest {
+  int32 id = 1;
+}
+
+message DeletePriceListItemResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message ListPriceListItemsRequest {
+  int32 price_list_id = 1;
+  int32 stock_item_id = 2;
+}
+
+message ListPriceListItemsResponse {
+  repeated PriceListItem price_list_items = 1;
+}
+
+message GetPriceListItemsByPriceListRequest {
+  int32 price_list_id = 1;
+}
+
+message GetPriceListItemsByPriceListResponse {
+  repeated PriceListItem price_list_items = 1;
+}
+
+// Medical Scheme Request and Response messages
+message CreateMedicalSchemeRequest {
+  string name = 1;
+  int32 price_list_id = 2;
+  bool is_active = 3;
+  double coverage_percentage = 4;
+  bool covers_consultation = 5;
+  bool covers_medication = 6;
+  bool covers_laboratory = 7;
+  double annual_limit = 8;
+  double consultation_limit = 9;
+  double copay_percentage = 10;
+  double copay_fixed_amount = 11;
+}
+
+message CreateMedicalSchemeResponse {
+  int32 id = 1;
+  string message = 2;
+}
+
+message GetMedicalSchemeRequest {
+  int32 id = 1;
+}
+
+message GetMedicalSchemeResponse {
+  MedicalScheme medical_scheme = 1;
+}
+
+message UpdateMedicalSchemeRequest {
+  int32 id = 1;
+  string name = 2;
+  int32 price_list_id = 3;
+  bool is_active = 4;
+  double coverage_percentage = 5;
+  bool covers_consultation = 6;
+  bool covers_medication = 7;
+  bool covers_laboratory = 8;
+  double annual_limit = 9;
+  double consultation_limit = 10;
+  double copay_percentage = 11;
+  double copay_fixed_amount = 12;
+}
+
+message UpdateMedicalSchemeResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message ListMedicalSchemesRequest {
+  bool active_only = 1;
+}
+
+message ListMedicalSchemesResponse {
+  repeated MedicalScheme medical_schemes = 1;
 }

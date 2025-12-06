@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.0--rc1
-// source: laboratory_service.proto
+// source: proto/laboratory_service.proto
 
 package proto
 
@@ -345,5 +345,5 @@ var LaboratoryService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "laboratory_service.proto",
+	Metadata: "proto/laboratory_service.proto",
 }

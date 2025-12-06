@@ -4,7 +4,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.0--rc1
-// source: permissions.proto
+// source: proto/route_permissions_service.proto
 
 package proto
 
@@ -242,5 +242,5 @@ var RoutePermissionService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "permissions.proto",
+	Metadata: "proto/route_permissions_service.proto",
 }
