@@ -8160,11 +8160,12 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\vactive_only\x18\x01 \x01(\bR\n" +
 	"activeOnly\"b\n" +
 	"\x1aListMedicalSchemesResponse\x12D\n" +
-	"\x0fmedical_schemes\x18\x01 \x03(\v2\x1b.supply_chain.MedicalSchemeR\x0emedicalSchemes2\xba3\n" +
+	"\x0fmedical_schemes\x18\x01 \x03(\v2\x1b.supply_chain.MedicalSchemeR\x0emedicalSchemes2\xbe4\n" +
 	"\x12SupplyChainService\x12z\n" +
 	"\x0fCreateStockItem\x12$.supply_chain.CreateStockItemRequest\x1a%.supply_chain.CreateStockItemResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/stock-items\x12s\n" +
 	"\fGetStockItem\x12!.supply_chain.GetStockItemRequest\x1a\".supply_chain.GetStockItemResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/stock-items/{id}\x12\x7f\n" +
-	"\x0fUpdateStockItem\x12$.supply_chain.UpdateStockItemRequest\x1a%.supply_chain.UpdateStockItemResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\x1a\x14/v1/stock-items/{id}\x12t\n" +
+	"\x0fUpdateStockItem\x12$.supply_chain.UpdateStockItemRequest\x1a%.supply_chain.UpdateStockItemResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\x1a\x14/v1/stock-items/{id}\x12\x81\x01\n" +
+	"\x0fReduceStockItem\x12$.supply_chain.ReduceStockItemRequest\x1a%.supply_chain.ReduceStockItemResponse\"!\x82\xd3\xe4\x93\x02\x1b:\x01*\"\x16/v1/stock-items/reduce\x12t\n" +
 	"\x0eListStockItems\x12#.supply_chain.ListStockItemsRequest\x1a$.supply_chain.ListStockItemsResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v1/stock-items\x12u\n" +
 	"\x0eGetStockLevels\x12#.supply_chain.GetStockLevelsRequest\x1a$.supply_chain.GetStockLevelsResponse\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/stock-levels\x12}\n" +
 	"\x10GetExpiringItems\x12%.supply_chain.GetExpiringItemsRequest\x1a&.supply_chain.GetExpiringItemsResponse\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v1/expiring-items\x12\x99\x01\n" +
@@ -8411,105 +8412,107 @@ var file_proto_supply_chain_service_proto_depIdxs = []int32{
 	20,  // 52: supply_chain.SupplyChainService.CreateStockItem:input_type -> supply_chain.CreateStockItemRequest
 	22,  // 53: supply_chain.SupplyChainService.GetStockItem:input_type -> supply_chain.GetStockItemRequest
 	24,  // 54: supply_chain.SupplyChainService.UpdateStockItem:input_type -> supply_chain.UpdateStockItemRequest
-	26,  // 55: supply_chain.SupplyChainService.ListStockItems:input_type -> supply_chain.ListStockItemsRequest
-	28,  // 56: supply_chain.SupplyChainService.GetStockLevels:input_type -> supply_chain.GetStockLevelsRequest
-	30,  // 57: supply_chain.SupplyChainService.GetExpiringItems:input_type -> supply_chain.GetExpiringItemsRequest
-	32,  // 58: supply_chain.SupplyChainService.GetItemsBelowReorderLevel:input_type -> supply_chain.GetItemsBelowReorderLevelRequest
-	34,  // 59: supply_chain.SupplyChainService.CreateStore:input_type -> supply_chain.CreateStoreRequest
-	36,  // 60: supply_chain.SupplyChainService.ListStores:input_type -> supply_chain.ListStoresRequest
-	38,  // 61: supply_chain.SupplyChainService.CreateSupplier:input_type -> supply_chain.CreateSupplierRequest
-	40,  // 62: supply_chain.SupplyChainService.ListSuppliers:input_type -> supply_chain.ListSuppliersRequest
-	42,  // 63: supply_chain.SupplyChainService.CreateRequisition:input_type -> supply_chain.CreateRequisitionRequest
-	44,  // 64: supply_chain.SupplyChainService.ApproveRequisition:input_type -> supply_chain.ApproveRequisitionRequest
-	46,  // 65: supply_chain.SupplyChainService.GetRequisition:input_type -> supply_chain.GetRequisitionRequest
-	48,  // 66: supply_chain.SupplyChainService.ListRequisitions:input_type -> supply_chain.ListRequisitionsRequest
-	50,  // 67: supply_chain.SupplyChainService.CreateLPO:input_type -> supply_chain.CreateLPORequest
-	52,  // 68: supply_chain.SupplyChainService.ApproveLPO:input_type -> supply_chain.ApproveLPORequest
-	54,  // 69: supply_chain.SupplyChainService.GetLPO:input_type -> supply_chain.GetLPORequest
-	56,  // 70: supply_chain.SupplyChainService.ListLPOs:input_type -> supply_chain.ListLPOsRequest
-	58,  // 71: supply_chain.SupplyChainService.CreateGRN:input_type -> supply_chain.CreateGRNRequest
-	60,  // 72: supply_chain.SupplyChainService.PerformQualityCheck:input_type -> supply_chain.PerformQualityCheckRequest
-	62,  // 73: supply_chain.SupplyChainService.GetGRN:input_type -> supply_chain.GetGRNRequest
-	64,  // 74: supply_chain.SupplyChainService.ListGRNs:input_type -> supply_chain.ListGRNsRequest
-	66,  // 75: supply_chain.SupplyChainService.CreateStockAdjustment:input_type -> supply_chain.CreateStockAdjustmentRequest
-	72,  // 76: supply_chain.SupplyChainService.ListStockAdjustments:input_type -> supply_chain.ListStockAdjustmentsRequest
-	68,  // 77: supply_chain.SupplyChainService.ApproveStockAdjustment:input_type -> supply_chain.ApproveStockAdjustmentRequest
-	70,  // 78: supply_chain.SupplyChainService.GetStockAdjustment:input_type -> supply_chain.GetStockAdjustmentRequest
-	74,  // 79: supply_chain.SupplyChainService.CreateInterStoreTransfer:input_type -> supply_chain.CreateInterStoreTransferRequest
-	76,  // 80: supply_chain.SupplyChainService.ApproveInterStoreTransfer:input_type -> supply_chain.ApproveInterStoreTransferRequest
-	78,  // 81: supply_chain.SupplyChainService.ReceiveInterStoreTransfer:input_type -> supply_chain.ReceiveInterStoreTransferRequest
-	80,  // 82: supply_chain.SupplyChainService.GetInterStoreTransfer:input_type -> supply_chain.GetInterStoreTransferRequest
-	82,  // 83: supply_chain.SupplyChainService.ListInterStoreTransfers:input_type -> supply_chain.ListInterStoreTransfersRequest
-	84,  // 84: supply_chain.SupplyChainService.CreateCreditNote:input_type -> supply_chain.CreateCreditNoteRequest
-	86,  // 85: supply_chain.SupplyChainService.ApproveCreditNote:input_type -> supply_chain.ApproveCreditNoteRequest
-	88,  // 86: supply_chain.SupplyChainService.GetCreditNote:input_type -> supply_chain.GetCreditNoteRequest
-	90,  // 87: supply_chain.SupplyChainService.ListCreditNotes:input_type -> supply_chain.ListCreditNotesRequest
-	92,  // 88: supply_chain.SupplyChainService.CreatePriceList:input_type -> supply_chain.CreatePriceListRequest
-	94,  // 89: supply_chain.SupplyChainService.GetPriceList:input_type -> supply_chain.GetPriceListRequest
-	96,  // 90: supply_chain.SupplyChainService.UpdatePriceList:input_type -> supply_chain.UpdatePriceListRequest
-	98,  // 91: supply_chain.SupplyChainService.ListPriceLists:input_type -> supply_chain.ListPriceListsRequest
-	100, // 92: supply_chain.SupplyChainService.CreatePriceListItem:input_type -> supply_chain.CreatePriceListItemRequest
-	102, // 93: supply_chain.SupplyChainService.GetPriceListItem:input_type -> supply_chain.GetPriceListItemRequest
-	104, // 94: supply_chain.SupplyChainService.UpdatePriceListItem:input_type -> supply_chain.UpdatePriceListItemRequest
-	106, // 95: supply_chain.SupplyChainService.DeletePriceListItem:input_type -> supply_chain.DeletePriceListItemRequest
-	108, // 96: supply_chain.SupplyChainService.ListPriceListItems:input_type -> supply_chain.ListPriceListItemsRequest
-	110, // 97: supply_chain.SupplyChainService.GetPriceListItemsByPriceList:input_type -> supply_chain.GetPriceListItemsByPriceListRequest
-	112, // 98: supply_chain.SupplyChainService.CreateMedicalScheme:input_type -> supply_chain.CreateMedicalSchemeRequest
-	114, // 99: supply_chain.SupplyChainService.GetMedicalScheme:input_type -> supply_chain.GetMedicalSchemeRequest
-	116, // 100: supply_chain.SupplyChainService.UpdateMedicalScheme:input_type -> supply_chain.UpdateMedicalSchemeRequest
-	118, // 101: supply_chain.SupplyChainService.ListMedicalSchemes:input_type -> supply_chain.ListMedicalSchemesRequest
-	21,  // 102: supply_chain.SupplyChainService.CreateStockItem:output_type -> supply_chain.CreateStockItemResponse
-	23,  // 103: supply_chain.SupplyChainService.GetStockItem:output_type -> supply_chain.GetStockItemResponse
-	25,  // 104: supply_chain.SupplyChainService.UpdateStockItem:output_type -> supply_chain.UpdateStockItemResponse
-	27,  // 105: supply_chain.SupplyChainService.ListStockItems:output_type -> supply_chain.ListStockItemsResponse
-	29,  // 106: supply_chain.SupplyChainService.GetStockLevels:output_type -> supply_chain.GetStockLevelsResponse
-	31,  // 107: supply_chain.SupplyChainService.GetExpiringItems:output_type -> supply_chain.GetExpiringItemsResponse
-	33,  // 108: supply_chain.SupplyChainService.GetItemsBelowReorderLevel:output_type -> supply_chain.GetItemsBelowReorderLevelResponse
-	35,  // 109: supply_chain.SupplyChainService.CreateStore:output_type -> supply_chain.CreateStoreResponse
-	37,  // 110: supply_chain.SupplyChainService.ListStores:output_type -> supply_chain.ListStoresResponse
-	39,  // 111: supply_chain.SupplyChainService.CreateSupplier:output_type -> supply_chain.CreateSupplierResponse
-	41,  // 112: supply_chain.SupplyChainService.ListSuppliers:output_type -> supply_chain.ListSuppliersResponse
-	43,  // 113: supply_chain.SupplyChainService.CreateRequisition:output_type -> supply_chain.CreateRequisitionResponse
-	45,  // 114: supply_chain.SupplyChainService.ApproveRequisition:output_type -> supply_chain.ApproveRequisitionResponse
-	47,  // 115: supply_chain.SupplyChainService.GetRequisition:output_type -> supply_chain.GetRequisitionResponse
-	49,  // 116: supply_chain.SupplyChainService.ListRequisitions:output_type -> supply_chain.ListRequisitionsResponse
-	51,  // 117: supply_chain.SupplyChainService.CreateLPO:output_type -> supply_chain.CreateLPOResponse
-	53,  // 118: supply_chain.SupplyChainService.ApproveLPO:output_type -> supply_chain.ApproveLPOResponse
-	55,  // 119: supply_chain.SupplyChainService.GetLPO:output_type -> supply_chain.GetLPOResponse
-	57,  // 120: supply_chain.SupplyChainService.ListLPOs:output_type -> supply_chain.ListLPOsResponse
-	59,  // 121: supply_chain.SupplyChainService.CreateGRN:output_type -> supply_chain.CreateGRNResponse
-	61,  // 122: supply_chain.SupplyChainService.PerformQualityCheck:output_type -> supply_chain.PerformQualityCheckResponse
-	63,  // 123: supply_chain.SupplyChainService.GetGRN:output_type -> supply_chain.GetGRNResponse
-	65,  // 124: supply_chain.SupplyChainService.ListGRNs:output_type -> supply_chain.ListGRNsResponse
-	67,  // 125: supply_chain.SupplyChainService.CreateStockAdjustment:output_type -> supply_chain.CreateStockAdjustmentResponse
-	73,  // 126: supply_chain.SupplyChainService.ListStockAdjustments:output_type -> supply_chain.ListStockAdjustmentsResponse
-	69,  // 127: supply_chain.SupplyChainService.ApproveStockAdjustment:output_type -> supply_chain.ApproveStockAdjustmentResponse
-	71,  // 128: supply_chain.SupplyChainService.GetStockAdjustment:output_type -> supply_chain.GetStockAdjustmentResponse
-	75,  // 129: supply_chain.SupplyChainService.CreateInterStoreTransfer:output_type -> supply_chain.CreateInterStoreTransferResponse
-	77,  // 130: supply_chain.SupplyChainService.ApproveInterStoreTransfer:output_type -> supply_chain.ApproveInterStoreTransferResponse
-	79,  // 131: supply_chain.SupplyChainService.ReceiveInterStoreTransfer:output_type -> supply_chain.ReceiveInterStoreTransferResponse
-	81,  // 132: supply_chain.SupplyChainService.GetInterStoreTransfer:output_type -> supply_chain.GetInterStoreTransferResponse
-	83,  // 133: supply_chain.SupplyChainService.ListInterStoreTransfers:output_type -> supply_chain.ListInterStoreTransfersResponse
-	85,  // 134: supply_chain.SupplyChainService.CreateCreditNote:output_type -> supply_chain.CreateCreditNoteResponse
-	87,  // 135: supply_chain.SupplyChainService.ApproveCreditNote:output_type -> supply_chain.ApproveCreditNoteResponse
-	89,  // 136: supply_chain.SupplyChainService.GetCreditNote:output_type -> supply_chain.GetCreditNoteResponse
-	91,  // 137: supply_chain.SupplyChainService.ListCreditNotes:output_type -> supply_chain.ListCreditNotesResponse
-	93,  // 138: supply_chain.SupplyChainService.CreatePriceList:output_type -> supply_chain.CreatePriceListResponse
-	95,  // 139: supply_chain.SupplyChainService.GetPriceList:output_type -> supply_chain.GetPriceListResponse
-	97,  // 140: supply_chain.SupplyChainService.UpdatePriceList:output_type -> supply_chain.UpdatePriceListResponse
-	99,  // 141: supply_chain.SupplyChainService.ListPriceLists:output_type -> supply_chain.ListPriceListsResponse
-	101, // 142: supply_chain.SupplyChainService.CreatePriceListItem:output_type -> supply_chain.CreatePriceListItemResponse
-	103, // 143: supply_chain.SupplyChainService.GetPriceListItem:output_type -> supply_chain.GetPriceListItemResponse
-	105, // 144: supply_chain.SupplyChainService.UpdatePriceListItem:output_type -> supply_chain.UpdatePriceListItemResponse
-	107, // 145: supply_chain.SupplyChainService.DeletePriceListItem:output_type -> supply_chain.DeletePriceListItemResponse
-	109, // 146: supply_chain.SupplyChainService.ListPriceListItems:output_type -> supply_chain.ListPriceListItemsResponse
-	111, // 147: supply_chain.SupplyChainService.GetPriceListItemsByPriceList:output_type -> supply_chain.GetPriceListItemsByPriceListResponse
-	113, // 148: supply_chain.SupplyChainService.CreateMedicalScheme:output_type -> supply_chain.CreateMedicalSchemeResponse
-	115, // 149: supply_chain.SupplyChainService.GetMedicalScheme:output_type -> supply_chain.GetMedicalSchemeResponse
-	117, // 150: supply_chain.SupplyChainService.UpdateMedicalScheme:output_type -> supply_chain.UpdateMedicalSchemeResponse
-	119, // 151: supply_chain.SupplyChainService.ListMedicalSchemes:output_type -> supply_chain.ListMedicalSchemesResponse
-	102, // [102:152] is the sub-list for method output_type
-	52,  // [52:102] is the sub-list for method input_type
+	18,  // 55: supply_chain.SupplyChainService.ReduceStockItem:input_type -> supply_chain.ReduceStockItemRequest
+	26,  // 56: supply_chain.SupplyChainService.ListStockItems:input_type -> supply_chain.ListStockItemsRequest
+	28,  // 57: supply_chain.SupplyChainService.GetStockLevels:input_type -> supply_chain.GetStockLevelsRequest
+	30,  // 58: supply_chain.SupplyChainService.GetExpiringItems:input_type -> supply_chain.GetExpiringItemsRequest
+	32,  // 59: supply_chain.SupplyChainService.GetItemsBelowReorderLevel:input_type -> supply_chain.GetItemsBelowReorderLevelRequest
+	34,  // 60: supply_chain.SupplyChainService.CreateStore:input_type -> supply_chain.CreateStoreRequest
+	36,  // 61: supply_chain.SupplyChainService.ListStores:input_type -> supply_chain.ListStoresRequest
+	38,  // 62: supply_chain.SupplyChainService.CreateSupplier:input_type -> supply_chain.CreateSupplierRequest
+	40,  // 63: supply_chain.SupplyChainService.ListSuppliers:input_type -> supply_chain.ListSuppliersRequest
+	42,  // 64: supply_chain.SupplyChainService.CreateRequisition:input_type -> supply_chain.CreateRequisitionRequest
+	44,  // 65: supply_chain.SupplyChainService.ApproveRequisition:input_type -> supply_chain.ApproveRequisitionRequest
+	46,  // 66: supply_chain.SupplyChainService.GetRequisition:input_type -> supply_chain.GetRequisitionRequest
+	48,  // 67: supply_chain.SupplyChainService.ListRequisitions:input_type -> supply_chain.ListRequisitionsRequest
+	50,  // 68: supply_chain.SupplyChainService.CreateLPO:input_type -> supply_chain.CreateLPORequest
+	52,  // 69: supply_chain.SupplyChainService.ApproveLPO:input_type -> supply_chain.ApproveLPORequest
+	54,  // 70: supply_chain.SupplyChainService.GetLPO:input_type -> supply_chain.GetLPORequest
+	56,  // 71: supply_chain.SupplyChainService.ListLPOs:input_type -> supply_chain.ListLPOsRequest
+	58,  // 72: supply_chain.SupplyChainService.CreateGRN:input_type -> supply_chain.CreateGRNRequest
+	60,  // 73: supply_chain.SupplyChainService.PerformQualityCheck:input_type -> supply_chain.PerformQualityCheckRequest
+	62,  // 74: supply_chain.SupplyChainService.GetGRN:input_type -> supply_chain.GetGRNRequest
+	64,  // 75: supply_chain.SupplyChainService.ListGRNs:input_type -> supply_chain.ListGRNsRequest
+	66,  // 76: supply_chain.SupplyChainService.CreateStockAdjustment:input_type -> supply_chain.CreateStockAdjustmentRequest
+	72,  // 77: supply_chain.SupplyChainService.ListStockAdjustments:input_type -> supply_chain.ListStockAdjustmentsRequest
+	68,  // 78: supply_chain.SupplyChainService.ApproveStockAdjustment:input_type -> supply_chain.ApproveStockAdjustmentRequest
+	70,  // 79: supply_chain.SupplyChainService.GetStockAdjustment:input_type -> supply_chain.GetStockAdjustmentRequest
+	74,  // 80: supply_chain.SupplyChainService.CreateInterStoreTransfer:input_type -> supply_chain.CreateInterStoreTransferRequest
+	76,  // 81: supply_chain.SupplyChainService.ApproveInterStoreTransfer:input_type -> supply_chain.ApproveInterStoreTransferRequest
+	78,  // 82: supply_chain.SupplyChainService.ReceiveInterStoreTransfer:input_type -> supply_chain.ReceiveInterStoreTransferRequest
+	80,  // 83: supply_chain.SupplyChainService.GetInterStoreTransfer:input_type -> supply_chain.GetInterStoreTransferRequest
+	82,  // 84: supply_chain.SupplyChainService.ListInterStoreTransfers:input_type -> supply_chain.ListInterStoreTransfersRequest
+	84,  // 85: supply_chain.SupplyChainService.CreateCreditNote:input_type -> supply_chain.CreateCreditNoteRequest
+	86,  // 86: supply_chain.SupplyChainService.ApproveCreditNote:input_type -> supply_chain.ApproveCreditNoteRequest
+	88,  // 87: supply_chain.SupplyChainService.GetCreditNote:input_type -> supply_chain.GetCreditNoteRequest
+	90,  // 88: supply_chain.SupplyChainService.ListCreditNotes:input_type -> supply_chain.ListCreditNotesRequest
+	92,  // 89: supply_chain.SupplyChainService.CreatePriceList:input_type -> supply_chain.CreatePriceListRequest
+	94,  // 90: supply_chain.SupplyChainService.GetPriceList:input_type -> supply_chain.GetPriceListRequest
+	96,  // 91: supply_chain.SupplyChainService.UpdatePriceList:input_type -> supply_chain.UpdatePriceListRequest
+	98,  // 92: supply_chain.SupplyChainService.ListPriceLists:input_type -> supply_chain.ListPriceListsRequest
+	100, // 93: supply_chain.SupplyChainService.CreatePriceListItem:input_type -> supply_chain.CreatePriceListItemRequest
+	102, // 94: supply_chain.SupplyChainService.GetPriceListItem:input_type -> supply_chain.GetPriceListItemRequest
+	104, // 95: supply_chain.SupplyChainService.UpdatePriceListItem:input_type -> supply_chain.UpdatePriceListItemRequest
+	106, // 96: supply_chain.SupplyChainService.DeletePriceListItem:input_type -> supply_chain.DeletePriceListItemRequest
+	108, // 97: supply_chain.SupplyChainService.ListPriceListItems:input_type -> supply_chain.ListPriceListItemsRequest
+	110, // 98: supply_chain.SupplyChainService.GetPriceListItemsByPriceList:input_type -> supply_chain.GetPriceListItemsByPriceListRequest
+	112, // 99: supply_chain.SupplyChainService.CreateMedicalScheme:input_type -> supply_chain.CreateMedicalSchemeRequest
+	114, // 100: supply_chain.SupplyChainService.GetMedicalScheme:input_type -> supply_chain.GetMedicalSchemeRequest
+	116, // 101: supply_chain.SupplyChainService.UpdateMedicalScheme:input_type -> supply_chain.UpdateMedicalSchemeRequest
+	118, // 102: supply_chain.SupplyChainService.ListMedicalSchemes:input_type -> supply_chain.ListMedicalSchemesRequest
+	21,  // 103: supply_chain.SupplyChainService.CreateStockItem:output_type -> supply_chain.CreateStockItemResponse
+	23,  // 104: supply_chain.SupplyChainService.GetStockItem:output_type -> supply_chain.GetStockItemResponse
+	25,  // 105: supply_chain.SupplyChainService.UpdateStockItem:output_type -> supply_chain.UpdateStockItemResponse
+	19,  // 106: supply_chain.SupplyChainService.ReduceStockItem:output_type -> supply_chain.ReduceStockItemResponse
+	27,  // 107: supply_chain.SupplyChainService.ListStockItems:output_type -> supply_chain.ListStockItemsResponse
+	29,  // 108: supply_chain.SupplyChainService.GetStockLevels:output_type -> supply_chain.GetStockLevelsResponse
+	31,  // 109: supply_chain.SupplyChainService.GetExpiringItems:output_type -> supply_chain.GetExpiringItemsResponse
+	33,  // 110: supply_chain.SupplyChainService.GetItemsBelowReorderLevel:output_type -> supply_chain.GetItemsBelowReorderLevelResponse
+	35,  // 111: supply_chain.SupplyChainService.CreateStore:output_type -> supply_chain.CreateStoreResponse
+	37,  // 112: supply_chain.SupplyChainService.ListStores:output_type -> supply_chain.ListStoresResponse
+	39,  // 113: supply_chain.SupplyChainService.CreateSupplier:output_type -> supply_chain.CreateSupplierResponse
+	41,  // 114: supply_chain.SupplyChainService.ListSuppliers:output_type -> supply_chain.ListSuppliersResponse
+	43,  // 115: supply_chain.SupplyChainService.CreateRequisition:output_type -> supply_chain.CreateRequisitionResponse
+	45,  // 116: supply_chain.SupplyChainService.ApproveRequisition:output_type -> supply_chain.ApproveRequisitionResponse
+	47,  // 117: supply_chain.SupplyChainService.GetRequisition:output_type -> supply_chain.GetRequisitionResponse
+	49,  // 118: supply_chain.SupplyChainService.ListRequisitions:output_type -> supply_chain.ListRequisitionsResponse
+	51,  // 119: supply_chain.SupplyChainService.CreateLPO:output_type -> supply_chain.CreateLPOResponse
+	53,  // 120: supply_chain.SupplyChainService.ApproveLPO:output_type -> supply_chain.ApproveLPOResponse
+	55,  // 121: supply_chain.SupplyChainService.GetLPO:output_type -> supply_chain.GetLPOResponse
+	57,  // 122: supply_chain.SupplyChainService.ListLPOs:output_type -> supply_chain.ListLPOsResponse
+	59,  // 123: supply_chain.SupplyChainService.CreateGRN:output_type -> supply_chain.CreateGRNResponse
+	61,  // 124: supply_chain.SupplyChainService.PerformQualityCheck:output_type -> supply_chain.PerformQualityCheckResponse
+	63,  // 125: supply_chain.SupplyChainService.GetGRN:output_type -> supply_chain.GetGRNResponse
+	65,  // 126: supply_chain.SupplyChainService.ListGRNs:output_type -> supply_chain.ListGRNsResponse
+	67,  // 127: supply_chain.SupplyChainService.CreateStockAdjustment:output_type -> supply_chain.CreateStockAdjustmentResponse
+	73,  // 128: supply_chain.SupplyChainService.ListStockAdjustments:output_type -> supply_chain.ListStockAdjustmentsResponse
+	69,  // 129: supply_chain.SupplyChainService.ApproveStockAdjustment:output_type -> supply_chain.ApproveStockAdjustmentResponse
+	71,  // 130: supply_chain.SupplyChainService.GetStockAdjustment:output_type -> supply_chain.GetStockAdjustmentResponse
+	75,  // 131: supply_chain.SupplyChainService.CreateInterStoreTransfer:output_type -> supply_chain.CreateInterStoreTransferResponse
+	77,  // 132: supply_chain.SupplyChainService.ApproveInterStoreTransfer:output_type -> supply_chain.ApproveInterStoreTransferResponse
+	79,  // 133: supply_chain.SupplyChainService.ReceiveInterStoreTransfer:output_type -> supply_chain.ReceiveInterStoreTransferResponse
+	81,  // 134: supply_chain.SupplyChainService.GetInterStoreTransfer:output_type -> supply_chain.GetInterStoreTransferResponse
+	83,  // 135: supply_chain.SupplyChainService.ListInterStoreTransfers:output_type -> supply_chain.ListInterStoreTransfersResponse
+	85,  // 136: supply_chain.SupplyChainService.CreateCreditNote:output_type -> supply_chain.CreateCreditNoteResponse
+	87,  // 137: supply_chain.SupplyChainService.ApproveCreditNote:output_type -> supply_chain.ApproveCreditNoteResponse
+	89,  // 138: supply_chain.SupplyChainService.GetCreditNote:output_type -> supply_chain.GetCreditNoteResponse
+	91,  // 139: supply_chain.SupplyChainService.ListCreditNotes:output_type -> supply_chain.ListCreditNotesResponse
+	93,  // 140: supply_chain.SupplyChainService.CreatePriceList:output_type -> supply_chain.CreatePriceListResponse
+	95,  // 141: supply_chain.SupplyChainService.GetPriceList:output_type -> supply_chain.GetPriceListResponse
+	97,  // 142: supply_chain.SupplyChainService.UpdatePriceList:output_type -> supply_chain.UpdatePriceListResponse
+	99,  // 143: supply_chain.SupplyChainService.ListPriceLists:output_type -> supply_chain.ListPriceListsResponse
+	101, // 144: supply_chain.SupplyChainService.CreatePriceListItem:output_type -> supply_chain.CreatePriceListItemResponse
+	103, // 145: supply_chain.SupplyChainService.GetPriceListItem:output_type -> supply_chain.GetPriceListItemResponse
+	105, // 146: supply_chain.SupplyChainService.UpdatePriceListItem:output_type -> supply_chain.UpdatePriceListItemResponse
+	107, // 147: supply_chain.SupplyChainService.DeletePriceListItem:output_type -> supply_chain.DeletePriceListItemResponse
+	109, // 148: supply_chain.SupplyChainService.ListPriceListItems:output_type -> supply_chain.ListPriceListItemsResponse
+	111, // 149: supply_chain.SupplyChainService.GetPriceListItemsByPriceList:output_type -> supply_chain.GetPriceListItemsByPriceListResponse
+	113, // 150: supply_chain.SupplyChainService.CreateMedicalScheme:output_type -> supply_chain.CreateMedicalSchemeResponse
+	115, // 151: supply_chain.SupplyChainService.GetMedicalScheme:output_type -> supply_chain.GetMedicalSchemeResponse
+	117, // 152: supply_chain.SupplyChainService.UpdateMedicalScheme:output_type -> supply_chain.UpdateMedicalSchemeResponse
+	119, // 153: supply_chain.SupplyChainService.ListMedicalSchemes:output_type -> supply_chain.ListMedicalSchemesResponse
+	103, // [103:154] is the sub-list for method output_type
+	52,  // [52:103] is the sub-list for method input_type
 	52,  // [52:52] is the sub-list for extension type_name
 	52,  // [52:52] is the sub-list for extension extendee
 	0,   // [0:52] is the sub-list for field type_name

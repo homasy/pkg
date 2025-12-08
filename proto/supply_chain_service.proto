@@ -324,7 +324,14 @@ service SupplyChainService {
       body: "*"
     };
   }
-  
+
+  rpc ReduceStockItem (ReduceStockItemRequest) returns (ReduceStockItemResponse) {
+    option (google.api.http) = {
+      post: "/v1/stock-items/reduce"
+      body: "*"
+    };
+  }
+
   rpc ListStockItems (ListStockItemsRequest) returns (ListStockItemsResponse) {
     option (google.api.http) = {
       get: "/v1/stock-items"

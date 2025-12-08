@@ -119,5 +119,5 @@ func (c *StockClient) GetMedicalScheme(ctx context.Context, id int32) (*supplypb
 		return nil, fmt.Errorf("failed to get medical scheme: %v", err)
 	}
 
-	return resp.GetScheme(), nil
+	return resp.GetMedicalScheme(), nil
 }

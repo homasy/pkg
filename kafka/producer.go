@@ -342,10 +342,11 @@ func (p *Producer) SendStockMovementEvent(eventType string, movementID string, d
 }
 
 // SendDispensedMedicationEvent sends a dispensed medication-related event to Kafka
-func (p *Producer) SendDispensedMedicationEvent(eventType string, dispenseID string, data interface{}) error {
+func (p *Producer) SendDispensedMedicationEvent(eventType string, dispenseID string, data interface{}, items interface{}) error {
 	event := map[string]interface{}{
 		"dispense_id": dispenseID,
 		"data":       data,
+		"items":      items,
 	}
 	return p.SendMessage(eventType, event)
 }

@@ -62,4 +62,7 @@ user_service:
 ward_service:
 	$(call PROTOC_CMD,ward-service,ward_service)
 
+analytics_service:
+	$(call PROTOC_CMD,analytics-service,analytics_service)
+
 .PHONY: all $(patsubst $(PROTO_DIR)/%.proto,%,$(PROTO_FILES))

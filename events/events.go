@@ -148,6 +148,7 @@ const (
 	InvoiceCreated    = "invoice.created"
 	InvoiceUpdated    = "invoice.updated"
 	InvoiceDeleted    = "invoice.deleted"
+	InvoiceSent       = "invoice.sent"
 	PaymentProcessed  = "payment.processed"
 
     ServiceRecordCreated        = "service_record.created"
@@ -339,8 +340,15 @@ type StockMovementEvent struct {
 }
 
 type DispensedMedicationEvent struct {
-	DispenseID string      `json:"dispense_id"`
-	Data       interface{} `json:"data"`
+	DispenseID string                               `json:"dispense_id"`
+	Data       *pharmacy_pb.GetDispensedMedicationResponse `json:"data"`
+	Items      []*DispensedMedicationItem            `json:"items"` // Added to track what was dispensed
+}
+
+type DispensedMedicationItem struct {
+	MedicationID int32  `json:"medication_id"`
+	Quantity     int32  `json:"quantity"`
+	ItemID       string `json:"item_id,omitempty"` // For supply chain mapping
 }
 
 type MedicationReturnEvent struct {
@@ -947,10 +955,11 @@ func StockMovementCreatedEvent(movement *pharmacy_pb.GetStockMovementResponse) (
 }
 
 // Dispensed Medication event creators
-func MedicationDispensedEvent(dispensed *pharmacy_pb.GetDispensedMedicationResponse) ([]byte, error) {
+func MedicationDispensedEvent(dispensed *pharmacy_pb.GetDispensedMedicationResponse, items []*DispensedMedicationItem) ([]byte, error) {
 	event := DispensedMedicationEvent{
 		DispenseID: fmt.Sprintf("%d", dispensed.DispenseId),
 		Data:       dispensed,
+		Items:      items,
 	}
 	return json.Marshal(event)
 }
