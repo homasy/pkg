@@ -147,6 +147,7 @@ message GetPatientResponse {
   string occupation = 24;
   repeated EmergencyContact emergency_contacts = 25;
   repeated MedicalConditions known_medical_conditions = 26;
+  int64 medical_scheme_id = 27;
 }
 
 message UpdatePatientRequest {

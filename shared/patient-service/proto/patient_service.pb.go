@@ -680,6 +680,7 @@ type GetPatientResponse struct {
 	Occupation             string                 `protobuf:"bytes,24,opt,name=occupation,proto3" json:"occupation,omitempty"`
 	EmergencyContacts      []*EmergencyContact    `protobuf:"bytes,25,rep,name=emergency_contacts,json=emergencyContacts,proto3" json:"emergency_contacts,omitempty"`
 	KnownMedicalConditions []*MedicalConditions   `protobuf:"bytes,26,rep,name=known_medical_conditions,json=knownMedicalConditions,proto3" json:"known_medical_conditions,omitempty"`
+	MedicalSchemeId        int64                  `protobuf:"varint,27,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
@@ -894,6 +895,13 @@ func (x *GetPatientResponse) GetKnownMedicalConditions() []*MedicalConditions {
 		return x.KnownMedicalConditions
 	}
 	return nil
+}
+
+func (x *GetPatientResponse) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
 }
 
 type UpdatePatientRequest struct {
@@ -1527,7 +1535,7 @@ const file_proto_patient_service_proto_rawDesc = "" +
 	"\x12AddPatientResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"#\n" +
 	"\x11GetPatientRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"\x80\b\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"\xac\b\n" +
 	"\x12GetPatientResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
@@ -1565,7 +1573,8 @@ const file_proto_patient_service_proto_rawDesc = "" +
 	"occupation\x18\x18 \x01(\tR\n" +
 	"occupation\x12P\n" +
 	"\x12emergency_contacts\x18\x19 \x03(\v2!.patient_service.EmergencyContactR\x11emergencyContacts\x12\\\n" +
-	"\x18known_medical_conditions\x18\x1a \x03(\v2\".patient_service.MedicalConditionsR\x16knownMedicalConditions\"\xe3\a\n" +
+	"\x18known_medical_conditions\x18\x1a \x03(\v2\".patient_service.MedicalConditionsR\x16knownMedicalConditions\x12*\n" +
+	"\x11medical_scheme_id\x18\x1b \x01(\x03R\x0fmedicalSchemeId\"\xe3\a\n" +
 	"\x14UpdatePatientRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
