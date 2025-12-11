@@ -450,6 +450,8 @@ message PaymentStatus {
     string payment_status = 8;  // "good_standing", "pending", "overdue", "blocked"
     bool can_access_services = 9;
     string restriction_reason = 10;
+    bool has_valid_consultation_payment = 11;  // True if consultation fee paid today
+    string consultation_payment_valid_until = 12;  // Date until consultation payment is valid
 }
 
 message GetPatientPaymentStatusResponse {
@@ -480,4 +482,591 @@ message GetPendingBillsResponse {
     double total_pending = 2;
     double total_overdue = 3;
     string message = 4;
+}
+
+// ============================================================================
+// PRICE MANAGEMENT SERVICE
+// ============================================================================
+
+service PriceService {
+  // Price Lookup RPCs (for other services)
+  rpc LookupServicePrice(LookupServicePriceRequest) returns (LookupServicePriceResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/lookup/service"
+      body: "*"
+    };
+  }
+
+  rpc LookupLabTestPrice(LookupLabTestPriceRequest) returns (LookupLabTestPriceResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/lookup/lab-test"
+      body: "*"
+    };
+  }
+
+  rpc LookupWardPrice(LookupWardPriceRequest) returns (LookupWardPriceResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/lookup/ward"
+      body: "*"
+    };
+  }
+
+  // Service Price Management
+  rpc GetServicePrice(GetServicePriceRequest) returns (GetServicePriceResponse) {
+    option (google.api.http) = {
+      get: "/v1/prices/service-prices/{id}"
+    };
+  }
+
+  rpc ListServicePrices(ListServicePricesRequest) returns (ListServicePricesResponse) {
+    option (google.api.http) = {
+      get: "/v1/prices/service-prices"
+    };
+  }
+
+  rpc CreateServicePrice(CreateServicePriceRequest) returns (CreateServicePriceResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/service-prices"
+      body: "*"
+    };
+  }
+
+  rpc UpdateServicePrice(UpdateServicePriceRequest) returns (UpdateServicePriceResponse) {
+    option (google.api.http) = {
+      put: "/v1/prices/service-prices/{id}"
+      body: "*"
+    };
+  }
+
+  // Lab Test Price Management
+  rpc GetLabTestPrice(GetLabTestPriceRequest) returns (GetLabTestPriceResponse) {
+    option (google.api.http) = {
+      get: "/v1/prices/lab-test-prices/{id}"
+    };
+  }
+
+  rpc ListLabTestPrices(ListLabTestPricesRequest) returns (ListLabTestPricesResponse) {
+    option (google.api.http) = {
+      get: "/v1/prices/lab-test-prices"
+    };
+  }
+
+  rpc CreateLabTestPrice(CreateLabTestPriceRequest) returns (CreateLabTestPriceResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/lab-test-prices"
+      body: "*"
+    };
+  }
+
+  rpc UpdateLabTestPrice(UpdateLabTestPriceRequest) returns (UpdateLabTestPriceResponse) {
+    option (google.api.http) = {
+      put: "/v1/prices/lab-test-prices/{id}"
+      body: "*"
+    };
+  }
+
+  // Ward Type Price Management
+  rpc GetWardTypePrice(GetWardTypePriceRequest) returns (GetWardTypePriceResponse) {
+    option (google.api.http) = {
+      get: "/v1/prices/ward-type-prices/{id}"
+    };
+  }
+
+  rpc ListWardTypePrices(ListWardTypePricesRequest) returns (ListWardTypePricesResponse) {
+    option (google.api.http) = {
+      get: "/v1/prices/ward-type-prices"
+    };
+  }
+
+  rpc CreateWardTypePrice(CreateWardTypePriceRequest) returns (CreateWardTypePriceResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/ward-type-prices"
+      body: "*"
+    };
+  }
+
+  rpc UpdateWardTypePrice(UpdateWardTypePriceRequest) returns (UpdateWardTypePriceResponse) {
+    option (google.api.http) = {
+      put: "/v1/prices/ward-type-prices/{id}"
+      body: "*"
+    };
+  }
+
+  // CSV Import/Export
+  rpc ExportServicePricesToCSV(ExportPricesRequest) returns (stream ExportCSVResponse) {
+    option (google.api.http) = {
+      get: "/v1/prices/export/service-prices"
+    };
+  }
+
+  rpc ExportLabTestPricesToCSV(ExportPricesRequest) returns (stream ExportCSVResponse) {
+    option (google.api.http) = {
+      get: "/v1/prices/export/lab-test-prices"
+    };
+  }
+
+  rpc ExportWardTypePricesToCSV(ExportPricesRequest) returns (stream ExportCSVResponse) {
+    option (google.api.http) = {
+      get: "/v1/prices/export/ward-type-prices"
+    };
+  }
+
+  rpc ImportServicePricesFromCSV(ImportPricesRequest) returns (ImportCSVResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/import/service-prices"
+      body: "*"
+    };
+  }
+
+  rpc ImportLabTestPricesFromCSV(ImportPricesRequest) returns (ImportCSVResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/import/lab-test-prices"
+      body: "*"
+    };
+  }
+
+  rpc ImportWardTypePricesFromCSV(ImportPricesRequest) returns (ImportCSVResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/import/ward-type-prices"
+      body: "*"
+    };
+  }
+
+  rpc ValidateServicePricesCSV(ValidateCSVRequest) returns (ValidateCSVResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/validate/service-prices"
+      body: "*"
+    };
+  }
+
+  rpc ValidateLabTestPricesCSV(ValidateCSVRequest) returns (ValidateCSVResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/validate/lab-test-prices"
+      body: "*"
+    };
+  }
+
+  rpc ValidateWardTypePricesCSV(ValidateCSVRequest) returns (ValidateCSVResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/validate/ward-type-prices"
+      body: "*"
+    };
+  }
+
+  // Price Change Approval Workflow
+  rpc CreatePriceChangeRequest(CreatePriceChangeRequestRequest) returns (CreatePriceChangeRequestResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/change-requests"
+      body: "*"
+    };
+  }
+
+  rpc GetPriceChangeRequest(GetPriceChangeRequestRequest) returns (GetPriceChangeRequestResponse) {
+    option (google.api.http) = {
+      get: "/v1/prices/change-requests/{request_id}"
+    };
+  }
+
+  rpc ListPriceChangeRequests(ListPriceChangeRequestsRequest) returns (ListPriceChangeRequestsResponse) {
+    option (google.api.http) = {
+      get: "/v1/prices/change-requests"
+    };
+  }
+
+  rpc ApprovePriceChangeRequest(ApprovePriceChangeRequestRequest) returns (ApprovePriceChangeRequestResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/change-requests/{request_id}/approve"
+      body: "*"
+    };
+  }
+
+  rpc RejectPriceChangeRequest(RejectPriceChangeRequestRequest) returns (RejectPriceChangeRequestResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/change-requests/{request_id}/reject"
+      body: "*"
+    };
+  }
+
+  rpc CancelPriceChangeRequest(CancelPriceChangeRequestRequest) returns (CancelPriceChangeRequestResponse) {
+    option (google.api.http) = {
+      post: "/v1/prices/change-requests/{request_id}/cancel"
+      body: "*"
+    };
+  }
+}
+
+// Price Lookup Messages
+message LookupServicePriceRequest {
+  string service_type = 1;
+  string service_name = 2;
+  int64 medical_scheme_id = 3;
+  string date = 4;
+  double default_amount = 5;
+}
+
+message LookupServicePriceResponse {
+  bool found = 1;
+  double base_amount = 2;
+  int64 medical_scheme_id = 3;
+  string service_type = 4;
+  string service_name = 5;
+  string message = 6;
+}
+
+message LookupLabTestPriceRequest {
+  string test_name = 1;
+  string test_panel = 2;
+  int64 medical_scheme_id = 3;
+  string date = 4;
+  double default_amount = 5;
+}
+
+message LookupLabTestPriceResponse {
+  bool found = 1;
+  double base_amount = 2;
+  string test_name = 3;
+  string test_panel = 4;
+  string message = 5;
+}
+
+message LookupWardPriceRequest {
+  string ward_type = 1;
+  int64 medical_scheme_id = 2;
+  string date = 3;
+  double default_admission_charge = 4;
+  double default_daily_charge = 5;
+}
+
+message LookupWardPriceResponse {
+  bool found = 1;
+  double admission_charge = 2;
+  double daily_charge = 3;
+  string ward_type = 4;
+  string message = 5;
+}
+
+// Service Price Messages
+message ServicePrice {
+  int64 id = 1;
+  string service_type = 2;
+  string service_name = 3;
+  string description = 4;
+  double base_amount = 5;
+  int64 medical_scheme_id = 6;
+  bool is_active = 7;
+  string effective_from = 8;
+  string effective_until = 9;
+  string created_at = 10;
+  string updated_at = 11;
+}
+
+message GetServicePriceRequest {
+  int64 id = 1;
+}
+
+message GetServicePriceResponse {
+  ServicePrice price = 1;
+}
+
+message ListServicePricesRequest {
+  string service_type = 1;
+  bool active_only = 2;
+}
+
+message ListServicePricesResponse {
+  repeated ServicePrice prices = 1;
+}
+
+message CreateServicePriceRequest {
+  string service_type = 1;
+  string service_name = 2;
+  string description = 3;
+  double base_amount = 4;
+  int64 medical_scheme_id = 5;
+  bool is_active = 6;
+  string effective_from = 7;
+  string effective_until = 8;
+}
+
+message CreateServicePriceResponse {
+  int64 id = 1;
+  bool success = 2;
+  string message = 3;
+}
+
+message UpdateServicePriceRequest {
+  int64 id = 1;
+  string service_type = 2;
+  string service_name = 3;
+  string description = 4;
+  double base_amount = 5;
+  int64 medical_scheme_id = 6;
+  bool is_active = 7;
+  string effective_from = 8;
+  string effective_until = 9;
+}
+
+message UpdateServicePriceResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// Lab Test Price Messages
+message LabTestPrice {
+  int64 id = 1;
+  string test_name = 2;
+  string test_panel = 3;
+  string test_code = 4;
+  double base_amount = 5;
+  int64 medical_scheme_id = 6;
+  bool is_active = 7;
+  string effective_from = 8;
+  string effective_until = 9;
+  string created_at = 10;
+  string updated_at = 11;
+}
+
+message GetLabTestPriceRequest {
+  int64 id = 1;
+}
+
+message GetLabTestPriceResponse {
+  LabTestPrice price = 1;
+}
+
+message ListLabTestPricesRequest {
+  string test_panel = 1;
+  bool active_only = 2;
+}
+
+message ListLabTestPricesResponse {
+  repeated LabTestPrice prices = 1;
+}
+
+message CreateLabTestPriceRequest {
+  string test_name = 1;
+  string test_panel = 2;
+  string test_code = 3;
+  double base_amount = 4;
+  int64 medical_scheme_id = 5;
+  bool is_active = 6;
+  string effective_from = 7;
+  string effective_until = 8;
+}
+
+message CreateLabTestPriceResponse {
+  int64 id = 1;
+  bool success = 2;
+  string message = 3;
+}
+
+message UpdateLabTestPriceRequest {
+  int64 id = 1;
+  string test_name = 2;
+  string test_panel = 3;
+  string test_code = 4;
+  double base_amount = 5;
+  int64 medical_scheme_id = 6;
+  bool is_active = 7;
+  string effective_from = 8;
+  string effective_until = 9;
+}
+
+message UpdateLabTestPriceResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// Ward Type Price Messages
+message WardTypePrice {
+  int64 id = 1;
+  string ward_type = 2;
+  double admission_charge = 3;
+  double daily_charge = 4;
+  int64 medical_scheme_id = 5;
+  bool is_active = 6;
+  string effective_from = 7;
+  string effective_until = 8;
+  string created_at = 9;
+  string updated_at = 10;
+}
+
+message GetWardTypePriceRequest {
+  int64 id = 1;
+}
+
+message GetWardTypePriceResponse {
+  WardTypePrice price = 1;
+}
+
+message ListWardTypePricesRequest {
+  bool active_only = 1;
+}
+
+message ListWardTypePricesResponse {
+  repeated WardTypePrice prices = 1;
+}
+
+message CreateWardTypePriceRequest {
+  string ward_type = 1;
+  double admission_charge = 2;
+  double daily_charge = 3;
+  int64 medical_scheme_id = 4;
+  bool is_active = 5;
+  string effective_from = 6;
+  string effective_until = 7;
+}
+
+message CreateWardTypePriceResponse {
+  int64 id = 1;
+  bool success = 2;
+  string message = 3;
+}
+
+message UpdateWardTypePriceRequest {
+  int64 id = 1;
+  string ward_type = 2;
+  double admission_charge = 3;
+  double daily_charge = 4;
+  int64 medical_scheme_id = 5;
+  bool is_active = 6;
+  string effective_from = 7;
+  string effective_until = 8;
+}
+
+message UpdateWardTypePriceResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// CSV Import/Export Messages
+message ExportPricesRequest {
+  bool active_only = 1;
+}
+
+message ExportCSVResponse {
+  bytes csv_data = 1;
+}
+
+message ImportPricesRequest {
+  bytes csv_data = 1;
+  string user_id = 2;
+  string user_name = 3;
+  bool require_approval = 4;
+}
+
+message CSVImportError {
+  int32 row = 1;
+  string column = 2;
+  string error = 3;
+}
+
+message ImportCSVResponse {
+  int32 total_rows = 1;
+  int32 success_count = 2;
+  int32 fail_count = 3;
+  repeated CSVImportError errors = 4;
+  string message = 5;
+}
+
+message ValidateCSVRequest {
+  bytes csv_data = 1;
+}
+
+message ValidateCSVResponse {
+  bool valid = 1;
+  int32 total_rows = 2;
+  int32 error_count = 3;
+  repeated CSVImportError errors = 4;
+  repeated string warnings = 5;
+}
+
+// Price Change Request Messages
+message PriceChangeRequest {
+  int64 id = 1;
+  string request_id = 2;
+  string price_table = 3;
+  int64 price_record_id = 4;
+  string action_type = 5;
+  string requested_data = 6;
+  string current_data = 7;
+  string requested_by_user_id = 8;
+  string requested_by_user_name = 9;
+  string requested_at = 10;
+  string reason = 11;
+  string status = 12;
+  string approved_by_user_id = 13;
+  string approved_by_user_name = 14;
+  string approved_at = 15;
+  string rejection_reason = 16;
+  bool applied = 17;
+  string applied_at = 18;
+  string created_at = 19;
+  string updated_at = 20;
+}
+
+message CreatePriceChangeRequestRequest {
+  string price_table = 1;
+  int64 price_record_id = 2;
+  string action_type = 3;
+  string requested_data = 4;
+  string current_data = 5;
+  string requested_by_user_id = 6;
+  string requested_by_user_name = 7;
+  string reason = 8;
+}
+
+message CreatePriceChangeRequestResponse {
+  string request_id = 1;
+  bool success = 2;
+  string message = 3;
+}
+
+message GetPriceChangeRequestRequest {
+  string request_id = 1;
+}
+
+message GetPriceChangeRequestResponse {
+  PriceChangeRequest request = 1;
+}
+
+message ListPriceChangeRequestsRequest {
+  string status = 1;
+  string user_id = 2;
+}
+
+message ListPriceChangeRequestsResponse {
+  repeated PriceChangeRequest requests = 1;
+}
+
+message ApprovePriceChangeRequestRequest {
+  string request_id = 1;
+  string approver_user_id = 2;
+  string approver_user_name = 3;
+}
+
+message ApprovePriceChangeRequestResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message RejectPriceChangeRequestRequest {
+  string request_id = 1;
+  string approver_user_id = 2;
+  string approver_user_name = 3;
+  string reason = 4;
+}
+
+message RejectPriceChangeRequestResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message CancelPriceChangeRequestRequest {
+  string request_id = 1;
+}
+
+message CancelPriceChangeRequestResponse {
+  bool success = 1;
+  string message = 2;
 }

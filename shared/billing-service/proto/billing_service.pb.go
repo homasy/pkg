@@ -2632,19 +2632,21 @@ func (x *GetPatientPaymentStatusRequest) GetPatientId() string {
 }
 
 type PaymentStatus struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	HasPendingBills   bool                   `protobuf:"varint,1,opt,name=has_pending_bills,json=hasPendingBills,proto3" json:"has_pending_bills,omitempty"`
-	PendingAmount     float64                `protobuf:"fixed64,2,opt,name=pending_amount,json=pendingAmount,proto3" json:"pending_amount,omitempty"`
-	PendingBillCount  int32                  `protobuf:"varint,3,opt,name=pending_bill_count,json=pendingBillCount,proto3" json:"pending_bill_count,omitempty"`
-	HasOverdueBills   bool                   `protobuf:"varint,4,opt,name=has_overdue_bills,json=hasOverdueBills,proto3" json:"has_overdue_bills,omitempty"`
-	OverdueAmount     float64                `protobuf:"fixed64,5,opt,name=overdue_amount,json=overdueAmount,proto3" json:"overdue_amount,omitempty"`
-	OverdueBillCount  int32                  `protobuf:"varint,6,opt,name=overdue_bill_count,json=overdueBillCount,proto3" json:"overdue_bill_count,omitempty"`
-	PaymentPlanActive bool                   `protobuf:"varint,7,opt,name=payment_plan_active,json=paymentPlanActive,proto3" json:"payment_plan_active,omitempty"`
-	PaymentStatus     string                 `protobuf:"bytes,8,opt,name=payment_status,json=paymentStatus,proto3" json:"payment_status,omitempty"` // "good_standing", "pending", "overdue", "blocked"
-	CanAccessServices bool                   `protobuf:"varint,9,opt,name=can_access_services,json=canAccessServices,proto3" json:"can_access_services,omitempty"`
-	RestrictionReason string                 `protobuf:"bytes,10,opt,name=restriction_reason,json=restrictionReason,proto3" json:"restriction_reason,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state                         protoimpl.MessageState `protogen:"open.v1"`
+	HasPendingBills               bool                   `protobuf:"varint,1,opt,name=has_pending_bills,json=hasPendingBills,proto3" json:"has_pending_bills,omitempty"`
+	PendingAmount                 float64                `protobuf:"fixed64,2,opt,name=pending_amount,json=pendingAmount,proto3" json:"pending_amount,omitempty"`
+	PendingBillCount              int32                  `protobuf:"varint,3,opt,name=pending_bill_count,json=pendingBillCount,proto3" json:"pending_bill_count,omitempty"`
+	HasOverdueBills               bool                   `protobuf:"varint,4,opt,name=has_overdue_bills,json=hasOverdueBills,proto3" json:"has_overdue_bills,omitempty"`
+	OverdueAmount                 float64                `protobuf:"fixed64,5,opt,name=overdue_amount,json=overdueAmount,proto3" json:"overdue_amount,omitempty"`
+	OverdueBillCount              int32                  `protobuf:"varint,6,opt,name=overdue_bill_count,json=overdueBillCount,proto3" json:"overdue_bill_count,omitempty"`
+	PaymentPlanActive             bool                   `protobuf:"varint,7,opt,name=payment_plan_active,json=paymentPlanActive,proto3" json:"payment_plan_active,omitempty"`
+	PaymentStatus                 string                 `protobuf:"bytes,8,opt,name=payment_status,json=paymentStatus,proto3" json:"payment_status,omitempty"` // "good_standing", "pending", "overdue", "blocked"
+	CanAccessServices             bool                   `protobuf:"varint,9,opt,name=can_access_services,json=canAccessServices,proto3" json:"can_access_services,omitempty"`
+	RestrictionReason             string                 `protobuf:"bytes,10,opt,name=restriction_reason,json=restrictionReason,proto3" json:"restriction_reason,omitempty"`
+	HasValidConsultationPayment   bool                   `protobuf:"varint,11,opt,name=has_valid_consultation_payment,json=hasValidConsultationPayment,proto3" json:"has_valid_consultation_payment,omitempty"`      // True if consultation fee paid today
+	ConsultationPaymentValidUntil string                 `protobuf:"bytes,12,opt,name=consultation_payment_valid_until,json=consultationPaymentValidUntil,proto3" json:"consultation_payment_valid_until,omitempty"` // Date until consultation payment is valid
+	unknownFields                 protoimpl.UnknownFields
+	sizeCache                     protoimpl.SizeCache
 }
 
 func (x *PaymentStatus) Reset() {
@@ -2743,6 +2745,20 @@ func (x *PaymentStatus) GetCanAccessServices() bool {
 func (x *PaymentStatus) GetRestrictionReason() string {
 	if x != nil {
 		return x.RestrictionReason
+	}
+	return ""
+}
+
+func (x *PaymentStatus) GetHasValidConsultationPayment() bool {
+	if x != nil {
+		return x.HasValidConsultationPayment
+	}
+	return false
+}
+
+func (x *PaymentStatus) GetConsultationPaymentValidUntil() string {
+	if x != nil {
+		return x.ConsultationPaymentValidUntil
 	}
 	return ""
 }
@@ -3028,6 +3044,3608 @@ func (x *GetPendingBillsResponse) GetMessage() string {
 	return ""
 }
 
+// Price Lookup Messages
+type LookupServicePriceRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	ServiceType     string                 `protobuf:"bytes,1,opt,name=service_type,json=serviceType,proto3" json:"service_type,omitempty"`
+	ServiceName     string                 `protobuf:"bytes,2,opt,name=service_name,json=serviceName,proto3" json:"service_name,omitempty"`
+	MedicalSchemeId int64                  `protobuf:"varint,3,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	Date            string                 `protobuf:"bytes,4,opt,name=date,proto3" json:"date,omitempty"`
+	DefaultAmount   float64                `protobuf:"fixed64,5,opt,name=default_amount,json=defaultAmount,proto3" json:"default_amount,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *LookupServicePriceRequest) Reset() {
+	*x = LookupServicePriceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LookupServicePriceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LookupServicePriceRequest) ProtoMessage() {}
+
+func (x *LookupServicePriceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LookupServicePriceRequest.ProtoReflect.Descriptor instead.
+func (*LookupServicePriceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *LookupServicePriceRequest) GetServiceType() string {
+	if x != nil {
+		return x.ServiceType
+	}
+	return ""
+}
+
+func (x *LookupServicePriceRequest) GetServiceName() string {
+	if x != nil {
+		return x.ServiceName
+	}
+	return ""
+}
+
+func (x *LookupServicePriceRequest) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *LookupServicePriceRequest) GetDate() string {
+	if x != nil {
+		return x.Date
+	}
+	return ""
+}
+
+func (x *LookupServicePriceRequest) GetDefaultAmount() float64 {
+	if x != nil {
+		return x.DefaultAmount
+	}
+	return 0
+}
+
+type LookupServicePriceResponse struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Found           bool                   `protobuf:"varint,1,opt,name=found,proto3" json:"found,omitempty"`
+	BaseAmount      float64                `protobuf:"fixed64,2,opt,name=base_amount,json=baseAmount,proto3" json:"base_amount,omitempty"`
+	MedicalSchemeId int64                  `protobuf:"varint,3,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	ServiceType     string                 `protobuf:"bytes,4,opt,name=service_type,json=serviceType,proto3" json:"service_type,omitempty"`
+	ServiceName     string                 `protobuf:"bytes,5,opt,name=service_name,json=serviceName,proto3" json:"service_name,omitempty"`
+	Message         string                 `protobuf:"bytes,6,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *LookupServicePriceResponse) Reset() {
+	*x = LookupServicePriceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LookupServicePriceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LookupServicePriceResponse) ProtoMessage() {}
+
+func (x *LookupServicePriceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LookupServicePriceResponse.ProtoReflect.Descriptor instead.
+func (*LookupServicePriceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *LookupServicePriceResponse) GetFound() bool {
+	if x != nil {
+		return x.Found
+	}
+	return false
+}
+
+func (x *LookupServicePriceResponse) GetBaseAmount() float64 {
+	if x != nil {
+		return x.BaseAmount
+	}
+	return 0
+}
+
+func (x *LookupServicePriceResponse) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *LookupServicePriceResponse) GetServiceType() string {
+	if x != nil {
+		return x.ServiceType
+	}
+	return ""
+}
+
+func (x *LookupServicePriceResponse) GetServiceName() string {
+	if x != nil {
+		return x.ServiceName
+	}
+	return ""
+}
+
+func (x *LookupServicePriceResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type LookupLabTestPriceRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	TestName        string                 `protobuf:"bytes,1,opt,name=test_name,json=testName,proto3" json:"test_name,omitempty"`
+	TestPanel       string                 `protobuf:"bytes,2,opt,name=test_panel,json=testPanel,proto3" json:"test_panel,omitempty"`
+	MedicalSchemeId int64                  `protobuf:"varint,3,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	Date            string                 `protobuf:"bytes,4,opt,name=date,proto3" json:"date,omitempty"`
+	DefaultAmount   float64                `protobuf:"fixed64,5,opt,name=default_amount,json=defaultAmount,proto3" json:"default_amount,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *LookupLabTestPriceRequest) Reset() {
+	*x = LookupLabTestPriceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LookupLabTestPriceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LookupLabTestPriceRequest) ProtoMessage() {}
+
+func (x *LookupLabTestPriceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LookupLabTestPriceRequest.ProtoReflect.Descriptor instead.
+func (*LookupLabTestPriceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *LookupLabTestPriceRequest) GetTestName() string {
+	if x != nil {
+		return x.TestName
+	}
+	return ""
+}
+
+func (x *LookupLabTestPriceRequest) GetTestPanel() string {
+	if x != nil {
+		return x.TestPanel
+	}
+	return ""
+}
+
+func (x *LookupLabTestPriceRequest) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *LookupLabTestPriceRequest) GetDate() string {
+	if x != nil {
+		return x.Date
+	}
+	return ""
+}
+
+func (x *LookupLabTestPriceRequest) GetDefaultAmount() float64 {
+	if x != nil {
+		return x.DefaultAmount
+	}
+	return 0
+}
+
+type LookupLabTestPriceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Found         bool                   `protobuf:"varint,1,opt,name=found,proto3" json:"found,omitempty"`
+	BaseAmount    float64                `protobuf:"fixed64,2,opt,name=base_amount,json=baseAmount,proto3" json:"base_amount,omitempty"`
+	TestName      string                 `protobuf:"bytes,3,opt,name=test_name,json=testName,proto3" json:"test_name,omitempty"`
+	TestPanel     string                 `protobuf:"bytes,4,opt,name=test_panel,json=testPanel,proto3" json:"test_panel,omitempty"`
+	Message       string                 `protobuf:"bytes,5,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LookupLabTestPriceResponse) Reset() {
+	*x = LookupLabTestPriceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LookupLabTestPriceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LookupLabTestPriceResponse) ProtoMessage() {}
+
+func (x *LookupLabTestPriceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LookupLabTestPriceResponse.ProtoReflect.Descriptor instead.
+func (*LookupLabTestPriceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *LookupLabTestPriceResponse) GetFound() bool {
+	if x != nil {
+		return x.Found
+	}
+	return false
+}
+
+func (x *LookupLabTestPriceResponse) GetBaseAmount() float64 {
+	if x != nil {
+		return x.BaseAmount
+	}
+	return 0
+}
+
+func (x *LookupLabTestPriceResponse) GetTestName() string {
+	if x != nil {
+		return x.TestName
+	}
+	return ""
+}
+
+func (x *LookupLabTestPriceResponse) GetTestPanel() string {
+	if x != nil {
+		return x.TestPanel
+	}
+	return ""
+}
+
+func (x *LookupLabTestPriceResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type LookupWardPriceRequest struct {
+	state                  protoimpl.MessageState `protogen:"open.v1"`
+	WardType               string                 `protobuf:"bytes,1,opt,name=ward_type,json=wardType,proto3" json:"ward_type,omitempty"`
+	MedicalSchemeId        int64                  `protobuf:"varint,2,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	Date                   string                 `protobuf:"bytes,3,opt,name=date,proto3" json:"date,omitempty"`
+	DefaultAdmissionCharge float64                `protobuf:"fixed64,4,opt,name=default_admission_charge,json=defaultAdmissionCharge,proto3" json:"default_admission_charge,omitempty"`
+	DefaultDailyCharge     float64                `protobuf:"fixed64,5,opt,name=default_daily_charge,json=defaultDailyCharge,proto3" json:"default_daily_charge,omitempty"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *LookupWardPriceRequest) Reset() {
+	*x = LookupWardPriceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LookupWardPriceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LookupWardPriceRequest) ProtoMessage() {}
+
+func (x *LookupWardPriceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LookupWardPriceRequest.ProtoReflect.Descriptor instead.
+func (*LookupWardPriceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *LookupWardPriceRequest) GetWardType() string {
+	if x != nil {
+		return x.WardType
+	}
+	return ""
+}
+
+func (x *LookupWardPriceRequest) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *LookupWardPriceRequest) GetDate() string {
+	if x != nil {
+		return x.Date
+	}
+	return ""
+}
+
+func (x *LookupWardPriceRequest) GetDefaultAdmissionCharge() float64 {
+	if x != nil {
+		return x.DefaultAdmissionCharge
+	}
+	return 0
+}
+
+func (x *LookupWardPriceRequest) GetDefaultDailyCharge() float64 {
+	if x != nil {
+		return x.DefaultDailyCharge
+	}
+	return 0
+}
+
+type LookupWardPriceResponse struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Found           bool                   `protobuf:"varint,1,opt,name=found,proto3" json:"found,omitempty"`
+	AdmissionCharge float64                `protobuf:"fixed64,2,opt,name=admission_charge,json=admissionCharge,proto3" json:"admission_charge,omitempty"`
+	DailyCharge     float64                `protobuf:"fixed64,3,opt,name=daily_charge,json=dailyCharge,proto3" json:"daily_charge,omitempty"`
+	WardType        string                 `protobuf:"bytes,4,opt,name=ward_type,json=wardType,proto3" json:"ward_type,omitempty"`
+	Message         string                 `protobuf:"bytes,5,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *LookupWardPriceResponse) Reset() {
+	*x = LookupWardPriceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LookupWardPriceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LookupWardPriceResponse) ProtoMessage() {}
+
+func (x *LookupWardPriceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LookupWardPriceResponse.ProtoReflect.Descriptor instead.
+func (*LookupWardPriceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *LookupWardPriceResponse) GetFound() bool {
+	if x != nil {
+		return x.Found
+	}
+	return false
+}
+
+func (x *LookupWardPriceResponse) GetAdmissionCharge() float64 {
+	if x != nil {
+		return x.AdmissionCharge
+	}
+	return 0
+}
+
+func (x *LookupWardPriceResponse) GetDailyCharge() float64 {
+	if x != nil {
+		return x.DailyCharge
+	}
+	return 0
+}
+
+func (x *LookupWardPriceResponse) GetWardType() string {
+	if x != nil {
+		return x.WardType
+	}
+	return ""
+}
+
+func (x *LookupWardPriceResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+// Service Price Messages
+type ServicePrice struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Id              int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	ServiceType     string                 `protobuf:"bytes,2,opt,name=service_type,json=serviceType,proto3" json:"service_type,omitempty"`
+	ServiceName     string                 `protobuf:"bytes,3,opt,name=service_name,json=serviceName,proto3" json:"service_name,omitempty"`
+	Description     string                 `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	BaseAmount      float64                `protobuf:"fixed64,5,opt,name=base_amount,json=baseAmount,proto3" json:"base_amount,omitempty"`
+	MedicalSchemeId int64                  `protobuf:"varint,6,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	IsActive        bool                   `protobuf:"varint,7,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	EffectiveFrom   string                 `protobuf:"bytes,8,opt,name=effective_from,json=effectiveFrom,proto3" json:"effective_from,omitempty"`
+	EffectiveUntil  string                 `protobuf:"bytes,9,opt,name=effective_until,json=effectiveUntil,proto3" json:"effective_until,omitempty"`
+	CreatedAt       string                 `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt       string                 `protobuf:"bytes,11,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *ServicePrice) Reset() {
+	*x = ServicePrice{}
+	mi := &file_proto_billing_service_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ServicePrice) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ServicePrice) ProtoMessage() {}
+
+func (x *ServicePrice) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ServicePrice.ProtoReflect.Descriptor instead.
+func (*ServicePrice) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *ServicePrice) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *ServicePrice) GetServiceType() string {
+	if x != nil {
+		return x.ServiceType
+	}
+	return ""
+}
+
+func (x *ServicePrice) GetServiceName() string {
+	if x != nil {
+		return x.ServiceName
+	}
+	return ""
+}
+
+func (x *ServicePrice) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *ServicePrice) GetBaseAmount() float64 {
+	if x != nil {
+		return x.BaseAmount
+	}
+	return 0
+}
+
+func (x *ServicePrice) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *ServicePrice) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *ServicePrice) GetEffectiveFrom() string {
+	if x != nil {
+		return x.EffectiveFrom
+	}
+	return ""
+}
+
+func (x *ServicePrice) GetEffectiveUntil() string {
+	if x != nil {
+		return x.EffectiveUntil
+	}
+	return ""
+}
+
+func (x *ServicePrice) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *ServicePrice) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
+type GetServicePriceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServicePriceRequest) Reset() {
+	*x = GetServicePriceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServicePriceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServicePriceRequest) ProtoMessage() {}
+
+func (x *GetServicePriceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServicePriceRequest.ProtoReflect.Descriptor instead.
+func (*GetServicePriceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *GetServicePriceRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type GetServicePriceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Price         *ServicePrice          `protobuf:"bytes,1,opt,name=price,proto3" json:"price,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServicePriceResponse) Reset() {
+	*x = GetServicePriceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServicePriceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServicePriceResponse) ProtoMessage() {}
+
+func (x *GetServicePriceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServicePriceResponse.ProtoReflect.Descriptor instead.
+func (*GetServicePriceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *GetServicePriceResponse) GetPrice() *ServicePrice {
+	if x != nil {
+		return x.Price
+	}
+	return nil
+}
+
+type ListServicePricesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ServiceType   string                 `protobuf:"bytes,1,opt,name=service_type,json=serviceType,proto3" json:"service_type,omitempty"`
+	ActiveOnly    bool                   `protobuf:"varint,2,opt,name=active_only,json=activeOnly,proto3" json:"active_only,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListServicePricesRequest) Reset() {
+	*x = ListServicePricesRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListServicePricesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListServicePricesRequest) ProtoMessage() {}
+
+func (x *ListServicePricesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListServicePricesRequest.ProtoReflect.Descriptor instead.
+func (*ListServicePricesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *ListServicePricesRequest) GetServiceType() string {
+	if x != nil {
+		return x.ServiceType
+	}
+	return ""
+}
+
+func (x *ListServicePricesRequest) GetActiveOnly() bool {
+	if x != nil {
+		return x.ActiveOnly
+	}
+	return false
+}
+
+type ListServicePricesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Prices        []*ServicePrice        `protobuf:"bytes,1,rep,name=prices,proto3" json:"prices,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListServicePricesResponse) Reset() {
+	*x = ListServicePricesResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListServicePricesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListServicePricesResponse) ProtoMessage() {}
+
+func (x *ListServicePricesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListServicePricesResponse.ProtoReflect.Descriptor instead.
+func (*ListServicePricesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *ListServicePricesResponse) GetPrices() []*ServicePrice {
+	if x != nil {
+		return x.Prices
+	}
+	return nil
+}
+
+type CreateServicePriceRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	ServiceType     string                 `protobuf:"bytes,1,opt,name=service_type,json=serviceType,proto3" json:"service_type,omitempty"`
+	ServiceName     string                 `protobuf:"bytes,2,opt,name=service_name,json=serviceName,proto3" json:"service_name,omitempty"`
+	Description     string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	BaseAmount      float64                `protobuf:"fixed64,4,opt,name=base_amount,json=baseAmount,proto3" json:"base_amount,omitempty"`
+	MedicalSchemeId int64                  `protobuf:"varint,5,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	IsActive        bool                   `protobuf:"varint,6,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	EffectiveFrom   string                 `protobuf:"bytes,7,opt,name=effective_from,json=effectiveFrom,proto3" json:"effective_from,omitempty"`
+	EffectiveUntil  string                 `protobuf:"bytes,8,opt,name=effective_until,json=effectiveUntil,proto3" json:"effective_until,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *CreateServicePriceRequest) Reset() {
+	*x = CreateServicePriceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateServicePriceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateServicePriceRequest) ProtoMessage() {}
+
+func (x *CreateServicePriceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateServicePriceRequest.ProtoReflect.Descriptor instead.
+func (*CreateServicePriceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *CreateServicePriceRequest) GetServiceType() string {
+	if x != nil {
+		return x.ServiceType
+	}
+	return ""
+}
+
+func (x *CreateServicePriceRequest) GetServiceName() string {
+	if x != nil {
+		return x.ServiceName
+	}
+	return ""
+}
+
+func (x *CreateServicePriceRequest) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *CreateServicePriceRequest) GetBaseAmount() float64 {
+	if x != nil {
+		return x.BaseAmount
+	}
+	return 0
+}
+
+func (x *CreateServicePriceRequest) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *CreateServicePriceRequest) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *CreateServicePriceRequest) GetEffectiveFrom() string {
+	if x != nil {
+		return x.EffectiveFrom
+	}
+	return ""
+}
+
+func (x *CreateServicePriceRequest) GetEffectiveUntil() string {
+	if x != nil {
+		return x.EffectiveUntil
+	}
+	return ""
+}
+
+type CreateServicePriceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Success       bool                   `protobuf:"varint,2,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateServicePriceResponse) Reset() {
+	*x = CreateServicePriceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateServicePriceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateServicePriceResponse) ProtoMessage() {}
+
+func (x *CreateServicePriceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateServicePriceResponse.ProtoReflect.Descriptor instead.
+func (*CreateServicePriceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *CreateServicePriceResponse) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *CreateServicePriceResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *CreateServicePriceResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type UpdateServicePriceRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Id              int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	ServiceType     string                 `protobuf:"bytes,2,opt,name=service_type,json=serviceType,proto3" json:"service_type,omitempty"`
+	ServiceName     string                 `protobuf:"bytes,3,opt,name=service_name,json=serviceName,proto3" json:"service_name,omitempty"`
+	Description     string                 `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	BaseAmount      float64                `protobuf:"fixed64,5,opt,name=base_amount,json=baseAmount,proto3" json:"base_amount,omitempty"`
+	MedicalSchemeId int64                  `protobuf:"varint,6,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	IsActive        bool                   `protobuf:"varint,7,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	EffectiveFrom   string                 `protobuf:"bytes,8,opt,name=effective_from,json=effectiveFrom,proto3" json:"effective_from,omitempty"`
+	EffectiveUntil  string                 `protobuf:"bytes,9,opt,name=effective_until,json=effectiveUntil,proto3" json:"effective_until,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *UpdateServicePriceRequest) Reset() {
+	*x = UpdateServicePriceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateServicePriceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateServicePriceRequest) ProtoMessage() {}
+
+func (x *UpdateServicePriceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateServicePriceRequest.ProtoReflect.Descriptor instead.
+func (*UpdateServicePriceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *UpdateServicePriceRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateServicePriceRequest) GetServiceType() string {
+	if x != nil {
+		return x.ServiceType
+	}
+	return ""
+}
+
+func (x *UpdateServicePriceRequest) GetServiceName() string {
+	if x != nil {
+		return x.ServiceName
+	}
+	return ""
+}
+
+func (x *UpdateServicePriceRequest) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *UpdateServicePriceRequest) GetBaseAmount() float64 {
+	if x != nil {
+		return x.BaseAmount
+	}
+	return 0
+}
+
+func (x *UpdateServicePriceRequest) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *UpdateServicePriceRequest) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *UpdateServicePriceRequest) GetEffectiveFrom() string {
+	if x != nil {
+		return x.EffectiveFrom
+	}
+	return ""
+}
+
+func (x *UpdateServicePriceRequest) GetEffectiveUntil() string {
+	if x != nil {
+		return x.EffectiveUntil
+	}
+	return ""
+}
+
+type UpdateServicePriceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateServicePriceResponse) Reset() {
+	*x = UpdateServicePriceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateServicePriceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateServicePriceResponse) ProtoMessage() {}
+
+func (x *UpdateServicePriceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateServicePriceResponse.ProtoReflect.Descriptor instead.
+func (*UpdateServicePriceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *UpdateServicePriceResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *UpdateServicePriceResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+// Lab Test Price Messages
+type LabTestPrice struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Id              int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	TestName        string                 `protobuf:"bytes,2,opt,name=test_name,json=testName,proto3" json:"test_name,omitempty"`
+	TestPanel       string                 `protobuf:"bytes,3,opt,name=test_panel,json=testPanel,proto3" json:"test_panel,omitempty"`
+	TestCode        string                 `protobuf:"bytes,4,opt,name=test_code,json=testCode,proto3" json:"test_code,omitempty"`
+	BaseAmount      float64                `protobuf:"fixed64,5,opt,name=base_amount,json=baseAmount,proto3" json:"base_amount,omitempty"`
+	MedicalSchemeId int64                  `protobuf:"varint,6,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	IsActive        bool                   `protobuf:"varint,7,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	EffectiveFrom   string                 `protobuf:"bytes,8,opt,name=effective_from,json=effectiveFrom,proto3" json:"effective_from,omitempty"`
+	EffectiveUntil  string                 `protobuf:"bytes,9,opt,name=effective_until,json=effectiveUntil,proto3" json:"effective_until,omitempty"`
+	CreatedAt       string                 `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt       string                 `protobuf:"bytes,11,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *LabTestPrice) Reset() {
+	*x = LabTestPrice{}
+	mi := &file_proto_billing_service_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LabTestPrice) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LabTestPrice) ProtoMessage() {}
+
+func (x *LabTestPrice) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LabTestPrice.ProtoReflect.Descriptor instead.
+func (*LabTestPrice) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *LabTestPrice) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *LabTestPrice) GetTestName() string {
+	if x != nil {
+		return x.TestName
+	}
+	return ""
+}
+
+func (x *LabTestPrice) GetTestPanel() string {
+	if x != nil {
+		return x.TestPanel
+	}
+	return ""
+}
+
+func (x *LabTestPrice) GetTestCode() string {
+	if x != nil {
+		return x.TestCode
+	}
+	return ""
+}
+
+func (x *LabTestPrice) GetBaseAmount() float64 {
+	if x != nil {
+		return x.BaseAmount
+	}
+	return 0
+}
+
+func (x *LabTestPrice) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *LabTestPrice) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *LabTestPrice) GetEffectiveFrom() string {
+	if x != nil {
+		return x.EffectiveFrom
+	}
+	return ""
+}
+
+func (x *LabTestPrice) GetEffectiveUntil() string {
+	if x != nil {
+		return x.EffectiveUntil
+	}
+	return ""
+}
+
+func (x *LabTestPrice) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *LabTestPrice) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
+type GetLabTestPriceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLabTestPriceRequest) Reset() {
+	*x = GetLabTestPriceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLabTestPriceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLabTestPriceRequest) ProtoMessage() {}
+
+func (x *GetLabTestPriceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLabTestPriceRequest.ProtoReflect.Descriptor instead.
+func (*GetLabTestPriceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *GetLabTestPriceRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type GetLabTestPriceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Price         *LabTestPrice          `protobuf:"bytes,1,opt,name=price,proto3" json:"price,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLabTestPriceResponse) Reset() {
+	*x = GetLabTestPriceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLabTestPriceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLabTestPriceResponse) ProtoMessage() {}
+
+func (x *GetLabTestPriceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLabTestPriceResponse.ProtoReflect.Descriptor instead.
+func (*GetLabTestPriceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *GetLabTestPriceResponse) GetPrice() *LabTestPrice {
+	if x != nil {
+		return x.Price
+	}
+	return nil
+}
+
+type ListLabTestPricesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TestPanel     string                 `protobuf:"bytes,1,opt,name=test_panel,json=testPanel,proto3" json:"test_panel,omitempty"`
+	ActiveOnly    bool                   `protobuf:"varint,2,opt,name=active_only,json=activeOnly,proto3" json:"active_only,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListLabTestPricesRequest) Reset() {
+	*x = ListLabTestPricesRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListLabTestPricesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListLabTestPricesRequest) ProtoMessage() {}
+
+func (x *ListLabTestPricesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListLabTestPricesRequest.ProtoReflect.Descriptor instead.
+func (*ListLabTestPricesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *ListLabTestPricesRequest) GetTestPanel() string {
+	if x != nil {
+		return x.TestPanel
+	}
+	return ""
+}
+
+func (x *ListLabTestPricesRequest) GetActiveOnly() bool {
+	if x != nil {
+		return x.ActiveOnly
+	}
+	return false
+}
+
+type ListLabTestPricesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Prices        []*LabTestPrice        `protobuf:"bytes,1,rep,name=prices,proto3" json:"prices,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListLabTestPricesResponse) Reset() {
+	*x = ListLabTestPricesResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListLabTestPricesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListLabTestPricesResponse) ProtoMessage() {}
+
+func (x *ListLabTestPricesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListLabTestPricesResponse.ProtoReflect.Descriptor instead.
+func (*ListLabTestPricesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *ListLabTestPricesResponse) GetPrices() []*LabTestPrice {
+	if x != nil {
+		return x.Prices
+	}
+	return nil
+}
+
+type CreateLabTestPriceRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	TestName        string                 `protobuf:"bytes,1,opt,name=test_name,json=testName,proto3" json:"test_name,omitempty"`
+	TestPanel       string                 `protobuf:"bytes,2,opt,name=test_panel,json=testPanel,proto3" json:"test_panel,omitempty"`
+	TestCode        string                 `protobuf:"bytes,3,opt,name=test_code,json=testCode,proto3" json:"test_code,omitempty"`
+	BaseAmount      float64                `protobuf:"fixed64,4,opt,name=base_amount,json=baseAmount,proto3" json:"base_amount,omitempty"`
+	MedicalSchemeId int64                  `protobuf:"varint,5,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	IsActive        bool                   `protobuf:"varint,6,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	EffectiveFrom   string                 `protobuf:"bytes,7,opt,name=effective_from,json=effectiveFrom,proto3" json:"effective_from,omitempty"`
+	EffectiveUntil  string                 `protobuf:"bytes,8,opt,name=effective_until,json=effectiveUntil,proto3" json:"effective_until,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *CreateLabTestPriceRequest) Reset() {
+	*x = CreateLabTestPriceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateLabTestPriceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateLabTestPriceRequest) ProtoMessage() {}
+
+func (x *CreateLabTestPriceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateLabTestPriceRequest.ProtoReflect.Descriptor instead.
+func (*CreateLabTestPriceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *CreateLabTestPriceRequest) GetTestName() string {
+	if x != nil {
+		return x.TestName
+	}
+	return ""
+}
+
+func (x *CreateLabTestPriceRequest) GetTestPanel() string {
+	if x != nil {
+		return x.TestPanel
+	}
+	return ""
+}
+
+func (x *CreateLabTestPriceRequest) GetTestCode() string {
+	if x != nil {
+		return x.TestCode
+	}
+	return ""
+}
+
+func (x *CreateLabTestPriceRequest) GetBaseAmount() float64 {
+	if x != nil {
+		return x.BaseAmount
+	}
+	return 0
+}
+
+func (x *CreateLabTestPriceRequest) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *CreateLabTestPriceRequest) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *CreateLabTestPriceRequest) GetEffectiveFrom() string {
+	if x != nil {
+		return x.EffectiveFrom
+	}
+	return ""
+}
+
+func (x *CreateLabTestPriceRequest) GetEffectiveUntil() string {
+	if x != nil {
+		return x.EffectiveUntil
+	}
+	return ""
+}
+
+type CreateLabTestPriceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Success       bool                   `protobuf:"varint,2,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateLabTestPriceResponse) Reset() {
+	*x = CreateLabTestPriceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateLabTestPriceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateLabTestPriceResponse) ProtoMessage() {}
+
+func (x *CreateLabTestPriceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateLabTestPriceResponse.ProtoReflect.Descriptor instead.
+func (*CreateLabTestPriceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *CreateLabTestPriceResponse) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *CreateLabTestPriceResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *CreateLabTestPriceResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type UpdateLabTestPriceRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Id              int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	TestName        string                 `protobuf:"bytes,2,opt,name=test_name,json=testName,proto3" json:"test_name,omitempty"`
+	TestPanel       string                 `protobuf:"bytes,3,opt,name=test_panel,json=testPanel,proto3" json:"test_panel,omitempty"`
+	TestCode        string                 `protobuf:"bytes,4,opt,name=test_code,json=testCode,proto3" json:"test_code,omitempty"`
+	BaseAmount      float64                `protobuf:"fixed64,5,opt,name=base_amount,json=baseAmount,proto3" json:"base_amount,omitempty"`
+	MedicalSchemeId int64                  `protobuf:"varint,6,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	IsActive        bool                   `protobuf:"varint,7,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	EffectiveFrom   string                 `protobuf:"bytes,8,opt,name=effective_from,json=effectiveFrom,proto3" json:"effective_from,omitempty"`
+	EffectiveUntil  string                 `protobuf:"bytes,9,opt,name=effective_until,json=effectiveUntil,proto3" json:"effective_until,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *UpdateLabTestPriceRequest) Reset() {
+	*x = UpdateLabTestPriceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateLabTestPriceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateLabTestPriceRequest) ProtoMessage() {}
+
+func (x *UpdateLabTestPriceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateLabTestPriceRequest.ProtoReflect.Descriptor instead.
+func (*UpdateLabTestPriceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *UpdateLabTestPriceRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateLabTestPriceRequest) GetTestName() string {
+	if x != nil {
+		return x.TestName
+	}
+	return ""
+}
+
+func (x *UpdateLabTestPriceRequest) GetTestPanel() string {
+	if x != nil {
+		return x.TestPanel
+	}
+	return ""
+}
+
+func (x *UpdateLabTestPriceRequest) GetTestCode() string {
+	if x != nil {
+		return x.TestCode
+	}
+	return ""
+}
+
+func (x *UpdateLabTestPriceRequest) GetBaseAmount() float64 {
+	if x != nil {
+		return x.BaseAmount
+	}
+	return 0
+}
+
+func (x *UpdateLabTestPriceRequest) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *UpdateLabTestPriceRequest) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *UpdateLabTestPriceRequest) GetEffectiveFrom() string {
+	if x != nil {
+		return x.EffectiveFrom
+	}
+	return ""
+}
+
+func (x *UpdateLabTestPriceRequest) GetEffectiveUntil() string {
+	if x != nil {
+		return x.EffectiveUntil
+	}
+	return ""
+}
+
+type UpdateLabTestPriceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateLabTestPriceResponse) Reset() {
+	*x = UpdateLabTestPriceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateLabTestPriceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateLabTestPriceResponse) ProtoMessage() {}
+
+func (x *UpdateLabTestPriceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateLabTestPriceResponse.ProtoReflect.Descriptor instead.
+func (*UpdateLabTestPriceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *UpdateLabTestPriceResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *UpdateLabTestPriceResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+// Ward Type Price Messages
+type WardTypePrice struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Id              int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	WardType        string                 `protobuf:"bytes,2,opt,name=ward_type,json=wardType,proto3" json:"ward_type,omitempty"`
+	AdmissionCharge float64                `protobuf:"fixed64,3,opt,name=admission_charge,json=admissionCharge,proto3" json:"admission_charge,omitempty"`
+	DailyCharge     float64                `protobuf:"fixed64,4,opt,name=daily_charge,json=dailyCharge,proto3" json:"daily_charge,omitempty"`
+	MedicalSchemeId int64                  `protobuf:"varint,5,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	IsActive        bool                   `protobuf:"varint,6,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	EffectiveFrom   string                 `protobuf:"bytes,7,opt,name=effective_from,json=effectiveFrom,proto3" json:"effective_from,omitempty"`
+	EffectiveUntil  string                 `protobuf:"bytes,8,opt,name=effective_until,json=effectiveUntil,proto3" json:"effective_until,omitempty"`
+	CreatedAt       string                 `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt       string                 `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *WardTypePrice) Reset() {
+	*x = WardTypePrice{}
+	mi := &file_proto_billing_service_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WardTypePrice) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WardTypePrice) ProtoMessage() {}
+
+func (x *WardTypePrice) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WardTypePrice.ProtoReflect.Descriptor instead.
+func (*WardTypePrice) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *WardTypePrice) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *WardTypePrice) GetWardType() string {
+	if x != nil {
+		return x.WardType
+	}
+	return ""
+}
+
+func (x *WardTypePrice) GetAdmissionCharge() float64 {
+	if x != nil {
+		return x.AdmissionCharge
+	}
+	return 0
+}
+
+func (x *WardTypePrice) GetDailyCharge() float64 {
+	if x != nil {
+		return x.DailyCharge
+	}
+	return 0
+}
+
+func (x *WardTypePrice) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *WardTypePrice) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *WardTypePrice) GetEffectiveFrom() string {
+	if x != nil {
+		return x.EffectiveFrom
+	}
+	return ""
+}
+
+func (x *WardTypePrice) GetEffectiveUntil() string {
+	if x != nil {
+		return x.EffectiveUntil
+	}
+	return ""
+}
+
+func (x *WardTypePrice) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *WardTypePrice) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
+type GetWardTypePriceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWardTypePriceRequest) Reset() {
+	*x = GetWardTypePriceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWardTypePriceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWardTypePriceRequest) ProtoMessage() {}
+
+func (x *GetWardTypePriceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWardTypePriceRequest.ProtoReflect.Descriptor instead.
+func (*GetWardTypePriceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetWardTypePriceRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type GetWardTypePriceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Price         *WardTypePrice         `protobuf:"bytes,1,opt,name=price,proto3" json:"price,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWardTypePriceResponse) Reset() {
+	*x = GetWardTypePriceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWardTypePriceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWardTypePriceResponse) ProtoMessage() {}
+
+func (x *GetWardTypePriceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWardTypePriceResponse.ProtoReflect.Descriptor instead.
+func (*GetWardTypePriceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetWardTypePriceResponse) GetPrice() *WardTypePrice {
+	if x != nil {
+		return x.Price
+	}
+	return nil
+}
+
+type ListWardTypePricesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ActiveOnly    bool                   `protobuf:"varint,1,opt,name=active_only,json=activeOnly,proto3" json:"active_only,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListWardTypePricesRequest) Reset() {
+	*x = ListWardTypePricesRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListWardTypePricesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListWardTypePricesRequest) ProtoMessage() {}
+
+func (x *ListWardTypePricesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListWardTypePricesRequest.ProtoReflect.Descriptor instead.
+func (*ListWardTypePricesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *ListWardTypePricesRequest) GetActiveOnly() bool {
+	if x != nil {
+		return x.ActiveOnly
+	}
+	return false
+}
+
+type ListWardTypePricesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Prices        []*WardTypePrice       `protobuf:"bytes,1,rep,name=prices,proto3" json:"prices,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListWardTypePricesResponse) Reset() {
+	*x = ListWardTypePricesResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListWardTypePricesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListWardTypePricesResponse) ProtoMessage() {}
+
+func (x *ListWardTypePricesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListWardTypePricesResponse.ProtoReflect.Descriptor instead.
+func (*ListWardTypePricesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *ListWardTypePricesResponse) GetPrices() []*WardTypePrice {
+	if x != nil {
+		return x.Prices
+	}
+	return nil
+}
+
+type CreateWardTypePriceRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	WardType        string                 `protobuf:"bytes,1,opt,name=ward_type,json=wardType,proto3" json:"ward_type,omitempty"`
+	AdmissionCharge float64                `protobuf:"fixed64,2,opt,name=admission_charge,json=admissionCharge,proto3" json:"admission_charge,omitempty"`
+	DailyCharge     float64                `protobuf:"fixed64,3,opt,name=daily_charge,json=dailyCharge,proto3" json:"daily_charge,omitempty"`
+	MedicalSchemeId int64                  `protobuf:"varint,4,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	IsActive        bool                   `protobuf:"varint,5,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	EffectiveFrom   string                 `protobuf:"bytes,6,opt,name=effective_from,json=effectiveFrom,proto3" json:"effective_from,omitempty"`
+	EffectiveUntil  string                 `protobuf:"bytes,7,opt,name=effective_until,json=effectiveUntil,proto3" json:"effective_until,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *CreateWardTypePriceRequest) Reset() {
+	*x = CreateWardTypePriceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateWardTypePriceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateWardTypePriceRequest) ProtoMessage() {}
+
+func (x *CreateWardTypePriceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateWardTypePriceRequest.ProtoReflect.Descriptor instead.
+func (*CreateWardTypePriceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *CreateWardTypePriceRequest) GetWardType() string {
+	if x != nil {
+		return x.WardType
+	}
+	return ""
+}
+
+func (x *CreateWardTypePriceRequest) GetAdmissionCharge() float64 {
+	if x != nil {
+		return x.AdmissionCharge
+	}
+	return 0
+}
+
+func (x *CreateWardTypePriceRequest) GetDailyCharge() float64 {
+	if x != nil {
+		return x.DailyCharge
+	}
+	return 0
+}
+
+func (x *CreateWardTypePriceRequest) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *CreateWardTypePriceRequest) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *CreateWardTypePriceRequest) GetEffectiveFrom() string {
+	if x != nil {
+		return x.EffectiveFrom
+	}
+	return ""
+}
+
+func (x *CreateWardTypePriceRequest) GetEffectiveUntil() string {
+	if x != nil {
+		return x.EffectiveUntil
+	}
+	return ""
+}
+
+type CreateWardTypePriceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Success       bool                   `protobuf:"varint,2,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateWardTypePriceResponse) Reset() {
+	*x = CreateWardTypePriceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateWardTypePriceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateWardTypePriceResponse) ProtoMessage() {}
+
+func (x *CreateWardTypePriceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateWardTypePriceResponse.ProtoReflect.Descriptor instead.
+func (*CreateWardTypePriceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *CreateWardTypePriceResponse) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *CreateWardTypePriceResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *CreateWardTypePriceResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type UpdateWardTypePriceRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Id              int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	WardType        string                 `protobuf:"bytes,2,opt,name=ward_type,json=wardType,proto3" json:"ward_type,omitempty"`
+	AdmissionCharge float64                `protobuf:"fixed64,3,opt,name=admission_charge,json=admissionCharge,proto3" json:"admission_charge,omitempty"`
+	DailyCharge     float64                `protobuf:"fixed64,4,opt,name=daily_charge,json=dailyCharge,proto3" json:"daily_charge,omitempty"`
+	MedicalSchemeId int64                  `protobuf:"varint,5,opt,name=medical_scheme_id,json=medicalSchemeId,proto3" json:"medical_scheme_id,omitempty"`
+	IsActive        bool                   `protobuf:"varint,6,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	EffectiveFrom   string                 `protobuf:"bytes,7,opt,name=effective_from,json=effectiveFrom,proto3" json:"effective_from,omitempty"`
+	EffectiveUntil  string                 `protobuf:"bytes,8,opt,name=effective_until,json=effectiveUntil,proto3" json:"effective_until,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *UpdateWardTypePriceRequest) Reset() {
+	*x = UpdateWardTypePriceRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateWardTypePriceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateWardTypePriceRequest) ProtoMessage() {}
+
+func (x *UpdateWardTypePriceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateWardTypePriceRequest.ProtoReflect.Descriptor instead.
+func (*UpdateWardTypePriceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *UpdateWardTypePriceRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateWardTypePriceRequest) GetWardType() string {
+	if x != nil {
+		return x.WardType
+	}
+	return ""
+}
+
+func (x *UpdateWardTypePriceRequest) GetAdmissionCharge() float64 {
+	if x != nil {
+		return x.AdmissionCharge
+	}
+	return 0
+}
+
+func (x *UpdateWardTypePriceRequest) GetDailyCharge() float64 {
+	if x != nil {
+		return x.DailyCharge
+	}
+	return 0
+}
+
+func (x *UpdateWardTypePriceRequest) GetMedicalSchemeId() int64 {
+	if x != nil {
+		return x.MedicalSchemeId
+	}
+	return 0
+}
+
+func (x *UpdateWardTypePriceRequest) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *UpdateWardTypePriceRequest) GetEffectiveFrom() string {
+	if x != nil {
+		return x.EffectiveFrom
+	}
+	return ""
+}
+
+func (x *UpdateWardTypePriceRequest) GetEffectiveUntil() string {
+	if x != nil {
+		return x.EffectiveUntil
+	}
+	return ""
+}
+
+type UpdateWardTypePriceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateWardTypePriceResponse) Reset() {
+	*x = UpdateWardTypePriceResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateWardTypePriceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateWardTypePriceResponse) ProtoMessage() {}
+
+func (x *UpdateWardTypePriceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateWardTypePriceResponse.ProtoReflect.Descriptor instead.
+func (*UpdateWardTypePriceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *UpdateWardTypePriceResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *UpdateWardTypePriceResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+// CSV Import/Export Messages
+type ExportPricesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ActiveOnly    bool                   `protobuf:"varint,1,opt,name=active_only,json=activeOnly,proto3" json:"active_only,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExportPricesRequest) Reset() {
+	*x = ExportPricesRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExportPricesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExportPricesRequest) ProtoMessage() {}
+
+func (x *ExportPricesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExportPricesRequest.ProtoReflect.Descriptor instead.
+func (*ExportPricesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *ExportPricesRequest) GetActiveOnly() bool {
+	if x != nil {
+		return x.ActiveOnly
+	}
+	return false
+}
+
+type ExportCSVResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CsvData       []byte                 `protobuf:"bytes,1,opt,name=csv_data,json=csvData,proto3" json:"csv_data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExportCSVResponse) Reset() {
+	*x = ExportCSVResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExportCSVResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExportCSVResponse) ProtoMessage() {}
+
+func (x *ExportCSVResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExportCSVResponse.ProtoReflect.Descriptor instead.
+func (*ExportCSVResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *ExportCSVResponse) GetCsvData() []byte {
+	if x != nil {
+		return x.CsvData
+	}
+	return nil
+}
+
+type ImportPricesRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	CsvData         []byte                 `protobuf:"bytes,1,opt,name=csv_data,json=csvData,proto3" json:"csv_data,omitempty"`
+	UserId          string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserName        string                 `protobuf:"bytes,3,opt,name=user_name,json=userName,proto3" json:"user_name,omitempty"`
+	RequireApproval bool                   `protobuf:"varint,4,opt,name=require_approval,json=requireApproval,proto3" json:"require_approval,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *ImportPricesRequest) Reset() {
+	*x = ImportPricesRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ImportPricesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ImportPricesRequest) ProtoMessage() {}
+
+func (x *ImportPricesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ImportPricesRequest.ProtoReflect.Descriptor instead.
+func (*ImportPricesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *ImportPricesRequest) GetCsvData() []byte {
+	if x != nil {
+		return x.CsvData
+	}
+	return nil
+}
+
+func (x *ImportPricesRequest) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+func (x *ImportPricesRequest) GetUserName() string {
+	if x != nil {
+		return x.UserName
+	}
+	return ""
+}
+
+func (x *ImportPricesRequest) GetRequireApproval() bool {
+	if x != nil {
+		return x.RequireApproval
+	}
+	return false
+}
+
+type CSVImportError struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Row           int32                  `protobuf:"varint,1,opt,name=row,proto3" json:"row,omitempty"`
+	Column        string                 `protobuf:"bytes,2,opt,name=column,proto3" json:"column,omitempty"`
+	Error         string                 `protobuf:"bytes,3,opt,name=error,proto3" json:"error,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CSVImportError) Reset() {
+	*x = CSVImportError{}
+	mi := &file_proto_billing_service_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CSVImportError) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CSVImportError) ProtoMessage() {}
+
+func (x *CSVImportError) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CSVImportError.ProtoReflect.Descriptor instead.
+func (*CSVImportError) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *CSVImportError) GetRow() int32 {
+	if x != nil {
+		return x.Row
+	}
+	return 0
+}
+
+func (x *CSVImportError) GetColumn() string {
+	if x != nil {
+		return x.Column
+	}
+	return ""
+}
+
+func (x *CSVImportError) GetError() string {
+	if x != nil {
+		return x.Error
+	}
+	return ""
+}
+
+type ImportCSVResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TotalRows     int32                  `protobuf:"varint,1,opt,name=total_rows,json=totalRows,proto3" json:"total_rows,omitempty"`
+	SuccessCount  int32                  `protobuf:"varint,2,opt,name=success_count,json=successCount,proto3" json:"success_count,omitempty"`
+	FailCount     int32                  `protobuf:"varint,3,opt,name=fail_count,json=failCount,proto3" json:"fail_count,omitempty"`
+	Errors        []*CSVImportError      `protobuf:"bytes,4,rep,name=errors,proto3" json:"errors,omitempty"`
+	Message       string                 `protobuf:"bytes,5,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ImportCSVResponse) Reset() {
+	*x = ImportCSVResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ImportCSVResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ImportCSVResponse) ProtoMessage() {}
+
+func (x *ImportCSVResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ImportCSVResponse.ProtoReflect.Descriptor instead.
+func (*ImportCSVResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *ImportCSVResponse) GetTotalRows() int32 {
+	if x != nil {
+		return x.TotalRows
+	}
+	return 0
+}
+
+func (x *ImportCSVResponse) GetSuccessCount() int32 {
+	if x != nil {
+		return x.SuccessCount
+	}
+	return 0
+}
+
+func (x *ImportCSVResponse) GetFailCount() int32 {
+	if x != nil {
+		return x.FailCount
+	}
+	return 0
+}
+
+func (x *ImportCSVResponse) GetErrors() []*CSVImportError {
+	if x != nil {
+		return x.Errors
+	}
+	return nil
+}
+
+func (x *ImportCSVResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type ValidateCSVRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CsvData       []byte                 `protobuf:"bytes,1,opt,name=csv_data,json=csvData,proto3" json:"csv_data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValidateCSVRequest) Reset() {
+	*x = ValidateCSVRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValidateCSVRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValidateCSVRequest) ProtoMessage() {}
+
+func (x *ValidateCSVRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValidateCSVRequest.ProtoReflect.Descriptor instead.
+func (*ValidateCSVRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *ValidateCSVRequest) GetCsvData() []byte {
+	if x != nil {
+		return x.CsvData
+	}
+	return nil
+}
+
+type ValidateCSVResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Valid         bool                   `protobuf:"varint,1,opt,name=valid,proto3" json:"valid,omitempty"`
+	TotalRows     int32                  `protobuf:"varint,2,opt,name=total_rows,json=totalRows,proto3" json:"total_rows,omitempty"`
+	ErrorCount    int32                  `protobuf:"varint,3,opt,name=error_count,json=errorCount,proto3" json:"error_count,omitempty"`
+	Errors        []*CSVImportError      `protobuf:"bytes,4,rep,name=errors,proto3" json:"errors,omitempty"`
+	Warnings      []string               `protobuf:"bytes,5,rep,name=warnings,proto3" json:"warnings,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValidateCSVResponse) Reset() {
+	*x = ValidateCSVResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValidateCSVResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValidateCSVResponse) ProtoMessage() {}
+
+func (x *ValidateCSVResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValidateCSVResponse.ProtoReflect.Descriptor instead.
+func (*ValidateCSVResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *ValidateCSVResponse) GetValid() bool {
+	if x != nil {
+		return x.Valid
+	}
+	return false
+}
+
+func (x *ValidateCSVResponse) GetTotalRows() int32 {
+	if x != nil {
+		return x.TotalRows
+	}
+	return 0
+}
+
+func (x *ValidateCSVResponse) GetErrorCount() int32 {
+	if x != nil {
+		return x.ErrorCount
+	}
+	return 0
+}
+
+func (x *ValidateCSVResponse) GetErrors() []*CSVImportError {
+	if x != nil {
+		return x.Errors
+	}
+	return nil
+}
+
+func (x *ValidateCSVResponse) GetWarnings() []string {
+	if x != nil {
+		return x.Warnings
+	}
+	return nil
+}
+
+// Price Change Request Messages
+type PriceChangeRequest struct {
+	state               protoimpl.MessageState `protogen:"open.v1"`
+	Id                  int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	RequestId           string                 `protobuf:"bytes,2,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	PriceTable          string                 `protobuf:"bytes,3,opt,name=price_table,json=priceTable,proto3" json:"price_table,omitempty"`
+	PriceRecordId       int64                  `protobuf:"varint,4,opt,name=price_record_id,json=priceRecordId,proto3" json:"price_record_id,omitempty"`
+	ActionType          string                 `protobuf:"bytes,5,opt,name=action_type,json=actionType,proto3" json:"action_type,omitempty"`
+	RequestedData       string                 `protobuf:"bytes,6,opt,name=requested_data,json=requestedData,proto3" json:"requested_data,omitempty"`
+	CurrentData         string                 `protobuf:"bytes,7,opt,name=current_data,json=currentData,proto3" json:"current_data,omitempty"`
+	RequestedByUserId   string                 `protobuf:"bytes,8,opt,name=requested_by_user_id,json=requestedByUserId,proto3" json:"requested_by_user_id,omitempty"`
+	RequestedByUserName string                 `protobuf:"bytes,9,opt,name=requested_by_user_name,json=requestedByUserName,proto3" json:"requested_by_user_name,omitempty"`
+	RequestedAt         string                 `protobuf:"bytes,10,opt,name=requested_at,json=requestedAt,proto3" json:"requested_at,omitempty"`
+	Reason              string                 `protobuf:"bytes,11,opt,name=reason,proto3" json:"reason,omitempty"`
+	Status              string                 `protobuf:"bytes,12,opt,name=status,proto3" json:"status,omitempty"`
+	ApprovedByUserId    string                 `protobuf:"bytes,13,opt,name=approved_by_user_id,json=approvedByUserId,proto3" json:"approved_by_user_id,omitempty"`
+	ApprovedByUserName  string                 `protobuf:"bytes,14,opt,name=approved_by_user_name,json=approvedByUserName,proto3" json:"approved_by_user_name,omitempty"`
+	ApprovedAt          string                 `protobuf:"bytes,15,opt,name=approved_at,json=approvedAt,proto3" json:"approved_at,omitempty"`
+	RejectionReason     string                 `protobuf:"bytes,16,opt,name=rejection_reason,json=rejectionReason,proto3" json:"rejection_reason,omitempty"`
+	Applied             bool                   `protobuf:"varint,17,opt,name=applied,proto3" json:"applied,omitempty"`
+	AppliedAt           string                 `protobuf:"bytes,18,opt,name=applied_at,json=appliedAt,proto3" json:"applied_at,omitempty"`
+	CreatedAt           string                 `protobuf:"bytes,19,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt           string                 `protobuf:"bytes,20,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
+}
+
+func (x *PriceChangeRequest) Reset() {
+	*x = PriceChangeRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PriceChangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PriceChangeRequest) ProtoMessage() {}
+
+func (x *PriceChangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PriceChangeRequest.ProtoReflect.Descriptor instead.
+func (*PriceChangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *PriceChangeRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *PriceChangeRequest) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetPriceTable() string {
+	if x != nil {
+		return x.PriceTable
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetPriceRecordId() int64 {
+	if x != nil {
+		return x.PriceRecordId
+	}
+	return 0
+}
+
+func (x *PriceChangeRequest) GetActionType() string {
+	if x != nil {
+		return x.ActionType
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetRequestedData() string {
+	if x != nil {
+		return x.RequestedData
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetCurrentData() string {
+	if x != nil {
+		return x.CurrentData
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetRequestedByUserId() string {
+	if x != nil {
+		return x.RequestedByUserId
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetRequestedByUserName() string {
+	if x != nil {
+		return x.RequestedByUserName
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetRequestedAt() string {
+	if x != nil {
+		return x.RequestedAt
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetReason() string {
+	if x != nil {
+		return x.Reason
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetApprovedByUserId() string {
+	if x != nil {
+		return x.ApprovedByUserId
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetApprovedByUserName() string {
+	if x != nil {
+		return x.ApprovedByUserName
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetApprovedAt() string {
+	if x != nil {
+		return x.ApprovedAt
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetRejectionReason() string {
+	if x != nil {
+		return x.RejectionReason
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetApplied() bool {
+	if x != nil {
+		return x.Applied
+	}
+	return false
+}
+
+func (x *PriceChangeRequest) GetAppliedAt() string {
+	if x != nil {
+		return x.AppliedAt
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *PriceChangeRequest) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
+type CreatePriceChangeRequestRequest struct {
+	state               protoimpl.MessageState `protogen:"open.v1"`
+	PriceTable          string                 `protobuf:"bytes,1,opt,name=price_table,json=priceTable,proto3" json:"price_table,omitempty"`
+	PriceRecordId       int64                  `protobuf:"varint,2,opt,name=price_record_id,json=priceRecordId,proto3" json:"price_record_id,omitempty"`
+	ActionType          string                 `protobuf:"bytes,3,opt,name=action_type,json=actionType,proto3" json:"action_type,omitempty"`
+	RequestedData       string                 `protobuf:"bytes,4,opt,name=requested_data,json=requestedData,proto3" json:"requested_data,omitempty"`
+	CurrentData         string                 `protobuf:"bytes,5,opt,name=current_data,json=currentData,proto3" json:"current_data,omitempty"`
+	RequestedByUserId   string                 `protobuf:"bytes,6,opt,name=requested_by_user_id,json=requestedByUserId,proto3" json:"requested_by_user_id,omitempty"`
+	RequestedByUserName string                 `protobuf:"bytes,7,opt,name=requested_by_user_name,json=requestedByUserName,proto3" json:"requested_by_user_name,omitempty"`
+	Reason              string                 `protobuf:"bytes,8,opt,name=reason,proto3" json:"reason,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
+}
+
+func (x *CreatePriceChangeRequestRequest) Reset() {
+	*x = CreatePriceChangeRequestRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreatePriceChangeRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreatePriceChangeRequestRequest) ProtoMessage() {}
+
+func (x *CreatePriceChangeRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreatePriceChangeRequestRequest.ProtoReflect.Descriptor instead.
+func (*CreatePriceChangeRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *CreatePriceChangeRequestRequest) GetPriceTable() string {
+	if x != nil {
+		return x.PriceTable
+	}
+	return ""
+}
+
+func (x *CreatePriceChangeRequestRequest) GetPriceRecordId() int64 {
+	if x != nil {
+		return x.PriceRecordId
+	}
+	return 0
+}
+
+func (x *CreatePriceChangeRequestRequest) GetActionType() string {
+	if x != nil {
+		return x.ActionType
+	}
+	return ""
+}
+
+func (x *CreatePriceChangeRequestRequest) GetRequestedData() string {
+	if x != nil {
+		return x.RequestedData
+	}
+	return ""
+}
+
+func (x *CreatePriceChangeRequestRequest) GetCurrentData() string {
+	if x != nil {
+		return x.CurrentData
+	}
+	return ""
+}
+
+func (x *CreatePriceChangeRequestRequest) GetRequestedByUserId() string {
+	if x != nil {
+		return x.RequestedByUserId
+	}
+	return ""
+}
+
+func (x *CreatePriceChangeRequestRequest) GetRequestedByUserName() string {
+	if x != nil {
+		return x.RequestedByUserName
+	}
+	return ""
+}
+
+func (x *CreatePriceChangeRequestRequest) GetReason() string {
+	if x != nil {
+		return x.Reason
+	}
+	return ""
+}
+
+type CreatePriceChangeRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RequestId     string                 `protobuf:"bytes,1,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	Success       bool                   `protobuf:"varint,2,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreatePriceChangeRequestResponse) Reset() {
+	*x = CreatePriceChangeRequestResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreatePriceChangeRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreatePriceChangeRequestResponse) ProtoMessage() {}
+
+func (x *CreatePriceChangeRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreatePriceChangeRequestResponse.ProtoReflect.Descriptor instead.
+func (*CreatePriceChangeRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *CreatePriceChangeRequestResponse) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *CreatePriceChangeRequestResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *CreatePriceChangeRequestResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type GetPriceChangeRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RequestId     string                 `protobuf:"bytes,1,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPriceChangeRequestRequest) Reset() {
+	*x = GetPriceChangeRequestRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPriceChangeRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPriceChangeRequestRequest) ProtoMessage() {}
+
+func (x *GetPriceChangeRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPriceChangeRequestRequest.ProtoReflect.Descriptor instead.
+func (*GetPriceChangeRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *GetPriceChangeRequestRequest) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+type GetPriceChangeRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Request       *PriceChangeRequest    `protobuf:"bytes,1,opt,name=request,proto3" json:"request,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPriceChangeRequestResponse) Reset() {
+	*x = GetPriceChangeRequestResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPriceChangeRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPriceChangeRequestResponse) ProtoMessage() {}
+
+func (x *GetPriceChangeRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPriceChangeRequestResponse.ProtoReflect.Descriptor instead.
+func (*GetPriceChangeRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *GetPriceChangeRequestResponse) GetRequest() *PriceChangeRequest {
+	if x != nil {
+		return x.Request
+	}
+	return nil
+}
+
+type ListPriceChangeRequestsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Status        string                 `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListPriceChangeRequestsRequest) Reset() {
+	*x = ListPriceChangeRequestsRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPriceChangeRequestsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPriceChangeRequestsRequest) ProtoMessage() {}
+
+func (x *ListPriceChangeRequestsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListPriceChangeRequestsRequest.ProtoReflect.Descriptor instead.
+func (*ListPriceChangeRequestsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *ListPriceChangeRequestsRequest) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+func (x *ListPriceChangeRequestsRequest) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+type ListPriceChangeRequestsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Requests      []*PriceChangeRequest  `protobuf:"bytes,1,rep,name=requests,proto3" json:"requests,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListPriceChangeRequestsResponse) Reset() {
+	*x = ListPriceChangeRequestsResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPriceChangeRequestsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPriceChangeRequestsResponse) ProtoMessage() {}
+
+func (x *ListPriceChangeRequestsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListPriceChangeRequestsResponse.ProtoReflect.Descriptor instead.
+func (*ListPriceChangeRequestsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *ListPriceChangeRequestsResponse) GetRequests() []*PriceChangeRequest {
+	if x != nil {
+		return x.Requests
+	}
+	return nil
+}
+
+type ApprovePriceChangeRequestRequest struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	RequestId        string                 `protobuf:"bytes,1,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	ApproverUserId   string                 `protobuf:"bytes,2,opt,name=approver_user_id,json=approverUserId,proto3" json:"approver_user_id,omitempty"`
+	ApproverUserName string                 `protobuf:"bytes,3,opt,name=approver_user_name,json=approverUserName,proto3" json:"approver_user_name,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *ApprovePriceChangeRequestRequest) Reset() {
+	*x = ApprovePriceChangeRequestRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApprovePriceChangeRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApprovePriceChangeRequestRequest) ProtoMessage() {}
+
+func (x *ApprovePriceChangeRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApprovePriceChangeRequestRequest.ProtoReflect.Descriptor instead.
+func (*ApprovePriceChangeRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *ApprovePriceChangeRequestRequest) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *ApprovePriceChangeRequestRequest) GetApproverUserId() string {
+	if x != nil {
+		return x.ApproverUserId
+	}
+	return ""
+}
+
+func (x *ApprovePriceChangeRequestRequest) GetApproverUserName() string {
+	if x != nil {
+		return x.ApproverUserName
+	}
+	return ""
+}
+
+type ApprovePriceChangeRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ApprovePriceChangeRequestResponse) Reset() {
+	*x = ApprovePriceChangeRequestResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApprovePriceChangeRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApprovePriceChangeRequestResponse) ProtoMessage() {}
+
+func (x *ApprovePriceChangeRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApprovePriceChangeRequestResponse.ProtoReflect.Descriptor instead.
+func (*ApprovePriceChangeRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *ApprovePriceChangeRequestResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *ApprovePriceChangeRequestResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type RejectPriceChangeRequestRequest struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	RequestId        string                 `protobuf:"bytes,1,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	ApproverUserId   string                 `protobuf:"bytes,2,opt,name=approver_user_id,json=approverUserId,proto3" json:"approver_user_id,omitempty"`
+	ApproverUserName string                 `protobuf:"bytes,3,opt,name=approver_user_name,json=approverUserName,proto3" json:"approver_user_name,omitempty"`
+	Reason           string                 `protobuf:"bytes,4,opt,name=reason,proto3" json:"reason,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *RejectPriceChangeRequestRequest) Reset() {
+	*x = RejectPriceChangeRequestRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RejectPriceChangeRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RejectPriceChangeRequestRequest) ProtoMessage() {}
+
+func (x *RejectPriceChangeRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RejectPriceChangeRequestRequest.ProtoReflect.Descriptor instead.
+func (*RejectPriceChangeRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *RejectPriceChangeRequestRequest) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+func (x *RejectPriceChangeRequestRequest) GetApproverUserId() string {
+	if x != nil {
+		return x.ApproverUserId
+	}
+	return ""
+}
+
+func (x *RejectPriceChangeRequestRequest) GetApproverUserName() string {
+	if x != nil {
+		return x.ApproverUserName
+	}
+	return ""
+}
+
+func (x *RejectPriceChangeRequestRequest) GetReason() string {
+	if x != nil {
+		return x.Reason
+	}
+	return ""
+}
+
+type RejectPriceChangeRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RejectPriceChangeRequestResponse) Reset() {
+	*x = RejectPriceChangeRequestResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RejectPriceChangeRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RejectPriceChangeRequestResponse) ProtoMessage() {}
+
+func (x *RejectPriceChangeRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RejectPriceChangeRequestResponse.ProtoReflect.Descriptor instead.
+func (*RejectPriceChangeRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *RejectPriceChangeRequestResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *RejectPriceChangeRequestResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type CancelPriceChangeRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RequestId     string                 `protobuf:"bytes,1,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelPriceChangeRequestRequest) Reset() {
+	*x = CancelPriceChangeRequestRequest{}
+	mi := &file_proto_billing_service_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelPriceChangeRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelPriceChangeRequestRequest) ProtoMessage() {}
+
+func (x *CancelPriceChangeRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelPriceChangeRequestRequest.ProtoReflect.Descriptor instead.
+func (*CancelPriceChangeRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *CancelPriceChangeRequestRequest) GetRequestId() string {
+	if x != nil {
+		return x.RequestId
+	}
+	return ""
+}
+
+type CancelPriceChangeRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelPriceChangeRequestResponse) Reset() {
+	*x = CancelPriceChangeRequestResponse{}
+	mi := &file_proto_billing_service_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelPriceChangeRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelPriceChangeRequestResponse) ProtoMessage() {}
+
+func (x *CancelPriceChangeRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_billing_service_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelPriceChangeRequestResponse.ProtoReflect.Descriptor instead.
+func (*CancelPriceChangeRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_billing_service_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *CancelPriceChangeRequestResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *CancelPriceChangeRequestResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 var File_proto_billing_service_proto protoreflect.FileDescriptor
 
 const file_proto_billing_service_proto_rawDesc = "" +
@@ -3264,7 +6882,7 @@ const file_proto_billing_service_proto_rawDesc = "" +
 	"\asent_to\x18\x04 \x01(\tR\x06sentTo\"?\n" +
 	"\x1eGetPatientPaymentStatusRequest\x12\x1d\n" +
 	"\n" +
-	"patient_id\x18\x01 \x01(\tR\tpatientId\"\xc7\x03\n" +
+	"patient_id\x18\x01 \x01(\tR\tpatientId\"\xd5\x04\n" +
 	"\rPaymentStatus\x12*\n" +
 	"\x11has_pending_bills\x18\x01 \x01(\bR\x0fhasPendingBills\x12%\n" +
 	"\x0epending_amount\x18\x02 \x01(\x01R\rpendingAmount\x12,\n" +
@@ -3276,7 +6894,9 @@ const file_proto_billing_service_proto_rawDesc = "" +
 	"\x0epayment_status\x18\b \x01(\tR\rpaymentStatus\x12.\n" +
 	"\x13can_access_services\x18\t \x01(\bR\x11canAccessServices\x12-\n" +
 	"\x12restriction_reason\x18\n" +
-	" \x01(\tR\x11restrictionReason\"s\n" +
+	" \x01(\tR\x11restrictionReason\x12C\n" +
+	"\x1ehas_valid_consultation_payment\x18\v \x01(\bR\x1bhasValidConsultationPayment\x12G\n" +
+	" consultation_payment_valid_until\x18\f \x01(\tR\x1dconsultationPaymentValidUntil\"s\n" +
 	"\x1fGetPatientPaymentStatusResponse\x126\n" +
 	"\x06status\x18\x01 \x01(\v2\x1e.billing_service.PaymentStatusR\x06status\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"`\n" +
@@ -3300,7 +6920,317 @@ const file_proto_billing_service_proto_rawDesc = "" +
 	"\x05bills\x18\x01 \x03(\v2\x1c.billing_service.PendingBillR\x05bills\x12#\n" +
 	"\rtotal_pending\x18\x02 \x01(\x01R\ftotalPending\x12#\n" +
 	"\rtotal_overdue\x18\x03 \x01(\x01R\ftotalOverdue\x12\x18\n" +
-	"\amessage\x18\x04 \x01(\tR\amessage2\x8f\x15\n" +
+	"\amessage\x18\x04 \x01(\tR\amessage\"\xc8\x01\n" +
+	"\x19LookupServicePriceRequest\x12!\n" +
+	"\fservice_type\x18\x01 \x01(\tR\vserviceType\x12!\n" +
+	"\fservice_name\x18\x02 \x01(\tR\vserviceName\x12*\n" +
+	"\x11medical_scheme_id\x18\x03 \x01(\x03R\x0fmedicalSchemeId\x12\x12\n" +
+	"\x04date\x18\x04 \x01(\tR\x04date\x12%\n" +
+	"\x0edefault_amount\x18\x05 \x01(\x01R\rdefaultAmount\"\xdf\x01\n" +
+	"\x1aLookupServicePriceResponse\x12\x14\n" +
+	"\x05found\x18\x01 \x01(\bR\x05found\x12\x1f\n" +
+	"\vbase_amount\x18\x02 \x01(\x01R\n" +
+	"baseAmount\x12*\n" +
+	"\x11medical_scheme_id\x18\x03 \x01(\x03R\x0fmedicalSchemeId\x12!\n" +
+	"\fservice_type\x18\x04 \x01(\tR\vserviceType\x12!\n" +
+	"\fservice_name\x18\x05 \x01(\tR\vserviceName\x12\x18\n" +
+	"\amessage\x18\x06 \x01(\tR\amessage\"\xbe\x01\n" +
+	"\x19LookupLabTestPriceRequest\x12\x1b\n" +
+	"\ttest_name\x18\x01 \x01(\tR\btestName\x12\x1d\n" +
+	"\n" +
+	"test_panel\x18\x02 \x01(\tR\ttestPanel\x12*\n" +
+	"\x11medical_scheme_id\x18\x03 \x01(\x03R\x0fmedicalSchemeId\x12\x12\n" +
+	"\x04date\x18\x04 \x01(\tR\x04date\x12%\n" +
+	"\x0edefault_amount\x18\x05 \x01(\x01R\rdefaultAmount\"\xa9\x01\n" +
+	"\x1aLookupLabTestPriceResponse\x12\x14\n" +
+	"\x05found\x18\x01 \x01(\bR\x05found\x12\x1f\n" +
+	"\vbase_amount\x18\x02 \x01(\x01R\n" +
+	"baseAmount\x12\x1b\n" +
+	"\ttest_name\x18\x03 \x01(\tR\btestName\x12\x1d\n" +
+	"\n" +
+	"test_panel\x18\x04 \x01(\tR\ttestPanel\x12\x18\n" +
+	"\amessage\x18\x05 \x01(\tR\amessage\"\xe1\x01\n" +
+	"\x16LookupWardPriceRequest\x12\x1b\n" +
+	"\tward_type\x18\x01 \x01(\tR\bwardType\x12*\n" +
+	"\x11medical_scheme_id\x18\x02 \x01(\x03R\x0fmedicalSchemeId\x12\x12\n" +
+	"\x04date\x18\x03 \x01(\tR\x04date\x128\n" +
+	"\x18default_admission_charge\x18\x04 \x01(\x01R\x16defaultAdmissionCharge\x120\n" +
+	"\x14default_daily_charge\x18\x05 \x01(\x01R\x12defaultDailyCharge\"\xb4\x01\n" +
+	"\x17LookupWardPriceResponse\x12\x14\n" +
+	"\x05found\x18\x01 \x01(\bR\x05found\x12)\n" +
+	"\x10admission_charge\x18\x02 \x01(\x01R\x0fadmissionCharge\x12!\n" +
+	"\fdaily_charge\x18\x03 \x01(\x01R\vdailyCharge\x12\x1b\n" +
+	"\tward_type\x18\x04 \x01(\tR\bwardType\x12\x18\n" +
+	"\amessage\x18\x05 \x01(\tR\amessage\"\xfe\x02\n" +
+	"\fServicePrice\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12!\n" +
+	"\fservice_type\x18\x02 \x01(\tR\vserviceType\x12!\n" +
+	"\fservice_name\x18\x03 \x01(\tR\vserviceName\x12 \n" +
+	"\vdescription\x18\x04 \x01(\tR\vdescription\x12\x1f\n" +
+	"\vbase_amount\x18\x05 \x01(\x01R\n" +
+	"baseAmount\x12*\n" +
+	"\x11medical_scheme_id\x18\x06 \x01(\x03R\x0fmedicalSchemeId\x12\x1b\n" +
+	"\tis_active\x18\a \x01(\bR\bisActive\x12%\n" +
+	"\x0eeffective_from\x18\b \x01(\tR\reffectiveFrom\x12'\n" +
+	"\x0feffective_until\x18\t \x01(\tR\x0eeffectiveUntil\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\n" +
+	" \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\v \x01(\tR\tupdatedAt\"(\n" +
+	"\x16GetServicePriceRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"N\n" +
+	"\x17GetServicePriceResponse\x123\n" +
+	"\x05price\x18\x01 \x01(\v2\x1d.billing_service.ServicePriceR\x05price\"^\n" +
+	"\x18ListServicePricesRequest\x12!\n" +
+	"\fservice_type\x18\x01 \x01(\tR\vserviceType\x12\x1f\n" +
+	"\vactive_only\x18\x02 \x01(\bR\n" +
+	"activeOnly\"R\n" +
+	"\x19ListServicePricesResponse\x125\n" +
+	"\x06prices\x18\x01 \x03(\v2\x1d.billing_service.ServicePriceR\x06prices\"\xbd\x02\n" +
+	"\x19CreateServicePriceRequest\x12!\n" +
+	"\fservice_type\x18\x01 \x01(\tR\vserviceType\x12!\n" +
+	"\fservice_name\x18\x02 \x01(\tR\vserviceName\x12 \n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x1f\n" +
+	"\vbase_amount\x18\x04 \x01(\x01R\n" +
+	"baseAmount\x12*\n" +
+	"\x11medical_scheme_id\x18\x05 \x01(\x03R\x0fmedicalSchemeId\x12\x1b\n" +
+	"\tis_active\x18\x06 \x01(\bR\bisActive\x12%\n" +
+	"\x0eeffective_from\x18\a \x01(\tR\reffectiveFrom\x12'\n" +
+	"\x0feffective_until\x18\b \x01(\tR\x0eeffectiveUntil\"`\n" +
+	"\x1aCreateServicePriceResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x18\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x03 \x01(\tR\amessage\"\xcd\x02\n" +
+	"\x19UpdateServicePriceRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12!\n" +
+	"\fservice_type\x18\x02 \x01(\tR\vserviceType\x12!\n" +
+	"\fservice_name\x18\x03 \x01(\tR\vserviceName\x12 \n" +
+	"\vdescription\x18\x04 \x01(\tR\vdescription\x12\x1f\n" +
+	"\vbase_amount\x18\x05 \x01(\x01R\n" +
+	"baseAmount\x12*\n" +
+	"\x11medical_scheme_id\x18\x06 \x01(\x03R\x0fmedicalSchemeId\x12\x1b\n" +
+	"\tis_active\x18\a \x01(\bR\bisActive\x12%\n" +
+	"\x0eeffective_from\x18\b \x01(\tR\reffectiveFrom\x12'\n" +
+	"\x0feffective_until\x18\t \x01(\tR\x0eeffectiveUntil\"P\n" +
+	"\x1aUpdateServicePriceResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\xef\x02\n" +
+	"\fLabTestPrice\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1b\n" +
+	"\ttest_name\x18\x02 \x01(\tR\btestName\x12\x1d\n" +
+	"\n" +
+	"test_panel\x18\x03 \x01(\tR\ttestPanel\x12\x1b\n" +
+	"\ttest_code\x18\x04 \x01(\tR\btestCode\x12\x1f\n" +
+	"\vbase_amount\x18\x05 \x01(\x01R\n" +
+	"baseAmount\x12*\n" +
+	"\x11medical_scheme_id\x18\x06 \x01(\x03R\x0fmedicalSchemeId\x12\x1b\n" +
+	"\tis_active\x18\a \x01(\bR\bisActive\x12%\n" +
+	"\x0eeffective_from\x18\b \x01(\tR\reffectiveFrom\x12'\n" +
+	"\x0feffective_until\x18\t \x01(\tR\x0eeffectiveUntil\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\n" +
+	" \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\v \x01(\tR\tupdatedAt\"(\n" +
+	"\x16GetLabTestPriceRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"N\n" +
+	"\x17GetLabTestPriceResponse\x123\n" +
+	"\x05price\x18\x01 \x01(\v2\x1d.billing_service.LabTestPriceR\x05price\"Z\n" +
+	"\x18ListLabTestPricesRequest\x12\x1d\n" +
+	"\n" +
+	"test_panel\x18\x01 \x01(\tR\ttestPanel\x12\x1f\n" +
+	"\vactive_only\x18\x02 \x01(\bR\n" +
+	"activeOnly\"R\n" +
+	"\x19ListLabTestPricesResponse\x125\n" +
+	"\x06prices\x18\x01 \x03(\v2\x1d.billing_service.LabTestPriceR\x06prices\"\xae\x02\n" +
+	"\x19CreateLabTestPriceRequest\x12\x1b\n" +
+	"\ttest_name\x18\x01 \x01(\tR\btestName\x12\x1d\n" +
+	"\n" +
+	"test_panel\x18\x02 \x01(\tR\ttestPanel\x12\x1b\n" +
+	"\ttest_code\x18\x03 \x01(\tR\btestCode\x12\x1f\n" +
+	"\vbase_amount\x18\x04 \x01(\x01R\n" +
+	"baseAmount\x12*\n" +
+	"\x11medical_scheme_id\x18\x05 \x01(\x03R\x0fmedicalSchemeId\x12\x1b\n" +
+	"\tis_active\x18\x06 \x01(\bR\bisActive\x12%\n" +
+	"\x0eeffective_from\x18\a \x01(\tR\reffectiveFrom\x12'\n" +
+	"\x0feffective_until\x18\b \x01(\tR\x0eeffectiveUntil\"`\n" +
+	"\x1aCreateLabTestPriceResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x18\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x03 \x01(\tR\amessage\"\xbe\x02\n" +
+	"\x19UpdateLabTestPriceRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1b\n" +
+	"\ttest_name\x18\x02 \x01(\tR\btestName\x12\x1d\n" +
+	"\n" +
+	"test_panel\x18\x03 \x01(\tR\ttestPanel\x12\x1b\n" +
+	"\ttest_code\x18\x04 \x01(\tR\btestCode\x12\x1f\n" +
+	"\vbase_amount\x18\x05 \x01(\x01R\n" +
+	"baseAmount\x12*\n" +
+	"\x11medical_scheme_id\x18\x06 \x01(\x03R\x0fmedicalSchemeId\x12\x1b\n" +
+	"\tis_active\x18\a \x01(\bR\bisActive\x12%\n" +
+	"\x0eeffective_from\x18\b \x01(\tR\reffectiveFrom\x12'\n" +
+	"\x0feffective_until\x18\t \x01(\tR\x0eeffectiveUntil\"P\n" +
+	"\x1aUpdateLabTestPriceResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\xe1\x02\n" +
+	"\rWardTypePrice\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1b\n" +
+	"\tward_type\x18\x02 \x01(\tR\bwardType\x12)\n" +
+	"\x10admission_charge\x18\x03 \x01(\x01R\x0fadmissionCharge\x12!\n" +
+	"\fdaily_charge\x18\x04 \x01(\x01R\vdailyCharge\x12*\n" +
+	"\x11medical_scheme_id\x18\x05 \x01(\x03R\x0fmedicalSchemeId\x12\x1b\n" +
+	"\tis_active\x18\x06 \x01(\bR\bisActive\x12%\n" +
+	"\x0eeffective_from\x18\a \x01(\tR\reffectiveFrom\x12'\n" +
+	"\x0feffective_until\x18\b \x01(\tR\x0eeffectiveUntil\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\t \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\n" +
+	" \x01(\tR\tupdatedAt\")\n" +
+	"\x17GetWardTypePriceRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"P\n" +
+	"\x18GetWardTypePriceResponse\x124\n" +
+	"\x05price\x18\x01 \x01(\v2\x1e.billing_service.WardTypePriceR\x05price\"<\n" +
+	"\x19ListWardTypePricesRequest\x12\x1f\n" +
+	"\vactive_only\x18\x01 \x01(\bR\n" +
+	"activeOnly\"T\n" +
+	"\x1aListWardTypePricesResponse\x126\n" +
+	"\x06prices\x18\x01 \x03(\v2\x1e.billing_service.WardTypePriceR\x06prices\"\xa0\x02\n" +
+	"\x1aCreateWardTypePriceRequest\x12\x1b\n" +
+	"\tward_type\x18\x01 \x01(\tR\bwardType\x12)\n" +
+	"\x10admission_charge\x18\x02 \x01(\x01R\x0fadmissionCharge\x12!\n" +
+	"\fdaily_charge\x18\x03 \x01(\x01R\vdailyCharge\x12*\n" +
+	"\x11medical_scheme_id\x18\x04 \x01(\x03R\x0fmedicalSchemeId\x12\x1b\n" +
+	"\tis_active\x18\x05 \x01(\bR\bisActive\x12%\n" +
+	"\x0eeffective_from\x18\x06 \x01(\tR\reffectiveFrom\x12'\n" +
+	"\x0feffective_until\x18\a \x01(\tR\x0eeffectiveUntil\"a\n" +
+	"\x1bCreateWardTypePriceResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x18\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x03 \x01(\tR\amessage\"\xb0\x02\n" +
+	"\x1aUpdateWardTypePriceRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1b\n" +
+	"\tward_type\x18\x02 \x01(\tR\bwardType\x12)\n" +
+	"\x10admission_charge\x18\x03 \x01(\x01R\x0fadmissionCharge\x12!\n" +
+	"\fdaily_charge\x18\x04 \x01(\x01R\vdailyCharge\x12*\n" +
+	"\x11medical_scheme_id\x18\x05 \x01(\x03R\x0fmedicalSchemeId\x12\x1b\n" +
+	"\tis_active\x18\x06 \x01(\bR\bisActive\x12%\n" +
+	"\x0eeffective_from\x18\a \x01(\tR\reffectiveFrom\x12'\n" +
+	"\x0feffective_until\x18\b \x01(\tR\x0eeffectiveUntil\"Q\n" +
+	"\x1bUpdateWardTypePriceResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"6\n" +
+	"\x13ExportPricesRequest\x12\x1f\n" +
+	"\vactive_only\x18\x01 \x01(\bR\n" +
+	"activeOnly\".\n" +
+	"\x11ExportCSVResponse\x12\x19\n" +
+	"\bcsv_data\x18\x01 \x01(\fR\acsvData\"\x91\x01\n" +
+	"\x13ImportPricesRequest\x12\x19\n" +
+	"\bcsv_data\x18\x01 \x01(\fR\acsvData\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x1b\n" +
+	"\tuser_name\x18\x03 \x01(\tR\buserName\x12)\n" +
+	"\x10require_approval\x18\x04 \x01(\bR\x0frequireApproval\"P\n" +
+	"\x0eCSVImportError\x12\x10\n" +
+	"\x03row\x18\x01 \x01(\x05R\x03row\x12\x16\n" +
+	"\x06column\x18\x02 \x01(\tR\x06column\x12\x14\n" +
+	"\x05error\x18\x03 \x01(\tR\x05error\"\xc9\x01\n" +
+	"\x11ImportCSVResponse\x12\x1d\n" +
+	"\n" +
+	"total_rows\x18\x01 \x01(\x05R\ttotalRows\x12#\n" +
+	"\rsuccess_count\x18\x02 \x01(\x05R\fsuccessCount\x12\x1d\n" +
+	"\n" +
+	"fail_count\x18\x03 \x01(\x05R\tfailCount\x127\n" +
+	"\x06errors\x18\x04 \x03(\v2\x1f.billing_service.CSVImportErrorR\x06errors\x12\x18\n" +
+	"\amessage\x18\x05 \x01(\tR\amessage\"/\n" +
+	"\x12ValidateCSVRequest\x12\x19\n" +
+	"\bcsv_data\x18\x01 \x01(\fR\acsvData\"\xc0\x01\n" +
+	"\x13ValidateCSVResponse\x12\x14\n" +
+	"\x05valid\x18\x01 \x01(\bR\x05valid\x12\x1d\n" +
+	"\n" +
+	"total_rows\x18\x02 \x01(\x05R\ttotalRows\x12\x1f\n" +
+	"\verror_count\x18\x03 \x01(\x05R\n" +
+	"errorCount\x127\n" +
+	"\x06errors\x18\x04 \x03(\v2\x1f.billing_service.CSVImportErrorR\x06errors\x12\x1a\n" +
+	"\bwarnings\x18\x05 \x03(\tR\bwarnings\"\xd5\x05\n" +
+	"\x12PriceChangeRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x02 \x01(\tR\trequestId\x12\x1f\n" +
+	"\vprice_table\x18\x03 \x01(\tR\n" +
+	"priceTable\x12&\n" +
+	"\x0fprice_record_id\x18\x04 \x01(\x03R\rpriceRecordId\x12\x1f\n" +
+	"\vaction_type\x18\x05 \x01(\tR\n" +
+	"actionType\x12%\n" +
+	"\x0erequested_data\x18\x06 \x01(\tR\rrequestedData\x12!\n" +
+	"\fcurrent_data\x18\a \x01(\tR\vcurrentData\x12/\n" +
+	"\x14requested_by_user_id\x18\b \x01(\tR\x11requestedByUserId\x123\n" +
+	"\x16requested_by_user_name\x18\t \x01(\tR\x13requestedByUserName\x12!\n" +
+	"\frequested_at\x18\n" +
+	" \x01(\tR\vrequestedAt\x12\x16\n" +
+	"\x06reason\x18\v \x01(\tR\x06reason\x12\x16\n" +
+	"\x06status\x18\f \x01(\tR\x06status\x12-\n" +
+	"\x13approved_by_user_id\x18\r \x01(\tR\x10approvedByUserId\x121\n" +
+	"\x15approved_by_user_name\x18\x0e \x01(\tR\x12approvedByUserName\x12\x1f\n" +
+	"\vapproved_at\x18\x0f \x01(\tR\n" +
+	"approvedAt\x12)\n" +
+	"\x10rejection_reason\x18\x10 \x01(\tR\x0frejectionReason\x12\x18\n" +
+	"\aapplied\x18\x11 \x01(\bR\aapplied\x12\x1d\n" +
+	"\n" +
+	"applied_at\x18\x12 \x01(\tR\tappliedAt\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x13 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\x14 \x01(\tR\tupdatedAt\"\xd3\x02\n" +
+	"\x1fCreatePriceChangeRequestRequest\x12\x1f\n" +
+	"\vprice_table\x18\x01 \x01(\tR\n" +
+	"priceTable\x12&\n" +
+	"\x0fprice_record_id\x18\x02 \x01(\x03R\rpriceRecordId\x12\x1f\n" +
+	"\vaction_type\x18\x03 \x01(\tR\n" +
+	"actionType\x12%\n" +
+	"\x0erequested_data\x18\x04 \x01(\tR\rrequestedData\x12!\n" +
+	"\fcurrent_data\x18\x05 \x01(\tR\vcurrentData\x12/\n" +
+	"\x14requested_by_user_id\x18\x06 \x01(\tR\x11requestedByUserId\x123\n" +
+	"\x16requested_by_user_name\x18\a \x01(\tR\x13requestedByUserName\x12\x16\n" +
+	"\x06reason\x18\b \x01(\tR\x06reason\"u\n" +
+	" CreatePriceChangeRequestResponse\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x01 \x01(\tR\trequestId\x12\x18\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x03 \x01(\tR\amessage\"=\n" +
+	"\x1cGetPriceChangeRequestRequest\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x01 \x01(\tR\trequestId\"^\n" +
+	"\x1dGetPriceChangeRequestResponse\x12=\n" +
+	"\arequest\x18\x01 \x01(\v2#.billing_service.PriceChangeRequestR\arequest\"Q\n" +
+	"\x1eListPriceChangeRequestsRequest\x12\x16\n" +
+	"\x06status\x18\x01 \x01(\tR\x06status\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\tR\x06userId\"b\n" +
+	"\x1fListPriceChangeRequestsResponse\x12?\n" +
+	"\brequests\x18\x01 \x03(\v2#.billing_service.PriceChangeRequestR\brequests\"\x99\x01\n" +
+	" ApprovePriceChangeRequestRequest\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x01 \x01(\tR\trequestId\x12(\n" +
+	"\x10approver_user_id\x18\x02 \x01(\tR\x0eapproverUserId\x12,\n" +
+	"\x12approver_user_name\x18\x03 \x01(\tR\x10approverUserName\"W\n" +
+	"!ApprovePriceChangeRequestResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\xb0\x01\n" +
+	"\x1fRejectPriceChangeRequestRequest\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x01 \x01(\tR\trequestId\x12(\n" +
+	"\x10approver_user_id\x18\x02 \x01(\tR\x0eapproverUserId\x12,\n" +
+	"\x12approver_user_name\x18\x03 \x01(\tR\x10approverUserName\x12\x16\n" +
+	"\x06reason\x18\x04 \x01(\tR\x06reason\"V\n" +
+	" RejectPriceChangeRequestResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"@\n" +
+	"\x1fCancelPriceChangeRequestRequest\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x01 \x01(\tR\trequestId\"V\n" +
+	" CancelPriceChangeRequestResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage2\x8f\x15\n" +
 	"\x0eBillingService\x12w\n" +
 	"\rCreateInvoice\x12%.billing_service.CreateInvoiceRequest\x1a&.billing_service.CreateInvoiceResponse\"\x17\x82\xd3\xe4\x93\x02\x11:\x01*\"\f/v1/invoices\x12x\n" +
 	"\n" +
@@ -3320,7 +7250,38 @@ const file_proto_billing_service_proto_rawDesc = "" +
 	"\x12CalculateBillSplit\x12*.billing_service.CalculateBillSplitRequest\x1a+.billing_service.CalculateBillSplitResponse\"'\x82\xd3\xe4\x93\x02!:\x01*\"\x1c/v1/invoices/calculate-split\x12\x83\x01\n" +
 	"\vSendInvoice\x12#.billing_service.SendInvoiceRequest\x1a$.billing_service.SendInvoiceResponse\")\x82\xd3\xe4\x93\x02#:\x01*\"\x1e/v1/invoices/{invoice_id}/send\x12\xae\x01\n" +
 	"\x17GetPatientPaymentStatus\x12/.billing_service.GetPatientPaymentStatusRequest\x1a0.billing_service.GetPatientPaymentStatusResponse\"0\x82\xd3\xe4\x93\x02*\x12(/v1/patients/{patient_id}/payment-status\x12\x95\x01\n" +
-	"\x0fGetPendingBills\x12'.billing_service.GetPendingBillsRequest\x1a(.billing_service.GetPendingBillsResponse\"/\x82\xd3\xe4\x93\x02)\x12'/v1/patients/{patient_id}/pending-billsB Z\x1e./shared/billing-service/protob\x06proto3"
+	"\x0fGetPendingBills\x12'.billing_service.GetPendingBillsRequest\x1a(.billing_service.GetPendingBillsResponse\"/\x82\xd3\xe4\x93\x02)\x12'/v1/patients/{patient_id}/pending-bills2\xca$\n" +
+	"\fPriceService\x12\x93\x01\n" +
+	"\x12LookupServicePrice\x12*.billing_service.LookupServicePriceRequest\x1a+.billing_service.LookupServicePriceResponse\"$\x82\xd3\xe4\x93\x02\x1e:\x01*\"\x19/v1/prices/lookup/service\x12\x94\x01\n" +
+	"\x12LookupLabTestPrice\x12*.billing_service.LookupLabTestPriceRequest\x1a+.billing_service.LookupLabTestPriceResponse\"%\x82\xd3\xe4\x93\x02\x1f:\x01*\"\x1a/v1/prices/lookup/lab-test\x12\x87\x01\n" +
+	"\x0fLookupWardPrice\x12'.billing_service.LookupWardPriceRequest\x1a(.billing_service.LookupWardPriceResponse\"!\x82\xd3\xe4\x93\x02\x1b:\x01*\"\x16/v1/prices/lookup/ward\x12\x8c\x01\n" +
+	"\x0fGetServicePrice\x12'.billing_service.GetServicePriceRequest\x1a(.billing_service.GetServicePriceResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/v1/prices/service-prices/{id}\x12\x8d\x01\n" +
+	"\x11ListServicePrices\x12).billing_service.ListServicePricesRequest\x1a*.billing_service.ListServicePricesResponse\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1/prices/service-prices\x12\x93\x01\n" +
+	"\x12CreateServicePrice\x12*.billing_service.CreateServicePriceRequest\x1a+.billing_service.CreateServicePriceResponse\"$\x82\xd3\xe4\x93\x02\x1e:\x01*\"\x19/v1/prices/service-prices\x12\x98\x01\n" +
+	"\x12UpdateServicePrice\x12*.billing_service.UpdateServicePriceRequest\x1a+.billing_service.UpdateServicePriceResponse\")\x82\xd3\xe4\x93\x02#:\x01*\x1a\x1e/v1/prices/service-prices/{id}\x12\x8d\x01\n" +
+	"\x0fGetLabTestPrice\x12'.billing_service.GetLabTestPriceRequest\x1a(.billing_service.GetLabTestPriceResponse\"'\x82\xd3\xe4\x93\x02!\x12\x1f/v1/prices/lab-test-prices/{id}\x12\x8e\x01\n" +
+	"\x11ListLabTestPrices\x12).billing_service.ListLabTestPricesRequest\x1a*.billing_service.ListLabTestPricesResponse\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1/prices/lab-test-prices\x12\x94\x01\n" +
+	"\x12CreateLabTestPrice\x12*.billing_service.CreateLabTestPriceRequest\x1a+.billing_service.CreateLabTestPriceResponse\"%\x82\xd3\xe4\x93\x02\x1f:\x01*\"\x1a/v1/prices/lab-test-prices\x12\x99\x01\n" +
+	"\x12UpdateLabTestPrice\x12*.billing_service.UpdateLabTestPriceRequest\x1a+.billing_service.UpdateLabTestPriceResponse\"*\x82\xd3\xe4\x93\x02$:\x01*\x1a\x1f/v1/prices/lab-test-prices/{id}\x12\x91\x01\n" +
+	"\x10GetWardTypePrice\x12(.billing_service.GetWardTypePriceRequest\x1a).billing_service.GetWardTypePriceResponse\"(\x82\xd3\xe4\x93\x02\"\x12 /v1/prices/ward-type-prices/{id}\x12\x92\x01\n" +
+	"\x12ListWardTypePrices\x12*.billing_service.ListWardTypePricesRequest\x1a+.billing_service.ListWardTypePricesResponse\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/v1/prices/ward-type-prices\x12\x98\x01\n" +
+	"\x13CreateWardTypePrice\x12+.billing_service.CreateWardTypePriceRequest\x1a,.billing_service.CreateWardTypePriceResponse\"&\x82\xd3\xe4\x93\x02 :\x01*\"\x1b/v1/prices/ward-type-prices\x12\x9d\x01\n" +
+	"\x13UpdateWardTypePrice\x12+.billing_service.UpdateWardTypePriceRequest\x1a,.billing_service.UpdateWardTypePriceResponse\"+\x82\xd3\xe4\x93\x02%:\x01*\x1a /v1/prices/ward-type-prices/{id}\x12\x90\x01\n" +
+	"\x18ExportServicePricesToCSV\x12$.billing_service.ExportPricesRequest\x1a\".billing_service.ExportCSVResponse\"(\x82\xd3\xe4\x93\x02\"\x12 /v1/prices/export/service-prices0\x01\x12\x91\x01\n" +
+	"\x18ExportLabTestPricesToCSV\x12$.billing_service.ExportPricesRequest\x1a\".billing_service.ExportCSVResponse\")\x82\xd3\xe4\x93\x02#\x12!/v1/prices/export/lab-test-prices0\x01\x12\x93\x01\n" +
+	"\x19ExportWardTypePricesToCSV\x12$.billing_service.ExportPricesRequest\x1a\".billing_service.ExportCSVResponse\"*\x82\xd3\xe4\x93\x02$\x12\"/v1/prices/export/ward-type-prices0\x01\x12\x93\x01\n" +
+	"\x1aImportServicePricesFromCSV\x12$.billing_service.ImportPricesRequest\x1a\".billing_service.ImportCSVResponse\"+\x82\xd3\xe4\x93\x02%:\x01*\" /v1/prices/import/service-prices\x12\x94\x01\n" +
+	"\x1aImportLabTestPricesFromCSV\x12$.billing_service.ImportPricesRequest\x1a\".billing_service.ImportCSVResponse\",\x82\xd3\xe4\x93\x02&:\x01*\"!/v1/prices/import/lab-test-prices\x12\x96\x01\n" +
+	"\x1bImportWardTypePricesFromCSV\x12$.billing_service.ImportPricesRequest\x1a\".billing_service.ImportCSVResponse\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/v1/prices/import/ward-type-prices\x12\x94\x01\n" +
+	"\x18ValidateServicePricesCSV\x12#.billing_service.ValidateCSVRequest\x1a$.billing_service.ValidateCSVResponse\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/v1/prices/validate/service-prices\x12\x95\x01\n" +
+	"\x18ValidateLabTestPricesCSV\x12#.billing_service.ValidateCSVRequest\x1a$.billing_service.ValidateCSVResponse\".\x82\xd3\xe4\x93\x02(:\x01*\"#/v1/prices/validate/lab-test-prices\x12\x97\x01\n" +
+	"\x19ValidateWardTypePricesCSV\x12#.billing_service.ValidateCSVRequest\x1a$.billing_service.ValidateCSVResponse\"/\x82\xd3\xe4\x93\x02):\x01*\"$/v1/prices/validate/ward-type-prices\x12\xa6\x01\n" +
+	"\x18CreatePriceChangeRequest\x120.billing_service.CreatePriceChangeRequestRequest\x1a1.billing_service.CreatePriceChangeRequestResponse\"%\x82\xd3\xe4\x93\x02\x1f:\x01*\"\x1a/v1/prices/change-requests\x12\xa7\x01\n" +
+	"\x15GetPriceChangeRequest\x12-.billing_service.GetPriceChangeRequestRequest\x1a..billing_service.GetPriceChangeRequestResponse\"/\x82\xd3\xe4\x93\x02)\x12'/v1/prices/change-requests/{request_id}\x12\xa0\x01\n" +
+	"\x17ListPriceChangeRequests\x12/.billing_service.ListPriceChangeRequestsRequest\x1a0.billing_service.ListPriceChangeRequestsResponse\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1/prices/change-requests\x12\xbe\x01\n" +
+	"\x19ApprovePriceChangeRequest\x121.billing_service.ApprovePriceChangeRequestRequest\x1a2.billing_service.ApprovePriceChangeRequestResponse\":\x82\xd3\xe4\x93\x024:\x01*\"//v1/prices/change-requests/{request_id}/approve\x12\xba\x01\n" +
+	"\x18RejectPriceChangeRequest\x120.billing_service.RejectPriceChangeRequestRequest\x1a1.billing_service.RejectPriceChangeRequestResponse\"9\x82\xd3\xe4\x93\x023:\x01*\"./v1/prices/change-requests/{request_id}/reject\x12\xba\x01\n" +
+	"\x18CancelPriceChangeRequest\x120.billing_service.CancelPriceChangeRequestRequest\x1a1.billing_service.CancelPriceChangeRequestResponse\"9\x82\xd3\xe4\x93\x023:\x01*\"./v1/prices/change-requests/{request_id}/cancelB Z\x1e./shared/billing-service/protob\x06proto3"
 
 var (
 	file_proto_billing_service_proto_rawDescOnce sync.Once
@@ -3334,7 +7295,7 @@ func file_proto_billing_service_proto_rawDescGZIP() []byte {
 	return file_proto_billing_service_proto_rawDescData
 }
 
-var file_proto_billing_service_proto_msgTypes = make([]protoimpl.MessageInfo, 43)
+var file_proto_billing_service_proto_msgTypes = make([]protoimpl.MessageInfo, 96)
 var file_proto_billing_service_proto_goTypes = []any{
 	(*PaymentMethod)(nil),                      // 0: billing_service.PaymentMethod
 	(*InvoiceItem)(nil),                        // 1: billing_service.InvoiceItem
@@ -3379,6 +7340,59 @@ var file_proto_billing_service_proto_goTypes = []any{
 	(*GetPendingBillsRequest)(nil),             // 40: billing_service.GetPendingBillsRequest
 	(*PendingBill)(nil),                        // 41: billing_service.PendingBill
 	(*GetPendingBillsResponse)(nil),            // 42: billing_service.GetPendingBillsResponse
+	(*LookupServicePriceRequest)(nil),          // 43: billing_service.LookupServicePriceRequest
+	(*LookupServicePriceResponse)(nil),         // 44: billing_service.LookupServicePriceResponse
+	(*LookupLabTestPriceRequest)(nil),          // 45: billing_service.LookupLabTestPriceRequest
+	(*LookupLabTestPriceResponse)(nil),         // 46: billing_service.LookupLabTestPriceResponse
+	(*LookupWardPriceRequest)(nil),             // 47: billing_service.LookupWardPriceRequest
+	(*LookupWardPriceResponse)(nil),            // 48: billing_service.LookupWardPriceResponse
+	(*ServicePrice)(nil),                       // 49: billing_service.ServicePrice
+	(*GetServicePriceRequest)(nil),             // 50: billing_service.GetServicePriceRequest
+	(*GetServicePriceResponse)(nil),            // 51: billing_service.GetServicePriceResponse
+	(*ListServicePricesRequest)(nil),           // 52: billing_service.ListServicePricesRequest
+	(*ListServicePricesResponse)(nil),          // 53: billing_service.ListServicePricesResponse
+	(*CreateServicePriceRequest)(nil),          // 54: billing_service.CreateServicePriceRequest
+	(*CreateServicePriceResponse)(nil),         // 55: billing_service.CreateServicePriceResponse
+	(*UpdateServicePriceRequest)(nil),          // 56: billing_service.UpdateServicePriceRequest
+	(*UpdateServicePriceResponse)(nil),         // 57: billing_service.UpdateServicePriceResponse
+	(*LabTestPrice)(nil),                       // 58: billing_service.LabTestPrice
+	(*GetLabTestPriceRequest)(nil),             // 59: billing_service.GetLabTestPriceRequest
+	(*GetLabTestPriceResponse)(nil),            // 60: billing_service.GetLabTestPriceResponse
+	(*ListLabTestPricesRequest)(nil),           // 61: billing_service.ListLabTestPricesRequest
+	(*ListLabTestPricesResponse)(nil),          // 62: billing_service.ListLabTestPricesResponse
+	(*CreateLabTestPriceRequest)(nil),          // 63: billing_service.CreateLabTestPriceRequest
+	(*CreateLabTestPriceResponse)(nil),         // 64: billing_service.CreateLabTestPriceResponse
+	(*UpdateLabTestPriceRequest)(nil),          // 65: billing_service.UpdateLabTestPriceRequest
+	(*UpdateLabTestPriceResponse)(nil),         // 66: billing_service.UpdateLabTestPriceResponse
+	(*WardTypePrice)(nil),                      // 67: billing_service.WardTypePrice
+	(*GetWardTypePriceRequest)(nil),            // 68: billing_service.GetWardTypePriceRequest
+	(*GetWardTypePriceResponse)(nil),           // 69: billing_service.GetWardTypePriceResponse
+	(*ListWardTypePricesRequest)(nil),          // 70: billing_service.ListWardTypePricesRequest
+	(*ListWardTypePricesResponse)(nil),         // 71: billing_service.ListWardTypePricesResponse
+	(*CreateWardTypePriceRequest)(nil),         // 72: billing_service.CreateWardTypePriceRequest
+	(*CreateWardTypePriceResponse)(nil),        // 73: billing_service.CreateWardTypePriceResponse
+	(*UpdateWardTypePriceRequest)(nil),         // 74: billing_service.UpdateWardTypePriceRequest
+	(*UpdateWardTypePriceResponse)(nil),        // 75: billing_service.UpdateWardTypePriceResponse
+	(*ExportPricesRequest)(nil),                // 76: billing_service.ExportPricesRequest
+	(*ExportCSVResponse)(nil),                  // 77: billing_service.ExportCSVResponse
+	(*ImportPricesRequest)(nil),                // 78: billing_service.ImportPricesRequest
+	(*CSVImportError)(nil),                     // 79: billing_service.CSVImportError
+	(*ImportCSVResponse)(nil),                  // 80: billing_service.ImportCSVResponse
+	(*ValidateCSVRequest)(nil),                 // 81: billing_service.ValidateCSVRequest
+	(*ValidateCSVResponse)(nil),                // 82: billing_service.ValidateCSVResponse
+	(*PriceChangeRequest)(nil),                 // 83: billing_service.PriceChangeRequest
+	(*CreatePriceChangeRequestRequest)(nil),    // 84: billing_service.CreatePriceChangeRequestRequest
+	(*CreatePriceChangeRequestResponse)(nil),   // 85: billing_service.CreatePriceChangeRequestResponse
+	(*GetPriceChangeRequestRequest)(nil),       // 86: billing_service.GetPriceChangeRequestRequest
+	(*GetPriceChangeRequestResponse)(nil),      // 87: billing_service.GetPriceChangeRequestResponse
+	(*ListPriceChangeRequestsRequest)(nil),     // 88: billing_service.ListPriceChangeRequestsRequest
+	(*ListPriceChangeRequestsResponse)(nil),    // 89: billing_service.ListPriceChangeRequestsResponse
+	(*ApprovePriceChangeRequestRequest)(nil),   // 90: billing_service.ApprovePriceChangeRequestRequest
+	(*ApprovePriceChangeRequestResponse)(nil),  // 91: billing_service.ApprovePriceChangeRequestResponse
+	(*RejectPriceChangeRequestRequest)(nil),    // 92: billing_service.RejectPriceChangeRequestRequest
+	(*RejectPriceChangeRequestResponse)(nil),   // 93: billing_service.RejectPriceChangeRequestResponse
+	(*CancelPriceChangeRequestRequest)(nil),    // 94: billing_service.CancelPriceChangeRequestRequest
+	(*CancelPriceChangeRequestResponse)(nil),   // 95: billing_service.CancelPriceChangeRequestResponse
 }
 var file_proto_billing_service_proto_depIdxs = []int32{
 	0,  // 0: billing_service.CreateInvoiceRequest.payment_methods:type_name -> billing_service.PaymentMethod
@@ -3398,47 +7412,117 @@ var file_proto_billing_service_proto_depIdxs = []int32{
 	38, // 14: billing_service.GetPatientPaymentStatusResponse.status:type_name -> billing_service.PaymentStatus
 	20, // 15: billing_service.PendingBill.services:type_name -> billing_service.ServiceRecord
 	41, // 16: billing_service.GetPendingBillsResponse.bills:type_name -> billing_service.PendingBill
-	2,  // 17: billing_service.BillingService.CreateInvoice:input_type -> billing_service.CreateInvoiceRequest
-	4,  // 18: billing_service.BillingService.GetInvoice:input_type -> billing_service.GetInvoiceRequest
-	7,  // 19: billing_service.BillingService.UpdateInvoice:input_type -> billing_service.UpdateInvoiceRequest
-	9,  // 20: billing_service.BillingService.DeleteInvoice:input_type -> billing_service.DeleteInvoiceRequest
-	11, // 21: billing_service.BillingService.ListInvoices:input_type -> billing_service.ListInvoicesRequest
-	13, // 22: billing_service.BillingService.GetInvoicesByPatientId:input_type -> billing_service.GetInvoicesByPatientIdRequest
-	14, // 23: billing_service.BillingService.ProcessPayment:input_type -> billing_service.ProcessPaymentRequest
-	16, // 24: billing_service.BillingService.MarkInvoiceAsPaid:input_type -> billing_service.MarkInvoiceAsPaidRequest
-	18, // 25: billing_service.BillingService.SendInvoiceEmail:input_type -> billing_service.SendInvoiceEmailRequest
-	21, // 26: billing_service.BillingService.CreateServiceRecord:input_type -> billing_service.CreateServiceRecordRequest
-	23, // 27: billing_service.BillingService.UpdateServiceRecordStatus:input_type -> billing_service.UpdateServiceRecordStatusRequest
-	25, // 28: billing_service.BillingService.GetServiceRecordsByPatient:input_type -> billing_service.GetServiceRecordsByPatientRequest
-	27, // 29: billing_service.BillingService.GenerateInvoiceFromRecords:input_type -> billing_service.GenerateInvoiceFromRecordsRequest
-	28, // 30: billing_service.BillingService.ListServiceRecords:input_type -> billing_service.ListServiceRecordsRequest
-	30, // 31: billing_service.BillingService.CalculateBillSplit:input_type -> billing_service.CalculateBillSplitRequest
-	35, // 32: billing_service.BillingService.SendInvoice:input_type -> billing_service.SendInvoiceRequest
-	37, // 33: billing_service.BillingService.GetPatientPaymentStatus:input_type -> billing_service.GetPatientPaymentStatusRequest
-	40, // 34: billing_service.BillingService.GetPendingBills:input_type -> billing_service.GetPendingBillsRequest
-	3,  // 35: billing_service.BillingService.CreateInvoice:output_type -> billing_service.CreateInvoiceResponse
-	6,  // 36: billing_service.BillingService.GetInvoice:output_type -> billing_service.GetInvoiceResponse
-	8,  // 37: billing_service.BillingService.UpdateInvoice:output_type -> billing_service.UpdateInvoiceResponse
-	10, // 38: billing_service.BillingService.DeleteInvoice:output_type -> billing_service.DeleteInvoiceResponse
-	12, // 39: billing_service.BillingService.ListInvoices:output_type -> billing_service.ListInvoicesResponse
-	12, // 40: billing_service.BillingService.GetInvoicesByPatientId:output_type -> billing_service.ListInvoicesResponse
-	15, // 41: billing_service.BillingService.ProcessPayment:output_type -> billing_service.ProcessPaymentResponse
-	17, // 42: billing_service.BillingService.MarkInvoiceAsPaid:output_type -> billing_service.MarkInvoiceAsPaidResponse
-	19, // 43: billing_service.BillingService.SendInvoiceEmail:output_type -> billing_service.SendInvoiceEmailResponse
-	22, // 44: billing_service.BillingService.CreateServiceRecord:output_type -> billing_service.CreateServiceRecordResponse
-	24, // 45: billing_service.BillingService.UpdateServiceRecordStatus:output_type -> billing_service.UpdateServiceRecordStatusResponse
-	26, // 46: billing_service.BillingService.GetServiceRecordsByPatient:output_type -> billing_service.GetServiceRecordsByPatientResponse
-	3,  // 47: billing_service.BillingService.GenerateInvoiceFromRecords:output_type -> billing_service.CreateInvoiceResponse
-	29, // 48: billing_service.BillingService.ListServiceRecords:output_type -> billing_service.ListServiceRecordsResponse
-	34, // 49: billing_service.BillingService.CalculateBillSplit:output_type -> billing_service.CalculateBillSplitResponse
-	36, // 50: billing_service.BillingService.SendInvoice:output_type -> billing_service.SendInvoiceResponse
-	39, // 51: billing_service.BillingService.GetPatientPaymentStatus:output_type -> billing_service.GetPatientPaymentStatusResponse
-	42, // 52: billing_service.BillingService.GetPendingBills:output_type -> billing_service.GetPendingBillsResponse
-	35, // [35:53] is the sub-list for method output_type
-	17, // [17:35] is the sub-list for method input_type
-	17, // [17:17] is the sub-list for extension type_name
-	17, // [17:17] is the sub-list for extension extendee
-	0,  // [0:17] is the sub-list for field type_name
+	49, // 17: billing_service.GetServicePriceResponse.price:type_name -> billing_service.ServicePrice
+	49, // 18: billing_service.ListServicePricesResponse.prices:type_name -> billing_service.ServicePrice
+	58, // 19: billing_service.GetLabTestPriceResponse.price:type_name -> billing_service.LabTestPrice
+	58, // 20: billing_service.ListLabTestPricesResponse.prices:type_name -> billing_service.LabTestPrice
+	67, // 21: billing_service.GetWardTypePriceResponse.price:type_name -> billing_service.WardTypePrice
+	67, // 22: billing_service.ListWardTypePricesResponse.prices:type_name -> billing_service.WardTypePrice
+	79, // 23: billing_service.ImportCSVResponse.errors:type_name -> billing_service.CSVImportError
+	79, // 24: billing_service.ValidateCSVResponse.errors:type_name -> billing_service.CSVImportError
+	83, // 25: billing_service.GetPriceChangeRequestResponse.request:type_name -> billing_service.PriceChangeRequest
+	83, // 26: billing_service.ListPriceChangeRequestsResponse.requests:type_name -> billing_service.PriceChangeRequest
+	2,  // 27: billing_service.BillingService.CreateInvoice:input_type -> billing_service.CreateInvoiceRequest
+	4,  // 28: billing_service.BillingService.GetInvoice:input_type -> billing_service.GetInvoiceRequest
+	7,  // 29: billing_service.BillingService.UpdateInvoice:input_type -> billing_service.UpdateInvoiceRequest
+	9,  // 30: billing_service.BillingService.DeleteInvoice:input_type -> billing_service.DeleteInvoiceRequest
+	11, // 31: billing_service.BillingService.ListInvoices:input_type -> billing_service.ListInvoicesRequest
+	13, // 32: billing_service.BillingService.GetInvoicesByPatientId:input_type -> billing_service.GetInvoicesByPatientIdRequest
+	14, // 33: billing_service.BillingService.ProcessPayment:input_type -> billing_service.ProcessPaymentRequest
+	16, // 34: billing_service.BillingService.MarkInvoiceAsPaid:input_type -> billing_service.MarkInvoiceAsPaidRequest
+	18, // 35: billing_service.BillingService.SendInvoiceEmail:input_type -> billing_service.SendInvoiceEmailRequest
+	21, // 36: billing_service.BillingService.CreateServiceRecord:input_type -> billing_service.CreateServiceRecordRequest
+	23, // 37: billing_service.BillingService.UpdateServiceRecordStatus:input_type -> billing_service.UpdateServiceRecordStatusRequest
+	25, // 38: billing_service.BillingService.GetServiceRecordsByPatient:input_type -> billing_service.GetServiceRecordsByPatientRequest
+	27, // 39: billing_service.BillingService.GenerateInvoiceFromRecords:input_type -> billing_service.GenerateInvoiceFromRecordsRequest
+	28, // 40: billing_service.BillingService.ListServiceRecords:input_type -> billing_service.ListServiceRecordsRequest
+	30, // 41: billing_service.BillingService.CalculateBillSplit:input_type -> billing_service.CalculateBillSplitRequest
+	35, // 42: billing_service.BillingService.SendInvoice:input_type -> billing_service.SendInvoiceRequest
+	37, // 43: billing_service.BillingService.GetPatientPaymentStatus:input_type -> billing_service.GetPatientPaymentStatusRequest
+	40, // 44: billing_service.BillingService.GetPendingBills:input_type -> billing_service.GetPendingBillsRequest
+	43, // 45: billing_service.PriceService.LookupServicePrice:input_type -> billing_service.LookupServicePriceRequest
+	45, // 46: billing_service.PriceService.LookupLabTestPrice:input_type -> billing_service.LookupLabTestPriceRequest
+	47, // 47: billing_service.PriceService.LookupWardPrice:input_type -> billing_service.LookupWardPriceRequest
+	50, // 48: billing_service.PriceService.GetServicePrice:input_type -> billing_service.GetServicePriceRequest
+	52, // 49: billing_service.PriceService.ListServicePrices:input_type -> billing_service.ListServicePricesRequest
+	54, // 50: billing_service.PriceService.CreateServicePrice:input_type -> billing_service.CreateServicePriceRequest
+	56, // 51: billing_service.PriceService.UpdateServicePrice:input_type -> billing_service.UpdateServicePriceRequest
+	59, // 52: billing_service.PriceService.GetLabTestPrice:input_type -> billing_service.GetLabTestPriceRequest
+	61, // 53: billing_service.PriceService.ListLabTestPrices:input_type -> billing_service.ListLabTestPricesRequest
+	63, // 54: billing_service.PriceService.CreateLabTestPrice:input_type -> billing_service.CreateLabTestPriceRequest
+	65, // 55: billing_service.PriceService.UpdateLabTestPrice:input_type -> billing_service.UpdateLabTestPriceRequest
+	68, // 56: billing_service.PriceService.GetWardTypePrice:input_type -> billing_service.GetWardTypePriceRequest
+	70, // 57: billing_service.PriceService.ListWardTypePrices:input_type -> billing_service.ListWardTypePricesRequest
+	72, // 58: billing_service.PriceService.CreateWardTypePrice:input_type -> billing_service.CreateWardTypePriceRequest
+	74, // 59: billing_service.PriceService.UpdateWardTypePrice:input_type -> billing_service.UpdateWardTypePriceRequest
+	76, // 60: billing_service.PriceService.ExportServicePricesToCSV:input_type -> billing_service.ExportPricesRequest
+	76, // 61: billing_service.PriceService.ExportLabTestPricesToCSV:input_type -> billing_service.ExportPricesRequest
+	76, // 62: billing_service.PriceService.ExportWardTypePricesToCSV:input_type -> billing_service.ExportPricesRequest
+	78, // 63: billing_service.PriceService.ImportServicePricesFromCSV:input_type -> billing_service.ImportPricesRequest
+	78, // 64: billing_service.PriceService.ImportLabTestPricesFromCSV:input_type -> billing_service.ImportPricesRequest
+	78, // 65: billing_service.PriceService.ImportWardTypePricesFromCSV:input_type -> billing_service.ImportPricesRequest
+	81, // 66: billing_service.PriceService.ValidateServicePricesCSV:input_type -> billing_service.ValidateCSVRequest
+	81, // 67: billing_service.PriceService.ValidateLabTestPricesCSV:input_type -> billing_service.ValidateCSVRequest
+	81, // 68: billing_service.PriceService.ValidateWardTypePricesCSV:input_type -> billing_service.ValidateCSVRequest
+	84, // 69: billing_service.PriceService.CreatePriceChangeRequest:input_type -> billing_service.CreatePriceChangeRequestRequest
+	86, // 70: billing_service.PriceService.GetPriceChangeRequest:input_type -> billing_service.GetPriceChangeRequestRequest
+	88, // 71: billing_service.PriceService.ListPriceChangeRequests:input_type -> billing_service.ListPriceChangeRequestsRequest
+	90, // 72: billing_service.PriceService.ApprovePriceChangeRequest:input_type -> billing_service.ApprovePriceChangeRequestRequest
+	92, // 73: billing_service.PriceService.RejectPriceChangeRequest:input_type -> billing_service.RejectPriceChangeRequestRequest
+	94, // 74: billing_service.PriceService.CancelPriceChangeRequest:input_type -> billing_service.CancelPriceChangeRequestRequest
+	3,  // 75: billing_service.BillingService.CreateInvoice:output_type -> billing_service.CreateInvoiceResponse
+	6,  // 76: billing_service.BillingService.GetInvoice:output_type -> billing_service.GetInvoiceResponse
+	8,  // 77: billing_service.BillingService.UpdateInvoice:output_type -> billing_service.UpdateInvoiceResponse
+	10, // 78: billing_service.BillingService.DeleteInvoice:output_type -> billing_service.DeleteInvoiceResponse
+	12, // 79: billing_service.BillingService.ListInvoices:output_type -> billing_service.ListInvoicesResponse
+	12, // 80: billing_service.BillingService.GetInvoicesByPatientId:output_type -> billing_service.ListInvoicesResponse
+	15, // 81: billing_service.BillingService.ProcessPayment:output_type -> billing_service.ProcessPaymentResponse
+	17, // 82: billing_service.BillingService.MarkInvoiceAsPaid:output_type -> billing_service.MarkInvoiceAsPaidResponse
+	19, // 83: billing_service.BillingService.SendInvoiceEmail:output_type -> billing_service.SendInvoiceEmailResponse
+	22, // 84: billing_service.BillingService.CreateServiceRecord:output_type -> billing_service.CreateServiceRecordResponse
+	24, // 85: billing_service.BillingService.UpdateServiceRecordStatus:output_type -> billing_service.UpdateServiceRecordStatusResponse
+	26, // 86: billing_service.BillingService.GetServiceRecordsByPatient:output_type -> billing_service.GetServiceRecordsByPatientResponse
+	3,  // 87: billing_service.BillingService.GenerateInvoiceFromRecords:output_type -> billing_service.CreateInvoiceResponse
+	29, // 88: billing_service.BillingService.ListServiceRecords:output_type -> billing_service.ListServiceRecordsResponse
+	34, // 89: billing_service.BillingService.CalculateBillSplit:output_type -> billing_service.CalculateBillSplitResponse
+	36, // 90: billing_service.BillingService.SendInvoice:output_type -> billing_service.SendInvoiceResponse
+	39, // 91: billing_service.BillingService.GetPatientPaymentStatus:output_type -> billing_service.GetPatientPaymentStatusResponse
+	42, // 92: billing_service.BillingService.GetPendingBills:output_type -> billing_service.GetPendingBillsResponse
+	44, // 93: billing_service.PriceService.LookupServicePrice:output_type -> billing_service.LookupServicePriceResponse
+	46, // 94: billing_service.PriceService.LookupLabTestPrice:output_type -> billing_service.LookupLabTestPriceResponse
+	48, // 95: billing_service.PriceService.LookupWardPrice:output_type -> billing_service.LookupWardPriceResponse
+	51, // 96: billing_service.PriceService.GetServicePrice:output_type -> billing_service.GetServicePriceResponse
+	53, // 97: billing_service.PriceService.ListServicePrices:output_type -> billing_service.ListServicePricesResponse
+	55, // 98: billing_service.PriceService.CreateServicePrice:output_type -> billing_service.CreateServicePriceResponse
+	57, // 99: billing_service.PriceService.UpdateServicePrice:output_type -> billing_service.UpdateServicePriceResponse
+	60, // 100: billing_service.PriceService.GetLabTestPrice:output_type -> billing_service.GetLabTestPriceResponse
+	62, // 101: billing_service.PriceService.ListLabTestPrices:output_type -> billing_service.ListLabTestPricesResponse
+	64, // 102: billing_service.PriceService.CreateLabTestPrice:output_type -> billing_service.CreateLabTestPriceResponse
+	66, // 103: billing_service.PriceService.UpdateLabTestPrice:output_type -> billing_service.UpdateLabTestPriceResponse
+	69, // 104: billing_service.PriceService.GetWardTypePrice:output_type -> billing_service.GetWardTypePriceResponse
+	71, // 105: billing_service.PriceService.ListWardTypePrices:output_type -> billing_service.ListWardTypePricesResponse
+	73, // 106: billing_service.PriceService.CreateWardTypePrice:output_type -> billing_service.CreateWardTypePriceResponse
+	75, // 107: billing_service.PriceService.UpdateWardTypePrice:output_type -> billing_service.UpdateWardTypePriceResponse
+	77, // 108: billing_service.PriceService.ExportServicePricesToCSV:output_type -> billing_service.ExportCSVResponse
+	77, // 109: billing_service.PriceService.ExportLabTestPricesToCSV:output_type -> billing_service.ExportCSVResponse
+	77, // 110: billing_service.PriceService.ExportWardTypePricesToCSV:output_type -> billing_service.ExportCSVResponse
+	80, // 111: billing_service.PriceService.ImportServicePricesFromCSV:output_type -> billing_service.ImportCSVResponse
+	80, // 112: billing_service.PriceService.ImportLabTestPricesFromCSV:output_type -> billing_service.ImportCSVResponse
+	80, // 113: billing_service.PriceService.ImportWardTypePricesFromCSV:output_type -> billing_service.ImportCSVResponse
+	82, // 114: billing_service.PriceService.ValidateServicePricesCSV:output_type -> billing_service.ValidateCSVResponse
+	82, // 115: billing_service.PriceService.ValidateLabTestPricesCSV:output_type -> billing_service.ValidateCSVResponse
+	82, // 116: billing_service.PriceService.ValidateWardTypePricesCSV:output_type -> billing_service.ValidateCSVResponse
+	85, // 117: billing_service.PriceService.CreatePriceChangeRequest:output_type -> billing_service.CreatePriceChangeRequestResponse
+	87, // 118: billing_service.PriceService.GetPriceChangeRequest:output_type -> billing_service.GetPriceChangeRequestResponse
+	89, // 119: billing_service.PriceService.ListPriceChangeRequests:output_type -> billing_service.ListPriceChangeRequestsResponse
+	91, // 120: billing_service.PriceService.ApprovePriceChangeRequest:output_type -> billing_service.ApprovePriceChangeRequestResponse
+	93, // 121: billing_service.PriceService.RejectPriceChangeRequest:output_type -> billing_service.RejectPriceChangeRequestResponse
+	95, // 122: billing_service.PriceService.CancelPriceChangeRequest:output_type -> billing_service.CancelPriceChangeRequestResponse
+	75, // [75:123] is the sub-list for method output_type
+	27, // [27:75] is the sub-list for method input_type
+	27, // [27:27] is the sub-list for extension type_name
+	27, // [27:27] is the sub-list for extension extendee
+	0,  // [0:27] is the sub-list for field type_name
 }
 
 func init() { file_proto_billing_service_proto_init() }
@@ -3452,9 +7536,9 @@ func file_proto_billing_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_billing_service_proto_rawDesc), len(file_proto_billing_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   43,
+			NumMessages:   96,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   2,
 		},
 		GoTypes:           file_proto_billing_service_proto_goTypes,
 		DependencyIndexes: file_proto_billing_service_proto_depIdxs,

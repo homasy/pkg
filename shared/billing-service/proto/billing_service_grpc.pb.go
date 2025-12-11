@@ -799,3 +799,1229 @@ var BillingService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/billing_service.proto",
 }
+
+const (
+	PriceService_LookupServicePrice_FullMethodName          = "/billing_service.PriceService/LookupServicePrice"
+	PriceService_LookupLabTestPrice_FullMethodName          = "/billing_service.PriceService/LookupLabTestPrice"
+	PriceService_LookupWardPrice_FullMethodName             = "/billing_service.PriceService/LookupWardPrice"
+	PriceService_GetServicePrice_FullMethodName             = "/billing_service.PriceService/GetServicePrice"
+	PriceService_ListServicePrices_FullMethodName           = "/billing_service.PriceService/ListServicePrices"
+	PriceService_CreateServicePrice_FullMethodName          = "/billing_service.PriceService/CreateServicePrice"
+	PriceService_UpdateServicePrice_FullMethodName          = "/billing_service.PriceService/UpdateServicePrice"
+	PriceService_GetLabTestPrice_FullMethodName             = "/billing_service.PriceService/GetLabTestPrice"
+	PriceService_ListLabTestPrices_FullMethodName           = "/billing_service.PriceService/ListLabTestPrices"
+	PriceService_CreateLabTestPrice_FullMethodName          = "/billing_service.PriceService/CreateLabTestPrice"
+	PriceService_UpdateLabTestPrice_FullMethodName          = "/billing_service.PriceService/UpdateLabTestPrice"
+	PriceService_GetWardTypePrice_FullMethodName            = "/billing_service.PriceService/GetWardTypePrice"
+	PriceService_ListWardTypePrices_FullMethodName          = "/billing_service.PriceService/ListWardTypePrices"
+	PriceService_CreateWardTypePrice_FullMethodName         = "/billing_service.PriceService/CreateWardTypePrice"
+	PriceService_UpdateWardTypePrice_FullMethodName         = "/billing_service.PriceService/UpdateWardTypePrice"
+	PriceService_ExportServicePricesToCSV_FullMethodName    = "/billing_service.PriceService/ExportServicePricesToCSV"
+	PriceService_ExportLabTestPricesToCSV_FullMethodName    = "/billing_service.PriceService/ExportLabTestPricesToCSV"
+	PriceService_ExportWardTypePricesToCSV_FullMethodName   = "/billing_service.PriceService/ExportWardTypePricesToCSV"
+	PriceService_ImportServicePricesFromCSV_FullMethodName  = "/billing_service.PriceService/ImportServicePricesFromCSV"
+	PriceService_ImportLabTestPricesFromCSV_FullMethodName  = "/billing_service.PriceService/ImportLabTestPricesFromCSV"
+	PriceService_ImportWardTypePricesFromCSV_FullMethodName = "/billing_service.PriceService/ImportWardTypePricesFromCSV"
+	PriceService_ValidateServicePricesCSV_FullMethodName    = "/billing_service.PriceService/ValidateServicePricesCSV"
+	PriceService_ValidateLabTestPricesCSV_FullMethodName    = "/billing_service.PriceService/ValidateLabTestPricesCSV"
+	PriceService_ValidateWardTypePricesCSV_FullMethodName   = "/billing_service.PriceService/ValidateWardTypePricesCSV"
+	PriceService_CreatePriceChangeRequest_FullMethodName    = "/billing_service.PriceService/CreatePriceChangeRequest"
+	PriceService_GetPriceChangeRequest_FullMethodName       = "/billing_service.PriceService/GetPriceChangeRequest"
+	PriceService_ListPriceChangeRequests_FullMethodName     = "/billing_service.PriceService/ListPriceChangeRequests"
+	PriceService_ApprovePriceChangeRequest_FullMethodName   = "/billing_service.PriceService/ApprovePriceChangeRequest"
+	PriceService_RejectPriceChangeRequest_FullMethodName    = "/billing_service.PriceService/RejectPriceChangeRequest"
+	PriceService_CancelPriceChangeRequest_FullMethodName    = "/billing_service.PriceService/CancelPriceChangeRequest"
+)
+
+// PriceServiceClient is the client API for PriceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PriceServiceClient interface {
+	// Price Lookup RPCs (for other services)
+	LookupServicePrice(ctx context.Context, in *LookupServicePriceRequest, opts ...grpc.CallOption) (*LookupServicePriceResponse, error)
+	LookupLabTestPrice(ctx context.Context, in *LookupLabTestPriceRequest, opts ...grpc.CallOption) (*LookupLabTestPriceResponse, error)
+	LookupWardPrice(ctx context.Context, in *LookupWardPriceRequest, opts ...grpc.CallOption) (*LookupWardPriceResponse, error)
+	// Service Price Management
+	GetServicePrice(ctx context.Context, in *GetServicePriceRequest, opts ...grpc.CallOption) (*GetServicePriceResponse, error)
+	ListServicePrices(ctx context.Context, in *ListServicePricesRequest, opts ...grpc.CallOption) (*ListServicePricesResponse, error)
+	CreateServicePrice(ctx context.Context, in *CreateServicePriceRequest, opts ...grpc.CallOption) (*CreateServicePriceResponse, error)
+	UpdateServicePrice(ctx context.Context, in *UpdateServicePriceRequest, opts ...grpc.CallOption) (*UpdateServicePriceResponse, error)
+	// Lab Test Price Management
+	GetLabTestPrice(ctx context.Context, in *GetLabTestPriceRequest, opts ...grpc.CallOption) (*GetLabTestPriceResponse, error)
+	ListLabTestPrices(ctx context.Context, in *ListLabTestPricesRequest, opts ...grpc.CallOption) (*ListLabTestPricesResponse, error)
+	CreateLabTestPrice(ctx context.Context, in *CreateLabTestPriceRequest, opts ...grpc.CallOption) (*CreateLabTestPriceResponse, error)
+	UpdateLabTestPrice(ctx context.Context, in *UpdateLabTestPriceRequest, opts ...grpc.CallOption) (*UpdateLabTestPriceResponse, error)
+	// Ward Type Price Management
+	GetWardTypePrice(ctx context.Context, in *GetWardTypePriceRequest, opts ...grpc.CallOption) (*GetWardTypePriceResponse, error)
+	ListWardTypePrices(ctx context.Context, in *ListWardTypePricesRequest, opts ...grpc.CallOption) (*ListWardTypePricesResponse, error)
+	CreateWardTypePrice(ctx context.Context, in *CreateWardTypePriceRequest, opts ...grpc.CallOption) (*CreateWardTypePriceResponse, error)
+	UpdateWardTypePrice(ctx context.Context, in *UpdateWardTypePriceRequest, opts ...grpc.CallOption) (*UpdateWardTypePriceResponse, error)
+	// CSV Import/Export
+	ExportServicePricesToCSV(ctx context.Context, in *ExportPricesRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[ExportCSVResponse], error)
+	ExportLabTestPricesToCSV(ctx context.Context, in *ExportPricesRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[ExportCSVResponse], error)
+	ExportWardTypePricesToCSV(ctx context.Context, in *ExportPricesRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[ExportCSVResponse], error)
+	ImportServicePricesFromCSV(ctx context.Context, in *ImportPricesRequest, opts ...grpc.CallOption) (*ImportCSVResponse, error)
+	ImportLabTestPricesFromCSV(ctx context.Context, in *ImportPricesRequest, opts ...grpc.CallOption) (*ImportCSVResponse, error)
+	ImportWardTypePricesFromCSV(ctx context.Context, in *ImportPricesRequest, opts ...grpc.CallOption) (*ImportCSVResponse, error)
+	ValidateServicePricesCSV(ctx context.Context, in *ValidateCSVRequest, opts ...grpc.CallOption) (*ValidateCSVResponse, error)
+	ValidateLabTestPricesCSV(ctx context.Context, in *ValidateCSVRequest, opts ...grpc.CallOption) (*ValidateCSVResponse, error)
+	ValidateWardTypePricesCSV(ctx context.Context, in *ValidateCSVRequest, opts ...grpc.CallOption) (*ValidateCSVResponse, error)
+	// Price Change Approval Workflow
+	CreatePriceChangeRequest(ctx context.Context, in *CreatePriceChangeRequestRequest, opts ...grpc.CallOption) (*CreatePriceChangeRequestResponse, error)
+	GetPriceChangeRequest(ctx context.Context, in *GetPriceChangeRequestRequest, opts ...grpc.CallOption) (*GetPriceChangeRequestResponse, error)
+	ListPriceChangeRequests(ctx context.Context, in *ListPriceChangeRequestsRequest, opts ...grpc.CallOption) (*ListPriceChangeRequestsResponse, error)
+	ApprovePriceChangeRequest(ctx context.Context, in *ApprovePriceChangeRequestRequest, opts ...grpc.CallOption) (*ApprovePriceChangeRequestResponse, error)
+	RejectPriceChangeRequest(ctx context.Context, in *RejectPriceChangeRequestRequest, opts ...grpc.CallOption) (*RejectPriceChangeRequestResponse, error)
+	CancelPriceChangeRequest(ctx context.Context, in *CancelPriceChangeRequestRequest, opts ...grpc.CallOption) (*CancelPriceChangeRequestResponse, error)
+}
+
+type priceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPriceServiceClient(cc grpc.ClientConnInterface) PriceServiceClient {
+	return &priceServiceClient{cc}
+}
+
+func (c *priceServiceClient) LookupServicePrice(ctx context.Context, in *LookupServicePriceRequest, opts ...grpc.CallOption) (*LookupServicePriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LookupServicePriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_LookupServicePrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) LookupLabTestPrice(ctx context.Context, in *LookupLabTestPriceRequest, opts ...grpc.CallOption) (*LookupLabTestPriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LookupLabTestPriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_LookupLabTestPrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) LookupWardPrice(ctx context.Context, in *LookupWardPriceRequest, opts ...grpc.CallOption) (*LookupWardPriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LookupWardPriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_LookupWardPrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) GetServicePrice(ctx context.Context, in *GetServicePriceRequest, opts ...grpc.CallOption) (*GetServicePriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetServicePriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_GetServicePrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) ListServicePrices(ctx context.Context, in *ListServicePricesRequest, opts ...grpc.CallOption) (*ListServicePricesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListServicePricesResponse)
+	err := c.cc.Invoke(ctx, PriceService_ListServicePrices_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) CreateServicePrice(ctx context.Context, in *CreateServicePriceRequest, opts ...grpc.CallOption) (*CreateServicePriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateServicePriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_CreateServicePrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) UpdateServicePrice(ctx context.Context, in *UpdateServicePriceRequest, opts ...grpc.CallOption) (*UpdateServicePriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateServicePriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_UpdateServicePrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) GetLabTestPrice(ctx context.Context, in *GetLabTestPriceRequest, opts ...grpc.CallOption) (*GetLabTestPriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLabTestPriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_GetLabTestPrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) ListLabTestPrices(ctx context.Context, in *ListLabTestPricesRequest, opts ...grpc.CallOption) (*ListLabTestPricesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListLabTestPricesResponse)
+	err := c.cc.Invoke(ctx, PriceService_ListLabTestPrices_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) CreateLabTestPrice(ctx context.Context, in *CreateLabTestPriceRequest, opts ...grpc.CallOption) (*CreateLabTestPriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateLabTestPriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_CreateLabTestPrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) UpdateLabTestPrice(ctx context.Context, in *UpdateLabTestPriceRequest, opts ...grpc.CallOption) (*UpdateLabTestPriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateLabTestPriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_UpdateLabTestPrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) GetWardTypePrice(ctx context.Context, in *GetWardTypePriceRequest, opts ...grpc.CallOption) (*GetWardTypePriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWardTypePriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_GetWardTypePrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) ListWardTypePrices(ctx context.Context, in *ListWardTypePricesRequest, opts ...grpc.CallOption) (*ListWardTypePricesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListWardTypePricesResponse)
+	err := c.cc.Invoke(ctx, PriceService_ListWardTypePrices_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) CreateWardTypePrice(ctx context.Context, in *CreateWardTypePriceRequest, opts ...grpc.CallOption) (*CreateWardTypePriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateWardTypePriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_CreateWardTypePrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) UpdateWardTypePrice(ctx context.Context, in *UpdateWardTypePriceRequest, opts ...grpc.CallOption) (*UpdateWardTypePriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateWardTypePriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_UpdateWardTypePrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) ExportServicePricesToCSV(ctx context.Context, in *ExportPricesRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[ExportCSVResponse], error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	stream, err := c.cc.NewStream(ctx, &PriceService_ServiceDesc.Streams[0], PriceService_ExportServicePricesToCSV_FullMethodName, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &grpc.GenericClientStream[ExportPricesRequest, ExportCSVResponse]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type PriceService_ExportServicePricesToCSVClient = grpc.ServerStreamingClient[ExportCSVResponse]
+
+func (c *priceServiceClient) ExportLabTestPricesToCSV(ctx context.Context, in *ExportPricesRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[ExportCSVResponse], error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	stream, err := c.cc.NewStream(ctx, &PriceService_ServiceDesc.Streams[1], PriceService_ExportLabTestPricesToCSV_FullMethodName, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &grpc.GenericClientStream[ExportPricesRequest, ExportCSVResponse]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type PriceService_ExportLabTestPricesToCSVClient = grpc.ServerStreamingClient[ExportCSVResponse]
+
+func (c *priceServiceClient) ExportWardTypePricesToCSV(ctx context.Context, in *ExportPricesRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[ExportCSVResponse], error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	stream, err := c.cc.NewStream(ctx, &PriceService_ServiceDesc.Streams[2], PriceService_ExportWardTypePricesToCSV_FullMethodName, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &grpc.GenericClientStream[ExportPricesRequest, ExportCSVResponse]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type PriceService_ExportWardTypePricesToCSVClient = grpc.ServerStreamingClient[ExportCSVResponse]
+
+func (c *priceServiceClient) ImportServicePricesFromCSV(ctx context.Context, in *ImportPricesRequest, opts ...grpc.CallOption) (*ImportCSVResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ImportCSVResponse)
+	err := c.cc.Invoke(ctx, PriceService_ImportServicePricesFromCSV_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) ImportLabTestPricesFromCSV(ctx context.Context, in *ImportPricesRequest, opts ...grpc.CallOption) (*ImportCSVResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ImportCSVResponse)
+	err := c.cc.Invoke(ctx, PriceService_ImportLabTestPricesFromCSV_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) ImportWardTypePricesFromCSV(ctx context.Context, in *ImportPricesRequest, opts ...grpc.CallOption) (*ImportCSVResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ImportCSVResponse)
+	err := c.cc.Invoke(ctx, PriceService_ImportWardTypePricesFromCSV_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) ValidateServicePricesCSV(ctx context.Context, in *ValidateCSVRequest, opts ...grpc.CallOption) (*ValidateCSVResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValidateCSVResponse)
+	err := c.cc.Invoke(ctx, PriceService_ValidateServicePricesCSV_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) ValidateLabTestPricesCSV(ctx context.Context, in *ValidateCSVRequest, opts ...grpc.CallOption) (*ValidateCSVResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValidateCSVResponse)
+	err := c.cc.Invoke(ctx, PriceService_ValidateLabTestPricesCSV_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) ValidateWardTypePricesCSV(ctx context.Context, in *ValidateCSVRequest, opts ...grpc.CallOption) (*ValidateCSVResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValidateCSVResponse)
+	err := c.cc.Invoke(ctx, PriceService_ValidateWardTypePricesCSV_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) CreatePriceChangeRequest(ctx context.Context, in *CreatePriceChangeRequestRequest, opts ...grpc.CallOption) (*CreatePriceChangeRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreatePriceChangeRequestResponse)
+	err := c.cc.Invoke(ctx, PriceService_CreatePriceChangeRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) GetPriceChangeRequest(ctx context.Context, in *GetPriceChangeRequestRequest, opts ...grpc.CallOption) (*GetPriceChangeRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPriceChangeRequestResponse)
+	err := c.cc.Invoke(ctx, PriceService_GetPriceChangeRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) ListPriceChangeRequests(ctx context.Context, in *ListPriceChangeRequestsRequest, opts ...grpc.CallOption) (*ListPriceChangeRequestsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListPriceChangeRequestsResponse)
+	err := c.cc.Invoke(ctx, PriceService_ListPriceChangeRequests_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) ApprovePriceChangeRequest(ctx context.Context, in *ApprovePriceChangeRequestRequest, opts ...grpc.CallOption) (*ApprovePriceChangeRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApprovePriceChangeRequestResponse)
+	err := c.cc.Invoke(ctx, PriceService_ApprovePriceChangeRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) RejectPriceChangeRequest(ctx context.Context, in *RejectPriceChangeRequestRequest, opts ...grpc.CallOption) (*RejectPriceChangeRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RejectPriceChangeRequestResponse)
+	err := c.cc.Invoke(ctx, PriceService_RejectPriceChangeRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) CancelPriceChangeRequest(ctx context.Context, in *CancelPriceChangeRequestRequest, opts ...grpc.CallOption) (*CancelPriceChangeRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelPriceChangeRequestResponse)
+	err := c.cc.Invoke(ctx, PriceService_CancelPriceChangeRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PriceServiceServer is the server API for PriceService service.
+// All implementations must embed UnimplementedPriceServiceServer
+// for forward compatibility.
+type PriceServiceServer interface {
+	// Price Lookup RPCs (for other services)
+	LookupServicePrice(context.Context, *LookupServicePriceRequest) (*LookupServicePriceResponse, error)
+	LookupLabTestPrice(context.Context, *LookupLabTestPriceRequest) (*LookupLabTestPriceResponse, error)
+	LookupWardPrice(context.Context, *LookupWardPriceRequest) (*LookupWardPriceResponse, error)
+	// Service Price Management
+	GetServicePrice(context.Context, *GetServicePriceRequest) (*GetServicePriceResponse, error)
+	ListServicePrices(context.Context, *ListServicePricesRequest) (*ListServicePricesResponse, error)
+	CreateServicePrice(context.Context, *CreateServicePriceRequest) (*CreateServicePriceResponse, error)
+	UpdateServicePrice(context.Context, *UpdateServicePriceRequest) (*UpdateServicePriceResponse, error)
+	// Lab Test Price Management
+	GetLabTestPrice(context.Context, *GetLabTestPriceRequest) (*GetLabTestPriceResponse, error)
+	ListLabTestPrices(context.Context, *ListLabTestPricesRequest) (*ListLabTestPricesResponse, error)
+	CreateLabTestPrice(context.Context, *CreateLabTestPriceRequest) (*CreateLabTestPriceResponse, error)
+	UpdateLabTestPrice(context.Context, *UpdateLabTestPriceRequest) (*UpdateLabTestPriceResponse, error)
+	// Ward Type Price Management
+	GetWardTypePrice(context.Context, *GetWardTypePriceRequest) (*GetWardTypePriceResponse, error)
+	ListWardTypePrices(context.Context, *ListWardTypePricesRequest) (*ListWardTypePricesResponse, error)
+	CreateWardTypePrice(context.Context, *CreateWardTypePriceRequest) (*CreateWardTypePriceResponse, error)
+	UpdateWardTypePrice(context.Context, *UpdateWardTypePriceRequest) (*UpdateWardTypePriceResponse, error)
+	// CSV Import/Export
+	ExportServicePricesToCSV(*ExportPricesRequest, grpc.ServerStreamingServer[ExportCSVResponse]) error
+	ExportLabTestPricesToCSV(*ExportPricesRequest, grpc.ServerStreamingServer[ExportCSVResponse]) error
+	ExportWardTypePricesToCSV(*ExportPricesRequest, grpc.ServerStreamingServer[ExportCSVResponse]) error
+	ImportServicePricesFromCSV(context.Context, *ImportPricesRequest) (*ImportCSVResponse, error)
+	ImportLabTestPricesFromCSV(context.Context, *ImportPricesRequest) (*ImportCSVResponse, error)
+	ImportWardTypePricesFromCSV(context.Context, *ImportPricesRequest) (*ImportCSVResponse, error)
+	ValidateServicePricesCSV(context.Context, *ValidateCSVRequest) (*ValidateCSVResponse, error)
+	ValidateLabTestPricesCSV(context.Context, *ValidateCSVRequest) (*ValidateCSVResponse, error)
+	ValidateWardTypePricesCSV(context.Context, *ValidateCSVRequest) (*ValidateCSVResponse, error)
+	// Price Change Approval Workflow
+	CreatePriceChangeRequest(context.Context, *CreatePriceChangeRequestRequest) (*CreatePriceChangeRequestResponse, error)
+	GetPriceChangeRequest(context.Context, *GetPriceChangeRequestRequest) (*GetPriceChangeRequestResponse, error)
+	ListPriceChangeRequests(context.Context, *ListPriceChangeRequestsRequest) (*ListPriceChangeRequestsResponse, error)
+	ApprovePriceChangeRequest(context.Context, *ApprovePriceChangeRequestRequest) (*ApprovePriceChangeRequestResponse, error)
+	RejectPriceChangeRequest(context.Context, *RejectPriceChangeRequestRequest) (*RejectPriceChangeRequestResponse, error)
+	CancelPriceChangeRequest(context.Context, *CancelPriceChangeRequestRequest) (*CancelPriceChangeRequestResponse, error)
+	mustEmbedUnimplementedPriceServiceServer()
+}
+
+// UnimplementedPriceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPriceServiceServer struct{}
+
+func (UnimplementedPriceServiceServer) LookupServicePrice(context.Context, *LookupServicePriceRequest) (*LookupServicePriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LookupServicePrice not implemented")
+}
+func (UnimplementedPriceServiceServer) LookupLabTestPrice(context.Context, *LookupLabTestPriceRequest) (*LookupLabTestPriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LookupLabTestPrice not implemented")
+}
+func (UnimplementedPriceServiceServer) LookupWardPrice(context.Context, *LookupWardPriceRequest) (*LookupWardPriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LookupWardPrice not implemented")
+}
+func (UnimplementedPriceServiceServer) GetServicePrice(context.Context, *GetServicePriceRequest) (*GetServicePriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetServicePrice not implemented")
+}
+func (UnimplementedPriceServiceServer) ListServicePrices(context.Context, *ListServicePricesRequest) (*ListServicePricesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListServicePrices not implemented")
+}
+func (UnimplementedPriceServiceServer) CreateServicePrice(context.Context, *CreateServicePriceRequest) (*CreateServicePriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateServicePrice not implemented")
+}
+func (UnimplementedPriceServiceServer) UpdateServicePrice(context.Context, *UpdateServicePriceRequest) (*UpdateServicePriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateServicePrice not implemented")
+}
+func (UnimplementedPriceServiceServer) GetLabTestPrice(context.Context, *GetLabTestPriceRequest) (*GetLabTestPriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetLabTestPrice not implemented")
+}
+func (UnimplementedPriceServiceServer) ListLabTestPrices(context.Context, *ListLabTestPricesRequest) (*ListLabTestPricesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListLabTestPrices not implemented")
+}
+func (UnimplementedPriceServiceServer) CreateLabTestPrice(context.Context, *CreateLabTestPriceRequest) (*CreateLabTestPriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateLabTestPrice not implemented")
+}
+func (UnimplementedPriceServiceServer) UpdateLabTestPrice(context.Context, *UpdateLabTestPriceRequest) (*UpdateLabTestPriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateLabTestPrice not implemented")
+}
+func (UnimplementedPriceServiceServer) GetWardTypePrice(context.Context, *GetWardTypePriceRequest) (*GetWardTypePriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetWardTypePrice not implemented")
+}
+func (UnimplementedPriceServiceServer) ListWardTypePrices(context.Context, *ListWardTypePricesRequest) (*ListWardTypePricesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListWardTypePrices not implemented")
+}
+func (UnimplementedPriceServiceServer) CreateWardTypePrice(context.Context, *CreateWardTypePriceRequest) (*CreateWardTypePriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateWardTypePrice not implemented")
+}
+func (UnimplementedPriceServiceServer) UpdateWardTypePrice(context.Context, *UpdateWardTypePriceRequest) (*UpdateWardTypePriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateWardTypePrice not implemented")
+}
+func (UnimplementedPriceServiceServer) ExportServicePricesToCSV(*ExportPricesRequest, grpc.ServerStreamingServer[ExportCSVResponse]) error {
+	return status.Errorf(codes.Unimplemented, "method ExportServicePricesToCSV not implemented")
+}
+func (UnimplementedPriceServiceServer) ExportLabTestPricesToCSV(*ExportPricesRequest, grpc.ServerStreamingServer[ExportCSVResponse]) error {
+	return status.Errorf(codes.Unimplemented, "method ExportLabTestPricesToCSV not implemented")
+}
+func (UnimplementedPriceServiceServer) ExportWardTypePricesToCSV(*ExportPricesRequest, grpc.ServerStreamingServer[ExportCSVResponse]) error {
+	return status.Errorf(codes.Unimplemented, "method ExportWardTypePricesToCSV not implemented")
+}
+func (UnimplementedPriceServiceServer) ImportServicePricesFromCSV(context.Context, *ImportPricesRequest) (*ImportCSVResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ImportServicePricesFromCSV not implemented")
+}
+func (UnimplementedPriceServiceServer) ImportLabTestPricesFromCSV(context.Context, *ImportPricesRequest) (*ImportCSVResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ImportLabTestPricesFromCSV not implemented")
+}
+func (UnimplementedPriceServiceServer) ImportWardTypePricesFromCSV(context.Context, *ImportPricesRequest) (*ImportCSVResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ImportWardTypePricesFromCSV not implemented")
+}
+func (UnimplementedPriceServiceServer) ValidateServicePricesCSV(context.Context, *ValidateCSVRequest) (*ValidateCSVResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateServicePricesCSV not implemented")
+}
+func (UnimplementedPriceServiceServer) ValidateLabTestPricesCSV(context.Context, *ValidateCSVRequest) (*ValidateCSVResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateLabTestPricesCSV not implemented")
+}
+func (UnimplementedPriceServiceServer) ValidateWardTypePricesCSV(context.Context, *ValidateCSVRequest) (*ValidateCSVResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateWardTypePricesCSV not implemented")
+}
+func (UnimplementedPriceServiceServer) CreatePriceChangeRequest(context.Context, *CreatePriceChangeRequestRequest) (*CreatePriceChangeRequestResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePriceChangeRequest not implemented")
+}
+func (UnimplementedPriceServiceServer) GetPriceChangeRequest(context.Context, *GetPriceChangeRequestRequest) (*GetPriceChangeRequestResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPriceChangeRequest not implemented")
+}
+func (UnimplementedPriceServiceServer) ListPriceChangeRequests(context.Context, *ListPriceChangeRequestsRequest) (*ListPriceChangeRequestsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPriceChangeRequests not implemented")
+}
+func (UnimplementedPriceServiceServer) ApprovePriceChangeRequest(context.Context, *ApprovePriceChangeRequestRequest) (*ApprovePriceChangeRequestResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ApprovePriceChangeRequest not implemented")
+}
+func (UnimplementedPriceServiceServer) RejectPriceChangeRequest(context.Context, *RejectPriceChangeRequestRequest) (*RejectPriceChangeRequestResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RejectPriceChangeRequest not implemented")
+}
+func (UnimplementedPriceServiceServer) CancelPriceChangeRequest(context.Context, *CancelPriceChangeRequestRequest) (*CancelPriceChangeRequestResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CancelPriceChangeRequest not implemented")
+}
+func (UnimplementedPriceServiceServer) mustEmbedUnimplementedPriceServiceServer() {}
+func (UnimplementedPriceServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafePriceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PriceServiceServer will
+// result in compilation errors.
+type UnsafePriceServiceServer interface {
+	mustEmbedUnimplementedPriceServiceServer()
+}
+
+func RegisterPriceServiceServer(s grpc.ServiceRegistrar, srv PriceServiceServer) {
+	// If the following call pancis, it indicates UnimplementedPriceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PriceService_ServiceDesc, srv)
+}
+
+func _PriceService_LookupServicePrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LookupServicePriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).LookupServicePrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_LookupServicePrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).LookupServicePrice(ctx, req.(*LookupServicePriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_LookupLabTestPrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LookupLabTestPriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).LookupLabTestPrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_LookupLabTestPrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).LookupLabTestPrice(ctx, req.(*LookupLabTestPriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_LookupWardPrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LookupWardPriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).LookupWardPrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_LookupWardPrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).LookupWardPrice(ctx, req.(*LookupWardPriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_GetServicePrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetServicePriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).GetServicePrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_GetServicePrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).GetServicePrice(ctx, req.(*GetServicePriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_ListServicePrices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListServicePricesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).ListServicePrices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_ListServicePrices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).ListServicePrices(ctx, req.(*ListServicePricesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_CreateServicePrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateServicePriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).CreateServicePrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_CreateServicePrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).CreateServicePrice(ctx, req.(*CreateServicePriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_UpdateServicePrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateServicePriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).UpdateServicePrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_UpdateServicePrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).UpdateServicePrice(ctx, req.(*UpdateServicePriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_GetLabTestPrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLabTestPriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).GetLabTestPrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_GetLabTestPrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).GetLabTestPrice(ctx, req.(*GetLabTestPriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_ListLabTestPrices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListLabTestPricesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).ListLabTestPrices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_ListLabTestPrices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).ListLabTestPrices(ctx, req.(*ListLabTestPricesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_CreateLabTestPrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateLabTestPriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).CreateLabTestPrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_CreateLabTestPrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).CreateLabTestPrice(ctx, req.(*CreateLabTestPriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_UpdateLabTestPrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateLabTestPriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).UpdateLabTestPrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_UpdateLabTestPrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).UpdateLabTestPrice(ctx, req.(*UpdateLabTestPriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_GetWardTypePrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWardTypePriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).GetWardTypePrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_GetWardTypePrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).GetWardTypePrice(ctx, req.(*GetWardTypePriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_ListWardTypePrices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListWardTypePricesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).ListWardTypePrices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_ListWardTypePrices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).ListWardTypePrices(ctx, req.(*ListWardTypePricesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_CreateWardTypePrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateWardTypePriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).CreateWardTypePrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_CreateWardTypePrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).CreateWardTypePrice(ctx, req.(*CreateWardTypePriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_UpdateWardTypePrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateWardTypePriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).UpdateWardTypePrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_UpdateWardTypePrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).UpdateWardTypePrice(ctx, req.(*UpdateWardTypePriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_ExportServicePricesToCSV_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(ExportPricesRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(PriceServiceServer).ExportServicePricesToCSV(m, &grpc.GenericServerStream[ExportPricesRequest, ExportCSVResponse]{ServerStream: stream})
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type PriceService_ExportServicePricesToCSVServer = grpc.ServerStreamingServer[ExportCSVResponse]
+
+func _PriceService_ExportLabTestPricesToCSV_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(ExportPricesRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(PriceServiceServer).ExportLabTestPricesToCSV(m, &grpc.GenericServerStream[ExportPricesRequest, ExportCSVResponse]{ServerStream: stream})
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type PriceService_ExportLabTestPricesToCSVServer = grpc.ServerStreamingServer[ExportCSVResponse]
+
+func _PriceService_ExportWardTypePricesToCSV_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(ExportPricesRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(PriceServiceServer).ExportWardTypePricesToCSV(m, &grpc.GenericServerStream[ExportPricesRequest, ExportCSVResponse]{ServerStream: stream})
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type PriceService_ExportWardTypePricesToCSVServer = grpc.ServerStreamingServer[ExportCSVResponse]
+
+func _PriceService_ImportServicePricesFromCSV_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ImportPricesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).ImportServicePricesFromCSV(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_ImportServicePricesFromCSV_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).ImportServicePricesFromCSV(ctx, req.(*ImportPricesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_ImportLabTestPricesFromCSV_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ImportPricesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).ImportLabTestPricesFromCSV(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_ImportLabTestPricesFromCSV_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).ImportLabTestPricesFromCSV(ctx, req.(*ImportPricesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_ImportWardTypePricesFromCSV_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ImportPricesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).ImportWardTypePricesFromCSV(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_ImportWardTypePricesFromCSV_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).ImportWardTypePricesFromCSV(ctx, req.(*ImportPricesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_ValidateServicePricesCSV_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValidateCSVRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).ValidateServicePricesCSV(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_ValidateServicePricesCSV_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).ValidateServicePricesCSV(ctx, req.(*ValidateCSVRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_ValidateLabTestPricesCSV_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValidateCSVRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).ValidateLabTestPricesCSV(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_ValidateLabTestPricesCSV_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).ValidateLabTestPricesCSV(ctx, req.(*ValidateCSVRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_ValidateWardTypePricesCSV_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValidateCSVRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).ValidateWardTypePricesCSV(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_ValidateWardTypePricesCSV_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).ValidateWardTypePricesCSV(ctx, req.(*ValidateCSVRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_CreatePriceChangeRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePriceChangeRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).CreatePriceChangeRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_CreatePriceChangeRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).CreatePriceChangeRequest(ctx, req.(*CreatePriceChangeRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_GetPriceChangeRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPriceChangeRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).GetPriceChangeRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_GetPriceChangeRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).GetPriceChangeRequest(ctx, req.(*GetPriceChangeRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_ListPriceChangeRequests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListPriceChangeRequestsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).ListPriceChangeRequests(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_ListPriceChangeRequests_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).ListPriceChangeRequests(ctx, req.(*ListPriceChangeRequestsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_ApprovePriceChangeRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApprovePriceChangeRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).ApprovePriceChangeRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_ApprovePriceChangeRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).ApprovePriceChangeRequest(ctx, req.(*ApprovePriceChangeRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_RejectPriceChangeRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RejectPriceChangeRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).RejectPriceChangeRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_RejectPriceChangeRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).RejectPriceChangeRequest(ctx, req.(*RejectPriceChangeRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_CancelPriceChangeRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelPriceChangeRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).CancelPriceChangeRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_CancelPriceChangeRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).CancelPriceChangeRequest(ctx, req.(*CancelPriceChangeRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PriceService_ServiceDesc is the grpc.ServiceDesc for PriceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PriceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "billing_service.PriceService",
+	HandlerType: (*PriceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "LookupServicePrice",
+			Handler:    _PriceService_LookupServicePrice_Handler,
+		},
+		{
+			MethodName: "LookupLabTestPrice",
+			Handler:    _PriceService_LookupLabTestPrice_Handler,
+		},
+		{
+			MethodName: "LookupWardPrice",
+			Handler:    _PriceService_LookupWardPrice_Handler,
+		},
+		{
+			MethodName: "GetServicePrice",
+			Handler:    _PriceService_GetServicePrice_Handler,
+		},
+		{
+			MethodName: "ListServicePrices",
+			Handler:    _PriceService_ListServicePrices_Handler,
+		},
+		{
+			MethodName: "CreateServicePrice",
+			Handler:    _PriceService_CreateServicePrice_Handler,
+		},
+		{
+			MethodName: "UpdateServicePrice",
+			Handler:    _PriceService_UpdateServicePrice_Handler,
+		},
+		{
+			MethodName: "GetLabTestPrice",
+			Handler:    _PriceService_GetLabTestPrice_Handler,
+		},
+		{
+			MethodName: "ListLabTestPrices",
+			Handler:    _PriceService_ListLabTestPrices_Handler,
+		},
+		{
+			MethodName: "CreateLabTestPrice",
+			Handler:    _PriceService_CreateLabTestPrice_Handler,
+		},
+		{
+			MethodName: "UpdateLabTestPrice",
+			Handler:    _PriceService_UpdateLabTestPrice_Handler,
+		},
+		{
+			MethodName: "GetWardTypePrice",
+			Handler:    _PriceService_GetWardTypePrice_Handler,
+		},
+		{
+			MethodName: "ListWardTypePrices",
+			Handler:    _PriceService_ListWardTypePrices_Handler,
+		},
+		{
+			MethodName: "CreateWardTypePrice",
+			Handler:    _PriceService_CreateWardTypePrice_Handler,
+		},
+		{
+			MethodName: "UpdateWardTypePrice",
+			Handler:    _PriceService_UpdateWardTypePrice_Handler,
+		},
+		{
+			MethodName: "ImportServicePricesFromCSV",
+			Handler:    _PriceService_ImportServicePricesFromCSV_Handler,
+		},
+		{
+			MethodName: "ImportLabTestPricesFromCSV",
+			Handler:    _PriceService_ImportLabTestPricesFromCSV_Handler,
+		},
+		{
+			MethodName: "ImportWardTypePricesFromCSV",
+			Handler:    _PriceService_ImportWardTypePricesFromCSV_Handler,
+		},
+		{
+			MethodName: "ValidateServicePricesCSV",
+			Handler:    _PriceService_ValidateServicePricesCSV_Handler,
+		},
+		{
+			MethodName: "ValidateLabTestPricesCSV",
+			Handler:    _PriceService_ValidateLabTestPricesCSV_Handler,
+		},
+		{
+			MethodName: "ValidateWardTypePricesCSV",
+			Handler:    _PriceService_ValidateWardTypePricesCSV_Handler,
+		},
+		{
+			MethodName: "CreatePriceChangeRequest",
+			Handler:    _PriceService_CreatePriceChangeRequest_Handler,
+		},
+		{
+			MethodName: "GetPriceChangeRequest",
+			Handler:    _PriceService_GetPriceChangeRequest_Handler,
+		},
+		{
+			MethodName: "ListPriceChangeRequests",
+			Handler:    _PriceService_ListPriceChangeRequests_Handler,
+		},
+		{
+			MethodName: "ApprovePriceChangeRequest",
+			Handler:    _PriceService_ApprovePriceChangeRequest_Handler,
+		},
+		{
+			MethodName: "RejectPriceChangeRequest",
+			Handler:    _PriceService_RejectPriceChangeRequest_Handler,
+		},
+		{
+			MethodName: "CancelPriceChangeRequest",
+			Handler:    _PriceService_CancelPriceChangeRequest_Handler,
+		},
+	},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "ExportServicePricesToCSV",
+			Handler:       _PriceService_ExportServicePricesToCSV_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "ExportLabTestPricesToCSV",
+			Handler:       _PriceService_ExportLabTestPricesToCSV_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "ExportWardTypePricesToCSV",
+			Handler:       _PriceService_ExportWardTypePricesToCSV_Handler,
+			ServerStreams: true,
+		},
+	},
+	Metadata: "proto/billing_service.proto",
+}

@@ -126,3 +126,34 @@ func (c *HRClient) CheckStaffExists(ctx context.Context, staffID string) (bool, 
 
 	return staff != nil, nil
 }
+
+// GetStaffName gets the full name of a staff member by ID
+func (c *HRClient) GetStaffName(ctx context.Context, staffID string) (string, error) {
+	if staffID == "" {
+		return "", fmt.Errorf("staff ID is required")
+	}
+
+	staff, err := c.GetStaff(ctx, staffID)
+	if err != nil {
+		return "", fmt.Errorf("failed to get staff: %v", err)
+	}
+
+	if staff == nil || staff.Staff == nil {
+		return staffID, nil // Fallback to ID if staff not found
+	}
+
+	// Construct full name
+	fullName := staff.Staff.FirstName
+	if staff.Staff.MiddleName != "" {
+		fullName += " " + staff.Staff.MiddleName
+	}
+	if staff.Staff.LastName != "" {
+		fullName += " " + staff.Staff.LastName
+	}
+
+	if fullName == "" {
+		return staffID, nil // Fallback to ID if name is empty
+	}
+
+	return fullName, nil
+}
