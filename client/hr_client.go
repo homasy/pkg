@@ -138,17 +138,14 @@ func (c *HRClient) GetStaffName(ctx context.Context, staffID string) (string, er
 		return "", fmt.Errorf("failed to get staff: %v", err)
 	}
 
-	if staff == nil || staff.Staff == nil {
+	if staff == nil {
 		return staffID, nil // Fallback to ID if staff not found
 	}
 
 	// Construct full name
-	fullName := staff.Staff.FirstName
-	if staff.Staff.MiddleName != "" {
-		fullName += " " + staff.Staff.MiddleName
-	}
-	if staff.Staff.LastName != "" {
-		fullName += " " + staff.Staff.LastName
+	fullName := staff.FirstName
+	if staff.LastName != "" {
+		fullName += " " + staff.LastName
 	}
 
 	if fullName == "" {
