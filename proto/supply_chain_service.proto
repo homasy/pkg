@@ -27,8 +27,10 @@ message StockItem {
   bool is_active = 14;
   bool expiry_tracking = 15;
   bool batch_tracking = 16;
-  string created_at = 17;
-  string updated_at = 18;
+  string category = 17;
+  double markup_percentage = 18; // Markup percentage for calculating unit_price from unit_cost
+  string created_at = 19;
+  string updated_at = 20;
 }
 
 // Message for a store location
@@ -303,6 +305,19 @@ message ReduceStockItemResponse {
     double quantity = 2;
 }
 
+// Request and Response messages for Manual Stock Update
+message ManualStockUpdateRequest {
+    string store_id = 1;
+    string item_id = 2;
+    string category = 3;
+    double quantity = 4; // Use positive values to increase, negative to decrease
+}
+
+message ManualStockUpdateResponse {
+    bool success = 1;
+    string message = 2;
+}
+
 service SupplyChainService {
   // Stock Item Management
   rpc CreateStockItem (CreateStockItemRequest) returns (CreateStockItemResponse) {
@@ -328,6 +343,14 @@ service SupplyChainService {
   rpc ReduceStockItem (ReduceStockItemRequest) returns (ReduceStockItemResponse) {
     option (google.api.http) = {
       post: "/v1/stock-items/reduce"
+      body: "*"
+    };
+  }
+
+  // Manual Stock Update
+  rpc ManualStockUpdate (ManualStockUpdateRequest) returns (ManualStockUpdateResponse) {
+    option (google.api.http) = {
+      post: "/v1/stock-items/manual-update"
       body: "*"
     };
   }

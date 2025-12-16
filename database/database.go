@@ -6,6 +6,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -30,6 +31,8 @@ func NewMySQLConnection(cfg DBConfig) (*sql.DB, error) {
 	if err = db.Ping(); err != nil {
 		return nil, fmt.Errorf("failed to ping database: %v", err)
 	}
+
+	db.SetConnMaxLifetime(time.Hour)
 
 	log.Println("Successfully connected to database")
 	return db, nil
