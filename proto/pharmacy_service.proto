@@ -824,7 +824,6 @@ message CreateMedicationRequest {
   int32 supplier_id = 3;
   float cost_price = 4;
   float markup_percentage = 5;
-  int32 stock_quantity = 6;
   string bin_location = 7;
 }
 
@@ -845,7 +844,6 @@ message GetMedicationResponse {
   float cost_price = 5;
   float markup_percentage = 6;
   float selling_price = 7;
-  int32 stock_quantity = 8;
   string bin_location = 9;
   string created_at = 10;
 }
@@ -857,7 +855,6 @@ message UpdateMedicationRequest {
   int32 supplier_id = 4;
   float cost_price = 5;
   float markup_percentage = 6;
-  int32 stock_quantity = 7;
   string bin_location = 8;
 }
 
@@ -889,7 +886,6 @@ message Medication {
   float cost_price = 5;
   float markup_percentage = 6;
   float selling_price = 7;
-  int32 stock_quantity = 8;
   string bin_location = 9;
   string created_at = 10;
 }

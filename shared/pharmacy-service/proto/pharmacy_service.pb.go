@@ -3645,7 +3645,6 @@ type CreateMedicationRequest struct {
 	SupplierId       int32                  `protobuf:"varint,3,opt,name=supplier_id,json=supplierId,proto3" json:"supplier_id,omitempty"`
 	CostPrice        float32                `protobuf:"fixed32,4,opt,name=cost_price,json=costPrice,proto3" json:"cost_price,omitempty"`
 	MarkupPercentage float32                `protobuf:"fixed32,5,opt,name=markup_percentage,json=markupPercentage,proto3" json:"markup_percentage,omitempty"`
-	StockQuantity    int32                  `protobuf:"varint,6,opt,name=stock_quantity,json=stockQuantity,proto3" json:"stock_quantity,omitempty"`
 	BinLocation      string                 `protobuf:"bytes,7,opt,name=bin_location,json=binLocation,proto3" json:"bin_location,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
@@ -3712,13 +3711,6 @@ func (x *CreateMedicationRequest) GetCostPrice() float32 {
 func (x *CreateMedicationRequest) GetMarkupPercentage() float32 {
 	if x != nil {
 		return x.MarkupPercentage
-	}
-	return 0
-}
-
-func (x *CreateMedicationRequest) GetStockQuantity() int32 {
-	if x != nil {
-		return x.StockQuantity
 	}
 	return 0
 }
@@ -3835,7 +3827,6 @@ type GetMedicationResponse struct {
 	CostPrice        float32                `protobuf:"fixed32,5,opt,name=cost_price,json=costPrice,proto3" json:"cost_price,omitempty"`
 	MarkupPercentage float32                `protobuf:"fixed32,6,opt,name=markup_percentage,json=markupPercentage,proto3" json:"markup_percentage,omitempty"`
 	SellingPrice     float32                `protobuf:"fixed32,7,opt,name=selling_price,json=sellingPrice,proto3" json:"selling_price,omitempty"`
-	StockQuantity    int32                  `protobuf:"varint,8,opt,name=stock_quantity,json=stockQuantity,proto3" json:"stock_quantity,omitempty"`
 	BinLocation      string                 `protobuf:"bytes,9,opt,name=bin_location,json=binLocation,proto3" json:"bin_location,omitempty"`
 	CreatedAt        string                 `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields    protoimpl.UnknownFields
@@ -3921,13 +3912,6 @@ func (x *GetMedicationResponse) GetSellingPrice() float32 {
 	return 0
 }
 
-func (x *GetMedicationResponse) GetStockQuantity() int32 {
-	if x != nil {
-		return x.StockQuantity
-	}
-	return 0
-}
-
 func (x *GetMedicationResponse) GetBinLocation() string {
 	if x != nil {
 		return x.BinLocation
@@ -3950,7 +3934,6 @@ type UpdateMedicationRequest struct {
 	SupplierId       int32                  `protobuf:"varint,4,opt,name=supplier_id,json=supplierId,proto3" json:"supplier_id,omitempty"`
 	CostPrice        float32                `protobuf:"fixed32,5,opt,name=cost_price,json=costPrice,proto3" json:"cost_price,omitempty"`
 	MarkupPercentage float32                `protobuf:"fixed32,6,opt,name=markup_percentage,json=markupPercentage,proto3" json:"markup_percentage,omitempty"`
-	StockQuantity    int32                  `protobuf:"varint,7,opt,name=stock_quantity,json=stockQuantity,proto3" json:"stock_quantity,omitempty"`
 	BinLocation      string                 `protobuf:"bytes,8,opt,name=bin_location,json=binLocation,proto3" json:"bin_location,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
@@ -4024,13 +4007,6 @@ func (x *UpdateMedicationRequest) GetCostPrice() float32 {
 func (x *UpdateMedicationRequest) GetMarkupPercentage() float32 {
 	if x != nil {
 		return x.MarkupPercentage
-	}
-	return 0
-}
-
-func (x *UpdateMedicationRequest) GetStockQuantity() int32 {
-	if x != nil {
-		return x.StockQuantity
 	}
 	return 0
 }
@@ -4279,7 +4255,6 @@ type Medication struct {
 	CostPrice        float32                `protobuf:"fixed32,5,opt,name=cost_price,json=costPrice,proto3" json:"cost_price,omitempty"`
 	MarkupPercentage float32                `protobuf:"fixed32,6,opt,name=markup_percentage,json=markupPercentage,proto3" json:"markup_percentage,omitempty"`
 	SellingPrice     float32                `protobuf:"fixed32,7,opt,name=selling_price,json=sellingPrice,proto3" json:"selling_price,omitempty"`
-	StockQuantity    int32                  `protobuf:"varint,8,opt,name=stock_quantity,json=stockQuantity,proto3" json:"stock_quantity,omitempty"`
 	BinLocation      string                 `protobuf:"bytes,9,opt,name=bin_location,json=binLocation,proto3" json:"bin_location,omitempty"`
 	CreatedAt        string                 `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields    protoimpl.UnknownFields
@@ -4361,13 +4336,6 @@ func (x *Medication) GetMarkupPercentage() float32 {
 func (x *Medication) GetSellingPrice() float32 {
 	if x != nil {
 		return x.SellingPrice
-	}
-	return 0
-}
-
-func (x *Medication) GetStockQuantity() int32 {
-	if x != nil {
-		return x.StockQuantity
 	}
 	return 0
 }
@@ -8802,7 +8770,7 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"doctorName\"\"\n" +
 	" ListPrescriptionRequestsRequests\"~\n" +
 	" ListPrescriptionRequestsResponse\x12Z\n" +
-	"\x15prescription_requests\x18\x01 \x03(\v2%.pharmacy_service.PrescriptionRequestR\x14prescriptionRequests\"\x9a\x02\n" +
+	"\x15prescription_requests\x18\x01 \x03(\v2%.pharmacy_service.PrescriptionRequestR\x14prescriptionRequests\"\xf3\x01\n" +
 	"\x17CreateMedicationRequest\x12'\n" +
 	"\x0fmedication_name\x18\x01 \x01(\tR\x0emedicationName\x12\x1f\n" +
 	"\vcategory_id\x18\x02 \x01(\x05R\n" +
@@ -8811,14 +8779,13 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"supplierId\x12\x1d\n" +
 	"\n" +
 	"cost_price\x18\x04 \x01(\x02R\tcostPrice\x12+\n" +
-	"\x11markup_percentage\x18\x05 \x01(\x02R\x10markupPercentage\x12%\n" +
-	"\x0estock_quantity\x18\x06 \x01(\x05R\rstockQuantity\x12!\n" +
+	"\x11markup_percentage\x18\x05 \x01(\x02R\x10markupPercentage\x12!\n" +
 	"\fbin_location\x18\a \x01(\tR\vbinLocation\"Y\n" +
 	"\x18CreateMedicationResponse\x12#\n" +
 	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\";\n" +
 	"\x14GetMedicationRequest\x12#\n" +
-	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\"\x81\x03\n" +
+	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\"\xda\x02\n" +
 	"\x15GetMedicationResponse\x12#\n" +
 	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\x12'\n" +
 	"\x0fmedication_name\x18\x02 \x01(\tR\x0emedicationName\x12\x1f\n" +
@@ -8829,12 +8796,11 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\n" +
 	"cost_price\x18\x05 \x01(\x02R\tcostPrice\x12+\n" +
 	"\x11markup_percentage\x18\x06 \x01(\x02R\x10markupPercentage\x12#\n" +
-	"\rselling_price\x18\a \x01(\x02R\fsellingPrice\x12%\n" +
-	"\x0estock_quantity\x18\b \x01(\x05R\rstockQuantity\x12!\n" +
+	"\rselling_price\x18\a \x01(\x02R\fsellingPrice\x12!\n" +
 	"\fbin_location\x18\t \x01(\tR\vbinLocation\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\n" +
-	" \x01(\tR\tcreatedAt\"\xbf\x02\n" +
+	" \x01(\tR\tcreatedAt\"\x98\x02\n" +
 	"\x17UpdateMedicationRequest\x12#\n" +
 	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\x12'\n" +
 	"\x0fmedication_name\x18\x02 \x01(\tR\x0emedicationName\x12\x1f\n" +
@@ -8844,8 +8810,7 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"supplierId\x12\x1d\n" +
 	"\n" +
 	"cost_price\x18\x05 \x01(\x02R\tcostPrice\x12+\n" +
-	"\x11markup_percentage\x18\x06 \x01(\x02R\x10markupPercentage\x12%\n" +
-	"\x0estock_quantity\x18\a \x01(\x05R\rstockQuantity\x12!\n" +
+	"\x11markup_percentage\x18\x06 \x01(\x02R\x10markupPercentage\x12!\n" +
 	"\fbin_location\x18\b \x01(\tR\vbinLocation\"N\n" +
 	"\x18UpdateMedicationResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
@@ -8857,7 +8822,7 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"\x18\n" +
 	"\x16ListMedicationsRequest\"Y\n" +
 	"\x17ListMedicationsResponse\x12>\n" +
-	"\vmedications\x18\x01 \x03(\v2\x1c.pharmacy_service.MedicationR\vmedications\"\xf6\x02\n" +
+	"\vmedications\x18\x01 \x03(\v2\x1c.pharmacy_service.MedicationR\vmedications\"\xcf\x02\n" +
 	"\n" +
 	"Medication\x12#\n" +
 	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\x12'\n" +
@@ -8869,8 +8834,7 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\n" +
 	"cost_price\x18\x05 \x01(\x02R\tcostPrice\x12+\n" +
 	"\x11markup_percentage\x18\x06 \x01(\x02R\x10markupPercentage\x12#\n" +
-	"\rselling_price\x18\a \x01(\x02R\fsellingPrice\x12%\n" +
-	"\x0estock_quantity\x18\b \x01(\x05R\rstockQuantity\x12!\n" +
+	"\rselling_price\x18\a \x01(\x02R\fsellingPrice\x12!\n" +
 	"\fbin_location\x18\t \x01(\tR\vbinLocation\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\n" +
