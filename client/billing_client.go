@@ -17,6 +17,7 @@ import (
 // BillingClient is a client for the Billing service
 type BillingClient struct {
 	client     billingpb.BillingServiceClient
+	priceClient billingpb.PriceServiceClient
 	conn       *grpc.ClientConn
 	serverAddr string
 	mu         sync.Mutex
@@ -74,6 +75,7 @@ func (c *BillingClient) Connect() error {
 	
 	c.conn = conn
 	c.client = billingpb.NewBillingServiceClient(conn)
+	c.priceClient = billingpb.NewPriceServiceClient(conn)
 	c.connected = true
 	
 	log.Printf("Connected to billing service at %s", c.serverAddr)
@@ -117,12 +119,12 @@ func (c *BillingClient) LookupWardPrice(ctx context.Context, req *billingpb.Look
 	if err := c.Connect(); err != nil {
 		return nil, err
 	}
-	return c.client.LookupWardPrice(ctx, req)
+	return c.priceClient.LookupWardPrice(ctx, req)
 }
 
 func (c *BillingClient) LookupLabTestPrice(ctx context.Context, req *billingpb.LookupLabTestPriceRequest) (*billingpb.LookupLabTestPriceResponse, error) {
 	if err := c.Connect(); err != nil {
 		return nil, err
 	}
-	return c.client.LookupLabTestPrice(ctx, req)
+	return c.priceClient.LookupLabTestPrice(ctx, req)
 }
