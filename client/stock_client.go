@@ -107,6 +107,15 @@ func (c *StockClient) ReduceStockItem(ctx context.Context, req *supplypb.ReduceS
 	return c.client.ReduceStockItem(ctx, req)
 }
 
+// ListStockItems lists stock items
+func (c *StockClient) ListStockItems(ctx context.Context, req *supplypb.ListStockItemsRequest) (*supplypb.ListStockItemsResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+
+	return c.client.ListStockItems(ctx, req)
+}
+
 // GetMedicalScheme retrieves a medical scheme by ID
 func (c *StockClient) GetMedicalScheme(ctx context.Context, id int32) (*supplypb.MedicalScheme, error) {
 	if err := c.Connect(); err != nil {

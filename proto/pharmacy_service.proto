@@ -888,6 +888,7 @@ message Medication {
   float selling_price = 7;
   string bin_location = 9;
   string created_at = 10;
+  int32 stock_quantity = 11;
 }
 
 // ----------- Medication Category Messages -----------

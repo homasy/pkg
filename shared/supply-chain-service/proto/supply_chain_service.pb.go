@@ -2925,6 +2925,7 @@ func (x *UpdateStockItemResponse) GetSuccess() bool {
 type ListStockItemsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Filter        string                 `protobuf:"bytes,1,opt,name=filter,proto3" json:"filter,omitempty"`
+	Category      string                 `protobuf:"bytes,2,opt,name=category,proto3" json:"category,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2962,6 +2963,13 @@ func (*ListStockItemsRequest) Descriptor() ([]byte, []int) {
 func (x *ListStockItemsRequest) GetFilter() string {
 	if x != nil {
 		return x.Filter
+	}
+	return ""
+}
+
+func (x *ListStockItemsRequest) GetCategory() string {
+	if x != nil {
+		return x.Category
 	}
 	return ""
 }
@@ -8016,9 +8024,10 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12+\n" +
 	"\x04item\x18\x02 \x01(\v2\x17.supply_chain.StockItemR\x04item\"3\n" +
 	"\x17UpdateStockItemResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\"/\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"K\n" +
 	"\x15ListStockItemsRequest\x12\x16\n" +
-	"\x06filter\x18\x01 \x01(\tR\x06filter\"G\n" +
+	"\x06filter\x18\x01 \x01(\tR\x06filter\x12\x1a\n" +
+	"\bcategory\x18\x02 \x01(\tR\bcategory\"G\n" +
 	"\x16ListStockItemsResponse\x12-\n" +
 	"\x05items\x18\x01 \x03(\v2\x17.supply_chain.StockItemR\x05items\"2\n" +
 	"\x15GetStockLevelsRequest\x12\x19\n" +

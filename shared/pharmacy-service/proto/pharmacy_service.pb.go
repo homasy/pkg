@@ -4257,6 +4257,7 @@ type Medication struct {
 	SellingPrice     float32                `protobuf:"fixed32,7,opt,name=selling_price,json=sellingPrice,proto3" json:"selling_price,omitempty"`
 	BinLocation      string                 `protobuf:"bytes,9,opt,name=bin_location,json=binLocation,proto3" json:"bin_location,omitempty"`
 	CreatedAt        string                 `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	StockQuantity    int32                  `protobuf:"varint,11,opt,name=stock_quantity,json=stockQuantity,proto3" json:"stock_quantity,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -4352,6 +4353,13 @@ func (x *Medication) GetCreatedAt() string {
 		return x.CreatedAt
 	}
 	return ""
+}
+
+func (x *Medication) GetStockQuantity() int32 {
+	if x != nil {
+		return x.StockQuantity
+	}
+	return 0
 }
 
 type CreateMedicationCategoryRequest struct {
@@ -8822,7 +8830,7 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"\x18\n" +
 	"\x16ListMedicationsRequest\"Y\n" +
 	"\x17ListMedicationsResponse\x12>\n" +
-	"\vmedications\x18\x01 \x03(\v2\x1c.pharmacy_service.MedicationR\vmedications\"\xcf\x02\n" +
+	"\vmedications\x18\x01 \x03(\v2\x1c.pharmacy_service.MedicationR\vmedications\"\xf6\x02\n" +
 	"\n" +
 	"Medication\x12#\n" +
 	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\x12'\n" +
@@ -8838,7 +8846,8 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\fbin_location\x18\t \x01(\tR\vbinLocation\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\n" +
-	" \x01(\tR\tcreatedAt\"F\n" +
+	" \x01(\tR\tcreatedAt\x12%\n" +
+	"\x0estock_quantity\x18\v \x01(\x05R\rstockQuantity\"F\n" +
 	"\x1fCreateMedicationCategoryRequest\x12#\n" +
 	"\rcategory_name\x18\x01 \x01(\tR\fcategoryName\"]\n" +
 	" CreateMedicationCategoryResponse\x12\x1f\n" +

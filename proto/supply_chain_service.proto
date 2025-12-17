@@ -698,6 +698,7 @@ message UpdateStockItemResponse {
 
 message ListStockItemsRequest {
   string filter = 1;
+  string category = 2;
 }
 
 message ListStockItemsResponse {
