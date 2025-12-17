@@ -10,11 +10,11 @@ PROTO_FILES := $(wildcard $(PROTO_DIR)/*.proto)
 # Protoc command template
 define PROTOC_CMD
 protoc -I . -I $(GOOGLEAPIS_DIR) -I $(THIRD_PARTY_DIR) \
-    --go_out=$(OUTPUT_BASE)/$(1)/proto \
+    --go_out=$(OUTPUT_BASE)/$(1)/ \
     --go_opt=paths=source_relative \
-    --go-grpc_out=$(OUTPUT_BASE)/$(1)/proto \
+    --go-grpc_out=$(OUTPUT_BASE)/$(1)/ \
     --go-grpc_opt=paths=source_relative \
-    --grpc-gateway_out=$(OUTPUT_BASE)/$(1)/proto \
+    --grpc-gateway_out=$(OUTPUT_BASE)/$(1)/ \
     --grpc-gateway_opt=paths=source_relative \
     $(PROTO_DIR)/$(2).proto
 endef

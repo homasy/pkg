@@ -112,3 +112,17 @@ func (c *BillingClient) UpdateServiceRecord(ctx context.Context, req *billingpb.
     }
     return c.client.UpdateServiceRecordStatus(ctx, req)
 }
+
+func (c *BillingClient) LookupWardPrice(ctx context.Context, req *billingpb.LookupWardPriceRequest) (*billingpb.LookupWardPriceResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.client.LookupWardPrice(ctx, req)
+}
+
+func (c *BillingClient) LookupLabTestPrice(ctx context.Context, req *billingpb.LookupLabTestPriceRequest) (*billingpb.LookupLabTestPriceResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.client.LookupLabTestPrice(ctx, req)
+}

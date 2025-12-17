@@ -24,6 +24,7 @@ const (
 	SupplyChainService_CreateStockItem_FullMethodName              = "/supply_chain.SupplyChainService/CreateStockItem"
 	SupplyChainService_GetStockItem_FullMethodName                 = "/supply_chain.SupplyChainService/GetStockItem"
 	SupplyChainService_UpdateStockItem_FullMethodName              = "/supply_chain.SupplyChainService/UpdateStockItem"
+	SupplyChainService_DeleteStockItem_FullMethodName              = "/supply_chain.SupplyChainService/DeleteStockItem"
 	SupplyChainService_ReduceStockItem_FullMethodName              = "/supply_chain.SupplyChainService/ReduceStockItem"
 	SupplyChainService_ManualStockUpdate_FullMethodName            = "/supply_chain.SupplyChainService/ManualStockUpdate"
 	SupplyChainService_ListStockItems_FullMethodName               = "/supply_chain.SupplyChainService/ListStockItems"
@@ -83,6 +84,7 @@ type SupplyChainServiceClient interface {
 	CreateStockItem(ctx context.Context, in *CreateStockItemRequest, opts ...grpc.CallOption) (*CreateStockItemResponse, error)
 	GetStockItem(ctx context.Context, in *GetStockItemRequest, opts ...grpc.CallOption) (*GetStockItemResponse, error)
 	UpdateStockItem(ctx context.Context, in *UpdateStockItemRequest, opts ...grpc.CallOption) (*UpdateStockItemResponse, error)
+	DeleteStockItem(ctx context.Context, in *DeleteStockItemRequest, opts ...grpc.CallOption) (*DeleteStockItemResponse, error)
 	ReduceStockItem(ctx context.Context, in *ReduceStockItemRequest, opts ...grpc.CallOption) (*ReduceStockItemResponse, error)
 	// Manual Stock Update
 	ManualStockUpdate(ctx context.Context, in *ManualStockUpdateRequest, opts ...grpc.CallOption) (*ManualStockUpdateResponse, error)
@@ -178,6 +180,16 @@ func (c *supplyChainServiceClient) UpdateStockItem(ctx context.Context, in *Upda
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateStockItemResponse)
 	err := c.cc.Invoke(ctx, SupplyChainService_UpdateStockItem_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) DeleteStockItem(ctx context.Context, in *DeleteStockItemRequest, opts ...grpc.CallOption) (*DeleteStockItemResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteStockItemResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_DeleteStockItem_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -682,6 +694,7 @@ type SupplyChainServiceServer interface {
 	CreateStockItem(context.Context, *CreateStockItemRequest) (*CreateStockItemResponse, error)
 	GetStockItem(context.Context, *GetStockItemRequest) (*GetStockItemResponse, error)
 	UpdateStockItem(context.Context, *UpdateStockItemRequest) (*UpdateStockItemResponse, error)
+	DeleteStockItem(context.Context, *DeleteStockItemRequest) (*DeleteStockItemResponse, error)
 	ReduceStockItem(context.Context, *ReduceStockItemRequest) (*ReduceStockItemResponse, error)
 	// Manual Stock Update
 	ManualStockUpdate(context.Context, *ManualStockUpdateRequest) (*ManualStockUpdateResponse, error)
@@ -761,6 +774,9 @@ func (UnimplementedSupplyChainServiceServer) GetStockItem(context.Context, *GetS
 }
 func (UnimplementedSupplyChainServiceServer) UpdateStockItem(context.Context, *UpdateStockItemRequest) (*UpdateStockItemResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateStockItem not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) DeleteStockItem(context.Context, *DeleteStockItemRequest) (*DeleteStockItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteStockItem not implemented")
 }
 func (UnimplementedSupplyChainServiceServer) ReduceStockItem(context.Context, *ReduceStockItemRequest) (*ReduceStockItemResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReduceStockItem not implemented")
@@ -980,6 +996,24 @@ func _SupplyChainService_UpdateStockItem_Handler(srv interface{}, ctx context.Co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SupplyChainServiceServer).UpdateStockItem(ctx, req.(*UpdateStockItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_DeleteStockItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteStockItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).DeleteStockItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_DeleteStockItem_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).DeleteStockItem(ctx, req.(*DeleteStockItemRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1884,6 +1918,10 @@ var SupplyChainService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateStockItem",
 			Handler:    _SupplyChainService_UpdateStockItem_Handler,
+		},
+		{
+			MethodName: "DeleteStockItem",
+			Handler:    _SupplyChainService_DeleteStockItem_Handler,
 		},
 		{
 			MethodName: "ReduceStockItem",

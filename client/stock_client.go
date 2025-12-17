@@ -116,6 +116,14 @@ func (c *StockClient) ListStockItems(ctx context.Context, req *supplypb.ListStoc
 	return c.client.ListStockItems(ctx, req)
 }
 
+func (c *StockClient) DeleteStockItem(ctx context.Context, req *supplypb.DeleteStockItemRequest) (*supplypb.DeleteStockItemResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+
+	return c.client.DeleteStockItem(ctx, req)
+}
+
 // GetMedicalScheme retrieves a medical scheme by ID
 func (c *StockClient) GetMedicalScheme(ctx context.Context, id int32) (*supplypb.MedicalScheme, error) {
 	if err := c.Connect(); err != nil {

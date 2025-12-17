@@ -340,6 +340,12 @@ service SupplyChainService {
     };
   }
 
+  rpc DeleteStockItem (DeleteStockItemRequest) returns (DeleteStockItemResponse) {
+    option (google.api.http) = {
+      delete: "/v1/stock-items/{id}"
+    };
+  }
+
   rpc ReduceStockItem (ReduceStockItemRequest) returns (ReduceStockItemResponse) {
     option (google.api.http) = {
       post: "/v1/stock-items/reduce"
@@ -693,6 +699,14 @@ message UpdateStockItemRequest {
 }
 
 message UpdateStockItemResponse {
+  bool success = 1;
+}
+
+message DeleteStockItemRequest {
+  string id = 1;
+}
+
+message DeleteStockItemResponse {
   bool success = 1;
 }
 
