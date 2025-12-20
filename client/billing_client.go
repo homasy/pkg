@@ -115,6 +115,16 @@ func (c *BillingClient) UpdateServiceRecord(ctx context.Context, req *billingpb.
     return c.client.UpdateServiceRecordStatus(ctx, req)
 }
 
+func (c *BillingClient) GetPatientPaymentStatus(ctx context.Context, patientID string) (*billingpb.GetPatientPaymentStatusResponse, error) {
+    if err := c.Connect(); err != nil {
+        return nil, err
+    }
+    req := &billingpb.GetPatientPaymentStatusRequest{
+        PatientId: patientID,
+    }
+    return c.client.GetPatientPaymentStatus(ctx, req)
+}
+
 func (c *BillingClient) GetServiceRecordsByPatient(ctx context.Context, patientID string) (*billingpb.GetServiceRecordsByPatientResponse, error) {
     if err := c.Connect(); err != nil {
         return nil, err
