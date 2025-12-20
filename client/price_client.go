@@ -14,7 +14,7 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 )
 
-// PriceClient is a client for the Price service
+// PriceClient is a client for the price service
 type PriceClient struct {
 	client     billingpb.PriceServiceClient
 	conn       *grpc.ClientConn
@@ -39,16 +39,13 @@ func (c *PriceClient) Connect() error {
 		return nil
 	}
 
-	// Set up connection with retry
 	var err error
 	var conn *grpc.ClientConn
 	
-	// Retry options
 	maxRetries := 5
 	retryDelay := 2 * time.Second
 	
 	for i := 0; i < maxRetries; i++ {
-		// Connect with a timeout
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 		
@@ -63,13 +60,13 @@ func (c *PriceClient) Connect() error {
 			break
 		}
 		
-		log.Printf("Failed to connect to Price service (attempt %d/%d): %v", i+1, maxRetries, err)
+		log.Printf("Failed to connect to price service (attempt %d/%d): %v", i+1, maxRetries, err)
 		time.Sleep(retryDelay)
-		retryDelay *= 2 // Exponential backoff
+		retryDelay *= 2
 	}
 	
 	if err != nil {
-		return fmt.Errorf("failed to connect to Price service after %d attempts: %v", maxRetries, err)
+		return fmt.Errorf("failed to connect to price service after %d attempts: %v", maxRetries, err)
 	}
 	
 	c.conn = conn
@@ -80,8 +77,8 @@ func (c *PriceClient) Connect() error {
 	return nil
 }
 
-// Close closes the connection to the Price service
-func (c *PriceClient) ClosePriceConnection() error {
+// Close closes the connection to the price service
+func (c *PriceClient) Close() error {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
@@ -98,6 +95,16 @@ func (c *PriceClient) ClosePriceConnection() error {
 	return nil
 }
 
+// LookupServicePrice gets the price for a given service
+func (c *PriceClient) LookupServicePrice(ctx context.Context, req *billingpb.LookupServicePriceRequest) (*billingpb.LookupServicePriceResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+
+	return c.client.LookupServicePrice(ctx, req)
+}
+
+// LookupWardPrice gets the price for a given ward
 func (c *PriceClient) LookupWardPrice(ctx context.Context, req *billingpb.LookupWardPriceRequest) (*billingpb.LookupWardPriceResponse, error) {
 	if err := c.Connect(); err != nil {
 		return nil, err
@@ -105,6 +112,7 @@ func (c *PriceClient) LookupWardPrice(ctx context.Context, req *billingpb.Lookup
 	return c.client.LookupWardPrice(ctx, req)
 }
 
+// LookupLabTestPrice gets the price for a given lab test
 func (c *PriceClient) LookupLabTestPrice(ctx context.Context, req *billingpb.LookupLabTestPriceRequest) (*billingpb.LookupLabTestPriceResponse, error) {
 	if err := c.Connect(); err != nil {
 		return nil, err

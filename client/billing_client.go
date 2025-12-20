@@ -83,7 +83,7 @@ func (c *BillingClient) Connect() error {
 }
 
 // Close closes the connection to the Billing service
-func (c *BillingClient) CloseBillingConnection() error {
+func (c *BillingClient) Close() error {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
@@ -113,6 +113,16 @@ func (c *BillingClient) UpdateServiceRecord(ctx context.Context, req *billingpb.
         return nil, err
     }
     return c.client.UpdateServiceRecordStatus(ctx, req)
+}
+
+func (c *BillingClient) GetServiceRecordsByPatient(ctx context.Context, patientID string) (*billingpb.GetServiceRecordsByPatientResponse, error) {
+    if err := c.Connect(); err != nil {
+        return nil, err
+    }
+    req := &billingpb.GetServiceRecordsByPatientRequest{
+        PatientId: patientID,
+    }
+    return c.client.GetServiceRecordsByPatient(ctx, req)
 }
 
 func (c *BillingClient) LookupWardPrice(ctx context.Context, req *billingpb.LookupWardPriceRequest) (*billingpb.LookupWardPriceResponse, error) {
