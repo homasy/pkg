@@ -24,7 +24,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Create Appointment request
 type CreateAppointmentRequest struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	PatientId          string                 `protobuf:"bytes,1,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
@@ -141,7 +140,6 @@ func (x *CreateAppointmentRequest) GetCreatedAt() string {
 	return ""
 }
 
-// Create Appointment response
 type CreateAppointmentResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	AppointmentId string                 `protobuf:"bytes,1,opt,name=appointment_id,json=appointmentId,proto3" json:"appointment_id,omitempty"`
@@ -338,7 +336,6 @@ func (x *CreateQueueResponse) GetStatus() string {
 	return ""
 }
 
-// Get Appointment request
 type GetAppointmentRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	AppointmentId string                 `protobuf:"bytes,1,opt,name=appointment_id,json=appointmentId,proto3" json:"appointment_id,omitempty"`
@@ -383,7 +380,6 @@ func (x *GetAppointmentRequest) GetAppointmentId() string {
 	return ""
 }
 
-// Get Appointment response
 type GetAppointmentResponse struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	AppointmentId      string                 `protobuf:"bytes,1,opt,name=appointment_id,json=appointmentId,proto3" json:"appointment_id,omitempty"`
@@ -508,7 +504,6 @@ func (x *GetAppointmentResponse) GetCreatedAt() string {
 	return ""
 }
 
-// Update Appointment request
 type UpdateAppointmentRequest struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	AppointmentId      string                 `protobuf:"bytes,1,opt,name=appointment_id,json=appointmentId,proto3" json:"appointment_id,omitempty"`
@@ -633,7 +628,6 @@ func (x *UpdateAppointmentRequest) GetCreatedAt() string {
 	return ""
 }
 
-// Update Appointment response
 type UpdateAppointmentResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
@@ -678,7 +672,6 @@ func (x *UpdateAppointmentResponse) GetSuccess() bool {
 	return false
 }
 
-// Delete Appointment request
 type DeleteAppointmentRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	AppointmentId string                 `protobuf:"bytes,1,opt,name=appointment_id,json=appointmentId,proto3" json:"appointment_id,omitempty"`
@@ -723,7 +716,6 @@ func (x *DeleteAppointmentRequest) GetAppointmentId() string {
 	return ""
 }
 
-// Delete Appointment response
 type DeleteAppointmentResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
@@ -768,7 +760,6 @@ func (x *DeleteAppointmentResponse) GetSuccess() bool {
 	return false
 }
 
-// Appointment data structure
 type Appointment struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	AppointmentId      string                 `protobuf:"bytes,1,opt,name=appointment_id,json=appointmentId,proto3" json:"appointment_id,omitempty"`
@@ -1337,6 +1328,102 @@ func (x *UpdateQueueStatusResponse) GetSuccess() bool {
 	return false
 }
 
+type GetAvailableSlotsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	DoctorId      string                 `protobuf:"bytes,1,opt,name=doctor_id,json=doctorId,proto3" json:"doctor_id,omitempty"`
+	Date          string                 `protobuf:"bytes,2,opt,name=date,proto3" json:"date,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableSlotsRequest) Reset() {
+	*x = GetAvailableSlotsRequest{}
+	mi := &file_proto_appointment_service_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableSlotsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableSlotsRequest) ProtoMessage() {}
+
+func (x *GetAvailableSlotsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appointment_service_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableSlotsRequest.ProtoReflect.Descriptor instead.
+func (*GetAvailableSlotsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appointment_service_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *GetAvailableSlotsRequest) GetDoctorId() string {
+	if x != nil {
+		return x.DoctorId
+	}
+	return ""
+}
+
+func (x *GetAvailableSlotsRequest) GetDate() string {
+	if x != nil {
+		return x.Date
+	}
+	return ""
+}
+
+type GetAvailableSlotsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TimeSlots     []string               `protobuf:"bytes,1,rep,name=time_slots,json=timeSlots,proto3" json:"time_slots,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableSlotsResponse) Reset() {
+	*x = GetAvailableSlotsResponse{}
+	mi := &file_proto_appointment_service_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableSlotsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableSlotsResponse) ProtoMessage() {}
+
+func (x *GetAvailableSlotsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appointment_service_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableSlotsResponse.ProtoReflect.Descriptor instead.
+func (*GetAvailableSlotsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appointment_service_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetAvailableSlotsResponse) GetTimeSlots() []string {
+	if x != nil {
+		return x.TimeSlots
+	}
+	return nil
+}
+
 var File_proto_appointment_service_proto protoreflect.FileDescriptor
 
 const file_proto_appointment_service_proto_rawDesc = "" +
@@ -1450,7 +1537,13 @@ const file_proto_appointment_service_proto_rawDesc = "" +
 	"\n" +
 	"new_status\x18\x02 \x01(\tR\tnewStatus\"5\n" +
 	"\x19UpdateQueueStatusResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess2\xde\v\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"K\n" +
+	"\x18GetAvailableSlotsRequest\x12\x1b\n" +
+	"\tdoctor_id\x18\x01 \x01(\tR\bdoctorId\x12\x12\n" +
+	"\x04date\x18\x02 \x01(\tR\x04date\":\n" +
+	"\x19GetAvailableSlotsResponse\x12\x1d\n" +
+	"\n" +
+	"time_slots\x18\x01 \x03(\tR\ttimeSlots2\x8e\r\n" +
 	"\x12AppointmentService\x12\x8f\x01\n" +
 	"\x11CreateAppointment\x12-.appointment_service.CreateAppointmentRequest\x1a..appointment_service.CreateAppointmentResponse\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/v1/appointments\x12\x93\x01\n" +
 	"\x0eGetAppointment\x12*.appointment_service.GetAppointmentRequest\x1a+.appointment_service.GetAppointmentResponse\"(\x82\xd3\xe4\x93\x02\"\x12 /v1/appointment/{appointment_id}\x12\x9f\x01\n" +
@@ -1464,7 +1557,8 @@ const file_proto_appointment_service_proto_rawDesc = "" +
 	"/v1/queues\x12\x9b\x01\n" +
 	"\x11UpdateQueueStatus\x12-.appointment_service.UpdateQueueStatusRequest\x1a..appointment_service.UpdateQueueStatusResponse\"'\x82\xd3\xe4\x93\x02!:\x01*\x1a\x1c/v1/queues/{queue_id}/status\x12\xb2\x01\n" +
 	"\x1aGetAppointmentsByPatientId\x126.appointment_service.GetAppointmentsByPatientIdRequest\x1a-.appointment_service.ListAppointmentsResponse\"-\x82\xd3\xe4\x93\x02'\x12%/v1/appointments/patient/{patient_id}\x12\x95\x01\n" +
-	"\x13GetQueuesByDoctorId\x12/.appointment_service.GetQueuesByDoctorIdRequest\x1a&.appointment_service.ListQueueResponse\"%\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1/queues/doctor/{doctor_id}B$Z\"./shared/appointment-service/protob\x06proto3"
+	"\x13GetQueuesByDoctorId\x12/.appointment_service.GetQueuesByDoctorIdRequest\x1a&.appointment_service.ListQueueResponse\"%\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1/queues/doctor/{doctor_id}\x12\xad\x01\n" +
+	"\x11GetAvailableSlots\x12-.appointment_service.GetAvailableSlotsRequest\x1a..appointment_service.GetAvailableSlotsResponse\"9\x82\xd3\xe4\x93\x023\x121/v1/appointments/doctors/{doctor_id}/availabilityB$Z\"./shared/appointment-service/protob\x06proto3"
 
 var (
 	file_proto_appointment_service_proto_rawDescOnce sync.Once
@@ -1478,7 +1572,7 @@ func file_proto_appointment_service_proto_rawDescGZIP() []byte {
 	return file_proto_appointment_service_proto_rawDescData
 }
 
-var file_proto_appointment_service_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
+var file_proto_appointment_service_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
 var file_proto_appointment_service_proto_goTypes = []any{
 	(*CreateAppointmentRequest)(nil),          // 0: appointment_service.CreateAppointmentRequest
 	(*CreateAppointmentResponse)(nil),         // 1: appointment_service.CreateAppointmentResponse
@@ -1500,6 +1594,8 @@ var file_proto_appointment_service_proto_goTypes = []any{
 	(*GetQueuesByDoctorIdRequest)(nil),        // 17: appointment_service.GetQueuesByDoctorIdRequest
 	(*UpdateQueueStatusRequest)(nil),          // 18: appointment_service.UpdateQueueStatusRequest
 	(*UpdateQueueStatusResponse)(nil),         // 19: appointment_service.UpdateQueueStatusResponse
+	(*GetAvailableSlotsRequest)(nil),          // 20: appointment_service.GetAvailableSlotsRequest
+	(*GetAvailableSlotsResponse)(nil),         // 21: appointment_service.GetAvailableSlotsResponse
 }
 var file_proto_appointment_service_proto_depIdxs = []int32{
 	10, // 0: appointment_service.ListAppointmentsResponse.appointments:type_name -> appointment_service.Appointment
@@ -1514,18 +1610,20 @@ var file_proto_appointment_service_proto_depIdxs = []int32{
 	18, // 9: appointment_service.AppointmentService.UpdateQueueStatus:input_type -> appointment_service.UpdateQueueStatusRequest
 	16, // 10: appointment_service.AppointmentService.GetAppointmentsByPatientId:input_type -> appointment_service.GetAppointmentsByPatientIdRequest
 	17, // 11: appointment_service.AppointmentService.GetQueuesByDoctorId:input_type -> appointment_service.GetQueuesByDoctorIdRequest
-	1,  // 12: appointment_service.AppointmentService.CreateAppointment:output_type -> appointment_service.CreateAppointmentResponse
-	5,  // 13: appointment_service.AppointmentService.GetAppointment:output_type -> appointment_service.GetAppointmentResponse
-	7,  // 14: appointment_service.AppointmentService.UpdateAppointment:output_type -> appointment_service.UpdateAppointmentResponse
-	9,  // 15: appointment_service.AppointmentService.DeleteAppointment:output_type -> appointment_service.DeleteAppointmentResponse
-	12, // 16: appointment_service.AppointmentService.ListAppointments:output_type -> appointment_service.ListAppointmentsResponse
-	3,  // 17: appointment_service.AppointmentService.CreateQueue:output_type -> appointment_service.CreateQueueResponse
-	15, // 18: appointment_service.AppointmentService.ListQueues:output_type -> appointment_service.ListQueueResponse
-	19, // 19: appointment_service.AppointmentService.UpdateQueueStatus:output_type -> appointment_service.UpdateQueueStatusResponse
-	12, // 20: appointment_service.AppointmentService.GetAppointmentsByPatientId:output_type -> appointment_service.ListAppointmentsResponse
-	15, // 21: appointment_service.AppointmentService.GetQueuesByDoctorId:output_type -> appointment_service.ListQueueResponse
-	12, // [12:22] is the sub-list for method output_type
-	2,  // [2:12] is the sub-list for method input_type
+	20, // 12: appointment_service.AppointmentService.GetAvailableSlots:input_type -> appointment_service.GetAvailableSlotsRequest
+	1,  // 13: appointment_service.AppointmentService.CreateAppointment:output_type -> appointment_service.CreateAppointmentResponse
+	5,  // 14: appointment_service.AppointmentService.GetAppointment:output_type -> appointment_service.GetAppointmentResponse
+	7,  // 15: appointment_service.AppointmentService.UpdateAppointment:output_type -> appointment_service.UpdateAppointmentResponse
+	9,  // 16: appointment_service.AppointmentService.DeleteAppointment:output_type -> appointment_service.DeleteAppointmentResponse
+	12, // 17: appointment_service.AppointmentService.ListAppointments:output_type -> appointment_service.ListAppointmentsResponse
+	3,  // 18: appointment_service.AppointmentService.CreateQueue:output_type -> appointment_service.CreateQueueResponse
+	15, // 19: appointment_service.AppointmentService.ListQueues:output_type -> appointment_service.ListQueueResponse
+	19, // 20: appointment_service.AppointmentService.UpdateQueueStatus:output_type -> appointment_service.UpdateQueueStatusResponse
+	12, // 21: appointment_service.AppointmentService.GetAppointmentsByPatientId:output_type -> appointment_service.ListAppointmentsResponse
+	15, // 22: appointment_service.AppointmentService.GetQueuesByDoctorId:output_type -> appointment_service.ListQueueResponse
+	21, // 23: appointment_service.AppointmentService.GetAvailableSlots:output_type -> appointment_service.GetAvailableSlotsResponse
+	13, // [13:24] is the sub-list for method output_type
+	2,  // [2:13] is the sub-list for method input_type
 	2,  // [2:2] is the sub-list for extension type_name
 	2,  // [2:2] is the sub-list for extension extendee
 	0,  // [0:2] is the sub-list for field type_name
@@ -1542,7 +1640,7 @@ func file_proto_appointment_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_appointment_service_proto_rawDesc), len(file_proto_appointment_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   20,
+			NumMessages:   22,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

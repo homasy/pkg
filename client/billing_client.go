@@ -1,27 +1,25 @@
-// pkg/client/billing_client.go
 
+// pkg/client/billing_client.go
 package client
 
 import (
 	"context"
 	"fmt"
-	"log"
 	"sync"
-	"time"
 
+	"github.com/homasy/pkg/grpc"
 	billingpb "github.com/homasy/pkg/shared/billing-service/proto"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
+	gogrpc "google.golang.org/grpc"
 )
 
 // BillingClient is a client for the Billing service
 type BillingClient struct {
-	client     billingpb.BillingServiceClient
+	client      billingpb.BillingServiceClient
 	priceClient billingpb.PriceServiceClient
-	conn       *grpc.ClientConn
-	serverAddr string
-	mu         sync.Mutex
-	connected  bool
+	conn        *gogrpc.ClientConn
+	serverAddr  string
+	mu          sync.Mutex
+	connected   bool
 }
 
 // NewBillingClient creates a new billing client
@@ -40,45 +38,16 @@ func (c *BillingClient) Connect() error {
 		return nil
 	}
 
-	// Set up connection with retry
-	var err error
-	var conn *grpc.ClientConn
-	
-	// Retry options
-	maxRetries := 5
-	retryDelay := 2 * time.Second
-	
-	for i := 0; i < maxRetries; i++ {
-		// Connect with a timeout
-		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-		defer cancel()
-		
-		conn, err = grpc.DialContext(
-			ctx,
-			c.serverAddr,
-			grpc.WithTransportCredentials(insecure.NewCredentials()),
-			grpc.WithBlock(),
-		)
-		
-		if err == nil {
-			break
-		}
-		
-		log.Printf("Failed to connect to Billing service (attempt %d/%d): %v", i+1, maxRetries, err)
-		time.Sleep(retryDelay)
-		retryDelay *= 2 // Exponential backoff
-	}
-	
+	conn, err := grpc.NewGRPCConnection(c.serverAddr)
 	if err != nil {
-		return fmt.Errorf("failed to connect to Billing service after %d attempts: %v", maxRetries, err)
+		return fmt.Errorf("failed to connect to Billing service: %v", err)
 	}
-	
+
 	c.conn = conn
 	c.client = billingpb.NewBillingServiceClient(conn)
 	c.priceClient = billingpb.NewPriceServiceClient(conn)
 	c.connected = true
-	
-	log.Printf("Connected to billing service at %s", c.serverAddr)
+
 	return nil
 }
 
@@ -100,39 +69,38 @@ func (c *BillingClient) Close() error {
 	return nil
 }
 
-
 func (c *BillingClient) CreateServiceRecord(ctx context.Context, req *billingpb.CreateServiceRecordRequest) (*billingpb.CreateServiceRecordResponse, error) {
-    if err := c.Connect(); err != nil {
-        return nil, err
-    }
-    return c.client.CreateServiceRecord(ctx, req)
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.client.CreateServiceRecord(ctx, req)
 }
 
 func (c *BillingClient) UpdateServiceRecord(ctx context.Context, req *billingpb.UpdateServiceRecordStatusRequest) (*billingpb.UpdateServiceRecordStatusResponse, error) {
-    if err := c.Connect(); err != nil {
-        return nil, err
-    }
-    return c.client.UpdateServiceRecordStatus(ctx, req)
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.client.UpdateServiceRecordStatus(ctx, req)
 }
 
 func (c *BillingClient) GetPatientPaymentStatus(ctx context.Context, patientID string) (*billingpb.GetPatientPaymentStatusResponse, error) {
-    if err := c.Connect(); err != nil {
-        return nil, err
-    }
-    req := &billingpb.GetPatientPaymentStatusRequest{
-        PatientId: patientID,
-    }
-    return c.client.GetPatientPaymentStatus(ctx, req)
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	req := &billingpb.GetPatientPaymentStatusRequest{
+		PatientId: patientID,
+	}
+	return c.client.GetPatientPaymentStatus(ctx, req)
 }
 
 func (c *BillingClient) GetServiceRecordsByPatient(ctx context.Context, patientID string) (*billingpb.GetServiceRecordsByPatientResponse, error) {
-    if err := c.Connect(); err != nil {
-        return nil, err
-    }
-    req := &billingpb.GetServiceRecordsByPatientRequest{
-        PatientId: patientID,
-    }
-    return c.client.GetServiceRecordsByPatient(ctx, req)
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	req := &billingpb.GetServiceRecordsByPatientRequest{
+		PatientId: patientID,
+	}
+	return c.client.GetServiceRecordsByPatient(ctx, req)
 }
 
 func (c *BillingClient) LookupWardPrice(ctx context.Context, req *billingpb.LookupWardPriceRequest) (*billingpb.LookupWardPriceResponse, error) {

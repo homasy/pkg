@@ -78,153 +78,336 @@ service AppointmentService {
     };
   }
 
-  // Get queues by doctor ID
-  rpc GetQueuesByDoctorId (GetQueuesByDoctorIdRequest) returns (ListQueueResponse) {
-    option (google.api.http) = {
-      get: "/v1/queues/doctor/{doctor_id}"
-    };
+    // Get queues by doctor ID
+
+    rpc GetQueuesByDoctorId (GetQueuesByDoctorIdRequest) returns (ListQueueResponse) {
+
+      option (google.api.http) = {
+
+        get: "/v1/queues/doctor/{doctor_id}"
+
+      };
+
+    }
+
+  
+
+    // Get available time slots for a doctor on a specific date
+
+    rpc GetAvailableSlots (GetAvailableSlotsRequest) returns (GetAvailableSlotsResponse) {
+
+      option (google.api.http) = {
+
+        get: "/v1/appointments/doctors/{doctor_id}/availability"
+
+      };
+
+    }
+
+  
+
   }
 
-}
+  
 
-// Create Appointment request
-message CreateAppointmentRequest {
-  string patient_id = 1;
-  string doctor_id = 2;
-  string preferred_date = 3;
-  string preferred_time = 4;
-  string appointment_type = 5;
-  string specialist_category = 6;
-  string description = 7;
-  string status = 8;
-  bool sms_reminder_sent = 9;
-  string created_at = 10;
-}
+  // Create Appointment request
 
-// Create Appointment response
-message CreateAppointmentResponse {
-  string appointment_id = 1;
-  string status = 2;
-}
+  message CreateAppointmentRequest {
 
-message CreateQueueRequest {
-  string patient_id = 1;
-  string doctor_id = 2;
-  string arrival_date = 3;
-  string arrival_time = 4;
-  string priority = 5;
-  string description = 6;
-  string status = 7;
-}
+    string patient_id = 1;
 
-message CreateQueueResponse {
-  string queue_id = 1;
-  string status = 2;
-}
+    string doctor_id = 2;
 
+    string preferred_date = 3;
 
+    string preferred_time = 4;
 
-// Get Appointment request
-message GetAppointmentRequest {
-  string appointment_id = 1;
-}
+    string appointment_type = 5;
 
-// Get Appointment response
-message GetAppointmentResponse {
-  string appointment_id = 1;
-  string patient_id = 2;
-  string doctor_id = 3;
-  string preferred_date = 4;
-  string preferred_time = 5;
-  string appointment_type = 6;
-  string specialist_category = 7;
-  string description = 8;
-  string status = 9;
-  bool sms_reminder_sent = 10;
-  string created_at = 11;
-}
+    string specialist_category = 6;
 
-// Update Appointment request
-message UpdateAppointmentRequest {
-  string appointment_id = 1;
-  string patient_id = 2;
-  string doctor_id = 3;
-  string preferred_date = 4;
-  string preferred_time = 5;
-  string appointment_type = 6; 
-  string specialist_category = 7;
-  string description = 8;
-  string status = 9;
-  bool sms_reminder_sent = 10;
-  string created_at = 11;
-}
+    string description = 7;
 
-// Update Appointment response
-message UpdateAppointmentResponse {
-  bool success = 1;
-}
+    string status = 8;
 
-// Delete Appointment request
-message DeleteAppointmentRequest {
-  string appointment_id = 1;
-}
+    bool sms_reminder_sent = 9;
 
-// Delete Appointment response
-message DeleteAppointmentResponse {
-  bool success = 1;
-}
+    string created_at = 10;
 
-// Appointment data structure
-message Appointment {
-  string appointment_id = 1;
-  string patient_id = 2;
-  string doctor_id = 3;
-  string preferred_date = 4;
-  string preferred_time = 5;
-  string appointment_type = 6;
-  string specialist_category = 7;
-  string description = 8;
-  string status = 9;
-  bool sms_reminder_sent = 10;
-  string created_at = 11;
-}
+  }
 
-message ListAppointmentsRequest {}
+  
 
-message ListAppointmentsResponse {
-  repeated Appointment appointments = 1;
-}
+  // Create Appointment response
 
-message Queue {
-  string queue_id = 1;
-  string patient_id = 2;
-  string doctor_id = 3;
-  string arrival_date = 4;
-  string arrival_time = 5;
-  string priority = 6;
-  string description = 7;
-  string status = 8;
-}
+  message CreateAppointmentResponse {
 
-message ListQueueRequest {}
+    string appointment_id = 1;
 
-message ListQueueResponse {
-  repeated Queue queues = 1;
-}
+    string status = 2;
 
-message GetAppointmentsByPatientIdRequest {
-  string patient_id = 1;
-}
+  }
 
-message GetQueuesByDoctorIdRequest {
-  string doctor_id = 1;
-}
+  
 
-message UpdateQueueStatusRequest {
-  string queue_id = 1;
-  string new_status = 2; // "pending" or "completed"
-}
+  message CreateQueueRequest {
 
-message UpdateQueueStatusResponse {
-  bool success = 1;
-}
+    string patient_id = 1;
+
+    string doctor_id = 2;
+
+    string arrival_date = 3;
+
+    string arrival_time = 4;
+
+    string priority = 5;
+
+    string description = 6;
+
+    string status = 7;
+
+  }
+
+  
+
+  message CreateQueueResponse {
+
+    string queue_id = 1;
+
+    string status = 2;
+
+  }
+
+  
+
+  
+
+  
+
+  // Get Appointment request
+
+  message GetAppointmentRequest {
+
+    string appointment_id = 1;
+
+  }
+
+  
+
+  // Get Appointment response
+
+  message GetAppointmentResponse {
+
+    string appointment_id = 1;
+
+    string patient_id = 2;
+
+    string doctor_id = 3;
+
+    string preferred_date = 4;
+
+    string preferred_time = 5;
+
+    string appointment_type = 6;
+
+    string specialist_category = 7;
+
+    string description = 8;
+
+    string status = 9;
+
+    bool sms_reminder_sent = 10;
+
+    string created_at = 11;
+
+  }
+
+  
+
+  // Update Appointment request
+
+  message UpdateAppointmentRequest {
+
+    string appointment_id = 1;
+
+    string patient_id = 2;
+
+    string doctor_id = 3;
+
+    string preferred_date = 4;
+
+    string preferred_time = 5;
+
+    string appointment_type = 6; 
+
+    string specialist_category = 7;
+
+    string description = 8;
+
+    string status = 9;
+
+    bool sms_reminder_sent = 10;
+
+    string created_at = 11;
+
+  }
+
+  
+
+  // Update Appointment response
+
+  message UpdateAppointmentResponse {
+
+    bool success = 1;
+
+  }
+
+  
+
+  // Delete Appointment request
+
+  message DeleteAppointmentRequest {
+
+    string appointment_id = 1;
+
+  }
+
+  
+
+  // Delete Appointment response
+
+  message DeleteAppointmentResponse {
+
+    bool success = 1;
+
+  }
+
+  
+
+  // Appointment data structure
+
+  message Appointment {
+
+    string appointment_id = 1;
+
+    string patient_id = 2;
+
+    string doctor_id = 3;
+
+    string preferred_date = 4;
+
+    string preferred_time = 5;
+
+    string appointment_type = 6;
+
+    string specialist_category = 7;
+
+    string description = 8;
+
+    string status = 9;
+
+    bool sms_reminder_sent = 10;
+
+    string created_at = 11;
+
+  }
+
+  
+
+  message ListAppointmentsRequest {}
+
+  
+
+  message ListAppointmentsResponse {
+
+    repeated Appointment appointments = 1;
+
+  }
+
+  
+
+  message Queue {
+
+    string queue_id = 1;
+
+    string patient_id = 2;
+
+    string doctor_id = 3;
+
+    string arrival_date = 4;
+
+    string arrival_time = 5;
+
+    string priority = 6;
+
+    string description = 7;
+
+    string status = 8;
+
+  }
+
+  
+
+  message ListQueueRequest {}
+
+  
+
+  message ListQueueResponse {
+
+    repeated Queue queues = 1;
+
+  }
+
+  
+
+  message GetAppointmentsByPatientIdRequest {
+
+    string patient_id = 1;
+
+  }
+
+  
+
+  message GetQueuesByDoctorIdRequest {
+
+    string doctor_id = 1;
+
+  }
+
+  
+
+  message UpdateQueueStatusRequest {
+
+    string queue_id = 1;
+
+    string new_status = 2; // "pending" or "completed"
+
+  }
+
+  
+
+  message UpdateQueueStatusResponse {
+
+    bool success = 1;
+
+  }
+
+  
+
+  message GetAvailableSlotsRequest {
+
+    string doctor_id = 1;
+
+    string date = 2;
+
+  }
+
+  
+
+  message GetAvailableSlotsResponse {
+
+    repeated string time_slots = 1;
+
+  }
+
+  

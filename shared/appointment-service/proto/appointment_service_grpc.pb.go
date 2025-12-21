@@ -31,6 +31,7 @@ const (
 	AppointmentService_UpdateQueueStatus_FullMethodName          = "/appointment_service.AppointmentService/UpdateQueueStatus"
 	AppointmentService_GetAppointmentsByPatientId_FullMethodName = "/appointment_service.AppointmentService/GetAppointmentsByPatientId"
 	AppointmentService_GetQueuesByDoctorId_FullMethodName        = "/appointment_service.AppointmentService/GetQueuesByDoctorId"
+	AppointmentService_GetAvailableSlots_FullMethodName          = "/appointment_service.AppointmentService/GetAvailableSlots"
 )
 
 // AppointmentServiceClient is the client API for AppointmentService service.
@@ -56,8 +57,8 @@ type AppointmentServiceClient interface {
 	UpdateQueueStatus(ctx context.Context, in *UpdateQueueStatusRequest, opts ...grpc.CallOption) (*UpdateQueueStatusResponse, error)
 	// Get appointments by patient ID
 	GetAppointmentsByPatientId(ctx context.Context, in *GetAppointmentsByPatientIdRequest, opts ...grpc.CallOption) (*ListAppointmentsResponse, error)
-	// Get queues by doctor ID
 	GetQueuesByDoctorId(ctx context.Context, in *GetQueuesByDoctorIdRequest, opts ...grpc.CallOption) (*ListQueueResponse, error)
+	GetAvailableSlots(ctx context.Context, in *GetAvailableSlotsRequest, opts ...grpc.CallOption) (*GetAvailableSlotsResponse, error)
 }
 
 type appointmentServiceClient struct {
@@ -168,6 +169,16 @@ func (c *appointmentServiceClient) GetQueuesByDoctorId(ctx context.Context, in *
 	return out, nil
 }
 
+func (c *appointmentServiceClient) GetAvailableSlots(ctx context.Context, in *GetAvailableSlotsRequest, opts ...grpc.CallOption) (*GetAvailableSlotsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailableSlotsResponse)
+	err := c.cc.Invoke(ctx, AppointmentService_GetAvailableSlots_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AppointmentServiceServer is the server API for AppointmentService service.
 // All implementations must embed UnimplementedAppointmentServiceServer
 // for forward compatibility.
@@ -191,8 +202,8 @@ type AppointmentServiceServer interface {
 	UpdateQueueStatus(context.Context, *UpdateQueueStatusRequest) (*UpdateQueueStatusResponse, error)
 	// Get appointments by patient ID
 	GetAppointmentsByPatientId(context.Context, *GetAppointmentsByPatientIdRequest) (*ListAppointmentsResponse, error)
-	// Get queues by doctor ID
 	GetQueuesByDoctorId(context.Context, *GetQueuesByDoctorIdRequest) (*ListQueueResponse, error)
+	GetAvailableSlots(context.Context, *GetAvailableSlotsRequest) (*GetAvailableSlotsResponse, error)
 	mustEmbedUnimplementedAppointmentServiceServer()
 }
 
@@ -232,6 +243,9 @@ func (UnimplementedAppointmentServiceServer) GetAppointmentsByPatientId(context.
 }
 func (UnimplementedAppointmentServiceServer) GetQueuesByDoctorId(context.Context, *GetQueuesByDoctorIdRequest) (*ListQueueResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetQueuesByDoctorId not implemented")
+}
+func (UnimplementedAppointmentServiceServer) GetAvailableSlots(context.Context, *GetAvailableSlotsRequest) (*GetAvailableSlotsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAvailableSlots not implemented")
 }
 func (UnimplementedAppointmentServiceServer) mustEmbedUnimplementedAppointmentServiceServer() {}
 func (UnimplementedAppointmentServiceServer) testEmbeddedByValue()                            {}
@@ -434,6 +448,24 @@ func _AppointmentService_GetQueuesByDoctorId_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AppointmentService_GetAvailableSlots_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailableSlotsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppointmentServiceServer).GetAvailableSlots(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppointmentService_GetAvailableSlots_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppointmentServiceServer).GetAvailableSlots(ctx, req.(*GetAvailableSlotsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // AppointmentService_ServiceDesc is the grpc.ServiceDesc for AppointmentService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -480,6 +512,10 @@ var AppointmentService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetQueuesByDoctorId",
 			Handler:    _AppointmentService_GetQueuesByDoctorId_Handler,
+		},
+		{
+			MethodName: "GetAvailableSlots",
+			Handler:    _AppointmentService_GetAvailableSlots_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

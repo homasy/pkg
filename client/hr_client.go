@@ -154,3 +154,10 @@ func (c *HRClient) GetStaffName(ctx context.Context, staffID string) (string, er
 
 	return fullName, nil
 }
+
+func (c *HRClient) IsStaffAvailable(ctx context.Context, req *hrpb.IsStaffAvailableRequest) (*hrpb.IsStaffAvailableResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.client.IsStaffAvailable(ctx, req)
+}
