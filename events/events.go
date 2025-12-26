@@ -35,6 +35,8 @@ const (
 	AppointmentCreated = "appointment.created"
 	AppointmentUpdated = "appointment.updated"
 	AppointmentDeleted = "appointment.deleted"
+	AppointmentCancelled = "appointment.cancelled"
+	AppointmentNoShow = "appointment.noshow"
 	QueueCreated       = "queue.created"
 	QueueStatusUpdated = "queue.status.updated"
 
@@ -150,6 +152,7 @@ const (
 	InvoiceDeleted    = "invoice.deleted"
 	InvoiceSent       = "invoice.sent"
 	PaymentProcessed  = "payment.processed"
+	PaymentReceived  = "payment.received"
 
     ServiceRecordCreated        = "service_record.created"
     ServiceRecordStatusUpdated  = "service_record.status_updated"
@@ -1058,6 +1061,29 @@ func HandleAppointmentDeleted(data []byte) error {
 	}
 	log.Printf("Appointment deleted: %s", event.AppointmentID)
 	// Process the event
+	return nil
+}
+
+func HandleAppointmentCancelled(data []byte) error {
+	var event AppointmentEvent
+	if err := json.Unmarshal(data, &event); err != nil {
+		return fmt.Errorf("failed to unmarshal appointment cancelled event: %v", err)
+	}
+	log.Printf("Appointment cancelled: %s", event.AppointmentID)
+	// Here, you would add logic to find the corresponding service_record
+	// and update its status to 'VOID' or 'CANCELLED'.
+	// e.g., serviceRecordRepo.VoidByReference(ctx, event.AppointmentID, "consultation")
+	return nil
+}
+
+func HandleAppointmentNoShow(data []byte) error {
+	var event AppointmentEvent
+	if err := json.Unmarshal(data, &event); err != nil {
+		return fmt.Errorf("failed to unmarshal appointment no-show event: %v", err)
+	}
+	log.Printf("Appointment no-show: %s", event.AppointmentID)
+	// Logic similar to cancellation, marking the service_record as void.
+	// e.g., serviceRecordRepo.VoidByReference(ctx, event.AppointmentID, "consultation")
 	return nil
 }
 
