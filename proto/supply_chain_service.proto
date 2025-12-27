@@ -662,6 +662,12 @@ service SupplyChainService {
     };
   }
 
+  rpc GetMedicalSchemeByName (GetMedicalSchemeByNameRequest) returns (GetMedicalSchemeResponse) {
+    option (google.api.http) = {
+      get: "/v1/medical-schemes/name/{name}"
+    };
+  }
+
   rpc UpdateMedicalScheme (UpdateMedicalSchemeRequest) returns (UpdateMedicalSchemeResponse) {
     option (google.api.http) = {
       put: "/v1/medical-schemes/{id}"
@@ -1140,6 +1146,10 @@ message CreateMedicalSchemeResponse {
 
 message GetMedicalSchemeRequest {
   int32 id = 1;
+}
+
+message GetMedicalSchemeByNameRequest {
+  string name = 1;
 }
 
 message GetMedicalSchemeResponse {

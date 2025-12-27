@@ -7473,6 +7473,50 @@ func (x *GetMedicalSchemeRequest) GetId() int32 {
 	return 0
 }
 
+type GetMedicalSchemeByNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMedicalSchemeByNameRequest) Reset() {
+	*x = GetMedicalSchemeByNameRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMedicalSchemeByNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMedicalSchemeByNameRequest) ProtoMessage() {}
+
+func (x *GetMedicalSchemeByNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMedicalSchemeByNameRequest.ProtoReflect.Descriptor instead.
+func (*GetMedicalSchemeByNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{119}
+}
+
+func (x *GetMedicalSchemeByNameRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
 type GetMedicalSchemeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	MedicalScheme *MedicalScheme         `protobuf:"bytes,1,opt,name=medical_scheme,json=medicalScheme,proto3" json:"medical_scheme,omitempty"`
@@ -7482,7 +7526,7 @@ type GetMedicalSchemeResponse struct {
 
 func (x *GetMedicalSchemeResponse) Reset() {
 	*x = GetMedicalSchemeResponse{}
-	mi := &file_proto_supply_chain_service_proto_msgTypes[119]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7494,7 +7538,7 @@ func (x *GetMedicalSchemeResponse) String() string {
 func (*GetMedicalSchemeResponse) ProtoMessage() {}
 
 func (x *GetMedicalSchemeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_supply_chain_service_proto_msgTypes[119]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7507,7 +7551,7 @@ func (x *GetMedicalSchemeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMedicalSchemeResponse.ProtoReflect.Descriptor instead.
 func (*GetMedicalSchemeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{119}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *GetMedicalSchemeResponse) GetMedicalScheme() *MedicalScheme {
@@ -7537,7 +7581,7 @@ type UpdateMedicalSchemeRequest struct {
 
 func (x *UpdateMedicalSchemeRequest) Reset() {
 	*x = UpdateMedicalSchemeRequest{}
-	mi := &file_proto_supply_chain_service_proto_msgTypes[120]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7549,7 +7593,7 @@ func (x *UpdateMedicalSchemeRequest) String() string {
 func (*UpdateMedicalSchemeRequest) ProtoMessage() {}
 
 func (x *UpdateMedicalSchemeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_supply_chain_service_proto_msgTypes[120]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7562,7 +7606,7 @@ func (x *UpdateMedicalSchemeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateMedicalSchemeRequest.ProtoReflect.Descriptor instead.
 func (*UpdateMedicalSchemeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{120}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *UpdateMedicalSchemeRequest) GetId() int32 {
@@ -7659,7 +7703,7 @@ type UpdateMedicalSchemeResponse struct {
 
 func (x *UpdateMedicalSchemeResponse) Reset() {
 	*x = UpdateMedicalSchemeResponse{}
-	mi := &file_proto_supply_chain_service_proto_msgTypes[121]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7671,7 +7715,7 @@ func (x *UpdateMedicalSchemeResponse) String() string {
 func (*UpdateMedicalSchemeResponse) ProtoMessage() {}
 
 func (x *UpdateMedicalSchemeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_supply_chain_service_proto_msgTypes[121]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7684,7 +7728,7 @@ func (x *UpdateMedicalSchemeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateMedicalSchemeResponse.ProtoReflect.Descriptor instead.
 func (*UpdateMedicalSchemeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{121}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *UpdateMedicalSchemeResponse) GetSuccess() bool {
@@ -7710,7 +7754,7 @@ type ListMedicalSchemesRequest struct {
 
 func (x *ListMedicalSchemesRequest) Reset() {
 	*x = ListMedicalSchemesRequest{}
-	mi := &file_proto_supply_chain_service_proto_msgTypes[122]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7722,7 +7766,7 @@ func (x *ListMedicalSchemesRequest) String() string {
 func (*ListMedicalSchemesRequest) ProtoMessage() {}
 
 func (x *ListMedicalSchemesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_supply_chain_service_proto_msgTypes[122]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7735,7 +7779,7 @@ func (x *ListMedicalSchemesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListMedicalSchemesRequest.ProtoReflect.Descriptor instead.
 func (*ListMedicalSchemesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{122}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{123}
 }
 
 func (x *ListMedicalSchemesRequest) GetActiveOnly() bool {
@@ -7754,7 +7798,7 @@ type ListMedicalSchemesResponse struct {
 
 func (x *ListMedicalSchemesResponse) Reset() {
 	*x = ListMedicalSchemesResponse{}
-	mi := &file_proto_supply_chain_service_proto_msgTypes[123]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7766,7 +7810,7 @@ func (x *ListMedicalSchemesResponse) String() string {
 func (*ListMedicalSchemesResponse) ProtoMessage() {}
 
 func (x *ListMedicalSchemesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_supply_chain_service_proto_msgTypes[123]
+	mi := &file_proto_supply_chain_service_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7779,7 +7823,7 @@ func (x *ListMedicalSchemesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListMedicalSchemesResponse.ProtoReflect.Descriptor instead.
 func (*ListMedicalSchemesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{123}
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *ListMedicalSchemesResponse) GetMedicalSchemes() []*MedicalScheme {
@@ -8384,7 +8428,9 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\")\n" +
 	"\x17GetMedicalSchemeRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"^\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\"3\n" +
+	"\x1dGetMedicalSchemeByNameRequest\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\"^\n" +
 	"\x18GetMedicalSchemeResponse\x12B\n" +
 	"\x0emedical_scheme\x18\x01 \x01(\v2\x1b.supply_chain.MedicalSchemeR\rmedicalScheme\"\xe8\x03\n" +
 	"\x1aUpdateMedicalSchemeRequest\x12\x0e\n" +
@@ -8408,7 +8454,7 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\vactive_only\x18\x01 \x01(\bR\n" +
 	"activeOnly\"b\n" +
 	"\x1aListMedicalSchemesResponse\x12D\n" +
-	"\x0fmedical_schemes\x18\x01 \x03(\v2\x1b.supply_chain.MedicalSchemeR\x0emedicalSchemes2\xcd6\n" +
+	"\x0fmedical_schemes\x18\x01 \x03(\v2\x1b.supply_chain.MedicalSchemeR\x0emedicalSchemes2\xe67\n" +
 	"\x12SupplyChainService\x12z\n" +
 	"\x0fCreateStockItem\x12$.supply_chain.CreateStockItemRequest\x1a%.supply_chain.CreateStockItemResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/stock-items\x12s\n" +
 	"\fGetStockItem\x12!.supply_chain.GetStockItemRequest\x1a\".supply_chain.GetStockItemResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/stock-items/{id}\x12\x7f\n" +
@@ -8466,7 +8512,8 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\x12ListPriceListItems\x12'.supply_chain.ListPriceListItemsRequest\x1a(.supply_chain.ListPriceListItemsResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/price-list-items\x12\xb4\x01\n" +
 	"\x1cGetPriceListItemsByPriceList\x121.supply_chain.GetPriceListItemsByPriceListRequest\x1a2.supply_chain.GetPriceListItemsByPriceListResponse\"-\x82\xd3\xe4\x93\x02'\x12%/v1/price-lists/{price_list_id}/items\x12\x8a\x01\n" +
 	"\x13CreateMedicalScheme\x12(.supply_chain.CreateMedicalSchemeRequest\x1a).supply_chain.CreateMedicalSchemeResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/v1/medical-schemes\x12\x83\x01\n" +
-	"\x10GetMedicalScheme\x12%.supply_chain.GetMedicalSchemeRequest\x1a&.supply_chain.GetMedicalSchemeResponse\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/v1/medical-schemes/{id}\x12\x8f\x01\n" +
+	"\x10GetMedicalScheme\x12%.supply_chain.GetMedicalSchemeRequest\x1a&.supply_chain.GetMedicalSchemeResponse\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/v1/medical-schemes/{id}\x12\x96\x01\n" +
+	"\x16GetMedicalSchemeByName\x12+.supply_chain.GetMedicalSchemeByNameRequest\x1a&.supply_chain.GetMedicalSchemeResponse\"'\x82\xd3\xe4\x93\x02!\x12\x1f/v1/medical-schemes/name/{name}\x12\x8f\x01\n" +
 	"\x13UpdateMedicalScheme\x12(.supply_chain.UpdateMedicalSchemeRequest\x1a).supply_chain.UpdateMedicalSchemeResponse\"#\x82\xd3\xe4\x93\x02\x1d:\x01*\x1a\x18/v1/medical-schemes/{id}\x12\x84\x01\n" +
 	"\x12ListMedicalSchemes\x12'.supply_chain.ListMedicalSchemesRequest\x1a(.supply_chain.ListMedicalSchemesResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/medical-schemesB%Z#./shared/supply-chain-service/protob\x06proto3"
 
@@ -8482,7 +8529,7 @@ func file_proto_supply_chain_service_proto_rawDescGZIP() []byte {
 	return file_proto_supply_chain_service_proto_rawDescData
 }
 
-var file_proto_supply_chain_service_proto_msgTypes = make([]protoimpl.MessageInfo, 124)
+var file_proto_supply_chain_service_proto_msgTypes = make([]protoimpl.MessageInfo, 125)
 var file_proto_supply_chain_service_proto_goTypes = []any{
 	(*StockItem)(nil),                            // 0: supply_chain.StockItem
 	(*Store)(nil),                                // 1: supply_chain.Store
@@ -8603,12 +8650,13 @@ var file_proto_supply_chain_service_proto_goTypes = []any{
 	(*CreateMedicalSchemeRequest)(nil),           // 116: supply_chain.CreateMedicalSchemeRequest
 	(*CreateMedicalSchemeResponse)(nil),          // 117: supply_chain.CreateMedicalSchemeResponse
 	(*GetMedicalSchemeRequest)(nil),              // 118: supply_chain.GetMedicalSchemeRequest
-	(*GetMedicalSchemeResponse)(nil),             // 119: supply_chain.GetMedicalSchemeResponse
-	(*UpdateMedicalSchemeRequest)(nil),           // 120: supply_chain.UpdateMedicalSchemeRequest
-	(*UpdateMedicalSchemeResponse)(nil),          // 121: supply_chain.UpdateMedicalSchemeResponse
-	(*ListMedicalSchemesRequest)(nil),            // 122: supply_chain.ListMedicalSchemesRequest
-	(*ListMedicalSchemesResponse)(nil),           // 123: supply_chain.ListMedicalSchemesResponse
-	(*timestamppb.Timestamp)(nil),                // 124: google.protobuf.Timestamp
+	(*GetMedicalSchemeByNameRequest)(nil),        // 119: supply_chain.GetMedicalSchemeByNameRequest
+	(*GetMedicalSchemeResponse)(nil),             // 120: supply_chain.GetMedicalSchemeResponse
+	(*UpdateMedicalSchemeRequest)(nil),           // 121: supply_chain.UpdateMedicalSchemeRequest
+	(*UpdateMedicalSchemeResponse)(nil),          // 122: supply_chain.UpdateMedicalSchemeResponse
+	(*ListMedicalSchemesRequest)(nil),            // 123: supply_chain.ListMedicalSchemesRequest
+	(*ListMedicalSchemesResponse)(nil),           // 124: supply_chain.ListMedicalSchemesResponse
+	(*timestamppb.Timestamp)(nil),                // 125: google.protobuf.Timestamp
 }
 var file_proto_supply_chain_service_proto_depIdxs = []int32{
 	3,   // 0: supply_chain.Requisition.items:type_name -> supply_chain.RequisitionItem
@@ -8617,9 +8665,9 @@ var file_proto_supply_chain_service_proto_depIdxs = []int32{
 	10,  // 3: supply_chain.StockAdjustment.items:type_name -> supply_chain.StockAdjustmentItem
 	12,  // 4: supply_chain.InterStoreTransfer.items:type_name -> supply_chain.InterStoreTransferItem
 	14,  // 5: supply_chain.CreditNote.items:type_name -> supply_chain.CreditNoteItem
-	124, // 6: supply_chain.PriceList.created_at:type_name -> google.protobuf.Timestamp
-	124, // 7: supply_chain.PriceListItem.valid_from:type_name -> google.protobuf.Timestamp
-	124, // 8: supply_chain.PriceListItem.valid_to:type_name -> google.protobuf.Timestamp
+	125, // 6: supply_chain.PriceList.created_at:type_name -> google.protobuf.Timestamp
+	125, // 7: supply_chain.PriceListItem.valid_from:type_name -> google.protobuf.Timestamp
+	125, // 8: supply_chain.PriceListItem.valid_to:type_name -> google.protobuf.Timestamp
 	0,   // 9: supply_chain.CreateStockItemRequest.item:type_name -> supply_chain.StockItem
 	0,   // 10: supply_chain.GetStockItemResponse.item:type_name -> supply_chain.StockItem
 	0,   // 11: supply_chain.UpdateStockItemRequest.item:type_name -> supply_chain.StockItem
@@ -8654,11 +8702,11 @@ var file_proto_supply_chain_service_proto_depIdxs = []int32{
 	13,  // 40: supply_chain.ListCreditNotesResponse.credit_notes:type_name -> supply_chain.CreditNote
 	15,  // 41: supply_chain.GetPriceListResponse.price_list:type_name -> supply_chain.PriceList
 	15,  // 42: supply_chain.ListPriceListsResponse.price_lists:type_name -> supply_chain.PriceList
-	124, // 43: supply_chain.CreatePriceListItemRequest.valid_from:type_name -> google.protobuf.Timestamp
-	124, // 44: supply_chain.CreatePriceListItemRequest.valid_to:type_name -> google.protobuf.Timestamp
+	125, // 43: supply_chain.CreatePriceListItemRequest.valid_from:type_name -> google.protobuf.Timestamp
+	125, // 44: supply_chain.CreatePriceListItemRequest.valid_to:type_name -> google.protobuf.Timestamp
 	16,  // 45: supply_chain.GetPriceListItemResponse.price_list_item:type_name -> supply_chain.PriceListItem
-	124, // 46: supply_chain.UpdatePriceListItemRequest.valid_from:type_name -> google.protobuf.Timestamp
-	124, // 47: supply_chain.UpdatePriceListItemRequest.valid_to:type_name -> google.protobuf.Timestamp
+	125, // 46: supply_chain.UpdatePriceListItemRequest.valid_from:type_name -> google.protobuf.Timestamp
+	125, // 47: supply_chain.UpdatePriceListItemRequest.valid_to:type_name -> google.protobuf.Timestamp
 	16,  // 48: supply_chain.ListPriceListItemsResponse.price_list_items:type_name -> supply_chain.PriceListItem
 	16,  // 49: supply_chain.GetPriceListItemsByPriceListResponse.price_list_items:type_name -> supply_chain.PriceListItem
 	17,  // 50: supply_chain.GetMedicalSchemeResponse.medical_scheme:type_name -> supply_chain.MedicalScheme
@@ -8714,63 +8762,65 @@ var file_proto_supply_chain_service_proto_depIdxs = []int32{
 	114, // 100: supply_chain.SupplyChainService.GetPriceListItemsByPriceList:input_type -> supply_chain.GetPriceListItemsByPriceListRequest
 	116, // 101: supply_chain.SupplyChainService.CreateMedicalScheme:input_type -> supply_chain.CreateMedicalSchemeRequest
 	118, // 102: supply_chain.SupplyChainService.GetMedicalScheme:input_type -> supply_chain.GetMedicalSchemeRequest
-	120, // 103: supply_chain.SupplyChainService.UpdateMedicalScheme:input_type -> supply_chain.UpdateMedicalSchemeRequest
-	122, // 104: supply_chain.SupplyChainService.ListMedicalSchemes:input_type -> supply_chain.ListMedicalSchemesRequest
-	23,  // 105: supply_chain.SupplyChainService.CreateStockItem:output_type -> supply_chain.CreateStockItemResponse
-	25,  // 106: supply_chain.SupplyChainService.GetStockItem:output_type -> supply_chain.GetStockItemResponse
-	27,  // 107: supply_chain.SupplyChainService.UpdateStockItem:output_type -> supply_chain.UpdateStockItemResponse
-	29,  // 108: supply_chain.SupplyChainService.DeleteStockItem:output_type -> supply_chain.DeleteStockItemResponse
-	19,  // 109: supply_chain.SupplyChainService.ReduceStockItem:output_type -> supply_chain.ReduceStockItemResponse
-	21,  // 110: supply_chain.SupplyChainService.ManualStockUpdate:output_type -> supply_chain.ManualStockUpdateResponse
-	31,  // 111: supply_chain.SupplyChainService.ListStockItems:output_type -> supply_chain.ListStockItemsResponse
-	33,  // 112: supply_chain.SupplyChainService.GetStockLevels:output_type -> supply_chain.GetStockLevelsResponse
-	35,  // 113: supply_chain.SupplyChainService.GetExpiringItems:output_type -> supply_chain.GetExpiringItemsResponse
-	37,  // 114: supply_chain.SupplyChainService.GetItemsBelowReorderLevel:output_type -> supply_chain.GetItemsBelowReorderLevelResponse
-	39,  // 115: supply_chain.SupplyChainService.CreateStore:output_type -> supply_chain.CreateStoreResponse
-	41,  // 116: supply_chain.SupplyChainService.ListStores:output_type -> supply_chain.ListStoresResponse
-	43,  // 117: supply_chain.SupplyChainService.CreateSupplier:output_type -> supply_chain.CreateSupplierResponse
-	45,  // 118: supply_chain.SupplyChainService.ListSuppliers:output_type -> supply_chain.ListSuppliersResponse
-	47,  // 119: supply_chain.SupplyChainService.CreateRequisition:output_type -> supply_chain.CreateRequisitionResponse
-	49,  // 120: supply_chain.SupplyChainService.ApproveRequisition:output_type -> supply_chain.ApproveRequisitionResponse
-	51,  // 121: supply_chain.SupplyChainService.GetRequisition:output_type -> supply_chain.GetRequisitionResponse
-	53,  // 122: supply_chain.SupplyChainService.ListRequisitions:output_type -> supply_chain.ListRequisitionsResponse
-	55,  // 123: supply_chain.SupplyChainService.CreateLPO:output_type -> supply_chain.CreateLPOResponse
-	57,  // 124: supply_chain.SupplyChainService.ApproveLPO:output_type -> supply_chain.ApproveLPOResponse
-	59,  // 125: supply_chain.SupplyChainService.GetLPO:output_type -> supply_chain.GetLPOResponse
-	61,  // 126: supply_chain.SupplyChainService.ListLPOs:output_type -> supply_chain.ListLPOsResponse
-	63,  // 127: supply_chain.SupplyChainService.CreateGRN:output_type -> supply_chain.CreateGRNResponse
-	65,  // 128: supply_chain.SupplyChainService.PerformQualityCheck:output_type -> supply_chain.PerformQualityCheckResponse
-	67,  // 129: supply_chain.SupplyChainService.GetGRN:output_type -> supply_chain.GetGRNResponse
-	69,  // 130: supply_chain.SupplyChainService.ListGRNs:output_type -> supply_chain.ListGRNsResponse
-	71,  // 131: supply_chain.SupplyChainService.CreateStockAdjustment:output_type -> supply_chain.CreateStockAdjustmentResponse
-	77,  // 132: supply_chain.SupplyChainService.ListStockAdjustments:output_type -> supply_chain.ListStockAdjustmentsResponse
-	73,  // 133: supply_chain.SupplyChainService.ApproveStockAdjustment:output_type -> supply_chain.ApproveStockAdjustmentResponse
-	75,  // 134: supply_chain.SupplyChainService.GetStockAdjustment:output_type -> supply_chain.GetStockAdjustmentResponse
-	79,  // 135: supply_chain.SupplyChainService.CreateInterStoreTransfer:output_type -> supply_chain.CreateInterStoreTransferResponse
-	81,  // 136: supply_chain.SupplyChainService.ApproveInterStoreTransfer:output_type -> supply_chain.ApproveInterStoreTransferResponse
-	83,  // 137: supply_chain.SupplyChainService.ReceiveInterStoreTransfer:output_type -> supply_chain.ReceiveInterStoreTransferResponse
-	85,  // 138: supply_chain.SupplyChainService.GetInterStoreTransfer:output_type -> supply_chain.GetInterStoreTransferResponse
-	87,  // 139: supply_chain.SupplyChainService.ListInterStoreTransfers:output_type -> supply_chain.ListInterStoreTransfersResponse
-	89,  // 140: supply_chain.SupplyChainService.CreateCreditNote:output_type -> supply_chain.CreateCreditNoteResponse
-	91,  // 141: supply_chain.SupplyChainService.ApproveCreditNote:output_type -> supply_chain.ApproveCreditNoteResponse
-	93,  // 142: supply_chain.SupplyChainService.GetCreditNote:output_type -> supply_chain.GetCreditNoteResponse
-	95,  // 143: supply_chain.SupplyChainService.ListCreditNotes:output_type -> supply_chain.ListCreditNotesResponse
-	97,  // 144: supply_chain.SupplyChainService.CreatePriceList:output_type -> supply_chain.CreatePriceListResponse
-	99,  // 145: supply_chain.SupplyChainService.GetPriceList:output_type -> supply_chain.GetPriceListResponse
-	101, // 146: supply_chain.SupplyChainService.UpdatePriceList:output_type -> supply_chain.UpdatePriceListResponse
-	103, // 147: supply_chain.SupplyChainService.ListPriceLists:output_type -> supply_chain.ListPriceListsResponse
-	105, // 148: supply_chain.SupplyChainService.CreatePriceListItem:output_type -> supply_chain.CreatePriceListItemResponse
-	107, // 149: supply_chain.SupplyChainService.GetPriceListItem:output_type -> supply_chain.GetPriceListItemResponse
-	109, // 150: supply_chain.SupplyChainService.UpdatePriceListItem:output_type -> supply_chain.UpdatePriceListItemResponse
-	111, // 151: supply_chain.SupplyChainService.DeletePriceListItem:output_type -> supply_chain.DeletePriceListItemResponse
-	113, // 152: supply_chain.SupplyChainService.ListPriceListItems:output_type -> supply_chain.ListPriceListItemsResponse
-	115, // 153: supply_chain.SupplyChainService.GetPriceListItemsByPriceList:output_type -> supply_chain.GetPriceListItemsByPriceListResponse
-	117, // 154: supply_chain.SupplyChainService.CreateMedicalScheme:output_type -> supply_chain.CreateMedicalSchemeResponse
-	119, // 155: supply_chain.SupplyChainService.GetMedicalScheme:output_type -> supply_chain.GetMedicalSchemeResponse
-	121, // 156: supply_chain.SupplyChainService.UpdateMedicalScheme:output_type -> supply_chain.UpdateMedicalSchemeResponse
-	123, // 157: supply_chain.SupplyChainService.ListMedicalSchemes:output_type -> supply_chain.ListMedicalSchemesResponse
-	105, // [105:158] is the sub-list for method output_type
-	52,  // [52:105] is the sub-list for method input_type
+	119, // 103: supply_chain.SupplyChainService.GetMedicalSchemeByName:input_type -> supply_chain.GetMedicalSchemeByNameRequest
+	121, // 104: supply_chain.SupplyChainService.UpdateMedicalScheme:input_type -> supply_chain.UpdateMedicalSchemeRequest
+	123, // 105: supply_chain.SupplyChainService.ListMedicalSchemes:input_type -> supply_chain.ListMedicalSchemesRequest
+	23,  // 106: supply_chain.SupplyChainService.CreateStockItem:output_type -> supply_chain.CreateStockItemResponse
+	25,  // 107: supply_chain.SupplyChainService.GetStockItem:output_type -> supply_chain.GetStockItemResponse
+	27,  // 108: supply_chain.SupplyChainService.UpdateStockItem:output_type -> supply_chain.UpdateStockItemResponse
+	29,  // 109: supply_chain.SupplyChainService.DeleteStockItem:output_type -> supply_chain.DeleteStockItemResponse
+	19,  // 110: supply_chain.SupplyChainService.ReduceStockItem:output_type -> supply_chain.ReduceStockItemResponse
+	21,  // 111: supply_chain.SupplyChainService.ManualStockUpdate:output_type -> supply_chain.ManualStockUpdateResponse
+	31,  // 112: supply_chain.SupplyChainService.ListStockItems:output_type -> supply_chain.ListStockItemsResponse
+	33,  // 113: supply_chain.SupplyChainService.GetStockLevels:output_type -> supply_chain.GetStockLevelsResponse
+	35,  // 114: supply_chain.SupplyChainService.GetExpiringItems:output_type -> supply_chain.GetExpiringItemsResponse
+	37,  // 115: supply_chain.SupplyChainService.GetItemsBelowReorderLevel:output_type -> supply_chain.GetItemsBelowReorderLevelResponse
+	39,  // 116: supply_chain.SupplyChainService.CreateStore:output_type -> supply_chain.CreateStoreResponse
+	41,  // 117: supply_chain.SupplyChainService.ListStores:output_type -> supply_chain.ListStoresResponse
+	43,  // 118: supply_chain.SupplyChainService.CreateSupplier:output_type -> supply_chain.CreateSupplierResponse
+	45,  // 119: supply_chain.SupplyChainService.ListSuppliers:output_type -> supply_chain.ListSuppliersResponse
+	47,  // 120: supply_chain.SupplyChainService.CreateRequisition:output_type -> supply_chain.CreateRequisitionResponse
+	49,  // 121: supply_chain.SupplyChainService.ApproveRequisition:output_type -> supply_chain.ApproveRequisitionResponse
+	51,  // 122: supply_chain.SupplyChainService.GetRequisition:output_type -> supply_chain.GetRequisitionResponse
+	53,  // 123: supply_chain.SupplyChainService.ListRequisitions:output_type -> supply_chain.ListRequisitionsResponse
+	55,  // 124: supply_chain.SupplyChainService.CreateLPO:output_type -> supply_chain.CreateLPOResponse
+	57,  // 125: supply_chain.SupplyChainService.ApproveLPO:output_type -> supply_chain.ApproveLPOResponse
+	59,  // 126: supply_chain.SupplyChainService.GetLPO:output_type -> supply_chain.GetLPOResponse
+	61,  // 127: supply_chain.SupplyChainService.ListLPOs:output_type -> supply_chain.ListLPOsResponse
+	63,  // 128: supply_chain.SupplyChainService.CreateGRN:output_type -> supply_chain.CreateGRNResponse
+	65,  // 129: supply_chain.SupplyChainService.PerformQualityCheck:output_type -> supply_chain.PerformQualityCheckResponse
+	67,  // 130: supply_chain.SupplyChainService.GetGRN:output_type -> supply_chain.GetGRNResponse
+	69,  // 131: supply_chain.SupplyChainService.ListGRNs:output_type -> supply_chain.ListGRNsResponse
+	71,  // 132: supply_chain.SupplyChainService.CreateStockAdjustment:output_type -> supply_chain.CreateStockAdjustmentResponse
+	77,  // 133: supply_chain.SupplyChainService.ListStockAdjustments:output_type -> supply_chain.ListStockAdjustmentsResponse
+	73,  // 134: supply_chain.SupplyChainService.ApproveStockAdjustment:output_type -> supply_chain.ApproveStockAdjustmentResponse
+	75,  // 135: supply_chain.SupplyChainService.GetStockAdjustment:output_type -> supply_chain.GetStockAdjustmentResponse
+	79,  // 136: supply_chain.SupplyChainService.CreateInterStoreTransfer:output_type -> supply_chain.CreateInterStoreTransferResponse
+	81,  // 137: supply_chain.SupplyChainService.ApproveInterStoreTransfer:output_type -> supply_chain.ApproveInterStoreTransferResponse
+	83,  // 138: supply_chain.SupplyChainService.ReceiveInterStoreTransfer:output_type -> supply_chain.ReceiveInterStoreTransferResponse
+	85,  // 139: supply_chain.SupplyChainService.GetInterStoreTransfer:output_type -> supply_chain.GetInterStoreTransferResponse
+	87,  // 140: supply_chain.SupplyChainService.ListInterStoreTransfers:output_type -> supply_chain.ListInterStoreTransfersResponse
+	89,  // 141: supply_chain.SupplyChainService.CreateCreditNote:output_type -> supply_chain.CreateCreditNoteResponse
+	91,  // 142: supply_chain.SupplyChainService.ApproveCreditNote:output_type -> supply_chain.ApproveCreditNoteResponse
+	93,  // 143: supply_chain.SupplyChainService.GetCreditNote:output_type -> supply_chain.GetCreditNoteResponse
+	95,  // 144: supply_chain.SupplyChainService.ListCreditNotes:output_type -> supply_chain.ListCreditNotesResponse
+	97,  // 145: supply_chain.SupplyChainService.CreatePriceList:output_type -> supply_chain.CreatePriceListResponse
+	99,  // 146: supply_chain.SupplyChainService.GetPriceList:output_type -> supply_chain.GetPriceListResponse
+	101, // 147: supply_chain.SupplyChainService.UpdatePriceList:output_type -> supply_chain.UpdatePriceListResponse
+	103, // 148: supply_chain.SupplyChainService.ListPriceLists:output_type -> supply_chain.ListPriceListsResponse
+	105, // 149: supply_chain.SupplyChainService.CreatePriceListItem:output_type -> supply_chain.CreatePriceListItemResponse
+	107, // 150: supply_chain.SupplyChainService.GetPriceListItem:output_type -> supply_chain.GetPriceListItemResponse
+	109, // 151: supply_chain.SupplyChainService.UpdatePriceListItem:output_type -> supply_chain.UpdatePriceListItemResponse
+	111, // 152: supply_chain.SupplyChainService.DeletePriceListItem:output_type -> supply_chain.DeletePriceListItemResponse
+	113, // 153: supply_chain.SupplyChainService.ListPriceListItems:output_type -> supply_chain.ListPriceListItemsResponse
+	115, // 154: supply_chain.SupplyChainService.GetPriceListItemsByPriceList:output_type -> supply_chain.GetPriceListItemsByPriceListResponse
+	117, // 155: supply_chain.SupplyChainService.CreateMedicalScheme:output_type -> supply_chain.CreateMedicalSchemeResponse
+	120, // 156: supply_chain.SupplyChainService.GetMedicalScheme:output_type -> supply_chain.GetMedicalSchemeResponse
+	120, // 157: supply_chain.SupplyChainService.GetMedicalSchemeByName:output_type -> supply_chain.GetMedicalSchemeResponse
+	122, // 158: supply_chain.SupplyChainService.UpdateMedicalScheme:output_type -> supply_chain.UpdateMedicalSchemeResponse
+	124, // 159: supply_chain.SupplyChainService.ListMedicalSchemes:output_type -> supply_chain.ListMedicalSchemesResponse
+	106, // [106:160] is the sub-list for method output_type
+	52,  // [52:106] is the sub-list for method input_type
 	52,  // [52:52] is the sub-list for extension type_name
 	52,  // [52:52] is the sub-list for extension extendee
 	0,   // [0:52] is the sub-list for field type_name
@@ -8787,7 +8837,7 @@ func file_proto_supply_chain_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_supply_chain_service_proto_rawDesc), len(file_proto_supply_chain_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   124,
+			NumMessages:   125,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

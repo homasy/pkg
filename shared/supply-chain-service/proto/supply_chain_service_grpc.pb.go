@@ -72,6 +72,7 @@ const (
 	SupplyChainService_GetPriceListItemsByPriceList_FullMethodName = "/supply_chain.SupplyChainService/GetPriceListItemsByPriceList"
 	SupplyChainService_CreateMedicalScheme_FullMethodName          = "/supply_chain.SupplyChainService/CreateMedicalScheme"
 	SupplyChainService_GetMedicalScheme_FullMethodName             = "/supply_chain.SupplyChainService/GetMedicalScheme"
+	SupplyChainService_GetMedicalSchemeByName_FullMethodName       = "/supply_chain.SupplyChainService/GetMedicalSchemeByName"
 	SupplyChainService_UpdateMedicalScheme_FullMethodName          = "/supply_chain.SupplyChainService/UpdateMedicalScheme"
 	SupplyChainService_ListMedicalSchemes_FullMethodName           = "/supply_chain.SupplyChainService/ListMedicalSchemes"
 )
@@ -144,6 +145,7 @@ type SupplyChainServiceClient interface {
 	// Medical Scheme Management
 	CreateMedicalScheme(ctx context.Context, in *CreateMedicalSchemeRequest, opts ...grpc.CallOption) (*CreateMedicalSchemeResponse, error)
 	GetMedicalScheme(ctx context.Context, in *GetMedicalSchemeRequest, opts ...grpc.CallOption) (*GetMedicalSchemeResponse, error)
+	GetMedicalSchemeByName(ctx context.Context, in *GetMedicalSchemeByNameRequest, opts ...grpc.CallOption) (*GetMedicalSchemeResponse, error)
 	UpdateMedicalScheme(ctx context.Context, in *UpdateMedicalSchemeRequest, opts ...grpc.CallOption) (*UpdateMedicalSchemeResponse, error)
 	ListMedicalSchemes(ctx context.Context, in *ListMedicalSchemesRequest, opts ...grpc.CallOption) (*ListMedicalSchemesResponse, error)
 }
@@ -666,6 +668,16 @@ func (c *supplyChainServiceClient) GetMedicalScheme(ctx context.Context, in *Get
 	return out, nil
 }
 
+func (c *supplyChainServiceClient) GetMedicalSchemeByName(ctx context.Context, in *GetMedicalSchemeByNameRequest, opts ...grpc.CallOption) (*GetMedicalSchemeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMedicalSchemeResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_GetMedicalSchemeByName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *supplyChainServiceClient) UpdateMedicalScheme(ctx context.Context, in *UpdateMedicalSchemeRequest, opts ...grpc.CallOption) (*UpdateMedicalSchemeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateMedicalSchemeResponse)
@@ -754,6 +766,7 @@ type SupplyChainServiceServer interface {
 	// Medical Scheme Management
 	CreateMedicalScheme(context.Context, *CreateMedicalSchemeRequest) (*CreateMedicalSchemeResponse, error)
 	GetMedicalScheme(context.Context, *GetMedicalSchemeRequest) (*GetMedicalSchemeResponse, error)
+	GetMedicalSchemeByName(context.Context, *GetMedicalSchemeByNameRequest) (*GetMedicalSchemeResponse, error)
 	UpdateMedicalScheme(context.Context, *UpdateMedicalSchemeRequest) (*UpdateMedicalSchemeResponse, error)
 	ListMedicalSchemes(context.Context, *ListMedicalSchemesRequest) (*ListMedicalSchemesResponse, error)
 	mustEmbedUnimplementedSupplyChainServiceServer()
@@ -918,6 +931,9 @@ func (UnimplementedSupplyChainServiceServer) CreateMedicalScheme(context.Context
 }
 func (UnimplementedSupplyChainServiceServer) GetMedicalScheme(context.Context, *GetMedicalSchemeRequest) (*GetMedicalSchemeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMedicalScheme not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) GetMedicalSchemeByName(context.Context, *GetMedicalSchemeByNameRequest) (*GetMedicalSchemeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMedicalSchemeByName not implemented")
 }
 func (UnimplementedSupplyChainServiceServer) UpdateMedicalScheme(context.Context, *UpdateMedicalSchemeRequest) (*UpdateMedicalSchemeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateMedicalScheme not implemented")
@@ -1864,6 +1880,24 @@ func _SupplyChainService_GetMedicalScheme_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SupplyChainService_GetMedicalSchemeByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMedicalSchemeByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).GetMedicalSchemeByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_GetMedicalSchemeByName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).GetMedicalSchemeByName(ctx, req.(*GetMedicalSchemeByNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _SupplyChainService_UpdateMedicalScheme_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateMedicalSchemeRequest)
 	if err := dec(in); err != nil {
@@ -2110,6 +2144,10 @@ var SupplyChainService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetMedicalScheme",
 			Handler:    _SupplyChainService_GetMedicalScheme_Handler,
+		},
+		{
+			MethodName: "GetMedicalSchemeByName",
+			Handler:    _SupplyChainService_GetMedicalSchemeByName_Handler,
 		},
 		{
 			MethodName: "UpdateMedicalScheme",

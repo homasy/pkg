@@ -107,3 +107,16 @@ func (c *SupplyChainClient) GetMedicalScheme(ctx context.Context, schemeID int32
 
 	return c.client.GetMedicalScheme(ctx, req)
 }
+
+// GetMedicalSchemeByName gets a medical scheme by name
+func (c *SupplyChainClient) GetMedicalSchemeByName(ctx context.Context, name string) (*supplypb.GetMedicalSchemeResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+
+	req := &supplypb.GetMedicalSchemeByNameRequest{
+		Name: name,
+	}
+
+	return c.client.GetMedicalSchemeByName(ctx, req)
+}
