@@ -305,6 +305,17 @@ message ReduceStockItemResponse {
     double quantity = 2;
 }
 
+message ReduceStockFromStoreRequest {
+    string stock_item_id = 1;
+    string store_id = 2;
+    double quantity = 3;
+}
+
+message ReduceStockFromStoreResponse {
+    bool success = 1;
+    string message = 2;
+}
+
 // Request and Response messages for Manual Stock Update
 message ManualStockUpdateRequest {
     string store_id = 1;
@@ -349,6 +360,13 @@ service SupplyChainService {
   rpc ReduceStockItem (ReduceStockItemRequest) returns (ReduceStockItemResponse) {
     option (google.api.http) = {
       post: "/v1/stock-items/reduce"
+      body: "*"
+    };
+  }
+
+  rpc ReduceStockFromStore (ReduceStockFromStoreRequest) returns (ReduceStockFromStoreResponse) {
+    option (google.api.http) = {
+      post: "/v1/stock-items/reduce-from-store"
       body: "*"
     };
   }

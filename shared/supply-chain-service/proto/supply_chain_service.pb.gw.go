@@ -197,6 +197,30 @@ func local_request_SupplyChainService_ReduceStockItem_0(ctx context.Context, mar
 	return msg, metadata, err
 }
 
+func request_SupplyChainService_ReduceStockFromStore_0(ctx context.Context, marshaler runtime.Marshaler, client SupplyChainServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq ReduceStockFromStoreRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	msg, err := client.ReduceStockFromStore(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+}
+
+func local_request_SupplyChainService_ReduceStockFromStore_0(ctx context.Context, marshaler runtime.Marshaler, server SupplyChainServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq ReduceStockFromStoreRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	msg, err := server.ReduceStockFromStore(ctx, &protoReq)
+	return msg, metadata, err
+}
+
 func request_SupplyChainService_ManualStockUpdate_0(ctx context.Context, marshaler runtime.Marshaler, client SupplyChainServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq ManualStockUpdateRequest
@@ -1895,6 +1919,26 @@ func RegisterSupplyChainServiceHandlerServer(ctx context.Context, mux *runtime.S
 		}
 		forward_SupplyChainService_ReduceStockItem_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
+	mux.Handle(http.MethodPost, pattern_SupplyChainService_ReduceStockFromStore_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/supply_chain.SupplyChainService/ReduceStockFromStore", runtime.WithHTTPPathPattern("/v1/stock-items/reduce-from-store"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_SupplyChainService_ReduceStockFromStore_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_SupplyChainService_ReduceStockFromStore_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
 	mux.Handle(http.MethodPost, pattern_SupplyChainService_ManualStockUpdate_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -3000,6 +3044,23 @@ func RegisterSupplyChainServiceHandlerClient(ctx context.Context, mux *runtime.S
 		}
 		forward_SupplyChainService_ReduceStockItem_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
+	mux.Handle(http.MethodPost, pattern_SupplyChainService_ReduceStockFromStore_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/supply_chain.SupplyChainService/ReduceStockFromStore", runtime.WithHTTPPathPattern("/v1/stock-items/reduce-from-store"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_SupplyChainService_ReduceStockFromStore_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_SupplyChainService_ReduceStockFromStore_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
 	mux.Handle(http.MethodPost, pattern_SupplyChainService_ManualStockUpdate_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -3842,6 +3903,7 @@ var (
 	pattern_SupplyChainService_UpdateStockItem_0              = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "stock-items", "id"}, ""))
 	pattern_SupplyChainService_DeleteStockItem_0              = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "stock-items", "id"}, ""))
 	pattern_SupplyChainService_ReduceStockItem_0              = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "stock-items", "reduce"}, ""))
+	pattern_SupplyChainService_ReduceStockFromStore_0         = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "stock-items", "reduce-from-store"}, ""))
 	pattern_SupplyChainService_ManualStockUpdate_0            = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "stock-items", "manual-update"}, ""))
 	pattern_SupplyChainService_ListStockItems_0               = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "stock-items"}, ""))
 	pattern_SupplyChainService_GetStockLevels_0               = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "stock-levels"}, ""))
@@ -3899,6 +3961,7 @@ var (
 	forward_SupplyChainService_UpdateStockItem_0              = runtime.ForwardResponseMessage
 	forward_SupplyChainService_DeleteStockItem_0              = runtime.ForwardResponseMessage
 	forward_SupplyChainService_ReduceStockItem_0              = runtime.ForwardResponseMessage
+	forward_SupplyChainService_ReduceStockFromStore_0         = runtime.ForwardResponseMessage
 	forward_SupplyChainService_ManualStockUpdate_0            = runtime.ForwardResponseMessage
 	forward_SupplyChainService_ListStockItems_0               = runtime.ForwardResponseMessage
 	forward_SupplyChainService_GetStockLevels_0               = runtime.ForwardResponseMessage

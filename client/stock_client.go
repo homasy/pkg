@@ -107,6 +107,14 @@ func (c *StockClient) ReduceStockItem(ctx context.Context, req *supplypb.ReduceS
 	return c.client.ReduceStockItem(ctx, req)
 }
 
+func (c *StockClient) ReduceStockFromStore(ctx context.Context, req *supplypb.ReduceStockFromStoreRequest) (*supplypb.ReduceStockFromStoreResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+
+	return c.client.ReduceStockFromStore(ctx, req)
+}
+
 // ListStockItems lists stock items
 func (c *StockClient) ListStockItems(ctx context.Context, req *supplypb.ListStockItemsRequest) (*supplypb.ListStockItemsResponse, error) {
 	if err := c.Connect(); err != nil {
@@ -146,6 +154,14 @@ func (c *StockClient) UpdateStockItem(ctx context.Context, req *supplypb.UpdateS
 	}
 
 	return c.client.UpdateStockItem(ctx, req)
+}
+
+func (c *StockClient) CreateRequisition(ctx context.Context, req *supplypb.CreateRequisitionRequest) (*supplypb.CreateRequisitionResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+
+	return c.client.CreateRequisition(ctx, req)
 }
 
 // GetMedicalScheme retrieves a medical scheme by ID

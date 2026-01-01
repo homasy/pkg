@@ -655,6 +655,7 @@ message DeleteStockRequestItemResponse{
 // stock requests messages
 message CreateStockRequestRequest {
   int32 requested_by = 1;
+  int32 store_id = 2;
 }
 
 message CreateStockRequestResponse {
@@ -675,6 +676,7 @@ message GetStockRequestResponse {
   string request_status = 6;
   string request_date = 7;
   string approved_date = 8;
+  int32 store_id = 9;
 }
 
 message ListStockRequestsRequest {}

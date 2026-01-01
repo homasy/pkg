@@ -2088,6 +2088,7 @@ func (x *DeleteStockRequestItemResponse) GetMessage() string {
 type CreateStockRequestRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RequestedBy   int32                  `protobuf:"varint,1,opt,name=requested_by,json=requestedBy,proto3" json:"requested_by,omitempty"`
+	StoreId       int32                  `protobuf:"varint,2,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2125,6 +2126,13 @@ func (*CreateStockRequestRequest) Descriptor() ([]byte, []int) {
 func (x *CreateStockRequestRequest) GetRequestedBy() int32 {
 	if x != nil {
 		return x.RequestedBy
+	}
+	return 0
+}
+
+func (x *CreateStockRequestRequest) GetStoreId() int32 {
+	if x != nil {
+		return x.StoreId
 	}
 	return 0
 }
@@ -2235,6 +2243,7 @@ type GetStockRequestResponse struct {
 	RequestStatus string                 `protobuf:"bytes,6,opt,name=request_status,json=requestStatus,proto3" json:"request_status,omitempty"`
 	RequestDate   string                 `protobuf:"bytes,7,opt,name=request_date,json=requestDate,proto3" json:"request_date,omitempty"`
 	ApprovedDate  string                 `protobuf:"bytes,8,opt,name=approved_date,json=approvedDate,proto3" json:"approved_date,omitempty"`
+	StoreId       int32                  `protobuf:"varint,9,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2323,6 +2332,13 @@ func (x *GetStockRequestResponse) GetApprovedDate() string {
 		return x.ApprovedDate
 	}
 	return ""
+}
+
+func (x *GetStockRequestResponse) GetStoreId() int32 {
+	if x != nil {
+		return x.StoreId
+	}
+	return 0
 }
 
 type ListStockRequestsRequest struct {
@@ -8676,16 +8692,17 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\"T\n" +
 	"\x1eDeleteStockRequestItemResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\">\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"Y\n" +
 	"\x19CreateStockRequestRequest\x12!\n" +
-	"\frequested_by\x18\x01 \x01(\x05R\vrequestedBy\"U\n" +
+	"\frequested_by\x18\x01 \x01(\x05R\vrequestedBy\x12\x19\n" +
+	"\bstore_id\x18\x02 \x01(\x05R\astoreId\"U\n" +
 	"\x1aCreateStockRequestResponse\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x01 \x01(\x05R\trequestId\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"7\n" +
 	"\x16GetStockRequestRequest\x12\x1d\n" +
 	"\n" +
-	"request_id\x18\x01 \x01(\x05R\trequestId\"\xb7\x02\n" +
+	"request_id\x18\x01 \x01(\x05R\trequestId\"\xd2\x02\n" +
 	"\x17GetStockRequestResponse\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x01 \x01(\x05R\trequestId\x12!\n" +
@@ -8696,7 +8713,8 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\rapprover_name\x18\x05 \x01(\tR\fapproverName\x12%\n" +
 	"\x0erequest_status\x18\x06 \x01(\tR\rrequestStatus\x12!\n" +
 	"\frequest_date\x18\a \x01(\tR\vrequestDate\x12#\n" +
-	"\rapproved_date\x18\b \x01(\tR\fapprovedDate\"\x1a\n" +
+	"\rapproved_date\x18\b \x01(\tR\fapprovedDate\x12\x19\n" +
+	"\bstore_id\x18\t \x01(\x05R\astoreId\"\x1a\n" +
 	"\x18ListStockRequestsRequest\"m\n" +
 	"\x19ListStockRequestsResponse\x12P\n" +
 	"\x0estock_requests\x18\x01 \x03(\v2).pharmacy_service.GetStockRequestResponseR\rstockRequests\"\\\n" +
