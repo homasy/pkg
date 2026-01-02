@@ -17,7 +17,6 @@ message StockItem {
   string sku = 4;
   string barcode = 5;
   string unit_of_measure = 6;
-  double current_quantity = 7;
   double reorder_level = 8;
   double minimum_level = 9;
   double maximum_level = 10;
@@ -31,6 +30,7 @@ message StockItem {
   double markup_percentage = 18; // Markup percentage for calculating unit_price from unit_cost
   string created_at = 19;
   string updated_at = 20;
+  double quantity_in_store = 21;
 }
 
 // Message for a store location
@@ -183,7 +183,6 @@ message StockAdjustment {
 message StockAdjustmentItem {
   string item_id = 1;
   string item_name = 2;
-  double current_quantity = 3;
   double adjusted_quantity = 4;
   string unit_of_measure = 5;
   string notes = 6;
@@ -218,7 +217,6 @@ message InterStoreTransfer {
 message InterStoreTransferItem {
   string item_id = 1;
   string item_name = 2;
-  double current_quantity = 3;
   double transfer_quantity = 4;
   double received_quantity = 5;
   string unit_of_measure = 6;
@@ -703,6 +701,9 @@ service SupplyChainService {
 // Request and Response messages for Stock Items
 message CreateStockItemRequest {
   StockItem item = 1;
+  string store_id = 2;
+  double initial_quantity = 3;
+  string bin_location = 4;
 }
 
 message CreateStockItemResponse {
@@ -711,6 +712,7 @@ message CreateStockItemResponse {
 
 message GetStockItemRequest {
   string id = 1;
+  string store_id = 2;
 }
 
 message GetStockItemResponse {
@@ -737,6 +739,7 @@ message DeleteStockItemResponse {
 message ListStockItemsRequest {
   string filter = 1;
   string category = 2;
+  string store_id = 3;
 }
 
 message ListStockItemsResponse {

@@ -827,6 +827,8 @@ message CreateMedicationRequest {
   float cost_price = 4;
   float markup_percentage = 5;
   string bin_location = 7;
+  int32 store_id = 8;
+  int32 initial_quantity = 9;
 }
 
 message CreateMedicationResponse {
@@ -890,7 +892,6 @@ message Medication {
   float selling_price = 7;
   string bin_location = 9;
   string created_at = 10;
-  int32 stock_quantity = 11;
 }
 
 // ----------- Medication Category Messages -----------

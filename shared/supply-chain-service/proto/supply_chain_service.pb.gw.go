@@ -59,6 +59,8 @@ func local_request_SupplyChainService_CreateStockItem_0(ctx context.Context, mar
 	return msg, metadata, err
 }
 
+var filter_SupplyChainService_GetStockItem_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+
 func request_SupplyChainService_GetStockItem_0(ctx context.Context, marshaler runtime.Marshaler, client SupplyChainServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq GetStockItemRequest
@@ -72,6 +74,12 @@ func request_SupplyChainService_GetStockItem_0(ctx context.Context, marshaler ru
 	protoReq.Id, err = runtime.String(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
+	}
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_SupplyChainService_GetStockItem_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 	msg, err := client.GetStockItem(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
@@ -90,6 +98,12 @@ func local_request_SupplyChainService_GetStockItem_0(ctx context.Context, marsha
 	protoReq.Id, err = runtime.String(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
+	}
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_SupplyChainService_GetStockItem_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 	msg, err := server.GetStockItem(ctx, &protoReq)
 	return msg, metadata, err

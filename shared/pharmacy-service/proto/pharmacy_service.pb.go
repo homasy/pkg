@@ -3662,6 +3662,8 @@ type CreateMedicationRequest struct {
 	CostPrice        float32                `protobuf:"fixed32,4,opt,name=cost_price,json=costPrice,proto3" json:"cost_price,omitempty"`
 	MarkupPercentage float32                `protobuf:"fixed32,5,opt,name=markup_percentage,json=markupPercentage,proto3" json:"markup_percentage,omitempty"`
 	BinLocation      string                 `protobuf:"bytes,7,opt,name=bin_location,json=binLocation,proto3" json:"bin_location,omitempty"`
+	StoreId          int32                  `protobuf:"varint,8,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
+	InitialQuantity  int32                  `protobuf:"varint,9,opt,name=initial_quantity,json=initialQuantity,proto3" json:"initial_quantity,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -3736,6 +3738,20 @@ func (x *CreateMedicationRequest) GetBinLocation() string {
 		return x.BinLocation
 	}
 	return ""
+}
+
+func (x *CreateMedicationRequest) GetStoreId() int32 {
+	if x != nil {
+		return x.StoreId
+	}
+	return 0
+}
+
+func (x *CreateMedicationRequest) GetInitialQuantity() int32 {
+	if x != nil {
+		return x.InitialQuantity
+	}
+	return 0
 }
 
 type CreateMedicationResponse struct {
@@ -4273,7 +4289,6 @@ type Medication struct {
 	SellingPrice     float32                `protobuf:"fixed32,7,opt,name=selling_price,json=sellingPrice,proto3" json:"selling_price,omitempty"`
 	BinLocation      string                 `protobuf:"bytes,9,opt,name=bin_location,json=binLocation,proto3" json:"bin_location,omitempty"`
 	CreatedAt        string                 `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	StockQuantity    int32                  `protobuf:"varint,11,opt,name=stock_quantity,json=stockQuantity,proto3" json:"stock_quantity,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -4369,13 +4384,6 @@ func (x *Medication) GetCreatedAt() string {
 		return x.CreatedAt
 	}
 	return ""
-}
-
-func (x *Medication) GetStockQuantity() int32 {
-	if x != nil {
-		return x.StockQuantity
-	}
-	return 0
 }
 
 type CreateMedicationCategoryRequest struct {
@@ -8796,7 +8804,7 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"doctorName\"\"\n" +
 	" ListPrescriptionRequestsRequests\"~\n" +
 	" ListPrescriptionRequestsResponse\x12Z\n" +
-	"\x15prescription_requests\x18\x01 \x03(\v2%.pharmacy_service.PrescriptionRequestR\x14prescriptionRequests\"\xf3\x01\n" +
+	"\x15prescription_requests\x18\x01 \x03(\v2%.pharmacy_service.PrescriptionRequestR\x14prescriptionRequests\"\xb9\x02\n" +
 	"\x17CreateMedicationRequest\x12'\n" +
 	"\x0fmedication_name\x18\x01 \x01(\tR\x0emedicationName\x12\x1f\n" +
 	"\vcategory_id\x18\x02 \x01(\x05R\n" +
@@ -8806,7 +8814,9 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\n" +
 	"cost_price\x18\x04 \x01(\x02R\tcostPrice\x12+\n" +
 	"\x11markup_percentage\x18\x05 \x01(\x02R\x10markupPercentage\x12!\n" +
-	"\fbin_location\x18\a \x01(\tR\vbinLocation\"Y\n" +
+	"\fbin_location\x18\a \x01(\tR\vbinLocation\x12\x19\n" +
+	"\bstore_id\x18\b \x01(\x05R\astoreId\x12)\n" +
+	"\x10initial_quantity\x18\t \x01(\x05R\x0finitialQuantity\"Y\n" +
 	"\x18CreateMedicationResponse\x12#\n" +
 	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\";\n" +
@@ -8848,7 +8858,7 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"\x18\n" +
 	"\x16ListMedicationsRequest\"Y\n" +
 	"\x17ListMedicationsResponse\x12>\n" +
-	"\vmedications\x18\x01 \x03(\v2\x1c.pharmacy_service.MedicationR\vmedications\"\xf6\x02\n" +
+	"\vmedications\x18\x01 \x03(\v2\x1c.pharmacy_service.MedicationR\vmedications\"\xcf\x02\n" +
 	"\n" +
 	"Medication\x12#\n" +
 	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\x12'\n" +
@@ -8864,8 +8874,7 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\fbin_location\x18\t \x01(\tR\vbinLocation\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\n" +
-	" \x01(\tR\tcreatedAt\x12%\n" +
-	"\x0estock_quantity\x18\v \x01(\x05R\rstockQuantity\"F\n" +
+	" \x01(\tR\tcreatedAt\"F\n" +
 	"\x1fCreateMedicationCategoryRequest\x12#\n" +
 	"\rcategory_name\x18\x01 \x01(\tR\fcategoryName\"]\n" +
 	" CreateMedicationCategoryResponse\x12\x1f\n" +

@@ -34,7 +34,6 @@ type StockItem struct {
 	Sku              string                 `protobuf:"bytes,4,opt,name=sku,proto3" json:"sku,omitempty"`
 	Barcode          string                 `protobuf:"bytes,5,opt,name=barcode,proto3" json:"barcode,omitempty"`
 	UnitOfMeasure    string                 `protobuf:"bytes,6,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
-	CurrentQuantity  float64                `protobuf:"fixed64,7,opt,name=current_quantity,json=currentQuantity,proto3" json:"current_quantity,omitempty"`
 	ReorderLevel     float64                `protobuf:"fixed64,8,opt,name=reorder_level,json=reorderLevel,proto3" json:"reorder_level,omitempty"`
 	MinimumLevel     float64                `protobuf:"fixed64,9,opt,name=minimum_level,json=minimumLevel,proto3" json:"minimum_level,omitempty"`
 	MaximumLevel     float64                `protobuf:"fixed64,10,opt,name=maximum_level,json=maximumLevel,proto3" json:"maximum_level,omitempty"`
@@ -48,6 +47,7 @@ type StockItem struct {
 	MarkupPercentage float64                `protobuf:"fixed64,18,opt,name=markup_percentage,json=markupPercentage,proto3" json:"markup_percentage,omitempty"` // Markup percentage for calculating unit_price from unit_cost
 	CreatedAt        string                 `protobuf:"bytes,19,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	UpdatedAt        string                 `protobuf:"bytes,20,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	QuantityInStore  float64                `protobuf:"fixed64,21,opt,name=quantity_in_store,json=quantityInStore,proto3" json:"quantity_in_store,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -122,13 +122,6 @@ func (x *StockItem) GetUnitOfMeasure() string {
 		return x.UnitOfMeasure
 	}
 	return ""
-}
-
-func (x *StockItem) GetCurrentQuantity() float64 {
-	if x != nil {
-		return x.CurrentQuantity
-	}
-	return 0
 }
 
 func (x *StockItem) GetReorderLevel() float64 {
@@ -220,6 +213,13 @@ func (x *StockItem) GetUpdatedAt() string {
 		return x.UpdatedAt
 	}
 	return ""
+}
+
+func (x *StockItem) GetQuantityInStore() float64 {
+	if x != nil {
+		return x.QuantityInStore
+	}
+	return 0
 }
 
 // Message for a store location
@@ -1440,7 +1440,6 @@ type StockAdjustmentItem struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	ItemId           string                 `protobuf:"bytes,1,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	ItemName         string                 `protobuf:"bytes,2,opt,name=item_name,json=itemName,proto3" json:"item_name,omitempty"`
-	CurrentQuantity  float64                `protobuf:"fixed64,3,opt,name=current_quantity,json=currentQuantity,proto3" json:"current_quantity,omitempty"`
 	AdjustedQuantity float64                `protobuf:"fixed64,4,opt,name=adjusted_quantity,json=adjustedQuantity,proto3" json:"adjusted_quantity,omitempty"`
 	UnitOfMeasure    string                 `protobuf:"bytes,5,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
 	Notes            string                 `protobuf:"bytes,6,opt,name=notes,proto3" json:"notes,omitempty"`
@@ -1490,13 +1489,6 @@ func (x *StockAdjustmentItem) GetItemName() string {
 		return x.ItemName
 	}
 	return ""
-}
-
-func (x *StockAdjustmentItem) GetCurrentQuantity() float64 {
-	if x != nil {
-		return x.CurrentQuantity
-	}
-	return 0
 }
 
 func (x *StockAdjustmentItem) GetAdjustedQuantity() float64 {
@@ -1730,7 +1722,6 @@ type InterStoreTransferItem struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	ItemId           string                 `protobuf:"bytes,1,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	ItemName         string                 `protobuf:"bytes,2,opt,name=item_name,json=itemName,proto3" json:"item_name,omitempty"`
-	CurrentQuantity  float64                `protobuf:"fixed64,3,opt,name=current_quantity,json=currentQuantity,proto3" json:"current_quantity,omitempty"`
 	TransferQuantity float64                `protobuf:"fixed64,4,opt,name=transfer_quantity,json=transferQuantity,proto3" json:"transfer_quantity,omitempty"`
 	ReceivedQuantity float64                `protobuf:"fixed64,5,opt,name=received_quantity,json=receivedQuantity,proto3" json:"received_quantity,omitempty"`
 	UnitOfMeasure    string                 `protobuf:"bytes,6,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
@@ -1781,13 +1772,6 @@ func (x *InterStoreTransferItem) GetItemName() string {
 		return x.ItemName
 	}
 	return ""
-}
-
-func (x *InterStoreTransferItem) GetCurrentQuantity() float64 {
-	if x != nil {
-		return x.CurrentQuantity
-	}
-	return 0
 }
 
 func (x *InterStoreTransferItem) GetTransferQuantity() float64 {
@@ -2763,10 +2747,13 @@ func (x *ManualStockUpdateResponse) GetMessage() string {
 
 // Request and Response messages for Stock Items
 type CreateStockItemRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Item          *StockItem             `protobuf:"bytes,1,opt,name=item,proto3" json:"item,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Item            *StockItem             `protobuf:"bytes,1,opt,name=item,proto3" json:"item,omitempty"`
+	StoreId         string                 `protobuf:"bytes,2,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
+	InitialQuantity float64                `protobuf:"fixed64,3,opt,name=initial_quantity,json=initialQuantity,proto3" json:"initial_quantity,omitempty"`
+	BinLocation     string                 `protobuf:"bytes,4,opt,name=bin_location,json=binLocation,proto3" json:"bin_location,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *CreateStockItemRequest) Reset() {
@@ -2804,6 +2791,27 @@ func (x *CreateStockItemRequest) GetItem() *StockItem {
 		return x.Item
 	}
 	return nil
+}
+
+func (x *CreateStockItemRequest) GetStoreId() string {
+	if x != nil {
+		return x.StoreId
+	}
+	return ""
+}
+
+func (x *CreateStockItemRequest) GetInitialQuantity() float64 {
+	if x != nil {
+		return x.InitialQuantity
+	}
+	return 0
+}
+
+func (x *CreateStockItemRequest) GetBinLocation() string {
+	if x != nil {
+		return x.BinLocation
+	}
+	return ""
 }
 
 type CreateStockItemResponse struct {
@@ -2853,6 +2861,7 @@ func (x *CreateStockItemResponse) GetId() string {
 type GetStockItemRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	StoreId       string                 `protobuf:"bytes,2,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2890,6 +2899,13 @@ func (*GetStockItemRequest) Descriptor() ([]byte, []int) {
 func (x *GetStockItemRequest) GetId() string {
 	if x != nil {
 		return x.Id
+	}
+	return ""
+}
+
+func (x *GetStockItemRequest) GetStoreId() string {
+	if x != nil {
+		return x.StoreId
 	}
 	return ""
 }
@@ -3126,6 +3142,7 @@ type ListStockItemsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Filter        string                 `protobuf:"bytes,1,opt,name=filter,proto3" json:"filter,omitempty"`
 	Category      string                 `protobuf:"bytes,2,opt,name=category,proto3" json:"category,omitempty"`
+	StoreId       string                 `protobuf:"bytes,3,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3170,6 +3187,13 @@ func (x *ListStockItemsRequest) GetFilter() string {
 func (x *ListStockItemsRequest) GetCategory() string {
 	if x != nil {
 		return x.Category
+	}
+	return ""
+}
+
+func (x *ListStockItemsRequest) GetStoreId() string {
+	if x != nil {
+		return x.StoreId
 	}
 	return ""
 }
@@ -7949,15 +7973,14 @@ var File_proto_supply_chain_service_proto protoreflect.FileDescriptor
 
 const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\n" +
-	" proto/supply_chain_service.proto\x12\fsupply_chain\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8a\x05\n" +
+	" proto/supply_chain_service.proto\x12\fsupply_chain\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8b\x05\n" +
 	"\tStockItem\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x10\n" +
 	"\x03sku\x18\x04 \x01(\tR\x03sku\x12\x18\n" +
 	"\abarcode\x18\x05 \x01(\tR\abarcode\x12&\n" +
-	"\x0funit_of_measure\x18\x06 \x01(\tR\runitOfMeasure\x12)\n" +
-	"\x10current_quantity\x18\a \x01(\x01R\x0fcurrentQuantity\x12#\n" +
+	"\x0funit_of_measure\x18\x06 \x01(\tR\runitOfMeasure\x12#\n" +
 	"\rreorder_level\x18\b \x01(\x01R\freorderLevel\x12#\n" +
 	"\rminimum_level\x18\t \x01(\x01R\fminimumLevel\x12#\n" +
 	"\rmaximum_level\x18\n" +
@@ -7974,7 +7997,8 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x13 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\x14 \x01(\tR\tupdatedAt\"\xb6\x01\n" +
+	"updated_at\x18\x14 \x01(\tR\tupdatedAt\x12*\n" +
+	"\x11quantity_in_store\x18\x15 \x01(\x01R\x0fquantityInStore\"\xb6\x01\n" +
 	"\x05Store\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1a\n" +
@@ -8127,11 +8151,10 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"created_at\x18\v \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
 	"updated_at\x18\f \x01(\tR\tupdatedAt\x127\n" +
-	"\x05items\x18\r \x03(\v2!.supply_chain.StockAdjustmentItemR\x05items\"\xe1\x01\n" +
+	"\x05items\x18\r \x03(\v2!.supply_chain.StockAdjustmentItemR\x05items\"\xb6\x01\n" +
 	"\x13StockAdjustmentItem\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\tR\x06itemId\x12\x1b\n" +
-	"\titem_name\x18\x02 \x01(\tR\bitemName\x12)\n" +
-	"\x10current_quantity\x18\x03 \x01(\x01R\x0fcurrentQuantity\x12+\n" +
+	"\titem_name\x18\x02 \x01(\tR\bitemName\x12+\n" +
 	"\x11adjusted_quantity\x18\x04 \x01(\x01R\x10adjustedQuantity\x12&\n" +
 	"\x0funit_of_measure\x18\x05 \x01(\tR\runitOfMeasure\x12\x14\n" +
 	"\x05notes\x18\x06 \x01(\tR\x05notes\"\xae\x06\n" +
@@ -8161,11 +8184,10 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"created_at\x18\x13 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
 	"updated_at\x18\x14 \x01(\tR\tupdatedAt\x12:\n" +
-	"\x05items\x18\x15 \x03(\v2$.supply_chain.InterStoreTransferItemR\x05items\"\x91\x02\n" +
+	"\x05items\x18\x15 \x03(\v2$.supply_chain.InterStoreTransferItemR\x05items\"\xe6\x01\n" +
 	"\x16InterStoreTransferItem\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\tR\x06itemId\x12\x1b\n" +
-	"\titem_name\x18\x02 \x01(\tR\bitemName\x12)\n" +
-	"\x10current_quantity\x18\x03 \x01(\x01R\x0fcurrentQuantity\x12+\n" +
+	"\titem_name\x18\x02 \x01(\tR\bitemName\x12+\n" +
 	"\x11transfer_quantity\x18\x04 \x01(\x01R\x10transferQuantity\x12+\n" +
 	"\x11received_quantity\x18\x05 \x01(\x01R\x10receivedQuantity\x12&\n" +
 	"\x0funit_of_measure\x18\x06 \x01(\tR\runitOfMeasure\x12\x14\n" +
@@ -8262,13 +8284,17 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\bquantity\x18\x04 \x01(\x01R\bquantity\"O\n" +
 	"\x19ManualStockUpdateResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\"E\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\xae\x01\n" +
 	"\x16CreateStockItemRequest\x12+\n" +
-	"\x04item\x18\x01 \x01(\v2\x17.supply_chain.StockItemR\x04item\")\n" +
+	"\x04item\x18\x01 \x01(\v2\x17.supply_chain.StockItemR\x04item\x12\x19\n" +
+	"\bstore_id\x18\x02 \x01(\tR\astoreId\x12)\n" +
+	"\x10initial_quantity\x18\x03 \x01(\x01R\x0finitialQuantity\x12!\n" +
+	"\fbin_location\x18\x04 \x01(\tR\vbinLocation\")\n" +
 	"\x17CreateStockItemResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"%\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"@\n" +
 	"\x13GetStockItemRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"C\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x19\n" +
+	"\bstore_id\x18\x02 \x01(\tR\astoreId\"C\n" +
 	"\x14GetStockItemResponse\x12+\n" +
 	"\x04item\x18\x01 \x01(\v2\x17.supply_chain.StockItemR\x04item\"U\n" +
 	"\x16UpdateStockItemRequest\x12\x0e\n" +
@@ -8279,10 +8305,11 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\x16DeleteStockItemRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"3\n" +
 	"\x17DeleteStockItemResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\"K\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"f\n" +
 	"\x15ListStockItemsRequest\x12\x16\n" +
 	"\x06filter\x18\x01 \x01(\tR\x06filter\x12\x1a\n" +
-	"\bcategory\x18\x02 \x01(\tR\bcategory\"G\n" +
+	"\bcategory\x18\x02 \x01(\tR\bcategory\x12\x19\n" +
+	"\bstore_id\x18\x03 \x01(\tR\astoreId\"G\n" +
 	"\x16ListStockItemsResponse\x12-\n" +
 	"\x05items\x18\x01 \x03(\v2\x17.supply_chain.StockItemR\x05items\"2\n" +
 	"\x15GetStockLevelsRequest\x12\x19\n" +

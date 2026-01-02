@@ -32,7 +32,10 @@ func NewMySQLConnection(cfg DBConfig) (*sql.DB, error) {
 		return nil, fmt.Errorf("failed to ping database: %v", err)
 	}
 
-	db.SetConnMaxLifetime(time.Hour)
+	db.SetConnMaxLifetime(5 * time.Minute)
+	db.SetConnMaxIdleTime(2 * time.Minute)
+	db.SetMaxOpenConns(25)
+	db.SetMaxIdleConns(10)
 
 	log.Println("Successfully connected to database")
 	return db, nil
