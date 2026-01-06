@@ -39,11 +39,6 @@ const (
 	PharmacyService_ListPrescriptionItems_FullMethodName        = "/pharmacy_service.PharmacyService/ListPrescriptionItems"
 	PharmacyService_UpdatePrescriptionItem_FullMethodName       = "/pharmacy_service.PharmacyService/UpdatePrescriptionItem"
 	PharmacyService_DeletePrescriptionItem_FullMethodName       = "/pharmacy_service.PharmacyService/DeletePrescriptionItem"
-	PharmacyService_CreateStore_FullMethodName                  = "/pharmacy_service.PharmacyService/CreateStore"
-	PharmacyService_GetStore_FullMethodName                     = "/pharmacy_service.PharmacyService/GetStore"
-	PharmacyService_ListStores_FullMethodName                   = "/pharmacy_service.PharmacyService/ListStores"
-	PharmacyService_UpdateStore_FullMethodName                  = "/pharmacy_service.PharmacyService/UpdateStore"
-	PharmacyService_DeleteStore_FullMethodName                  = "/pharmacy_service.PharmacyService/DeleteStore"
 	PharmacyService_CreateStockRequest_FullMethodName           = "/pharmacy_service.PharmacyService/CreateStockRequest"
 	PharmacyService_GetStockRequest_FullMethodName              = "/pharmacy_service.PharmacyService/GetStockRequest"
 	PharmacyService_ListStockRequests_FullMethodName            = "/pharmacy_service.PharmacyService/ListStockRequests"
@@ -114,12 +109,6 @@ type PharmacyServiceClient interface {
 	ListPrescriptionItems(ctx context.Context, in *ListPrescriptionItemsRequest, opts ...grpc.CallOption) (*ListPrescriptionItemsResponse, error)
 	UpdatePrescriptionItem(ctx context.Context, in *UpdatePrescriptionItemRequest, opts ...grpc.CallOption) (*UpdatePrescriptionItemResponse, error)
 	DeletePrescriptionItem(ctx context.Context, in *DeletePrescriptionItemRequest, opts ...grpc.CallOption) (*DeletePrescriptionItemResponse, error)
-	// stores
-	CreateStore(ctx context.Context, in *CreateStoreRequest, opts ...grpc.CallOption) (*CreateStoreResponse, error)
-	GetStore(ctx context.Context, in *GetStoreRequest, opts ...grpc.CallOption) (*GetStoreResponse, error)
-	ListStores(ctx context.Context, in *ListStoresRequest, opts ...grpc.CallOption) (*ListStoresResponse, error)
-	UpdateStore(ctx context.Context, in *UpdateStoreRequest, opts ...grpc.CallOption) (*UpdateStoreResponse, error)
-	DeleteStore(ctx context.Context, in *DeleteStoreRequest, opts ...grpc.CallOption) (*DeleteStoreResponse, error)
 	// stock requests
 	CreateStockRequest(ctx context.Context, in *CreateStockRequestRequest, opts ...grpc.CallOption) (*CreateStockRequestResponse, error)
 	GetStockRequest(ctx context.Context, in *GetStockRequestRequest, opts ...grpc.CallOption) (*GetStockRequestResponse, error)
@@ -361,56 +350,6 @@ func (c *pharmacyServiceClient) DeletePrescriptionItem(ctx context.Context, in *
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DeletePrescriptionItemResponse)
 	err := c.cc.Invoke(ctx, PharmacyService_DeletePrescriptionItem_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pharmacyServiceClient) CreateStore(ctx context.Context, in *CreateStoreRequest, opts ...grpc.CallOption) (*CreateStoreResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateStoreResponse)
-	err := c.cc.Invoke(ctx, PharmacyService_CreateStore_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pharmacyServiceClient) GetStore(ctx context.Context, in *GetStoreRequest, opts ...grpc.CallOption) (*GetStoreResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStoreResponse)
-	err := c.cc.Invoke(ctx, PharmacyService_GetStore_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pharmacyServiceClient) ListStores(ctx context.Context, in *ListStoresRequest, opts ...grpc.CallOption) (*ListStoresResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListStoresResponse)
-	err := c.cc.Invoke(ctx, PharmacyService_ListStores_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pharmacyServiceClient) UpdateStore(ctx context.Context, in *UpdateStoreRequest, opts ...grpc.CallOption) (*UpdateStoreResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateStoreResponse)
-	err := c.cc.Invoke(ctx, PharmacyService_UpdateStore_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pharmacyServiceClient) DeleteStore(ctx context.Context, in *DeleteStoreRequest, opts ...grpc.CallOption) (*DeleteStoreResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteStoreResponse)
-	err := c.cc.Invoke(ctx, PharmacyService_DeleteStore_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -872,12 +811,6 @@ type PharmacyServiceServer interface {
 	ListPrescriptionItems(context.Context, *ListPrescriptionItemsRequest) (*ListPrescriptionItemsResponse, error)
 	UpdatePrescriptionItem(context.Context, *UpdatePrescriptionItemRequest) (*UpdatePrescriptionItemResponse, error)
 	DeletePrescriptionItem(context.Context, *DeletePrescriptionItemRequest) (*DeletePrescriptionItemResponse, error)
-	// stores
-	CreateStore(context.Context, *CreateStoreRequest) (*CreateStoreResponse, error)
-	GetStore(context.Context, *GetStoreRequest) (*GetStoreResponse, error)
-	ListStores(context.Context, *ListStoresRequest) (*ListStoresResponse, error)
-	UpdateStore(context.Context, *UpdateStoreRequest) (*UpdateStoreResponse, error)
-	DeleteStore(context.Context, *DeleteStoreRequest) (*DeleteStoreResponse, error)
 	// stock requests
 	CreateStockRequest(context.Context, *CreateStockRequestRequest) (*CreateStockRequestResponse, error)
 	GetStockRequest(context.Context, *GetStockRequestRequest) (*GetStockRequestResponse, error)
@@ -998,21 +931,6 @@ func (UnimplementedPharmacyServiceServer) UpdatePrescriptionItem(context.Context
 }
 func (UnimplementedPharmacyServiceServer) DeletePrescriptionItem(context.Context, *DeletePrescriptionItemRequest) (*DeletePrescriptionItemResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeletePrescriptionItem not implemented")
-}
-func (UnimplementedPharmacyServiceServer) CreateStore(context.Context, *CreateStoreRequest) (*CreateStoreResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateStore not implemented")
-}
-func (UnimplementedPharmacyServiceServer) GetStore(context.Context, *GetStoreRequest) (*GetStoreResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetStore not implemented")
-}
-func (UnimplementedPharmacyServiceServer) ListStores(context.Context, *ListStoresRequest) (*ListStoresResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListStores not implemented")
-}
-func (UnimplementedPharmacyServiceServer) UpdateStore(context.Context, *UpdateStoreRequest) (*UpdateStoreResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateStore not implemented")
-}
-func (UnimplementedPharmacyServiceServer) DeleteStore(context.Context, *DeleteStoreRequest) (*DeleteStoreResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteStore not implemented")
 }
 func (UnimplementedPharmacyServiceServer) CreateStockRequest(context.Context, *CreateStockRequestRequest) (*CreateStockRequestResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateStockRequest not implemented")
@@ -1484,96 +1402,6 @@ func _PharmacyService_DeletePrescriptionItem_Handler(srv interface{}, ctx contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PharmacyServiceServer).DeletePrescriptionItem(ctx, req.(*DeletePrescriptionItemRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PharmacyService_CreateStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateStoreRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PharmacyServiceServer).CreateStore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PharmacyService_CreateStore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PharmacyServiceServer).CreateStore(ctx, req.(*CreateStoreRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PharmacyService_GetStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStoreRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PharmacyServiceServer).GetStore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PharmacyService_GetStore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PharmacyServiceServer).GetStore(ctx, req.(*GetStoreRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PharmacyService_ListStores_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListStoresRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PharmacyServiceServer).ListStores(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PharmacyService_ListStores_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PharmacyServiceServer).ListStores(ctx, req.(*ListStoresRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PharmacyService_UpdateStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateStoreRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PharmacyServiceServer).UpdateStore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PharmacyService_UpdateStore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PharmacyServiceServer).UpdateStore(ctx, req.(*UpdateStoreRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PharmacyService_DeleteStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteStoreRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PharmacyServiceServer).DeleteStore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PharmacyService_DeleteStore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PharmacyServiceServer).DeleteStore(ctx, req.(*DeleteStoreRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2430,26 +2258,6 @@ var PharmacyService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeletePrescriptionItem",
 			Handler:    _PharmacyService_DeletePrescriptionItem_Handler,
-		},
-		{
-			MethodName: "CreateStore",
-			Handler:    _PharmacyService_CreateStore_Handler,
-		},
-		{
-			MethodName: "GetStore",
-			Handler:    _PharmacyService_GetStore_Handler,
-		},
-		{
-			MethodName: "ListStores",
-			Handler:    _PharmacyService_ListStores_Handler,
-		},
-		{
-			MethodName: "UpdateStore",
-			Handler:    _PharmacyService_UpdateStore_Handler,
-		},
-		{
-			MethodName: "DeleteStore",
-			Handler:    _PharmacyService_DeleteStore_Handler,
 		},
 		{
 			MethodName: "CreateStockRequest",

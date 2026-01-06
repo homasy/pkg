@@ -178,3 +178,19 @@ func (c *StockClient) GetMedicalScheme(ctx context.Context, id int32) (*supplypb
 
 	return resp.GetMedicalScheme(), nil
 }
+
+// GetStore retrieves a store by its ID.
+func (c *StockClient) GetStore(ctx context.Context, req *supplypb.GetStoreRequest) (*supplypb.GetStoreResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.client.GetStore(ctx, req)
+}
+
+// ListStores retrieves a list of all stores.
+func (c *StockClient) ListStores(ctx context.Context, req *supplypb.ListStoresRequest) (*supplypb.ListStoresResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.client.ListStores(ctx, req)
+}
