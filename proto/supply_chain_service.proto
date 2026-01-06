@@ -414,6 +414,12 @@ service SupplyChainService {
       get: "/v1/stores"
     };
   }
+
+  rpc GetStore (GetStoreRequest) returns (GetStoreResponse) {
+    option (google.api.http) = {
+      get: "/v1/stores/{id}"
+    };
+  }
   
   // Supplier Management
   rpc CreateSupplier (CreateSupplierRequest) returns (CreateSupplierResponse) {
@@ -784,6 +790,14 @@ message ListStoresRequest {}
 
 message ListStoresResponse {
   repeated Store stores = 1;
+}
+
+message GetStoreRequest {
+  string id = 1;
+}
+
+message GetStoreResponse {
+  Store store = 1;
 }
 
 // Request and Response messages for Suppliers

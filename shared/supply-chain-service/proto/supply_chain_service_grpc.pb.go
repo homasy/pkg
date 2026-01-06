@@ -34,6 +34,7 @@ const (
 	SupplyChainService_GetItemsBelowReorderLevel_FullMethodName    = "/supply_chain.SupplyChainService/GetItemsBelowReorderLevel"
 	SupplyChainService_CreateStore_FullMethodName                  = "/supply_chain.SupplyChainService/CreateStore"
 	SupplyChainService_ListStores_FullMethodName                   = "/supply_chain.SupplyChainService/ListStores"
+	SupplyChainService_GetStore_FullMethodName                     = "/supply_chain.SupplyChainService/GetStore"
 	SupplyChainService_CreateSupplier_FullMethodName               = "/supply_chain.SupplyChainService/CreateSupplier"
 	SupplyChainService_ListSuppliers_FullMethodName                = "/supply_chain.SupplyChainService/ListSuppliers"
 	SupplyChainService_CreateRequisition_FullMethodName            = "/supply_chain.SupplyChainService/CreateRequisition"
@@ -98,6 +99,7 @@ type SupplyChainServiceClient interface {
 	// Store Management
 	CreateStore(ctx context.Context, in *CreateStoreRequest, opts ...grpc.CallOption) (*CreateStoreResponse, error)
 	ListStores(ctx context.Context, in *ListStoresRequest, opts ...grpc.CallOption) (*ListStoresResponse, error)
+	GetStore(ctx context.Context, in *GetStoreRequest, opts ...grpc.CallOption) (*GetStoreResponse, error)
 	// Supplier Management
 	CreateSupplier(ctx context.Context, in *CreateSupplierRequest, opts ...grpc.CallOption) (*CreateSupplierResponse, error)
 	ListSuppliers(ctx context.Context, in *ListSuppliersRequest, opts ...grpc.CallOption) (*ListSuppliersResponse, error)
@@ -284,6 +286,16 @@ func (c *supplyChainServiceClient) ListStores(ctx context.Context, in *ListStore
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListStoresResponse)
 	err := c.cc.Invoke(ctx, SupplyChainService_ListStores_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) GetStore(ctx context.Context, in *GetStoreRequest, opts ...grpc.CallOption) (*GetStoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStoreResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_GetStore_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -730,6 +742,7 @@ type SupplyChainServiceServer interface {
 	// Store Management
 	CreateStore(context.Context, *CreateStoreRequest) (*CreateStoreResponse, error)
 	ListStores(context.Context, *ListStoresRequest) (*ListStoresResponse, error)
+	GetStore(context.Context, *GetStoreRequest) (*GetStoreResponse, error)
 	// Supplier Management
 	CreateSupplier(context.Context, *CreateSupplierRequest) (*CreateSupplierResponse, error)
 	ListSuppliers(context.Context, *ListSuppliersRequest) (*ListSuppliersResponse, error)
@@ -830,6 +843,9 @@ func (UnimplementedSupplyChainServiceServer) CreateStore(context.Context, *Creat
 }
 func (UnimplementedSupplyChainServiceServer) ListStores(context.Context, *ListStoresRequest) (*ListStoresResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListStores not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) GetStore(context.Context, *GetStoreRequest) (*GetStoreResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStore not implemented")
 }
 func (UnimplementedSupplyChainServiceServer) CreateSupplier(context.Context, *CreateSupplierRequest) (*CreateSupplierResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateSupplier not implemented")
@@ -1208,6 +1224,24 @@ func _SupplyChainService_ListStores_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SupplyChainServiceServer).ListStores(ctx, req.(*ListStoresRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_GetStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).GetStore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_GetStore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).GetStore(ctx, req.(*GetStoreRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2026,6 +2060,10 @@ var SupplyChainService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListStores",
 			Handler:    _SupplyChainService_ListStores_Handler,
+		},
+		{
+			MethodName: "GetStore",
+			Handler:    _SupplyChainService_GetStore_Handler,
 		},
 		{
 			MethodName: "CreateSupplier",
