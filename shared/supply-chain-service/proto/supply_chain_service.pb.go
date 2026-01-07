@@ -3773,7 +3773,8 @@ func (x *GetStoreResponse) GetStore() *Store {
 
 type UpdateStoreRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Store         *Store                 `protobuf:"bytes,1,opt,name=store,proto3" json:"store,omitempty"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Store         *Store                 `protobuf:"bytes,2,opt,name=store,proto3" json:"store,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3806,6 +3807,13 @@ func (x *UpdateStoreRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use UpdateStoreRequest.ProtoReflect.Descriptor instead.
 func (*UpdateStoreRequest) Descriptor() ([]byte, []int) {
 	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *UpdateStoreRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
 }
 
 func (x *UpdateStoreRequest) GetStore() *Store {
@@ -4206,7 +4214,8 @@ func (x *GetSupplierResponse) GetSupplier() *Supplier {
 
 type UpdateSupplierRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Supplier      *Supplier              `protobuf:"bytes,1,opt,name=supplier,proto3" json:"supplier,omitempty"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Supplier      *Supplier              `protobuf:"bytes,2,opt,name=supplier,proto3" json:"supplier,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4239,6 +4248,13 @@ func (x *UpdateSupplierRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use UpdateSupplierRequest.ProtoReflect.Descriptor instead.
 func (*UpdateSupplierRequest) Descriptor() ([]byte, []int) {
 	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *UpdateSupplierRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
 }
 
 func (x *UpdateSupplierRequest) GetSupplier() *Supplier {
@@ -8864,9 +8880,10 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\x0fGetStoreRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"=\n" +
 	"\x10GetStoreResponse\x12)\n" +
-	"\x05store\x18\x01 \x01(\v2\x13.supply_chain.StoreR\x05store\"?\n" +
-	"\x12UpdateStoreRequest\x12)\n" +
-	"\x05store\x18\x01 \x01(\v2\x13.supply_chain.StoreR\x05store\"@\n" +
+	"\x05store\x18\x01 \x01(\v2\x13.supply_chain.StoreR\x05store\"O\n" +
+	"\x12UpdateStoreRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12)\n" +
+	"\x05store\x18\x02 \x01(\v2\x13.supply_chain.StoreR\x05store\"@\n" +
 	"\x13UpdateStoreResponse\x12)\n" +
 	"\x05store\x18\x01 \x01(\v2\x13.supply_chain.StoreR\x05store\"$\n" +
 	"\x12DeleteStoreRequest\x12\x0e\n" +
@@ -8883,9 +8900,10 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\x12GetSupplierRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"I\n" +
 	"\x13GetSupplierResponse\x122\n" +
-	"\bsupplier\x18\x01 \x01(\v2\x16.supply_chain.SupplierR\bsupplier\"K\n" +
-	"\x15UpdateSupplierRequest\x122\n" +
-	"\bsupplier\x18\x01 \x01(\v2\x16.supply_chain.SupplierR\bsupplier\"L\n" +
+	"\bsupplier\x18\x01 \x01(\v2\x16.supply_chain.SupplierR\bsupplier\"[\n" +
+	"\x15UpdateSupplierRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x122\n" +
+	"\bsupplier\x18\x02 \x01(\v2\x16.supply_chain.SupplierR\bsupplier\"L\n" +
 	"\x16UpdateSupplierResponse\x122\n" +
 	"\bsupplier\x18\x01 \x01(\v2\x16.supply_chain.SupplierR\bsupplier\"'\n" +
 	"\x15DeleteSupplierRequest\x12\x0e\n" +
@@ -9152,7 +9170,7 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\vactive_only\x18\x01 \x01(\bR\n" +
 	"activeOnly\"b\n" +
 	"\x1aListMedicalSchemesResponse\x12D\n" +
-	"\x0fmedical_schemes\x18\x01 \x03(\v2\x1b.supply_chain.MedicalSchemeR\x0emedicalSchemes2\xc5>\n" +
+	"\x0fmedical_schemes\x18\x01 \x03(\v2\x1b.supply_chain.MedicalSchemeR\x0emedicalSchemes2\xbd>\n" +
 	"\x12SupplyChainService\x12z\n" +
 	"\x0fCreateStockItem\x12$.supply_chain.CreateStockItemRequest\x1a%.supply_chain.CreateStockItemResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/stock-items\x12s\n" +
 	"\fGetStockItem\x12!.supply_chain.GetStockItemRequest\x1a\".supply_chain.GetStockItemResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/stock-items/{id}\x12\x7f\n" +
@@ -9170,13 +9188,13 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\n" +
 	"ListStores\x12\x1f.supply_chain.ListStoresRequest\x1a .supply_chain.ListStoresResponse\"\x12\x82\xd3\xe4\x93\x02\f\x12\n" +
 	"/v1/stores\x12b\n" +
-	"\bGetStore\x12\x1d.supply_chain.GetStoreRequest\x1a\x1e.supply_chain.GetStoreResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v1/stores/{id}\x12x\n" +
-	"\vUpdateStore\x12 .supply_chain.UpdateStoreRequest\x1a!.supply_chain.UpdateStoreResponse\"$\x82\xd3\xe4\x93\x02\x1e:\x05store\x1a\x15/v1/stores/{store.id}\x12k\n" +
-	"\vDeleteStore\x12 .supply_chain.DeleteStoreRequest\x1a!.supply_chain.DeleteStoreResponse\"\x17\x82\xd3\xe4\x93\x02\x11*\x0f/v1/stores/{id}\x12u\n" +
-	"\x0eCreateSupplier\x12#.supply_chain.CreateSupplierRequest\x1a$.supply_chain.CreateSupplierResponse\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\"\r/v1/suppliers\x12o\n" +
+	"\bGetStore\x12\x1d.supply_chain.GetStoreRequest\x1a\x1e.supply_chain.GetStoreResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v1/stores/{id}\x12r\n" +
+	"\vUpdateStore\x12 .supply_chain.UpdateStoreRequest\x1a!.supply_chain.UpdateStoreResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x05store\x1a\x0f/v1/stores/{id}\x12k\n" +
+	"\vDeleteStore\x12 .supply_chain.DeleteStoreRequest\x1a!.supply_chain.DeleteStoreResponse\"\x17\x82\xd3\xe4\x93\x02\x11*\x0f/v1/stores/{id}\x12|\n" +
+	"\x0eCreateSupplier\x12#.supply_chain.CreateSupplierRequest\x1a$.supply_chain.CreateSupplierResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\bsupplier\"\r/v1/suppliers\x12o\n" +
 	"\rListSuppliers\x12\".supply_chain.ListSuppliersRequest\x1a#.supply_chain.ListSuppliersResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/v1/suppliers\x12n\n" +
-	"\vGetSupplier\x12 .supply_chain.GetSupplierRequest\x1a!.supply_chain.GetSupplierResponse\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v1/suppliers/{id}\x12\x8a\x01\n" +
-	"\x0eUpdateSupplier\x12#.supply_chain.UpdateSupplierRequest\x1a$.supply_chain.UpdateSupplierResponse\"-\x82\xd3\xe4\x93\x02':\bsupplier\x1a\x1b/v1/suppliers/{supplier.id}\x12w\n" +
+	"\vGetSupplier\x12 .supply_chain.GetSupplierRequest\x1a!.supply_chain.GetSupplierResponse\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v1/suppliers/{id}\x12\x81\x01\n" +
+	"\x0eUpdateSupplier\x12#.supply_chain.UpdateSupplierRequest\x1a$.supply_chain.UpdateSupplierResponse\"$\x82\xd3\xe4\x93\x02\x1e:\bsupplier\x1a\x12/v1/suppliers/{id}\x12w\n" +
 	"\x0eDeleteSupplier\x12#.supply_chain.DeleteSupplierRequest\x1a$.supply_chain.DeleteSupplierResponse\"\x1a\x82\xd3\xe4\x93\x02\x14*\x12/v1/suppliers/{id}\x12\x81\x01\n" +
 	"\x11CreateRequisition\x12&.supply_chain.CreateRequisitionRequest\x1a'.supply_chain.CreateRequisitionResponse\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/v1/requisitions\x12\x91\x01\n" +
 	"\x12ApproveRequisition\x12'.supply_chain.ApproveRequisitionRequest\x1a(.supply_chain.ApproveRequisitionResponse\"(\x82\xd3\xe4\x93\x02\":\x01*\"\x1d/v1/requisitions/{id}/approve\x12z\n" +

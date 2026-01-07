@@ -423,7 +423,7 @@ service SupplyChainService {
 
   rpc UpdateStore (UpdateStoreRequest) returns (UpdateStoreResponse) {
     option (google.api.http) = {
-      put: "/v1/stores/{store.id}"
+      put: "/v1/stores/{id}",
       body: "store"
     };
   }
@@ -437,8 +437,8 @@ service SupplyChainService {
   // Supplier Management
   rpc CreateSupplier (CreateSupplierRequest) returns (CreateSupplierResponse) {
     option (google.api.http) = {
-      post: "/v1/suppliers"
-      body: "*"
+      post: "/v1/suppliers",
+      body: "supplier"
     };
   }
   
@@ -456,7 +456,7 @@ service SupplyChainService {
 
   rpc UpdateSupplier (UpdateSupplierRequest) returns (UpdateSupplierResponse) {
     option (google.api.http) = {
-      put: "/v1/suppliers/{supplier.id}"
+      put: "/v1/suppliers/{id}",
       body: "supplier"
     };
   }
@@ -833,7 +833,8 @@ message GetStoreResponse {
 }
 
 message UpdateStoreRequest {
-  Store store = 1;
+  string id = 1;
+  Store store = 2;
 }
 
 message UpdateStoreResponse {
@@ -872,7 +873,8 @@ message GetSupplierResponse {
 }
 
 message UpdateSupplierRequest {
-  Supplier supplier = 1;
+  string id = 1;
+  Supplier supplier = 2;
 }
 
 message UpdateSupplierResponse {
