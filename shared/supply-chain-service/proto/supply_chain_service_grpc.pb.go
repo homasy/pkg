@@ -35,8 +35,13 @@ const (
 	SupplyChainService_CreateStore_FullMethodName                  = "/supply_chain.SupplyChainService/CreateStore"
 	SupplyChainService_ListStores_FullMethodName                   = "/supply_chain.SupplyChainService/ListStores"
 	SupplyChainService_GetStore_FullMethodName                     = "/supply_chain.SupplyChainService/GetStore"
+	SupplyChainService_UpdateStore_FullMethodName                  = "/supply_chain.SupplyChainService/UpdateStore"
+	SupplyChainService_DeleteStore_FullMethodName                  = "/supply_chain.SupplyChainService/DeleteStore"
 	SupplyChainService_CreateSupplier_FullMethodName               = "/supply_chain.SupplyChainService/CreateSupplier"
 	SupplyChainService_ListSuppliers_FullMethodName                = "/supply_chain.SupplyChainService/ListSuppliers"
+	SupplyChainService_GetSupplier_FullMethodName                  = "/supply_chain.SupplyChainService/GetSupplier"
+	SupplyChainService_UpdateSupplier_FullMethodName               = "/supply_chain.SupplyChainService/UpdateSupplier"
+	SupplyChainService_DeleteSupplier_FullMethodName               = "/supply_chain.SupplyChainService/DeleteSupplier"
 	SupplyChainService_CreateRequisition_FullMethodName            = "/supply_chain.SupplyChainService/CreateRequisition"
 	SupplyChainService_ApproveRequisition_FullMethodName           = "/supply_chain.SupplyChainService/ApproveRequisition"
 	SupplyChainService_GetRequisition_FullMethodName               = "/supply_chain.SupplyChainService/GetRequisition"
@@ -100,9 +105,14 @@ type SupplyChainServiceClient interface {
 	CreateStore(ctx context.Context, in *CreateStoreRequest, opts ...grpc.CallOption) (*CreateStoreResponse, error)
 	ListStores(ctx context.Context, in *ListStoresRequest, opts ...grpc.CallOption) (*ListStoresResponse, error)
 	GetStore(ctx context.Context, in *GetStoreRequest, opts ...grpc.CallOption) (*GetStoreResponse, error)
+	UpdateStore(ctx context.Context, in *UpdateStoreRequest, opts ...grpc.CallOption) (*UpdateStoreResponse, error)
+	DeleteStore(ctx context.Context, in *DeleteStoreRequest, opts ...grpc.CallOption) (*DeleteStoreResponse, error)
 	// Supplier Management
 	CreateSupplier(ctx context.Context, in *CreateSupplierRequest, opts ...grpc.CallOption) (*CreateSupplierResponse, error)
 	ListSuppliers(ctx context.Context, in *ListSuppliersRequest, opts ...grpc.CallOption) (*ListSuppliersResponse, error)
+	GetSupplier(ctx context.Context, in *GetSupplierRequest, opts ...grpc.CallOption) (*GetSupplierResponse, error)
+	UpdateSupplier(ctx context.Context, in *UpdateSupplierRequest, opts ...grpc.CallOption) (*UpdateSupplierResponse, error)
+	DeleteSupplier(ctx context.Context, in *DeleteSupplierRequest, opts ...grpc.CallOption) (*DeleteSupplierResponse, error)
 	// Requisition Management
 	CreateRequisition(ctx context.Context, in *CreateRequisitionRequest, opts ...grpc.CallOption) (*CreateRequisitionResponse, error)
 	ApproveRequisition(ctx context.Context, in *ApproveRequisitionRequest, opts ...grpc.CallOption) (*ApproveRequisitionResponse, error)
@@ -302,6 +312,26 @@ func (c *supplyChainServiceClient) GetStore(ctx context.Context, in *GetStoreReq
 	return out, nil
 }
 
+func (c *supplyChainServiceClient) UpdateStore(ctx context.Context, in *UpdateStoreRequest, opts ...grpc.CallOption) (*UpdateStoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateStoreResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_UpdateStore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) DeleteStore(ctx context.Context, in *DeleteStoreRequest, opts ...grpc.CallOption) (*DeleteStoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteStoreResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_DeleteStore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *supplyChainServiceClient) CreateSupplier(ctx context.Context, in *CreateSupplierRequest, opts ...grpc.CallOption) (*CreateSupplierResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateSupplierResponse)
@@ -316,6 +346,36 @@ func (c *supplyChainServiceClient) ListSuppliers(ctx context.Context, in *ListSu
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListSuppliersResponse)
 	err := c.cc.Invoke(ctx, SupplyChainService_ListSuppliers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) GetSupplier(ctx context.Context, in *GetSupplierRequest, opts ...grpc.CallOption) (*GetSupplierResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupplierResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_GetSupplier_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) UpdateSupplier(ctx context.Context, in *UpdateSupplierRequest, opts ...grpc.CallOption) (*UpdateSupplierResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateSupplierResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_UpdateSupplier_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) DeleteSupplier(ctx context.Context, in *DeleteSupplierRequest, opts ...grpc.CallOption) (*DeleteSupplierResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteSupplierResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_DeleteSupplier_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -743,9 +803,14 @@ type SupplyChainServiceServer interface {
 	CreateStore(context.Context, *CreateStoreRequest) (*CreateStoreResponse, error)
 	ListStores(context.Context, *ListStoresRequest) (*ListStoresResponse, error)
 	GetStore(context.Context, *GetStoreRequest) (*GetStoreResponse, error)
+	UpdateStore(context.Context, *UpdateStoreRequest) (*UpdateStoreResponse, error)
+	DeleteStore(context.Context, *DeleteStoreRequest) (*DeleteStoreResponse, error)
 	// Supplier Management
 	CreateSupplier(context.Context, *CreateSupplierRequest) (*CreateSupplierResponse, error)
 	ListSuppliers(context.Context, *ListSuppliersRequest) (*ListSuppliersResponse, error)
+	GetSupplier(context.Context, *GetSupplierRequest) (*GetSupplierResponse, error)
+	UpdateSupplier(context.Context, *UpdateSupplierRequest) (*UpdateSupplierResponse, error)
+	DeleteSupplier(context.Context, *DeleteSupplierRequest) (*DeleteSupplierResponse, error)
 	// Requisition Management
 	CreateRequisition(context.Context, *CreateRequisitionRequest) (*CreateRequisitionResponse, error)
 	ApproveRequisition(context.Context, *ApproveRequisitionRequest) (*ApproveRequisitionResponse, error)
@@ -847,11 +912,26 @@ func (UnimplementedSupplyChainServiceServer) ListStores(context.Context, *ListSt
 func (UnimplementedSupplyChainServiceServer) GetStore(context.Context, *GetStoreRequest) (*GetStoreResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStore not implemented")
 }
+func (UnimplementedSupplyChainServiceServer) UpdateStore(context.Context, *UpdateStoreRequest) (*UpdateStoreResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStore not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) DeleteStore(context.Context, *DeleteStoreRequest) (*DeleteStoreResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteStore not implemented")
+}
 func (UnimplementedSupplyChainServiceServer) CreateSupplier(context.Context, *CreateSupplierRequest) (*CreateSupplierResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateSupplier not implemented")
 }
 func (UnimplementedSupplyChainServiceServer) ListSuppliers(context.Context, *ListSuppliersRequest) (*ListSuppliersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListSuppliers not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) GetSupplier(context.Context, *GetSupplierRequest) (*GetSupplierResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetSupplier not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) UpdateSupplier(context.Context, *UpdateSupplierRequest) (*UpdateSupplierResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateSupplier not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) DeleteSupplier(context.Context, *DeleteSupplierRequest) (*DeleteSupplierResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteSupplier not implemented")
 }
 func (UnimplementedSupplyChainServiceServer) CreateRequisition(context.Context, *CreateRequisitionRequest) (*CreateRequisitionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateRequisition not implemented")
@@ -1246,6 +1326,42 @@ func _SupplyChainService_GetStore_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SupplyChainService_UpdateStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).UpdateStore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_UpdateStore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).UpdateStore(ctx, req.(*UpdateStoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_DeleteStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteStoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).DeleteStore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_DeleteStore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).DeleteStore(ctx, req.(*DeleteStoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _SupplyChainService_CreateSupplier_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateSupplierRequest)
 	if err := dec(in); err != nil {
@@ -1278,6 +1394,60 @@ func _SupplyChainService_ListSuppliers_Handler(srv interface{}, ctx context.Cont
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SupplyChainServiceServer).ListSuppliers(ctx, req.(*ListSuppliersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_GetSupplier_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupplierRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).GetSupplier(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_GetSupplier_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).GetSupplier(ctx, req.(*GetSupplierRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_UpdateSupplier_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateSupplierRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).UpdateSupplier(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_UpdateSupplier_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).UpdateSupplier(ctx, req.(*UpdateSupplierRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_DeleteSupplier_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteSupplierRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).DeleteSupplier(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_DeleteSupplier_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).DeleteSupplier(ctx, req.(*DeleteSupplierRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2066,12 +2236,32 @@ var SupplyChainService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _SupplyChainService_GetStore_Handler,
 		},
 		{
+			MethodName: "UpdateStore",
+			Handler:    _SupplyChainService_UpdateStore_Handler,
+		},
+		{
+			MethodName: "DeleteStore",
+			Handler:    _SupplyChainService_DeleteStore_Handler,
+		},
+		{
 			MethodName: "CreateSupplier",
 			Handler:    _SupplyChainService_CreateSupplier_Handler,
 		},
 		{
 			MethodName: "ListSuppliers",
 			Handler:    _SupplyChainService_ListSuppliers_Handler,
+		},
+		{
+			MethodName: "GetSupplier",
+			Handler:    _SupplyChainService_GetSupplier_Handler,
+		},
+		{
+			MethodName: "UpdateSupplier",
+			Handler:    _SupplyChainService_UpdateSupplier_Handler,
+		},
+		{
+			MethodName: "DeleteSupplier",
+			Handler:    _SupplyChainService_DeleteSupplier_Handler,
 		},
 		{
 			MethodName: "CreateRequisition",

@@ -420,6 +420,19 @@ service SupplyChainService {
       get: "/v1/stores/{id}"
     };
   }
+
+  rpc UpdateStore (UpdateStoreRequest) returns (UpdateStoreResponse) {
+    option (google.api.http) = {
+      put: "/v1/stores/{store.id}"
+      body: "store"
+    };
+  }
+
+  rpc DeleteStore (DeleteStoreRequest) returns (DeleteStoreResponse) {
+    option (google.api.http) = {
+      delete: "/v1/stores/{id}"
+    };
+  }
   
   // Supplier Management
   rpc CreateSupplier (CreateSupplierRequest) returns (CreateSupplierResponse) {
@@ -432,6 +445,25 @@ service SupplyChainService {
   rpc ListSuppliers (ListSuppliersRequest) returns (ListSuppliersResponse) {
     option (google.api.http) = {
       get: "/v1/suppliers"
+    };
+  }
+
+  rpc GetSupplier (GetSupplierRequest) returns (GetSupplierResponse) {
+    option (google.api.http) = {
+      get: "/v1/suppliers/{id}"
+    };
+  }
+
+  rpc UpdateSupplier (UpdateSupplierRequest) returns (UpdateSupplierResponse) {
+    option (google.api.http) = {
+      put: "/v1/suppliers/{supplier.id}"
+      body: "supplier"
+    };
+  }
+
+  rpc DeleteSupplier (DeleteSupplierRequest) returns (DeleteSupplierResponse) {
+    option (google.api.http) = {
+      delete: "/v1/suppliers/{id}"
     };
   }
   
@@ -800,6 +832,22 @@ message GetStoreResponse {
   Store store = 1;
 }
 
+message UpdateStoreRequest {
+  Store store = 1;
+}
+
+message UpdateStoreResponse {
+  Store store = 1;
+}
+
+message DeleteStoreRequest {
+  string id = 1;
+}
+
+message DeleteStoreResponse {
+  string message = 1;
+}
+
 // Request and Response messages for Suppliers
 message CreateSupplierRequest {
   Supplier supplier = 1;
@@ -813,6 +861,30 @@ message ListSuppliersRequest {}
 
 message ListSuppliersResponse {
   repeated Supplier suppliers = 1;
+}
+
+message GetSupplierRequest {
+  string id = 1;
+}
+
+message GetSupplierResponse {
+  Supplier supplier = 1;
+}
+
+message UpdateSupplierRequest {
+  Supplier supplier = 1;
+}
+
+message UpdateSupplierResponse {
+  Supplier supplier = 1;
+}
+
+message DeleteSupplierRequest {
+  string id = 1;
+}
+
+message DeleteSupplierResponse {
+  string message = 1;
 }
 
 // Request and Response messages for Requisitions
