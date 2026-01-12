@@ -7994,6 +7994,187 @@ func (x *ListPOSSalesResponse) GetTotalSalesCount() int32 {
 	return 0
 }
 
+// Medications with Stock Messages
+type MedicationWithStock struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	MedicationId    int32                  `protobuf:"varint,1,opt,name=medication_id,json=medicationId,proto3" json:"medication_id,omitempty"`
+	Name            string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Category        string                 `protobuf:"bytes,3,opt,name=category,proto3" json:"category,omitempty"`
+	QuantityInStore float64                `protobuf:"fixed64,4,opt,name=quantity_in_store,json=quantityInStore,proto3" json:"quantity_in_store,omitempty"`
+	UnitOfMeasure   string                 `protobuf:"bytes,5,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
+	StoreId         string                 `protobuf:"bytes,6,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *MedicationWithStock) Reset() {
+	*x = MedicationWithStock{}
+	mi := &file_proto_pharmacy_service_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MedicationWithStock) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MedicationWithStock) ProtoMessage() {}
+
+func (x *MedicationWithStock) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pharmacy_service_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MedicationWithStock.ProtoReflect.Descriptor instead.
+func (*MedicationWithStock) Descriptor() ([]byte, []int) {
+	return file_proto_pharmacy_service_proto_rawDescGZIP(), []int{135}
+}
+
+func (x *MedicationWithStock) GetMedicationId() int32 {
+	if x != nil {
+		return x.MedicationId
+	}
+	return 0
+}
+
+func (x *MedicationWithStock) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *MedicationWithStock) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+func (x *MedicationWithStock) GetQuantityInStore() float64 {
+	if x != nil {
+		return x.QuantityInStore
+	}
+	return 0
+}
+
+func (x *MedicationWithStock) GetUnitOfMeasure() string {
+	if x != nil {
+		return x.UnitOfMeasure
+	}
+	return ""
+}
+
+func (x *MedicationWithStock) GetStoreId() string {
+	if x != nil {
+		return x.StoreId
+	}
+	return ""
+}
+
+type ListMedicationsWithStockRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	StoreId       string                 `protobuf:"bytes,1,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
+	Category      string                 `protobuf:"bytes,2,opt,name=category,proto3" json:"category,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListMedicationsWithStockRequest) Reset() {
+	*x = ListMedicationsWithStockRequest{}
+	mi := &file_proto_pharmacy_service_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListMedicationsWithStockRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListMedicationsWithStockRequest) ProtoMessage() {}
+
+func (x *ListMedicationsWithStockRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pharmacy_service_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListMedicationsWithStockRequest.ProtoReflect.Descriptor instead.
+func (*ListMedicationsWithStockRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pharmacy_service_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *ListMedicationsWithStockRequest) GetStoreId() string {
+	if x != nil {
+		return x.StoreId
+	}
+	return ""
+}
+
+func (x *ListMedicationsWithStockRequest) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+type ListMedicationsWithStockResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Medications   []*MedicationWithStock `protobuf:"bytes,1,rep,name=medications,proto3" json:"medications,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListMedicationsWithStockResponse) Reset() {
+	*x = ListMedicationsWithStockResponse{}
+	mi := &file_proto_pharmacy_service_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListMedicationsWithStockResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListMedicationsWithStockResponse) ProtoMessage() {}
+
+func (x *ListMedicationsWithStockResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pharmacy_service_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListMedicationsWithStockResponse.ProtoReflect.Descriptor instead.
+func (*ListMedicationsWithStockResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pharmacy_service_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *ListMedicationsWithStockResponse) GetMedications() []*MedicationWithStock {
+	if x != nil {
+		return x.Medications
+	}
+	return nil
+}
+
 var File_proto_pharmacy_service_proto protoreflect.FileDescriptor
 
 const file_proto_pharmacy_service_proto_rawDesc = "" +
@@ -8631,13 +8812,26 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\x14ListPOSSalesResponse\x12:\n" +
 	"\x05sales\x18\x01 \x03(\v2$.pharmacy_service.GetPOSSaleResponseR\x05sales\x12,\n" +
 	"\x12total_sales_amount\x18\x02 \x01(\x01R\x10totalSalesAmount\x12*\n" +
-	"\x11total_sales_count\x18\x03 \x01(\x05R\x0ftotalSalesCount2\xf7M\n" +
+	"\x11total_sales_count\x18\x03 \x01(\x05R\x0ftotalSalesCount\"\xd9\x01\n" +
+	"\x13MedicationWithStock\x12#\n" +
+	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1a\n" +
+	"\bcategory\x18\x03 \x01(\tR\bcategory\x12*\n" +
+	"\x11quantity_in_store\x18\x04 \x01(\x01R\x0fquantityInStore\x12&\n" +
+	"\x0funit_of_measure\x18\x05 \x01(\tR\runitOfMeasure\x12\x19\n" +
+	"\bstore_id\x18\x06 \x01(\tR\astoreId\"X\n" +
+	"\x1fListMedicationsWithStockRequest\x12\x19\n" +
+	"\bstore_id\x18\x01 \x01(\tR\astoreId\x12\x1a\n" +
+	"\bcategory\x18\x02 \x01(\tR\bcategory\"k\n" +
+	" ListMedicationsWithStockResponse\x12G\n" +
+	"\vmedications\x18\x01 \x03(\v2%.pharmacy_service.MedicationWithStockR\vmedications2\x9fO\n" +
 	"\x0fPharmacyService\x12\x85\x01\n" +
 	"\x10CreateMedication\x12).pharmacy_service.CreateMedicationRequest\x1a*.pharmacy_service.CreateMedicationResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/medications\x12\x89\x01\n" +
 	"\rGetMedication\x12&.pharmacy_service.GetMedicationRequest\x1a'.pharmacy_service.GetMedicationResponse\"'\x82\xd3\xe4\x93\x02!\x12\x1f/v1/medications/{medication_id}\x12\x95\x01\n" +
 	"\x10UpdateMedication\x12).pharmacy_service.UpdateMedicationRequest\x1a*.pharmacy_service.UpdateMedicationResponse\"*\x82\xd3\xe4\x93\x02$:\x01*\x1a\x1f/v1/medications/{medication_id}\x12\x92\x01\n" +
 	"\x10DeleteMedication\x12).pharmacy_service.DeleteMedicationRequest\x1a*.pharmacy_service.DeleteMedicationResponse\"'\x82\xd3\xe4\x93\x02!*\x1f/v1/medications/{medication_id}\x12\x7f\n" +
-	"\x0fListMedications\x12(.pharmacy_service.ListMedicationsRequest\x1a).pharmacy_service.ListMedicationsResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v1/medications\x12\xb6\x01\n" +
+	"\x0fListMedications\x12(.pharmacy_service.ListMedicationsRequest\x1a).pharmacy_service.ListMedicationsResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v1/medications\x12\xa5\x01\n" +
+	"\x18ListMedicationsWithStock\x121.pharmacy_service.ListMedicationsWithStockRequest\x1a2.pharmacy_service.ListMedicationsWithStockResponse\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1/medications/with-stock\x12\xb6\x01\n" +
 	"\x19GetMedicationWithCategory\x122.pharmacy_service.GetMedicationWithCategoryRequest\x1a3.pharmacy_service.GetMedicationWithCategoryResponse\"0\x82\xd3\xe4\x93\x02*\x12(/v1/medications/{medication_id}/category\x12\x9c\x01\n" +
 	"\x18CreateMedicationCategory\x121.pharmacy_service.CreateMedicationCategoryRequest\x1a2.pharmacy_service.CreateMedicationCategoryResponse\"\x19\x82\xd3\xe4\x93\x02\x13:\x01*\"\x0e/v1/categories\x12\x99\x01\n" +
 	"\x18ListMedicationCategories\x121.pharmacy_service.ListMedicationCategoriesRequest\x1a2.pharmacy_service.ListMedicationCategoriesResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/v1/categories\x12\x92\x01\n" +
@@ -8708,7 +8902,7 @@ func file_proto_pharmacy_service_proto_rawDescGZIP() []byte {
 	return file_proto_pharmacy_service_proto_rawDescData
 }
 
-var file_proto_pharmacy_service_proto_msgTypes = make([]protoimpl.MessageInfo, 135)
+var file_proto_pharmacy_service_proto_msgTypes = make([]protoimpl.MessageInfo, 138)
 var file_proto_pharmacy_service_proto_goTypes = []any{
 	(*StockMovement)(nil),                        // 0: pharmacy_service.StockMovement
 	(*CreateStockMovementRequest)(nil),           // 1: pharmacy_service.CreateStockMovementRequest
@@ -8845,7 +9039,10 @@ var file_proto_pharmacy_service_proto_goTypes = []any{
 	(*GetPOSSaleResponse)(nil),                   // 132: pharmacy_service.GetPOSSaleResponse
 	(*ListPOSSalesRequest)(nil),                  // 133: pharmacy_service.ListPOSSalesRequest
 	(*ListPOSSalesResponse)(nil),                 // 134: pharmacy_service.ListPOSSalesResponse
-	(*timestamppb.Timestamp)(nil),                // 135: google.protobuf.Timestamp
+	(*MedicationWithStock)(nil),                  // 135: pharmacy_service.MedicationWithStock
+	(*ListMedicationsWithStockRequest)(nil),      // 136: pharmacy_service.ListMedicationsWithStockRequest
+	(*ListMedicationsWithStockResponse)(nil),     // 137: pharmacy_service.ListMedicationsWithStockResponse
+	(*timestamppb.Timestamp)(nil),                // 138: google.protobuf.Timestamp
 }
 var file_proto_pharmacy_service_proto_depIdxs = []int32{
 	0,   // 0: pharmacy_service.GetStockMovementResponse.stock_movement:type_name -> pharmacy_service.StockMovement
@@ -8868,145 +9065,148 @@ var file_proto_pharmacy_service_proto_depIdxs = []int32{
 	105, // 17: pharmacy_service.GetPatientAdherenceRateResponse.adherence_rate:type_name -> pharmacy_service.AdherenceRateResponse
 	105, // 18: pharmacy_service.GetMedicationAdherenceRateResponse.adherence_rate:type_name -> pharmacy_service.AdherenceRateResponse
 	110, // 19: pharmacy_service.GetTimeSlotMedicationsResponse.medications:type_name -> pharmacy_service.TimeSlotMedication
-	135, // 20: pharmacy_service.MedicationPricing.valid_from:type_name -> google.protobuf.Timestamp
-	135, // 21: pharmacy_service.MedicationPricing.valid_to:type_name -> google.protobuf.Timestamp
-	135, // 22: pharmacy_service.CreateMedicationPricingRequest.valid_from:type_name -> google.protobuf.Timestamp
-	135, // 23: pharmacy_service.CreateMedicationPricingRequest.valid_to:type_name -> google.protobuf.Timestamp
+	138, // 20: pharmacy_service.MedicationPricing.valid_from:type_name -> google.protobuf.Timestamp
+	138, // 21: pharmacy_service.MedicationPricing.valid_to:type_name -> google.protobuf.Timestamp
+	138, // 22: pharmacy_service.CreateMedicationPricingRequest.valid_from:type_name -> google.protobuf.Timestamp
+	138, // 23: pharmacy_service.CreateMedicationPricingRequest.valid_to:type_name -> google.protobuf.Timestamp
 	113, // 24: pharmacy_service.GetMedicationPricingResponse.medication_pricing:type_name -> pharmacy_service.MedicationPricing
-	135, // 25: pharmacy_service.UpdateMedicationPricingRequest.valid_from:type_name -> google.protobuf.Timestamp
-	135, // 26: pharmacy_service.UpdateMedicationPricingRequest.valid_to:type_name -> google.protobuf.Timestamp
+	138, // 25: pharmacy_service.UpdateMedicationPricingRequest.valid_from:type_name -> google.protobuf.Timestamp
+	138, // 26: pharmacy_service.UpdateMedicationPricingRequest.valid_to:type_name -> google.protobuf.Timestamp
 	113, // 27: pharmacy_service.ListMedicationPricingsResponse.medication_pricings:type_name -> pharmacy_service.MedicationPricing
 	113, // 28: pharmacy_service.GetMedicationPricingBySchemeResponse.medication_pricing:type_name -> pharmacy_service.MedicationPricing
 	128, // 29: pharmacy_service.CreatePOSSaleRequest.items:type_name -> pharmacy_service.POSSaleItem
 	128, // 30: pharmacy_service.GetPOSSaleResponse.items:type_name -> pharmacy_service.POSSaleItem
 	132, // 31: pharmacy_service.ListPOSSalesResponse.sales:type_name -> pharmacy_service.GetPOSSaleResponse
-	67,  // 32: pharmacy_service.PharmacyService.CreateMedication:input_type -> pharmacy_service.CreateMedicationRequest
-	69,  // 33: pharmacy_service.PharmacyService.GetMedication:input_type -> pharmacy_service.GetMedicationRequest
-	71,  // 34: pharmacy_service.PharmacyService.UpdateMedication:input_type -> pharmacy_service.UpdateMedicationRequest
-	73,  // 35: pharmacy_service.PharmacyService.DeleteMedication:input_type -> pharmacy_service.DeleteMedicationRequest
-	75,  // 36: pharmacy_service.PharmacyService.ListMedications:input_type -> pharmacy_service.ListMedicationsRequest
-	83,  // 37: pharmacy_service.PharmacyService.GetMedicationWithCategory:input_type -> pharmacy_service.GetMedicationWithCategoryRequest
-	78,  // 38: pharmacy_service.PharmacyService.CreateMedicationCategory:input_type -> pharmacy_service.CreateMedicationCategoryRequest
-	80,  // 39: pharmacy_service.PharmacyService.ListMedicationCategories:input_type -> pharmacy_service.ListMedicationCategoriesRequest
-	85,  // 40: pharmacy_service.PharmacyService.GetSingleCategory:input_type -> pharmacy_service.GetSingleCategoryRequest
-	58,  // 41: pharmacy_service.PharmacyService.CreatePrescriptionRequest:input_type -> pharmacy_service.CreatePrescriptionRequestRequest
-	62,  // 42: pharmacy_service.PharmacyService.UpdatePrescriptionRequest:input_type -> pharmacy_service.UpdatePrescriptionRequestsRequests
-	60,  // 43: pharmacy_service.PharmacyService.GetSinglePrescriptionRequest:input_type -> pharmacy_service.GetSinglePrescriptionRequestRequest
-	65,  // 44: pharmacy_service.PharmacyService.ListPrescriptionRequests:input_type -> pharmacy_service.ListPrescriptionRequestsRequests
-	48,  // 45: pharmacy_service.PharmacyService.CreatePrescriptionItem:input_type -> pharmacy_service.CreatePrescriptionItemRequest
-	50,  // 46: pharmacy_service.PharmacyService.GetPrescriptionItem:input_type -> pharmacy_service.GetPrescriptionItemRequest
-	54,  // 47: pharmacy_service.PharmacyService.ListPrescriptionItems:input_type -> pharmacy_service.ListPrescriptionItemsRequest
-	52,  // 48: pharmacy_service.PharmacyService.UpdatePrescriptionItem:input_type -> pharmacy_service.UpdatePrescriptionItemRequest
-	56,  // 49: pharmacy_service.PharmacyService.DeletePrescriptionItem:input_type -> pharmacy_service.DeletePrescriptionItemRequest
-	38,  // 50: pharmacy_service.PharmacyService.CreateStockRequest:input_type -> pharmacy_service.CreateStockRequestRequest
-	40,  // 51: pharmacy_service.PharmacyService.GetStockRequest:input_type -> pharmacy_service.GetStockRequestRequest
-	42,  // 52: pharmacy_service.PharmacyService.ListStockRequests:input_type -> pharmacy_service.ListStockRequestsRequest
-	44,  // 53: pharmacy_service.PharmacyService.ApproveStockRequest:input_type -> pharmacy_service.ApproveStockRequestRequest
-	46,  // 54: pharmacy_service.PharmacyService.DeleteStockRequest:input_type -> pharmacy_service.DeleteStockRequestRequest
-	28,  // 55: pharmacy_service.PharmacyService.CreateStockRequestItem:input_type -> pharmacy_service.CreateStockRequestItemRequest
-	30,  // 56: pharmacy_service.PharmacyService.GetStockRequestItem:input_type -> pharmacy_service.GetStockRequestItemRequest
-	32,  // 57: pharmacy_service.PharmacyService.ListStockRequestItems:input_type -> pharmacy_service.ListStockRequestItemsRequest
-	34,  // 58: pharmacy_service.PharmacyService.UpdateStockRequestItem:input_type -> pharmacy_service.UpdateStockRequestItemRequest
-	36,  // 59: pharmacy_service.PharmacyService.DeleteStockRequestItem:input_type -> pharmacy_service.DeleteStockRequestItemRequest
-	18,  // 60: pharmacy_service.PharmacyService.CreateDispensedMedication:input_type -> pharmacy_service.CreateDispensedMedicationRequest
-	20,  // 61: pharmacy_service.PharmacyService.GetDispensedMedication:input_type -> pharmacy_service.GetDispensedMedicationRequest
-	22,  // 62: pharmacy_service.PharmacyService.ListDispensedMedications:input_type -> pharmacy_service.ListDispensedMedicationsRequest
-	24,  // 63: pharmacy_service.PharmacyService.UpdateDispensedMedication:input_type -> pharmacy_service.UpdateDispensedMedicationRequest
-	26,  // 64: pharmacy_service.PharmacyService.DeleteDispensedMedication:input_type -> pharmacy_service.DeleteDispensedMedicationRequest
-	11,  // 65: pharmacy_service.PharmacyService.CreateMedicationReturn:input_type -> pharmacy_service.CreateMedicationReturnRequest
-	13,  // 66: pharmacy_service.PharmacyService.GetMedicationReturn:input_type -> pharmacy_service.GetMedicationReturnRequest
-	16,  // 67: pharmacy_service.PharmacyService.ListMedicationReturns:input_type -> pharmacy_service.ListMedicationReturnsRequest
-	1,   // 68: pharmacy_service.PharmacyService.CreateStockMovement:input_type -> pharmacy_service.CreateStockMovementRequest
-	3,   // 69: pharmacy_service.PharmacyService.GetStockMovement:input_type -> pharmacy_service.GetStockMovementRequest
-	5,   // 70: pharmacy_service.PharmacyService.ListStockMovements:input_type -> pharmacy_service.ListStockMovementsRequest
-	7,   // 71: pharmacy_service.PharmacyService.UpdateStockMovement:input_type -> pharmacy_service.UpdateStockMovementRequest
-	9,   // 72: pharmacy_service.PharmacyService.DeleteStockMovement:input_type -> pharmacy_service.DeleteStockMovementRequest
-	88,  // 73: pharmacy_service.PharmacyService.CreateMedicationSchedule:input_type -> pharmacy_service.CreateMedicationScheduleRequest
-	90,  // 74: pharmacy_service.PharmacyService.GetMedicationSchedule:input_type -> pharmacy_service.GetMedicationScheduleRequest
-	92,  // 75: pharmacy_service.PharmacyService.ListMedicationSchedules:input_type -> pharmacy_service.ListMedicationSchedulesRequest
-	94,  // 76: pharmacy_service.PharmacyService.UpdateMedicationSchedule:input_type -> pharmacy_service.UpdateMedicationScheduleRequest
-	96,  // 77: pharmacy_service.PharmacyService.DeleteMedicationSchedule:input_type -> pharmacy_service.DeleteMedicationScheduleRequest
-	99,  // 78: pharmacy_service.PharmacyService.RecordMedicationIntake:input_type -> pharmacy_service.RecordMedicationIntakeRequest
-	101, // 79: pharmacy_service.PharmacyService.GetMedicationIntake:input_type -> pharmacy_service.GetMedicationIntakeRequest
-	103, // 80: pharmacy_service.PharmacyService.ListMedicationIntakes:input_type -> pharmacy_service.ListMedicationIntakesRequest
-	106, // 81: pharmacy_service.PharmacyService.GetPatientAdherenceRate:input_type -> pharmacy_service.GetPatientAdherenceRateRequest
-	108, // 82: pharmacy_service.PharmacyService.GetMedicationAdherenceRate:input_type -> pharmacy_service.GetMedicationAdherenceRateRequest
-	111, // 83: pharmacy_service.PharmacyService.GetTimeSlotMedications:input_type -> pharmacy_service.GetTimeSlotMedicationsRequest
-	116, // 84: pharmacy_service.PharmacyService.CreateMedicationPricing:input_type -> pharmacy_service.CreateMedicationPricingRequest
-	118, // 85: pharmacy_service.PharmacyService.GetMedicationPricing:input_type -> pharmacy_service.GetMedicationPricingRequest
-	120, // 86: pharmacy_service.PharmacyService.UpdateMedicationPricing:input_type -> pharmacy_service.UpdateMedicationPricingRequest
-	122, // 87: pharmacy_service.PharmacyService.DeleteMedicationPricing:input_type -> pharmacy_service.DeleteMedicationPricingRequest
-	124, // 88: pharmacy_service.PharmacyService.ListMedicationPricings:input_type -> pharmacy_service.ListMedicationPricingsRequest
-	126, // 89: pharmacy_service.PharmacyService.GetMedicationPricingByScheme:input_type -> pharmacy_service.GetMedicationPricingBySchemeRequest
-	129, // 90: pharmacy_service.PharmacyService.CreatePOSSale:input_type -> pharmacy_service.CreatePOSSaleRequest
-	131, // 91: pharmacy_service.PharmacyService.GetPOSSale:input_type -> pharmacy_service.GetPOSSaleRequest
-	133, // 92: pharmacy_service.PharmacyService.ListPOSSales:input_type -> pharmacy_service.ListPOSSalesRequest
-	68,  // 93: pharmacy_service.PharmacyService.CreateMedication:output_type -> pharmacy_service.CreateMedicationResponse
-	70,  // 94: pharmacy_service.PharmacyService.GetMedication:output_type -> pharmacy_service.GetMedicationResponse
-	72,  // 95: pharmacy_service.PharmacyService.UpdateMedication:output_type -> pharmacy_service.UpdateMedicationResponse
-	74,  // 96: pharmacy_service.PharmacyService.DeleteMedication:output_type -> pharmacy_service.DeleteMedicationResponse
-	76,  // 97: pharmacy_service.PharmacyService.ListMedications:output_type -> pharmacy_service.ListMedicationsResponse
-	84,  // 98: pharmacy_service.PharmacyService.GetMedicationWithCategory:output_type -> pharmacy_service.GetMedicationWithCategoryResponse
-	79,  // 99: pharmacy_service.PharmacyService.CreateMedicationCategory:output_type -> pharmacy_service.CreateMedicationCategoryResponse
-	81,  // 100: pharmacy_service.PharmacyService.ListMedicationCategories:output_type -> pharmacy_service.ListMedicationCategoriesResponse
-	86,  // 101: pharmacy_service.PharmacyService.GetSingleCategory:output_type -> pharmacy_service.GetSingleCategoryResponse
-	59,  // 102: pharmacy_service.PharmacyService.CreatePrescriptionRequest:output_type -> pharmacy_service.CreatePrescriptionRequestResponse
-	63,  // 103: pharmacy_service.PharmacyService.UpdatePrescriptionRequest:output_type -> pharmacy_service.UpdatePrescriptionRequestsResponse
-	61,  // 104: pharmacy_service.PharmacyService.GetSinglePrescriptionRequest:output_type -> pharmacy_service.GetSinglePrescriptionRequestResponse
-	66,  // 105: pharmacy_service.PharmacyService.ListPrescriptionRequests:output_type -> pharmacy_service.ListPrescriptionRequestsResponse
-	49,  // 106: pharmacy_service.PharmacyService.CreatePrescriptionItem:output_type -> pharmacy_service.CreatePrescriptionItemResponse
-	51,  // 107: pharmacy_service.PharmacyService.GetPrescriptionItem:output_type -> pharmacy_service.GetPrescriptionItemResponse
-	55,  // 108: pharmacy_service.PharmacyService.ListPrescriptionItems:output_type -> pharmacy_service.ListPrescriptionItemsResponse
-	53,  // 109: pharmacy_service.PharmacyService.UpdatePrescriptionItem:output_type -> pharmacy_service.UpdatePrescriptionItemResponse
-	57,  // 110: pharmacy_service.PharmacyService.DeletePrescriptionItem:output_type -> pharmacy_service.DeletePrescriptionItemResponse
-	39,  // 111: pharmacy_service.PharmacyService.CreateStockRequest:output_type -> pharmacy_service.CreateStockRequestResponse
-	41,  // 112: pharmacy_service.PharmacyService.GetStockRequest:output_type -> pharmacy_service.GetStockRequestResponse
-	43,  // 113: pharmacy_service.PharmacyService.ListStockRequests:output_type -> pharmacy_service.ListStockRequestsResponse
-	45,  // 114: pharmacy_service.PharmacyService.ApproveStockRequest:output_type -> pharmacy_service.ApproveStockRequestResponse
-	47,  // 115: pharmacy_service.PharmacyService.DeleteStockRequest:output_type -> pharmacy_service.DeleteStockRequestResponse
-	29,  // 116: pharmacy_service.PharmacyService.CreateStockRequestItem:output_type -> pharmacy_service.CreateStockRequestItemResponse
-	31,  // 117: pharmacy_service.PharmacyService.GetStockRequestItem:output_type -> pharmacy_service.GetStockRequestItemResponse
-	33,  // 118: pharmacy_service.PharmacyService.ListStockRequestItems:output_type -> pharmacy_service.ListStockRequestItemsResponse
-	35,  // 119: pharmacy_service.PharmacyService.UpdateStockRequestItem:output_type -> pharmacy_service.UpdateStockRequestItemResponse
-	37,  // 120: pharmacy_service.PharmacyService.DeleteStockRequestItem:output_type -> pharmacy_service.DeleteStockRequestItemResponse
-	19,  // 121: pharmacy_service.PharmacyService.CreateDispensedMedication:output_type -> pharmacy_service.CreateDispensedMedicationResponse
-	21,  // 122: pharmacy_service.PharmacyService.GetDispensedMedication:output_type -> pharmacy_service.GetDispensedMedicationResponse
-	23,  // 123: pharmacy_service.PharmacyService.ListDispensedMedications:output_type -> pharmacy_service.ListDispensedMedicationsResponse
-	25,  // 124: pharmacy_service.PharmacyService.UpdateDispensedMedication:output_type -> pharmacy_service.UpdateDispensedMedicationResponse
-	27,  // 125: pharmacy_service.PharmacyService.DeleteDispensedMedication:output_type -> pharmacy_service.DeleteDispensedMedicationResponse
-	12,  // 126: pharmacy_service.PharmacyService.CreateMedicationReturn:output_type -> pharmacy_service.CreateMedicationReturnResponse
-	15,  // 127: pharmacy_service.PharmacyService.GetMedicationReturn:output_type -> pharmacy_service.GetMedicationReturnResponse
-	17,  // 128: pharmacy_service.PharmacyService.ListMedicationReturns:output_type -> pharmacy_service.ListMedicationReturnsResponse
-	2,   // 129: pharmacy_service.PharmacyService.CreateStockMovement:output_type -> pharmacy_service.CreateStockMovementResponse
-	4,   // 130: pharmacy_service.PharmacyService.GetStockMovement:output_type -> pharmacy_service.GetStockMovementResponse
-	6,   // 131: pharmacy_service.PharmacyService.ListStockMovements:output_type -> pharmacy_service.ListStockMovementsResponse
-	8,   // 132: pharmacy_service.PharmacyService.UpdateStockMovement:output_type -> pharmacy_service.UpdateStockMovementResponse
-	10,  // 133: pharmacy_service.PharmacyService.DeleteStockMovement:output_type -> pharmacy_service.DeleteStockMovementResponse
-	89,  // 134: pharmacy_service.PharmacyService.CreateMedicationSchedule:output_type -> pharmacy_service.CreateMedicationScheduleResponse
-	91,  // 135: pharmacy_service.PharmacyService.GetMedicationSchedule:output_type -> pharmacy_service.GetMedicationScheduleResponse
-	93,  // 136: pharmacy_service.PharmacyService.ListMedicationSchedules:output_type -> pharmacy_service.ListMedicationSchedulesResponse
-	95,  // 137: pharmacy_service.PharmacyService.UpdateMedicationSchedule:output_type -> pharmacy_service.UpdateMedicationScheduleResponse
-	97,  // 138: pharmacy_service.PharmacyService.DeleteMedicationSchedule:output_type -> pharmacy_service.DeleteMedicationScheduleResponse
-	100, // 139: pharmacy_service.PharmacyService.RecordMedicationIntake:output_type -> pharmacy_service.RecordMedicationIntakeResponse
-	102, // 140: pharmacy_service.PharmacyService.GetMedicationIntake:output_type -> pharmacy_service.GetMedicationIntakeResponse
-	104, // 141: pharmacy_service.PharmacyService.ListMedicationIntakes:output_type -> pharmacy_service.ListMedicationIntakesResponse
-	107, // 142: pharmacy_service.PharmacyService.GetPatientAdherenceRate:output_type -> pharmacy_service.GetPatientAdherenceRateResponse
-	109, // 143: pharmacy_service.PharmacyService.GetMedicationAdherenceRate:output_type -> pharmacy_service.GetMedicationAdherenceRateResponse
-	112, // 144: pharmacy_service.PharmacyService.GetTimeSlotMedications:output_type -> pharmacy_service.GetTimeSlotMedicationsResponse
-	117, // 145: pharmacy_service.PharmacyService.CreateMedicationPricing:output_type -> pharmacy_service.CreateMedicationPricingResponse
-	119, // 146: pharmacy_service.PharmacyService.GetMedicationPricing:output_type -> pharmacy_service.GetMedicationPricingResponse
-	121, // 147: pharmacy_service.PharmacyService.UpdateMedicationPricing:output_type -> pharmacy_service.UpdateMedicationPricingResponse
-	123, // 148: pharmacy_service.PharmacyService.DeleteMedicationPricing:output_type -> pharmacy_service.DeleteMedicationPricingResponse
-	125, // 149: pharmacy_service.PharmacyService.ListMedicationPricings:output_type -> pharmacy_service.ListMedicationPricingsResponse
-	127, // 150: pharmacy_service.PharmacyService.GetMedicationPricingByScheme:output_type -> pharmacy_service.GetMedicationPricingBySchemeResponse
-	130, // 151: pharmacy_service.PharmacyService.CreatePOSSale:output_type -> pharmacy_service.CreatePOSSaleResponse
-	132, // 152: pharmacy_service.PharmacyService.GetPOSSale:output_type -> pharmacy_service.GetPOSSaleResponse
-	134, // 153: pharmacy_service.PharmacyService.ListPOSSales:output_type -> pharmacy_service.ListPOSSalesResponse
-	93,  // [93:154] is the sub-list for method output_type
-	32,  // [32:93] is the sub-list for method input_type
-	32,  // [32:32] is the sub-list for extension type_name
-	32,  // [32:32] is the sub-list for extension extendee
-	0,   // [0:32] is the sub-list for field type_name
+	135, // 32: pharmacy_service.ListMedicationsWithStockResponse.medications:type_name -> pharmacy_service.MedicationWithStock
+	67,  // 33: pharmacy_service.PharmacyService.CreateMedication:input_type -> pharmacy_service.CreateMedicationRequest
+	69,  // 34: pharmacy_service.PharmacyService.GetMedication:input_type -> pharmacy_service.GetMedicationRequest
+	71,  // 35: pharmacy_service.PharmacyService.UpdateMedication:input_type -> pharmacy_service.UpdateMedicationRequest
+	73,  // 36: pharmacy_service.PharmacyService.DeleteMedication:input_type -> pharmacy_service.DeleteMedicationRequest
+	75,  // 37: pharmacy_service.PharmacyService.ListMedications:input_type -> pharmacy_service.ListMedicationsRequest
+	136, // 38: pharmacy_service.PharmacyService.ListMedicationsWithStock:input_type -> pharmacy_service.ListMedicationsWithStockRequest
+	83,  // 39: pharmacy_service.PharmacyService.GetMedicationWithCategory:input_type -> pharmacy_service.GetMedicationWithCategoryRequest
+	78,  // 40: pharmacy_service.PharmacyService.CreateMedicationCategory:input_type -> pharmacy_service.CreateMedicationCategoryRequest
+	80,  // 41: pharmacy_service.PharmacyService.ListMedicationCategories:input_type -> pharmacy_service.ListMedicationCategoriesRequest
+	85,  // 42: pharmacy_service.PharmacyService.GetSingleCategory:input_type -> pharmacy_service.GetSingleCategoryRequest
+	58,  // 43: pharmacy_service.PharmacyService.CreatePrescriptionRequest:input_type -> pharmacy_service.CreatePrescriptionRequestRequest
+	62,  // 44: pharmacy_service.PharmacyService.UpdatePrescriptionRequest:input_type -> pharmacy_service.UpdatePrescriptionRequestsRequests
+	60,  // 45: pharmacy_service.PharmacyService.GetSinglePrescriptionRequest:input_type -> pharmacy_service.GetSinglePrescriptionRequestRequest
+	65,  // 46: pharmacy_service.PharmacyService.ListPrescriptionRequests:input_type -> pharmacy_service.ListPrescriptionRequestsRequests
+	48,  // 47: pharmacy_service.PharmacyService.CreatePrescriptionItem:input_type -> pharmacy_service.CreatePrescriptionItemRequest
+	50,  // 48: pharmacy_service.PharmacyService.GetPrescriptionItem:input_type -> pharmacy_service.GetPrescriptionItemRequest
+	54,  // 49: pharmacy_service.PharmacyService.ListPrescriptionItems:input_type -> pharmacy_service.ListPrescriptionItemsRequest
+	52,  // 50: pharmacy_service.PharmacyService.UpdatePrescriptionItem:input_type -> pharmacy_service.UpdatePrescriptionItemRequest
+	56,  // 51: pharmacy_service.PharmacyService.DeletePrescriptionItem:input_type -> pharmacy_service.DeletePrescriptionItemRequest
+	38,  // 52: pharmacy_service.PharmacyService.CreateStockRequest:input_type -> pharmacy_service.CreateStockRequestRequest
+	40,  // 53: pharmacy_service.PharmacyService.GetStockRequest:input_type -> pharmacy_service.GetStockRequestRequest
+	42,  // 54: pharmacy_service.PharmacyService.ListStockRequests:input_type -> pharmacy_service.ListStockRequestsRequest
+	44,  // 55: pharmacy_service.PharmacyService.ApproveStockRequest:input_type -> pharmacy_service.ApproveStockRequestRequest
+	46,  // 56: pharmacy_service.PharmacyService.DeleteStockRequest:input_type -> pharmacy_service.DeleteStockRequestRequest
+	28,  // 57: pharmacy_service.PharmacyService.CreateStockRequestItem:input_type -> pharmacy_service.CreateStockRequestItemRequest
+	30,  // 58: pharmacy_service.PharmacyService.GetStockRequestItem:input_type -> pharmacy_service.GetStockRequestItemRequest
+	32,  // 59: pharmacy_service.PharmacyService.ListStockRequestItems:input_type -> pharmacy_service.ListStockRequestItemsRequest
+	34,  // 60: pharmacy_service.PharmacyService.UpdateStockRequestItem:input_type -> pharmacy_service.UpdateStockRequestItemRequest
+	36,  // 61: pharmacy_service.PharmacyService.DeleteStockRequestItem:input_type -> pharmacy_service.DeleteStockRequestItemRequest
+	18,  // 62: pharmacy_service.PharmacyService.CreateDispensedMedication:input_type -> pharmacy_service.CreateDispensedMedicationRequest
+	20,  // 63: pharmacy_service.PharmacyService.GetDispensedMedication:input_type -> pharmacy_service.GetDispensedMedicationRequest
+	22,  // 64: pharmacy_service.PharmacyService.ListDispensedMedications:input_type -> pharmacy_service.ListDispensedMedicationsRequest
+	24,  // 65: pharmacy_service.PharmacyService.UpdateDispensedMedication:input_type -> pharmacy_service.UpdateDispensedMedicationRequest
+	26,  // 66: pharmacy_service.PharmacyService.DeleteDispensedMedication:input_type -> pharmacy_service.DeleteDispensedMedicationRequest
+	11,  // 67: pharmacy_service.PharmacyService.CreateMedicationReturn:input_type -> pharmacy_service.CreateMedicationReturnRequest
+	13,  // 68: pharmacy_service.PharmacyService.GetMedicationReturn:input_type -> pharmacy_service.GetMedicationReturnRequest
+	16,  // 69: pharmacy_service.PharmacyService.ListMedicationReturns:input_type -> pharmacy_service.ListMedicationReturnsRequest
+	1,   // 70: pharmacy_service.PharmacyService.CreateStockMovement:input_type -> pharmacy_service.CreateStockMovementRequest
+	3,   // 71: pharmacy_service.PharmacyService.GetStockMovement:input_type -> pharmacy_service.GetStockMovementRequest
+	5,   // 72: pharmacy_service.PharmacyService.ListStockMovements:input_type -> pharmacy_service.ListStockMovementsRequest
+	7,   // 73: pharmacy_service.PharmacyService.UpdateStockMovement:input_type -> pharmacy_service.UpdateStockMovementRequest
+	9,   // 74: pharmacy_service.PharmacyService.DeleteStockMovement:input_type -> pharmacy_service.DeleteStockMovementRequest
+	88,  // 75: pharmacy_service.PharmacyService.CreateMedicationSchedule:input_type -> pharmacy_service.CreateMedicationScheduleRequest
+	90,  // 76: pharmacy_service.PharmacyService.GetMedicationSchedule:input_type -> pharmacy_service.GetMedicationScheduleRequest
+	92,  // 77: pharmacy_service.PharmacyService.ListMedicationSchedules:input_type -> pharmacy_service.ListMedicationSchedulesRequest
+	94,  // 78: pharmacy_service.PharmacyService.UpdateMedicationSchedule:input_type -> pharmacy_service.UpdateMedicationScheduleRequest
+	96,  // 79: pharmacy_service.PharmacyService.DeleteMedicationSchedule:input_type -> pharmacy_service.DeleteMedicationScheduleRequest
+	99,  // 80: pharmacy_service.PharmacyService.RecordMedicationIntake:input_type -> pharmacy_service.RecordMedicationIntakeRequest
+	101, // 81: pharmacy_service.PharmacyService.GetMedicationIntake:input_type -> pharmacy_service.GetMedicationIntakeRequest
+	103, // 82: pharmacy_service.PharmacyService.ListMedicationIntakes:input_type -> pharmacy_service.ListMedicationIntakesRequest
+	106, // 83: pharmacy_service.PharmacyService.GetPatientAdherenceRate:input_type -> pharmacy_service.GetPatientAdherenceRateRequest
+	108, // 84: pharmacy_service.PharmacyService.GetMedicationAdherenceRate:input_type -> pharmacy_service.GetMedicationAdherenceRateRequest
+	111, // 85: pharmacy_service.PharmacyService.GetTimeSlotMedications:input_type -> pharmacy_service.GetTimeSlotMedicationsRequest
+	116, // 86: pharmacy_service.PharmacyService.CreateMedicationPricing:input_type -> pharmacy_service.CreateMedicationPricingRequest
+	118, // 87: pharmacy_service.PharmacyService.GetMedicationPricing:input_type -> pharmacy_service.GetMedicationPricingRequest
+	120, // 88: pharmacy_service.PharmacyService.UpdateMedicationPricing:input_type -> pharmacy_service.UpdateMedicationPricingRequest
+	122, // 89: pharmacy_service.PharmacyService.DeleteMedicationPricing:input_type -> pharmacy_service.DeleteMedicationPricingRequest
+	124, // 90: pharmacy_service.PharmacyService.ListMedicationPricings:input_type -> pharmacy_service.ListMedicationPricingsRequest
+	126, // 91: pharmacy_service.PharmacyService.GetMedicationPricingByScheme:input_type -> pharmacy_service.GetMedicationPricingBySchemeRequest
+	129, // 92: pharmacy_service.PharmacyService.CreatePOSSale:input_type -> pharmacy_service.CreatePOSSaleRequest
+	131, // 93: pharmacy_service.PharmacyService.GetPOSSale:input_type -> pharmacy_service.GetPOSSaleRequest
+	133, // 94: pharmacy_service.PharmacyService.ListPOSSales:input_type -> pharmacy_service.ListPOSSalesRequest
+	68,  // 95: pharmacy_service.PharmacyService.CreateMedication:output_type -> pharmacy_service.CreateMedicationResponse
+	70,  // 96: pharmacy_service.PharmacyService.GetMedication:output_type -> pharmacy_service.GetMedicationResponse
+	72,  // 97: pharmacy_service.PharmacyService.UpdateMedication:output_type -> pharmacy_service.UpdateMedicationResponse
+	74,  // 98: pharmacy_service.PharmacyService.DeleteMedication:output_type -> pharmacy_service.DeleteMedicationResponse
+	76,  // 99: pharmacy_service.PharmacyService.ListMedications:output_type -> pharmacy_service.ListMedicationsResponse
+	137, // 100: pharmacy_service.PharmacyService.ListMedicationsWithStock:output_type -> pharmacy_service.ListMedicationsWithStockResponse
+	84,  // 101: pharmacy_service.PharmacyService.GetMedicationWithCategory:output_type -> pharmacy_service.GetMedicationWithCategoryResponse
+	79,  // 102: pharmacy_service.PharmacyService.CreateMedicationCategory:output_type -> pharmacy_service.CreateMedicationCategoryResponse
+	81,  // 103: pharmacy_service.PharmacyService.ListMedicationCategories:output_type -> pharmacy_service.ListMedicationCategoriesResponse
+	86,  // 104: pharmacy_service.PharmacyService.GetSingleCategory:output_type -> pharmacy_service.GetSingleCategoryResponse
+	59,  // 105: pharmacy_service.PharmacyService.CreatePrescriptionRequest:output_type -> pharmacy_service.CreatePrescriptionRequestResponse
+	63,  // 106: pharmacy_service.PharmacyService.UpdatePrescriptionRequest:output_type -> pharmacy_service.UpdatePrescriptionRequestsResponse
+	61,  // 107: pharmacy_service.PharmacyService.GetSinglePrescriptionRequest:output_type -> pharmacy_service.GetSinglePrescriptionRequestResponse
+	66,  // 108: pharmacy_service.PharmacyService.ListPrescriptionRequests:output_type -> pharmacy_service.ListPrescriptionRequestsResponse
+	49,  // 109: pharmacy_service.PharmacyService.CreatePrescriptionItem:output_type -> pharmacy_service.CreatePrescriptionItemResponse
+	51,  // 110: pharmacy_service.PharmacyService.GetPrescriptionItem:output_type -> pharmacy_service.GetPrescriptionItemResponse
+	55,  // 111: pharmacy_service.PharmacyService.ListPrescriptionItems:output_type -> pharmacy_service.ListPrescriptionItemsResponse
+	53,  // 112: pharmacy_service.PharmacyService.UpdatePrescriptionItem:output_type -> pharmacy_service.UpdatePrescriptionItemResponse
+	57,  // 113: pharmacy_service.PharmacyService.DeletePrescriptionItem:output_type -> pharmacy_service.DeletePrescriptionItemResponse
+	39,  // 114: pharmacy_service.PharmacyService.CreateStockRequest:output_type -> pharmacy_service.CreateStockRequestResponse
+	41,  // 115: pharmacy_service.PharmacyService.GetStockRequest:output_type -> pharmacy_service.GetStockRequestResponse
+	43,  // 116: pharmacy_service.PharmacyService.ListStockRequests:output_type -> pharmacy_service.ListStockRequestsResponse
+	45,  // 117: pharmacy_service.PharmacyService.ApproveStockRequest:output_type -> pharmacy_service.ApproveStockRequestResponse
+	47,  // 118: pharmacy_service.PharmacyService.DeleteStockRequest:output_type -> pharmacy_service.DeleteStockRequestResponse
+	29,  // 119: pharmacy_service.PharmacyService.CreateStockRequestItem:output_type -> pharmacy_service.CreateStockRequestItemResponse
+	31,  // 120: pharmacy_service.PharmacyService.GetStockRequestItem:output_type -> pharmacy_service.GetStockRequestItemResponse
+	33,  // 121: pharmacy_service.PharmacyService.ListStockRequestItems:output_type -> pharmacy_service.ListStockRequestItemsResponse
+	35,  // 122: pharmacy_service.PharmacyService.UpdateStockRequestItem:output_type -> pharmacy_service.UpdateStockRequestItemResponse
+	37,  // 123: pharmacy_service.PharmacyService.DeleteStockRequestItem:output_type -> pharmacy_service.DeleteStockRequestItemResponse
+	19,  // 124: pharmacy_service.PharmacyService.CreateDispensedMedication:output_type -> pharmacy_service.CreateDispensedMedicationResponse
+	21,  // 125: pharmacy_service.PharmacyService.GetDispensedMedication:output_type -> pharmacy_service.GetDispensedMedicationResponse
+	23,  // 126: pharmacy_service.PharmacyService.ListDispensedMedications:output_type -> pharmacy_service.ListDispensedMedicationsResponse
+	25,  // 127: pharmacy_service.PharmacyService.UpdateDispensedMedication:output_type -> pharmacy_service.UpdateDispensedMedicationResponse
+	27,  // 128: pharmacy_service.PharmacyService.DeleteDispensedMedication:output_type -> pharmacy_service.DeleteDispensedMedicationResponse
+	12,  // 129: pharmacy_service.PharmacyService.CreateMedicationReturn:output_type -> pharmacy_service.CreateMedicationReturnResponse
+	15,  // 130: pharmacy_service.PharmacyService.GetMedicationReturn:output_type -> pharmacy_service.GetMedicationReturnResponse
+	17,  // 131: pharmacy_service.PharmacyService.ListMedicationReturns:output_type -> pharmacy_service.ListMedicationReturnsResponse
+	2,   // 132: pharmacy_service.PharmacyService.CreateStockMovement:output_type -> pharmacy_service.CreateStockMovementResponse
+	4,   // 133: pharmacy_service.PharmacyService.GetStockMovement:output_type -> pharmacy_service.GetStockMovementResponse
+	6,   // 134: pharmacy_service.PharmacyService.ListStockMovements:output_type -> pharmacy_service.ListStockMovementsResponse
+	8,   // 135: pharmacy_service.PharmacyService.UpdateStockMovement:output_type -> pharmacy_service.UpdateStockMovementResponse
+	10,  // 136: pharmacy_service.PharmacyService.DeleteStockMovement:output_type -> pharmacy_service.DeleteStockMovementResponse
+	89,  // 137: pharmacy_service.PharmacyService.CreateMedicationSchedule:output_type -> pharmacy_service.CreateMedicationScheduleResponse
+	91,  // 138: pharmacy_service.PharmacyService.GetMedicationSchedule:output_type -> pharmacy_service.GetMedicationScheduleResponse
+	93,  // 139: pharmacy_service.PharmacyService.ListMedicationSchedules:output_type -> pharmacy_service.ListMedicationSchedulesResponse
+	95,  // 140: pharmacy_service.PharmacyService.UpdateMedicationSchedule:output_type -> pharmacy_service.UpdateMedicationScheduleResponse
+	97,  // 141: pharmacy_service.PharmacyService.DeleteMedicationSchedule:output_type -> pharmacy_service.DeleteMedicationScheduleResponse
+	100, // 142: pharmacy_service.PharmacyService.RecordMedicationIntake:output_type -> pharmacy_service.RecordMedicationIntakeResponse
+	102, // 143: pharmacy_service.PharmacyService.GetMedicationIntake:output_type -> pharmacy_service.GetMedicationIntakeResponse
+	104, // 144: pharmacy_service.PharmacyService.ListMedicationIntakes:output_type -> pharmacy_service.ListMedicationIntakesResponse
+	107, // 145: pharmacy_service.PharmacyService.GetPatientAdherenceRate:output_type -> pharmacy_service.GetPatientAdherenceRateResponse
+	109, // 146: pharmacy_service.PharmacyService.GetMedicationAdherenceRate:output_type -> pharmacy_service.GetMedicationAdherenceRateResponse
+	112, // 147: pharmacy_service.PharmacyService.GetTimeSlotMedications:output_type -> pharmacy_service.GetTimeSlotMedicationsResponse
+	117, // 148: pharmacy_service.PharmacyService.CreateMedicationPricing:output_type -> pharmacy_service.CreateMedicationPricingResponse
+	119, // 149: pharmacy_service.PharmacyService.GetMedicationPricing:output_type -> pharmacy_service.GetMedicationPricingResponse
+	121, // 150: pharmacy_service.PharmacyService.UpdateMedicationPricing:output_type -> pharmacy_service.UpdateMedicationPricingResponse
+	123, // 151: pharmacy_service.PharmacyService.DeleteMedicationPricing:output_type -> pharmacy_service.DeleteMedicationPricingResponse
+	125, // 152: pharmacy_service.PharmacyService.ListMedicationPricings:output_type -> pharmacy_service.ListMedicationPricingsResponse
+	127, // 153: pharmacy_service.PharmacyService.GetMedicationPricingByScheme:output_type -> pharmacy_service.GetMedicationPricingBySchemeResponse
+	130, // 154: pharmacy_service.PharmacyService.CreatePOSSale:output_type -> pharmacy_service.CreatePOSSaleResponse
+	132, // 155: pharmacy_service.PharmacyService.GetPOSSale:output_type -> pharmacy_service.GetPOSSaleResponse
+	134, // 156: pharmacy_service.PharmacyService.ListPOSSales:output_type -> pharmacy_service.ListPOSSalesResponse
+	95,  // [95:157] is the sub-list for method output_type
+	33,  // [33:95] is the sub-list for method input_type
+	33,  // [33:33] is the sub-list for extension type_name
+	33,  // [33:33] is the sub-list for extension extendee
+	0,   // [0:33] is the sub-list for field type_name
 }
 
 func init() { file_proto_pharmacy_service_proto_init() }
@@ -9020,7 +9220,7 @@ func file_proto_pharmacy_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_pharmacy_service_proto_rawDesc), len(file_proto_pharmacy_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   135,
+			NumMessages:   138,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

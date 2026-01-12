@@ -11,216 +11,216 @@ option go_package = "./shared/supply-chain-service/proto";
 
 // Common message for items in the supply chain
 message StockItem {
-  string id = 1;
-  string name = 2;
-  string description = 3;
-  string sku = 4;
-  string barcode = 5;
-  string unit_of_measure = 6;
-  double reorder_level = 8;
-  double minimum_level = 9;
-  double maximum_level = 10;
-  double unit_cost = 11;
-  double unit_price = 12;
-  double tax_rate = 13;
-  bool is_active = 14;
-  bool expiry_tracking = 15;
-  bool batch_tracking = 16;
-  string category = 17;
-  double markup_percentage = 18; // Markup percentage for calculating unit_price from unit_cost
-  string created_at = 19;
-  string updated_at = 20;
-  double quantity_in_store = 21;
+  string id = 1 [json_name="id"];
+  string name = 2 [json_name="name"];
+  string description = 3 [json_name="description"];
+  string sku = 4 [json_name="sku"];
+  string barcode = 5 [json_name="barcode"];
+  string unit_of_measure = 6 [json_name="unitOfMeasure"];
+  double reorder_level = 8 [json_name="reorderLevel"];
+  double minimum_level = 9 [json_name="minimumLevel"];
+  double maximum_level = 10 [json_name="maximumLevel"];
+  double unit_cost = 11 [json_name="unitCost"];
+  double unit_price = 12 [json_name="unitPrice"];
+  double tax_rate = 13 [json_name="taxRate"];
+  bool is_active = 14 [json_name="isActive"];
+  bool expiry_tracking = 15 [json_name="expiryTracking"];
+  bool batch_tracking = 16 [json_name="batchTracking"];
+  string category = 17 [json_name="category"];
+  double markup_percentage = 18 [json_name="markupPercentage"]; // Markup percentage for calculating unit_price from unit_cost
+  string created_at = 19 [json_name="createdAt"];
+  string updated_at = 20 [json_name="updatedAt"];
+  double quantity_in_store = 21 [json_name="quantityInStore"];
 }
 
 // Message for a store location
 message Store {
-  string id = 1;
-  string name = 2;
-  string location = 3;
-  string type = 4; // e.g., "pharmacy", "catering", "bulk_store"
-  bool is_active = 5;
-  string created_at = 6;
-  string updated_at = 7;
+  string id = 1 [json_name="id"];
+  string name = 2 [json_name="name"];
+  string location = 3 [json_name="location"];
+  string type = 4 [json_name="type"]; // e.g., "pharmacy", "catering", "bulk_store"
+  bool is_active = 5 [json_name="isActive"];
+  string created_at = 6 [json_name="createdAt"];
+  string updated_at = 7 [json_name="updatedAt"];
 }
 
 // Message for a supplier
 message Supplier {
-  string id = 1;
-  string name = 2;
-  string contact_person = 3;
-  string phone = 4;
-  string email = 5;
-  string address = 6;
-  bool is_active = 7;
-  string created_at = 8;
-  string updated_at = 9;
+  string id = 1 [json_name="id"];
+  string name = 2 [json_name="name"];
+  string contact_person = 3 [json_name="contactPerson"];
+  string phone = 4 [json_name="phone"];
+  string email = 5 [json_name="email"];
+  string address = 6 [json_name="address"];
+  bool is_active = 7 [json_name="isActive"];
+  string created_at = 8 [json_name="createdAt"];
+  string updated_at = 9 [json_name="updatedAt"];
 }
 
 // Message for requisition items
 message RequisitionItem {
-  string item_id = 1;
-  string item_name = 2;
-  double quantity_requested = 3;
-  double quantity_approved = 4;
-  string unit_of_measure = 5;
-  double estimated_unit_price = 6;
-  string notes = 7;
+  string item_id = 1 [json_name="itemId"];
+  string item_name = 2 [json_name="itemName"];
+  double quantity_requested = 3 [json_name="quantityRequested"];
+  double quantity_approved = 4 [json_name="quantityApproved"];
+  string unit_of_measure = 5 [json_name="unitOfMeasure"];
+  double estimated_unit_price = 6 [json_name="estimatedUnitPrice"];
+  string notes = 7 [json_name="notes"];
 }
 
 // Message for requisition
 message Requisition {
-  string id = 1;
-  string requisition_number = 2;
-  string requestor_id = 3;
-  string requestor_name = 4;
-  string requestor_signature = 5;
-  string requesting_store_id = 6;
-  string requesting_store_name = 7;
-  string supplier_id = 8;
-  string supplier_name = 9;
-  string status = 10; // e.g., "draft", "pending", "approved", "rejected"
-  string approver_id = 11;
-  string approver_name = 12;
-  string approver_signature = 13;
-  string approval_date = 14;
-  string notes = 15;
-  string created_at = 16;
-  string updated_at = 17;
-  repeated RequisitionItem items = 18;
+  string id = 1 [json_name="id"];
+  string requisition_number = 2 [json_name="requisitionNumber"];
+  string requestor_id = 3 [json_name="requestorId"];
+  string requestor_name = 4 [json_name="requestorName"];
+  string requestor_signature = 5 [json_name="requestorSignature"];
+  string requesting_store_id = 6 [json_name="requestingStoreId"];
+  string requesting_store_name = 7 [json_name="requestingStoreName"];
+  string supplier_id = 8 [json_name="supplierId"];
+  string supplier_name = 9 [json_name="supplierName"];
+  string status = 10 [json_name="status"]; // e.g., "draft", "pending", "approved", "rejected"
+  string approver_id = 11 [json_name="approverId"];
+  string approver_name = 12 [json_name="approverName"];
+  string approver_signature = 13 [json_name="approverSignature"];
+  string approval_date = 14 [json_name="approvalDate"];
+  string notes = 15 [json_name="notes"];
+  string created_at = 16 [json_name="createdAt"];
+  string updated_at = 17 [json_name="updatedAt"];
+  repeated RequisitionItem items = 18 [json_name="items"];
 }
 
 // Message for LPO items
 message LPOItem {
-  string item_id = 1;
-  string item_name = 2;
-  double quantity_requested = 3;
-  string unit_of_measure = 4;
+  string item_id = 1 [json_name="itemId"];
+  string item_name = 2 [json_name="itemName"];
+  double quantity_requested = 3 [json_name="quantityRequested"];
+  string unit_of_measure = 4 [json_name="unitOfMeasure"];
 }
 
 // Message for LPO (Local Purchase Order)
 message LocalPurchaseOrder {
-  string id = 1;
-  string lpo_number = 2;
-  string requisition_id = 3;
-  string requisition_number = 4;
-  string supplier_id = 5;
-  string supplier_name = 6;
-  string store_id = 7;
-  string store_name = 8;
-  string status = 9; // e.g., "draft", "approved", "issued", "delivered"
-  string authorizer_id = 10;
-  string authorizer_name = 11;
-  string authorizer_signature = 12;
-  string authorization_date = 13;
-  string created_at = 14;
-  string updated_at = 15;
-  repeated LPOItem items = 16;
+  string id = 1 [json_name="id"];
+  string lpo_number = 2 [json_name="lpoNumber"];
+  string requisition_id = 3 [json_name="requisitionId"];
+  string requisition_number = 4 [json_name="requisitionNumber"];
+  string supplier_id = 5 [json_name="supplierId"];
+  string supplier_name = 6 [json_name="supplierName"];
+  string store_id = 7 [json_name="storeId"];
+  string store_name = 8 [json_name="storeName"];
+  string status = 9 [json_name="status"]; // e.g., "draft", "approved", "issued", "delivered"
+  string authorizer_id = 10 [json_name="authorizerId"];
+  string authorizer_name = 11 [json_name="authorizerName"];
+  string authorizer_signature = 12 [json_name="authorizerSignature"];
+  string authorization_date = 13 [json_name="authorizationDate"];
+  string created_at = 14 [json_name="createdAt"];
+  string updated_at = 15 [json_name="updatedAt"];
+  repeated LPOItem items = 16 [json_name="items"];
 }
 
 // Message for Goods Received Note (GRN)
 message GoodsReceivedNote {
-  string id = 1;
-  string grn_number = 2;
-  string lpo_id = 3;
-  string lpo_number = 4;
-  string supplier_id = 5;
-  string supplier_name = 6;
-  string store_id = 7;
-  string store_name = 8;
-  string delivery_note_number = 9;
-  string invoice_number = 10;
-  string status = 11; // e.g., "pending", "quality_check", "completed", "partial"
-  string receiver_id = 12;
-  string receiver_name = 13;
-  string receiver_signature = 14;
-  string checker_id = 15;
-  string checker_name = 16;
-  string check_date = 17;
-  string notes = 18;
-  string created_at = 19;
-  string updated_at = 20;
-  repeated GoodsReceivedItem items = 21;
-  double total_cost = 22;
+  string id = 1 [json_name="id"];
+  string grn_number = 2 [json_name="grnNumber"];
+  string lpo_id = 3 [json_name="lpoId"];
+  string lpo_number = 4 [json_name="lpoNumber"];
+  string supplier_id = 5 [json_name="supplierId"];
+  string supplier_name = 6 [json_name="supplierName"];
+  string store_id = 7 [json_name="storeId"];
+  string store_name = 8 [json_name="storeName"];
+  string delivery_note_number = 9 [json_name="deliveryNoteNumber"];
+  string invoice_number = 10 [json_name="invoiceNumber"];
+  string status = 11 [json_name="status"]; // e.g., "pending", "quality_check", "completed", "partial"
+  string receiver_id = 12 [json_name="receiverId"];
+  string receiver_name = 13 [json_name="receiverName"];
+  string receiver_signature = 14 [json_name="receiverSignature"];
+  string checker_id = 15 [json_name="checkerId"];
+  string checker_name = 16 [json_name="checkerName"];
+  string check_date = 17 [json_name="checkDate"];
+  string notes = 18 [json_name="notes"];
+  string created_at = 19 [json_name="createdAt"];
+  string updated_at = 20 [json_name="updatedAt"];
+  repeated GoodsReceivedItem items = 21 [json_name="items"];
+  double total_cost = 22 [json_name="totalCost"];
 }
 
 // Message for items in GRN
 message GoodsReceivedItem {
-  string item_id = 1;
-  string item_name = 2;
-  double ordered_quantity = 3;
-  double received_quantity = 4; 
-  double accepted_quantity = 5;
-  double rejected_quantity = 6;
-  string rejection_reason = 7;
-  string unit_of_measure = 8;
-  string batch_number = 9;
-  string expiry_date = 10;
-  string bin_number = 11;
-  string notes = 12;
-  double unit_cost = 13;
-  double total_cost = 14;
+  string item_id = 1 [json_name="itemId"];
+  string item_name = 2 [json_name="itemName"];
+  double ordered_quantity = 3 [json_name="orderedQuantity"];
+  double received_quantity = 4 [json_name="receivedQuantity"]; 
+  double accepted_quantity = 5 [json_name="acceptedQuantity"];
+  double rejected_quantity = 6 [json_name="rejectedQuantity"];
+  string rejection_reason = 7 [json_name="rejectionReason"];
+  string unit_of_measure = 8 [json_name="unitOfMeasure"];
+  string batch_number = 9 [json_name="batchNumber"];
+  string expiry_date = 10 [json_name="expiryDate"];
+  string bin_number = 11 [json_name="binNumber"];
+  string notes = 12 [json_name="notes"];
+  double unit_cost = 13 [json_name="unitCost"];
+  double total_cost = 14 [json_name="totalCost"];
 }
 
 // Message for stock adjustment
 message StockAdjustment {
-  string id = 1;
-  string adjustment_number = 2;
-  string store_id = 3;
-  string store_name = 4;
-  string reason = 5; // e.g., "expired", "damaged", "theft", "correction"
-  string notes = 6;
-  string status = 7; // e.g., "pending", "approved", "completed"
-  string authorizer_id = 8;
-  string authorizer_name = 9;
-  string authorizer_signature = 10;
-  string created_at = 11;
-  string updated_at = 12;
-  repeated StockAdjustmentItem items = 13;
+  string id = 1 [json_name="id"];
+  string adjustment_number = 2 [json_name="adjustmentNumber"];
+  string store_id = 3 [json_name="storeId"];
+  string store_name = 4 [json_name="storeName"];
+  string reason = 5 [json_name="reason"]; // e.g., "expired", "damaged", "theft", "correction"
+  string notes = 6 [json_name="notes"];
+  string status = 7 [json_name="status"]; // e.g., "pending", "approved", "completed"
+  string authorizer_id = 8 [json_name="authorizerId"];
+  string authorizer_name = 9 [json_name="authorizerName"];
+  string authorizer_signature = 10 [json_name="authorizerSignature"];
+  string created_at = 11 [json_name="createdAt"];
+  string updated_at = 12 [json_name="updatedAt"];
+  repeated StockAdjustmentItem items = 13 [json_name="items"];
 }
 
 // Message for stock adjustment items
 message StockAdjustmentItem {
-  string item_id = 1;
-  string item_name = 2;
-  double adjusted_quantity = 4;
-  string unit_of_measure = 5;
-  string notes = 6;
+  string item_id = 1 [json_name="itemId"];
+  string item_name = 2 [json_name="itemName"];
+  double adjusted_quantity = 4 [json_name="adjustedQuantity"];
+  string unit_of_measure = 5 [json_name="unitOfMeasure"];
+  string notes = 6 [json_name="notes"];
 }
 
 // Message for inter-store transfer
 message InterStoreTransfer {
-  string id = 1;
-  string transfer_number = 2;
-  string source_store_id = 3;
-  string source_store_name = 4;
-  string destination_store_id = 5;
-  string destination_store_name = 6;
-  string status = 7; // e.g., "pending", "approved", "in_transit", "received"
-  string requestor_id = 8;
-  string requestor_name = 9;
-  string requestor_signature = 10;
-  string approver_id = 11;
-  string approver_name = 12;
-  string approver_signature = 13;
-  string receiver_id = 14;
-  string receiver_name = 15;
-  string receiver_signature = 16;
-  string reason = 17;
-  string notes = 18;
-  string created_at = 19;
-  string updated_at = 20;
-  repeated InterStoreTransferItem items = 21;
+  string id = 1 [json_name="id"];
+  string transfer_number = 2 [json_name="transferNumber"];
+  string source_store_id = 3 [json_name="sourceStoreId"];
+  string source_store_name = 4 [json_name="sourceStoreName"];
+  string destination_store_id = 5 [json_name="destinationStoreId"];
+  string destination_store_name = 6 [json_name="destinationStoreName"];
+  string status = 7 [json_name="status"]; // e.g., "pending", "approved", "in_transit", "received"
+  string requestor_id = 8 [json_name="requestorId"];
+  string requestor_name = 9 [json_name="requestorName"];
+  string requestor_signature = 10 [json_name="requestorSignature"];
+  string approver_id = 11 [json_name="approverId"];
+  string approver_name = 12 [json_name="approverName"];
+  string approver_signature = 13 [json_name="approverSignature"];
+  string receiver_id = 14 [json_name="receiverId"];
+  string receiver_name = 15 [json_name="receiverName"];
+  string receiver_signature = 16 [json_name="receiverSignature"];
+  string reason = 17 [json_name="reason"];
+  string notes = 18 [json_name="notes"];
+  string created_at = 19 [json_name="createdAt"];
+  string updated_at = 20 [json_name="updatedAt"];
+  repeated InterStoreTransferItem items = 21 [json_name="items"];
 }
 
 // Message for inter-store transfer items
 message InterStoreTransferItem {
-  string item_id = 1;
-  string item_name = 2;
-  double transfer_quantity = 4;
-  double received_quantity = 5;
-  string unit_of_measure = 6;
-  string notes = 7;
+  string item_id = 1 [json_name="itemId"];
+  string item_name = 2 [json_name="itemName"];
+  double transfer_quantity = 4 [json_name="transferQuantity"];
+  double received_quantity = 5 [json_name="receivedQuantity"];
+  string unit_of_measure = 6 [json_name="unitOfMeasure"];
+  string notes = 7 [json_name="notes"];
 }
 
 // Message for credit note
@@ -734,6 +734,26 @@ service SupplyChainService {
       get: "/v1/medical-schemes"
     };
   }
+
+  // Stock Quantities - NEW ENDPOINTS FOR PHARMACY SERVICE
+  rpc GetStoreStockQuantities (GetStoreStockQuantitiesRequest) returns (GetStoreStockQuantitiesResponse) {
+    option (google.api.http) = {
+      get: "/v1/stores/{store_id}/stock-quantities"
+    };
+  }
+
+  rpc GetItemQuantityInStore (GetItemQuantityInStoreRequest) returns (GetItemQuantityInStoreResponse) {
+    option (google.api.http) = {
+      get: "/v1/stock-quantities/stores/{store_id}/items/{item_id}"
+    };
+  }
+
+  rpc ReduceStockInStore (ReduceStockInStoreRequest) returns (ReduceStockInStoreResponse) {
+    option (google.api.http) = {
+      post: "/v1/stock-quantities/reduce"
+      body: "*"
+    };
+  }
 }
 
 // Request and Response messages for Stock Items
@@ -1131,7 +1151,7 @@ message ListCreditNotesResponse {
   repeated CreditNote credit_notes = 1;
 }
 
-// Price List Request and Response messages
+// Price List Management
 message CreatePriceListRequest {
   string name = 1;
   string description = 2;
@@ -1171,7 +1191,7 @@ message ListPriceListsResponse {
   repeated PriceList price_lists = 1;
 }
 
-// Price List Item Request and Response messages
+// Price List Item Management
 message CreatePriceListItemRequest {
   int32 price_list_id = 1;
   int32 stock_item_id = 2;
@@ -1233,7 +1253,7 @@ message GetPriceListItemsByPriceListResponse {
   repeated PriceListItem price_list_items = 1;
 }
 
-// Medical Scheme Request and Response messages
+// Medical Scheme Management
 message CreateMedicalSchemeRequest {
   string name = 1;
   int32 price_list_id = 2;
@@ -1244,8 +1264,8 @@ message CreateMedicalSchemeRequest {
   bool covers_laboratory = 7;
   double annual_limit = 8;
   double consultation_limit = 9;
-  double copay_percentage = 10;
-  double copay_fixed_amount = 11;
+  double copay_percentage = 11;
+  double copay_fixed_amount = 12;
 }
 
 message CreateMedicalSchemeResponse {
@@ -1291,4 +1311,43 @@ message ListMedicalSchemesRequest {
 
 message ListMedicalSchemesResponse {
   repeated MedicalScheme medical_schemes = 1;
+}
+
+// Stock Quantities Messages - NEW ENDPOINTS FOR PHARMACY SERVICE
+message StockQuantity {
+  string store_id = 1;
+  string item_id = 2;
+  string item_name = 3;
+  double quantity = 4;
+  string category = 5;
+  string unit_of_measure = 6;
+}
+
+message GetStoreStockQuantitiesRequest {
+  string store_id = 1;
+}
+
+message GetStoreStockQuantitiesResponse {
+  repeated StockQuantity quantities = 1;
+}
+
+message GetItemQuantityInStoreRequest {
+  string store_id = 1;
+  string item_id = 2;
+}
+
+message GetItemQuantityInStoreResponse {
+  double quantity = 1;
+  bool item_exists = 2;
+}
+
+message ReduceStockInStoreRequest {
+  string store_id = 1;
+  string item_id = 2;
+  double quantity = 3;
+}
+
+message ReduceStockInStoreResponse {
+  bool success = 1;
+  string message = 2;
 }

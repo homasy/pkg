@@ -82,6 +82,9 @@ const (
 	SupplyChainService_GetMedicalSchemeByName_FullMethodName       = "/supply_chain.SupplyChainService/GetMedicalSchemeByName"
 	SupplyChainService_UpdateMedicalScheme_FullMethodName          = "/supply_chain.SupplyChainService/UpdateMedicalScheme"
 	SupplyChainService_ListMedicalSchemes_FullMethodName           = "/supply_chain.SupplyChainService/ListMedicalSchemes"
+	SupplyChainService_GetStoreStockQuantities_FullMethodName      = "/supply_chain.SupplyChainService/GetStoreStockQuantities"
+	SupplyChainService_GetItemQuantityInStore_FullMethodName       = "/supply_chain.SupplyChainService/GetItemQuantityInStore"
+	SupplyChainService_ReduceStockInStore_FullMethodName           = "/supply_chain.SupplyChainService/ReduceStockInStore"
 )
 
 // SupplyChainServiceClient is the client API for SupplyChainService service.
@@ -162,6 +165,10 @@ type SupplyChainServiceClient interface {
 	GetMedicalSchemeByName(ctx context.Context, in *GetMedicalSchemeByNameRequest, opts ...grpc.CallOption) (*GetMedicalSchemeResponse, error)
 	UpdateMedicalScheme(ctx context.Context, in *UpdateMedicalSchemeRequest, opts ...grpc.CallOption) (*UpdateMedicalSchemeResponse, error)
 	ListMedicalSchemes(ctx context.Context, in *ListMedicalSchemesRequest, opts ...grpc.CallOption) (*ListMedicalSchemesResponse, error)
+	// Stock Quantities - NEW ENDPOINTS FOR PHARMACY SERVICE
+	GetStoreStockQuantities(ctx context.Context, in *GetStoreStockQuantitiesRequest, opts ...grpc.CallOption) (*GetStoreStockQuantitiesResponse, error)
+	GetItemQuantityInStore(ctx context.Context, in *GetItemQuantityInStoreRequest, opts ...grpc.CallOption) (*GetItemQuantityInStoreResponse, error)
+	ReduceStockInStore(ctx context.Context, in *ReduceStockInStoreRequest, opts ...grpc.CallOption) (*ReduceStockInStoreResponse, error)
 }
 
 type supplyChainServiceClient struct {
@@ -782,6 +789,36 @@ func (c *supplyChainServiceClient) ListMedicalSchemes(ctx context.Context, in *L
 	return out, nil
 }
 
+func (c *supplyChainServiceClient) GetStoreStockQuantities(ctx context.Context, in *GetStoreStockQuantitiesRequest, opts ...grpc.CallOption) (*GetStoreStockQuantitiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStoreStockQuantitiesResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_GetStoreStockQuantities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) GetItemQuantityInStore(ctx context.Context, in *GetItemQuantityInStoreRequest, opts ...grpc.CallOption) (*GetItemQuantityInStoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetItemQuantityInStoreResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_GetItemQuantityInStore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) ReduceStockInStore(ctx context.Context, in *ReduceStockInStoreRequest, opts ...grpc.CallOption) (*ReduceStockInStoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReduceStockInStoreResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_ReduceStockInStore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // SupplyChainServiceServer is the server API for SupplyChainService service.
 // All implementations must embed UnimplementedSupplyChainServiceServer
 // for forward compatibility.
@@ -860,6 +897,10 @@ type SupplyChainServiceServer interface {
 	GetMedicalSchemeByName(context.Context, *GetMedicalSchemeByNameRequest) (*GetMedicalSchemeResponse, error)
 	UpdateMedicalScheme(context.Context, *UpdateMedicalSchemeRequest) (*UpdateMedicalSchemeResponse, error)
 	ListMedicalSchemes(context.Context, *ListMedicalSchemesRequest) (*ListMedicalSchemesResponse, error)
+	// Stock Quantities - NEW ENDPOINTS FOR PHARMACY SERVICE
+	GetStoreStockQuantities(context.Context, *GetStoreStockQuantitiesRequest) (*GetStoreStockQuantitiesResponse, error)
+	GetItemQuantityInStore(context.Context, *GetItemQuantityInStoreRequest) (*GetItemQuantityInStoreResponse, error)
+	ReduceStockInStore(context.Context, *ReduceStockInStoreRequest) (*ReduceStockInStoreResponse, error)
 	mustEmbedUnimplementedSupplyChainServiceServer()
 }
 
@@ -1052,6 +1093,15 @@ func (UnimplementedSupplyChainServiceServer) UpdateMedicalScheme(context.Context
 }
 func (UnimplementedSupplyChainServiceServer) ListMedicalSchemes(context.Context, *ListMedicalSchemesRequest) (*ListMedicalSchemesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListMedicalSchemes not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) GetStoreStockQuantities(context.Context, *GetStoreStockQuantitiesRequest) (*GetStoreStockQuantitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoreStockQuantities not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) GetItemQuantityInStore(context.Context, *GetItemQuantityInStoreRequest) (*GetItemQuantityInStoreResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetItemQuantityInStore not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) ReduceStockInStore(context.Context, *ReduceStockInStoreRequest) (*ReduceStockInStoreResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReduceStockInStore not implemented")
 }
 func (UnimplementedSupplyChainServiceServer) mustEmbedUnimplementedSupplyChainServiceServer() {}
 func (UnimplementedSupplyChainServiceServer) testEmbeddedByValue()                            {}
@@ -2172,6 +2222,60 @@ func _SupplyChainService_ListMedicalSchemes_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SupplyChainService_GetStoreStockQuantities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoreStockQuantitiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).GetStoreStockQuantities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_GetStoreStockQuantities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).GetStoreStockQuantities(ctx, req.(*GetStoreStockQuantitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_GetItemQuantityInStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetItemQuantityInStoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).GetItemQuantityInStore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_GetItemQuantityInStore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).GetItemQuantityInStore(ctx, req.(*GetItemQuantityInStoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_ReduceStockInStore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReduceStockInStoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).ReduceStockInStore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_ReduceStockInStore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).ReduceStockInStore(ctx, req.(*ReduceStockInStoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // SupplyChainService_ServiceDesc is the grpc.ServiceDesc for SupplyChainService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2422,6 +2526,18 @@ var SupplyChainService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListMedicalSchemes",
 			Handler:    _SupplyChainService_ListMedicalSchemes_Handler,
+		},
+		{
+			MethodName: "GetStoreStockQuantities",
+			Handler:    _SupplyChainService_GetStoreStockQuantities_Handler,
+		},
+		{
+			MethodName: "GetItemQuantityInStore",
+			Handler:    _SupplyChainService_GetItemQuantityInStore_Handler,
+		},
+		{
+			MethodName: "ReduceStockInStore",
+			Handler:    _SupplyChainService_ReduceStockInStore_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

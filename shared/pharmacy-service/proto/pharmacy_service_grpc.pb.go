@@ -26,6 +26,7 @@ const (
 	PharmacyService_UpdateMedication_FullMethodName             = "/pharmacy_service.PharmacyService/UpdateMedication"
 	PharmacyService_DeleteMedication_FullMethodName             = "/pharmacy_service.PharmacyService/DeleteMedication"
 	PharmacyService_ListMedications_FullMethodName              = "/pharmacy_service.PharmacyService/ListMedications"
+	PharmacyService_ListMedicationsWithStock_FullMethodName     = "/pharmacy_service.PharmacyService/ListMedicationsWithStock"
 	PharmacyService_GetMedicationWithCategory_FullMethodName    = "/pharmacy_service.PharmacyService/GetMedicationWithCategory"
 	PharmacyService_CreateMedicationCategory_FullMethodName     = "/pharmacy_service.PharmacyService/CreateMedicationCategory"
 	PharmacyService_ListMedicationCategories_FullMethodName     = "/pharmacy_service.PharmacyService/ListMedicationCategories"
@@ -94,6 +95,7 @@ type PharmacyServiceClient interface {
 	UpdateMedication(ctx context.Context, in *UpdateMedicationRequest, opts ...grpc.CallOption) (*UpdateMedicationResponse, error)
 	DeleteMedication(ctx context.Context, in *DeleteMedicationRequest, opts ...grpc.CallOption) (*DeleteMedicationResponse, error)
 	ListMedications(ctx context.Context, in *ListMedicationsRequest, opts ...grpc.CallOption) (*ListMedicationsResponse, error)
+	ListMedicationsWithStock(ctx context.Context, in *ListMedicationsWithStockRequest, opts ...grpc.CallOption) (*ListMedicationsWithStockResponse, error)
 	GetMedicationWithCategory(ctx context.Context, in *GetMedicationWithCategoryRequest, opts ...grpc.CallOption) (*GetMedicationWithCategoryResponse, error)
 	// Medication Category Endpoints
 	CreateMedicationCategory(ctx context.Context, in *CreateMedicationCategoryRequest, opts ...grpc.CallOption) (*CreateMedicationCategoryResponse, error)
@@ -220,6 +222,16 @@ func (c *pharmacyServiceClient) ListMedications(ctx context.Context, in *ListMed
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListMedicationsResponse)
 	err := c.cc.Invoke(ctx, PharmacyService_ListMedications_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pharmacyServiceClient) ListMedicationsWithStock(ctx context.Context, in *ListMedicationsWithStockRequest, opts ...grpc.CallOption) (*ListMedicationsWithStockResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListMedicationsWithStockResponse)
+	err := c.cc.Invoke(ctx, PharmacyService_ListMedicationsWithStock_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -796,6 +808,7 @@ type PharmacyServiceServer interface {
 	UpdateMedication(context.Context, *UpdateMedicationRequest) (*UpdateMedicationResponse, error)
 	DeleteMedication(context.Context, *DeleteMedicationRequest) (*DeleteMedicationResponse, error)
 	ListMedications(context.Context, *ListMedicationsRequest) (*ListMedicationsResponse, error)
+	ListMedicationsWithStock(context.Context, *ListMedicationsWithStockRequest) (*ListMedicationsWithStockResponse, error)
 	GetMedicationWithCategory(context.Context, *GetMedicationWithCategoryRequest) (*GetMedicationWithCategoryResponse, error)
 	// Medication Category Endpoints
 	CreateMedicationCategory(context.Context, *CreateMedicationCategoryRequest) (*CreateMedicationCategoryResponse, error)
@@ -892,6 +905,9 @@ func (UnimplementedPharmacyServiceServer) DeleteMedication(context.Context, *Del
 }
 func (UnimplementedPharmacyServiceServer) ListMedications(context.Context, *ListMedicationsRequest) (*ListMedicationsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListMedications not implemented")
+}
+func (UnimplementedPharmacyServiceServer) ListMedicationsWithStock(context.Context, *ListMedicationsWithStockRequest) (*ListMedicationsWithStockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListMedicationsWithStock not implemented")
 }
 func (UnimplementedPharmacyServiceServer) GetMedicationWithCategory(context.Context, *GetMedicationWithCategoryRequest) (*GetMedicationWithCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMedicationWithCategory not implemented")
@@ -1168,6 +1184,24 @@ func _PharmacyService_ListMedications_Handler(srv interface{}, ctx context.Conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PharmacyServiceServer).ListMedications(ctx, req.(*ListMedicationsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PharmacyService_ListMedicationsWithStock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListMedicationsWithStockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PharmacyServiceServer).ListMedicationsWithStock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PharmacyService_ListMedicationsWithStock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PharmacyServiceServer).ListMedicationsWithStock(ctx, req.(*ListMedicationsWithStockRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2206,6 +2240,10 @@ var PharmacyService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListMedications",
 			Handler:    _PharmacyService_ListMedications_Handler,
+		},
+		{
+			MethodName: "ListMedicationsWithStock",
+			Handler:    _PharmacyService_ListMedicationsWithStock_Handler,
 		},
 		{
 			MethodName: "GetMedicationWithCategory",

@@ -44,6 +44,12 @@ service PharmacyService {
     };
   }
 
+  rpc ListMedicationsWithStock (ListMedicationsWithStockRequest) returns (ListMedicationsWithStockResponse) {
+    option (google.api.http) = {
+      get: "/v1/medications/with-stock"
+    };
+  }
+
   rpc GetMedicationWithCategory (GetMedicationWithCategoryRequest) returns (GetMedicationWithCategoryResponse) {
     option (google.api.http) = {
       get: "/v1/medications/{medication_id}/category"
@@ -1229,4 +1235,23 @@ message ListPOSSalesResponse {
     repeated GetPOSSaleResponse sales = 1;
     double total_sales_amount = 2;
     int32 total_sales_count = 3;
+}
+
+// Medications with Stock Messages
+message MedicationWithStock {
+    int32 medication_id = 1;
+    string name = 2;
+    string category = 3;
+    double quantity_in_store = 4;
+    string unit_of_measure = 5;
+    string store_id = 6;
+}
+
+message ListMedicationsWithStockRequest {
+    string store_id = 1;
+    string category = 2;
+}
+
+message ListMedicationsWithStockResponse {
+    repeated MedicationWithStock medications = 1;
 }

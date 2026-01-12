@@ -191,6 +191,38 @@ func local_request_PharmacyService_ListMedications_0(ctx context.Context, marsha
 	return msg, metadata, err
 }
 
+var filter_PharmacyService_ListMedicationsWithStock_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+
+func request_PharmacyService_ListMedicationsWithStock_0(ctx context.Context, marshaler runtime.Marshaler, client PharmacyServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq ListMedicationsWithStockRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_PharmacyService_ListMedicationsWithStock_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	msg, err := client.ListMedicationsWithStock(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+}
+
+func local_request_PharmacyService_ListMedicationsWithStock_0(ctx context.Context, marshaler runtime.Marshaler, server PharmacyServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq ListMedicationsWithStockRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_PharmacyService_ListMedicationsWithStock_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	msg, err := server.ListMedicationsWithStock(ctx, &protoReq)
+	return msg, metadata, err
+}
+
 func request_PharmacyService_GetMedicationWithCategory_0(ctx context.Context, marshaler runtime.Marshaler, client PharmacyServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq GetMedicationWithCategoryRequest
@@ -2147,6 +2179,26 @@ func RegisterPharmacyServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 		}
 		forward_PharmacyService_ListMedications_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
+	mux.Handle(http.MethodGet, pattern_PharmacyService_ListMedicationsWithStock_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/pharmacy_service.PharmacyService/ListMedicationsWithStock", runtime.WithHTTPPathPattern("/v1/medications/with-stock"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_PharmacyService_ListMedicationsWithStock_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_PharmacyService_ListMedicationsWithStock_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
 	mux.Handle(http.MethodGet, pattern_PharmacyService_GetMedicationWithCategory_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -3392,6 +3444,23 @@ func RegisterPharmacyServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 		}
 		forward_PharmacyService_ListMedications_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
+	mux.Handle(http.MethodGet, pattern_PharmacyService_ListMedicationsWithStock_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/pharmacy_service.PharmacyService/ListMedicationsWithStock", runtime.WithHTTPPathPattern("/v1/medications/with-stock"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_PharmacyService_ListMedicationsWithStock_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_PharmacyService_ListMedicationsWithStock_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
 	mux.Handle(http.MethodGet, pattern_PharmacyService_GetMedicationWithCategory_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -4353,6 +4422,7 @@ var (
 	pattern_PharmacyService_UpdateMedication_0             = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "medications", "medication_id"}, ""))
 	pattern_PharmacyService_DeleteMedication_0             = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "medications", "medication_id"}, ""))
 	pattern_PharmacyService_ListMedications_0              = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "medications"}, ""))
+	pattern_PharmacyService_ListMedicationsWithStock_0     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "medications", "with-stock"}, ""))
 	pattern_PharmacyService_GetMedicationWithCategory_0    = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "medications", "medication_id", "category"}, ""))
 	pattern_PharmacyService_CreateMedicationCategory_0     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "categories"}, ""))
 	pattern_PharmacyService_ListMedicationCategories_0     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "categories"}, ""))
@@ -4417,6 +4487,7 @@ var (
 	forward_PharmacyService_UpdateMedication_0             = runtime.ForwardResponseMessage
 	forward_PharmacyService_DeleteMedication_0             = runtime.ForwardResponseMessage
 	forward_PharmacyService_ListMedications_0              = runtime.ForwardResponseMessage
+	forward_PharmacyService_ListMedicationsWithStock_0     = runtime.ForwardResponseMessage
 	forward_PharmacyService_GetMedicationWithCategory_0    = runtime.ForwardResponseMessage
 	forward_PharmacyService_CreateMedicationCategory_0     = runtime.ForwardResponseMessage
 	forward_PharmacyService_ListMedicationCategories_0     = runtime.ForwardResponseMessage
