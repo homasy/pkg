@@ -115,6 +115,14 @@ func (c *StockClient) ReduceStockFromStore(ctx context.Context, req *supplypb.Re
 	return c.client.ReduceStockFromStore(ctx, req)
 }
 
+func (c *StockClient) ManualStockUpdate(ctx context.Context, req *supplypb.ManualStockUpdateRequest) (*supplypb.ManualStockUpdateResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+
+	return c.client.ManualStockUpdate(ctx, req)
+}
+
 // ListStockItems lists stock items
 func (c *StockClient) ListStockItems(ctx context.Context, req *supplypb.ListStockItemsRequest) (*supplypb.ListStockItemsResponse, error) {
 	if err := c.Connect(); err != nil {
