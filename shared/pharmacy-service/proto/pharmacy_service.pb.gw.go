@@ -59,6 +59,8 @@ func local_request_PharmacyService_CreateMedication_0(ctx context.Context, marsh
 	return msg, metadata, err
 }
 
+var filter_PharmacyService_GetMedication_0 = &utilities.DoubleArray{Encoding: map[string]int{"medication_id": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+
 func request_PharmacyService_GetMedication_0(ctx context.Context, marshaler runtime.Marshaler, client PharmacyServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq GetMedicationRequest
@@ -72,6 +74,12 @@ func request_PharmacyService_GetMedication_0(ctx context.Context, marshaler runt
 	protoReq.MedicationId, err = runtime.Int32(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "medication_id", err)
+	}
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_PharmacyService_GetMedication_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 	msg, err := client.GetMedication(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
@@ -90,6 +98,12 @@ func local_request_PharmacyService_GetMedication_0(ctx context.Context, marshale
 	protoReq.MedicationId, err = runtime.Int32(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "medication_id", err)
+	}
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_PharmacyService_GetMedication_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 	msg, err := server.GetMedication(ctx, &protoReq)
 	return msg, metadata, err
@@ -173,11 +187,19 @@ func local_request_PharmacyService_DeleteMedication_0(ctx context.Context, marsh
 	return msg, metadata, err
 }
 
+var filter_PharmacyService_ListMedications_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+
 func request_PharmacyService_ListMedications_0(ctx context.Context, marshaler runtime.Marshaler, client PharmacyServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq ListMedicationsRequest
 		metadata runtime.ServerMetadata
 	)
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_PharmacyService_ListMedications_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
 	msg, err := client.ListMedications(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 }
@@ -187,6 +209,12 @@ func local_request_PharmacyService_ListMedications_0(ctx context.Context, marsha
 		protoReq ListMedicationsRequest
 		metadata runtime.ServerMetadata
 	)
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_PharmacyService_ListMedications_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
 	msg, err := server.ListMedications(ctx, &protoReq)
 	return msg, metadata, err
 }

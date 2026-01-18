@@ -38,7 +38,7 @@ message Store {
   string id = 1 [json_name="id"];
   string name = 2 [json_name="name"];
   string location = 3 [json_name="location"];
-  string type = 4 [json_name="type"]; // e.g., "pharmacy", "catering", "bulk_store"
+  string type = 4 [json_name="type"];
   bool is_active = 5 [json_name="isActive"];
   string created_at = 6 [json_name="createdAt"];
   string updated_at = 7 [json_name="updatedAt"];
@@ -79,7 +79,7 @@ message Requisition {
   string requesting_store_name = 7 [json_name="requestingStoreName"];
   string supplier_id = 8 [json_name="supplierId"];
   string supplier_name = 9 [json_name="supplierName"];
-  string status = 10 [json_name="status"]; // e.g., "draft", "pending", "approved", "rejected"
+  string status = 10 [json_name="status"];
   string approver_id = 11 [json_name="approverId"];
   string approver_name = 12 [json_name="approverName"];
   string approver_signature = 13 [json_name="approverSignature"];
@@ -88,6 +88,7 @@ message Requisition {
   string created_at = 16 [json_name="createdAt"];
   string updated_at = 17 [json_name="updatedAt"];
   repeated RequisitionItem items = 18 [json_name="items"];
+  string tracking_id = 19 [json_name="trackingId"];
 }
 
 // Message for LPO items
@@ -108,7 +109,7 @@ message LocalPurchaseOrder {
   string supplier_name = 6 [json_name="supplierName"];
   string store_id = 7 [json_name="storeId"];
   string store_name = 8 [json_name="storeName"];
-  string status = 9 [json_name="status"]; // e.g., "draft", "approved", "issued", "delivered"
+  string status = 9 [json_name="status"];
   string authorizer_id = 10 [json_name="authorizerId"];
   string authorizer_name = 11 [json_name="authorizerName"];
   string authorizer_signature = 12 [json_name="authorizerSignature"];
@@ -130,7 +131,7 @@ message GoodsReceivedNote {
   string store_name = 8 [json_name="storeName"];
   string delivery_note_number = 9 [json_name="deliveryNoteNumber"];
   string invoice_number = 10 [json_name="invoiceNumber"];
-  string status = 11 [json_name="status"]; // e.g., "pending", "quality_check", "completed", "partial"
+  string status = 11 [json_name="status"];
   string receiver_id = 12 [json_name="receiverId"];
   string receiver_name = 13 [json_name="receiverName"];
   string receiver_signature = 14 [json_name="receiverSignature"];
@@ -168,9 +169,9 @@ message StockAdjustment {
   string adjustment_number = 2 [json_name="adjustmentNumber"];
   string store_id = 3 [json_name="storeId"];
   string store_name = 4 [json_name="storeName"];
-  string reason = 5 [json_name="reason"]; // e.g., "expired", "damaged", "theft", "correction"
+  string reason = 5 [json_name="reason"];
   string notes = 6 [json_name="notes"];
-  string status = 7 [json_name="status"]; // e.g., "pending", "approved", "completed"
+  string status = 7 [json_name="status"];
   string authorizer_id = 8 [json_name="authorizerId"];
   string authorizer_name = 9 [json_name="authorizerName"];
   string authorizer_signature = 10 [json_name="authorizerSignature"];
@@ -196,7 +197,7 @@ message InterStoreTransfer {
   string source_store_name = 4 [json_name="sourceStoreName"];
   string destination_store_id = 5 [json_name="destinationStoreId"];
   string destination_store_name = 6 [json_name="destinationStoreName"];
-  string status = 7 [json_name="status"]; // e.g., "pending", "approved", "in_transit", "received"
+  string status = 7 [json_name="status"];
   string requestor_id = 8 [json_name="requestorId"];
   string requestor_name = 9 [json_name="requestorName"];
   string requestor_signature = 10 [json_name="requestorSignature"];
@@ -916,6 +917,7 @@ message CreateRequisitionRequest {
 
 message CreateRequisitionResponse {
   string id = 1;
+  string requisition_id = 2;
 }
 
 message ApproveRequisitionRequest {

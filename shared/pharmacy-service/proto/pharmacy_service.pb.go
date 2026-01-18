@@ -1569,6 +1569,7 @@ type CreateStockRequestItemRequest struct {
 	RequestId         int32                  `protobuf:"varint,1,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
 	MedicationId      int32                  `protobuf:"varint,2,opt,name=medication_id,json=medicationId,proto3" json:"medication_id,omitempty"`
 	RequestedQuantity int32                  `protobuf:"varint,3,opt,name=requested_quantity,json=requestedQuantity,proto3" json:"requested_quantity,omitempty"`
+	StoreId           int32                  `protobuf:"varint,4,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -1620,6 +1621,13 @@ func (x *CreateStockRequestItemRequest) GetMedicationId() int32 {
 func (x *CreateStockRequestItemRequest) GetRequestedQuantity() int32 {
 	if x != nil {
 		return x.RequestedQuantity
+	}
+	return 0
+}
+
+func (x *CreateStockRequestItemRequest) GetStoreId() int32 {
+	if x != nil {
+		return x.StoreId
 	}
 	return 0
 }
@@ -3809,6 +3817,7 @@ func (x *CreateMedicationResponse) GetMessage() string {
 type GetMedicationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	MedicationId  int32                  `protobuf:"varint,1,opt,name=medication_id,json=medicationId,proto3" json:"medication_id,omitempty"`
+	StoreId       int32                  `protobuf:"varint,2,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3846,6 +3855,13 @@ func (*GetMedicationRequest) Descriptor() ([]byte, []int) {
 func (x *GetMedicationRequest) GetMedicationId() int32 {
 	if x != nil {
 		return x.MedicationId
+	}
+	return 0
+}
+
+func (x *GetMedicationRequest) GetStoreId() int32 {
+	if x != nil {
+		return x.StoreId
 	}
 	return 0
 }
@@ -4200,6 +4216,7 @@ func (x *DeleteMedicationResponse) GetMessage() string {
 
 type ListMedicationsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	StoreId       int32                  `protobuf:"varint,1,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4232,6 +4249,13 @@ func (x *ListMedicationsRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use ListMedicationsRequest.ProtoReflect.Descriptor instead.
 func (*ListMedicationsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_pharmacy_service_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *ListMedicationsRequest) GetStoreId() int32 {
+	if x != nil {
+		return x.StoreId
+	}
+	return 0
 }
 
 type ListMedicationsResponse struct {
@@ -4958,6 +4982,7 @@ type CreateMedicationScheduleRequest struct {
 	TimeSlots     string                 `protobuf:"bytes,7,opt,name=time_slots,json=timeSlots,proto3" json:"time_slots,omitempty"`
 	Notes         string                 `protobuf:"bytes,8,opt,name=notes,proto3" json:"notes,omitempty"`
 	Status        string                 `protobuf:"bytes,9,opt,name=status,proto3" json:"status,omitempty"`
+	StoreId       int32                  `protobuf:"varint,10,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -5053,6 +5078,13 @@ func (x *CreateMedicationScheduleRequest) GetStatus() string {
 		return x.Status
 	}
 	return ""
+}
+
+func (x *CreateMedicationScheduleRequest) GetStoreId() int32 {
+	if x != nil {
+		return x.StoreId
+	}
+	return 0
 }
 
 type CreateMedicationScheduleResponse struct {
@@ -8293,12 +8325,13 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\vdispense_id\x18\x01 \x01(\x05R\n" +
 	"dispenseId\"=\n" +
 	"!DeleteDispensedMedicationResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\"\x92\x01\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\"\xad\x01\n" +
 	"\x1dCreateStockRequestItemRequest\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x01 \x01(\x05R\trequestId\x12#\n" +
 	"\rmedication_id\x18\x02 \x01(\x05R\fmedicationId\x12-\n" +
-	"\x12requested_quantity\x18\x03 \x01(\x05R\x11requestedQuantity\"S\n" +
+	"\x12requested_quantity\x18\x03 \x01(\x05R\x11requestedQuantity\x12\x19\n" +
+	"\bstore_id\x18\x04 \x01(\x05R\astoreId\"S\n" +
 	"\x1eCreateStockRequestItemResponse\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"5\n" +
@@ -8444,9 +8477,10 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\x10initial_quantity\x18\t \x01(\x05R\x0finitialQuantity\"Y\n" +
 	"\x18CreateMedicationResponse\x12#\n" +
 	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\";\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"V\n" +
 	"\x14GetMedicationRequest\x12#\n" +
-	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\"\xda\x02\n" +
+	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\x12\x19\n" +
+	"\bstore_id\x18\x02 \x01(\x05R\astoreId\"\xda\x02\n" +
 	"\x15GetMedicationResponse\x12#\n" +
 	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\x12'\n" +
 	"\x0fmedication_name\x18\x02 \x01(\tR\x0emedicationName\x12\x1f\n" +
@@ -8480,8 +8514,9 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\rmedication_id\x18\x01 \x01(\x05R\fmedicationId\"N\n" +
 	"\x18DeleteMedicationResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\"\x18\n" +
-	"\x16ListMedicationsRequest\"Y\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"3\n" +
+	"\x16ListMedicationsRequest\x12\x19\n" +
+	"\bstore_id\x18\x01 \x01(\x05R\astoreId\"Y\n" +
 	"\x17ListMedicationsResponse\x12>\n" +
 	"\vmedications\x18\x01 \x03(\v2\x1c.pharmacy_service.MedicationR\vmedications\"\xcf\x02\n" +
 	"\n" +
@@ -8546,7 +8581,7 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	" \x01(\tR\x05notes\x12\x16\n" +
 	"\x06status\x18\v \x01(\tR\x06status\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\f \x01(\tR\tcreatedAt\"\xa2\x02\n" +
+	"created_at\x18\f \x01(\tR\tcreatedAt\"\xbd\x02\n" +
 	"\x1fCreateMedicationScheduleRequest\x12\x1d\n" +
 	"\n" +
 	"patient_id\x18\x01 \x01(\x05R\tpatientId\x12#\n" +
@@ -8559,7 +8594,9 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\n" +
 	"time_slots\x18\a \x01(\tR\ttimeSlots\x12\x14\n" +
 	"\x05notes\x18\b \x01(\tR\x05notes\x12\x16\n" +
-	"\x06status\x18\t \x01(\tR\x06status\"]\n" +
+	"\x06status\x18\t \x01(\tR\x06status\x12\x19\n" +
+	"\bstore_id\x18\n" +
+	" \x01(\x05R\astoreId\"]\n" +
 	" CreateMedicationScheduleResponse\x12\x1f\n" +
 	"\vschedule_id\x18\x01 \x01(\x05R\n" +
 	"scheduleId\x12\x18\n" +

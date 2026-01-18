@@ -228,7 +228,7 @@ type Store struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Location      string                 `protobuf:"bytes,3,opt,name=location,proto3" json:"location,omitempty"`
-	Type          string                 `protobuf:"bytes,4,opt,name=type,proto3" json:"type,omitempty"` // e.g., "pharmacy", "catering", "bulk_store"
+	Type          string                 `protobuf:"bytes,4,opt,name=type,proto3" json:"type,omitempty"`
 	IsActive      bool                   `protobuf:"varint,5,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
 	CreatedAt     string                 `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	UpdatedAt     string                 `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
@@ -529,7 +529,7 @@ type Requisition struct {
 	RequestingStoreName string                 `protobuf:"bytes,7,opt,name=requesting_store_name,json=requestingStoreName,proto3" json:"requesting_store_name,omitempty"`
 	SupplierId          string                 `protobuf:"bytes,8,opt,name=supplier_id,json=supplierId,proto3" json:"supplier_id,omitempty"`
 	SupplierName        string                 `protobuf:"bytes,9,opt,name=supplier_name,json=supplierName,proto3" json:"supplier_name,omitempty"`
-	Status              string                 `protobuf:"bytes,10,opt,name=status,proto3" json:"status,omitempty"` // e.g., "draft", "pending", "approved", "rejected"
+	Status              string                 `protobuf:"bytes,10,opt,name=status,proto3" json:"status,omitempty"`
 	ApproverId          string                 `protobuf:"bytes,11,opt,name=approver_id,json=approverId,proto3" json:"approver_id,omitempty"`
 	ApproverName        string                 `protobuf:"bytes,12,opt,name=approver_name,json=approverName,proto3" json:"approver_name,omitempty"`
 	ApproverSignature   string                 `protobuf:"bytes,13,opt,name=approver_signature,json=approverSignature,proto3" json:"approver_signature,omitempty"`
@@ -538,6 +538,7 @@ type Requisition struct {
 	CreatedAt           string                 `protobuf:"bytes,16,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	UpdatedAt           string                 `protobuf:"bytes,17,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	Items               []*RequisitionItem     `protobuf:"bytes,18,rep,name=items,proto3" json:"items,omitempty"`
+	TrackingId          string                 `protobuf:"bytes,19,opt,name=tracking_id,json=trackingId,proto3" json:"tracking_id,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -698,6 +699,13 @@ func (x *Requisition) GetItems() []*RequisitionItem {
 	return nil
 }
 
+func (x *Requisition) GetTrackingId() string {
+	if x != nil {
+		return x.TrackingId
+	}
+	return ""
+}
+
 // Message for LPO items
 type LPOItem struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
@@ -778,7 +786,7 @@ type LocalPurchaseOrder struct {
 	SupplierName        string                 `protobuf:"bytes,6,opt,name=supplier_name,json=supplierName,proto3" json:"supplier_name,omitempty"`
 	StoreId             string                 `protobuf:"bytes,7,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	StoreName           string                 `protobuf:"bytes,8,opt,name=store_name,json=storeName,proto3" json:"store_name,omitempty"`
-	Status              string                 `protobuf:"bytes,9,opt,name=status,proto3" json:"status,omitempty"` // e.g., "draft", "approved", "issued", "delivered"
+	Status              string                 `protobuf:"bytes,9,opt,name=status,proto3" json:"status,omitempty"`
 	AuthorizerId        string                 `protobuf:"bytes,10,opt,name=authorizer_id,json=authorizerId,proto3" json:"authorizer_id,omitempty"`
 	AuthorizerName      string                 `protobuf:"bytes,11,opt,name=authorizer_name,json=authorizerName,proto3" json:"authorizer_name,omitempty"`
 	AuthorizerSignature string                 `protobuf:"bytes,12,opt,name=authorizer_signature,json=authorizerSignature,proto3" json:"authorizer_signature,omitempty"`
@@ -945,7 +953,7 @@ type GoodsReceivedNote struct {
 	StoreName          string                 `protobuf:"bytes,8,opt,name=store_name,json=storeName,proto3" json:"store_name,omitempty"`
 	DeliveryNoteNumber string                 `protobuf:"bytes,9,opt,name=delivery_note_number,json=deliveryNoteNumber,proto3" json:"delivery_note_number,omitempty"`
 	InvoiceNumber      string                 `protobuf:"bytes,10,opt,name=invoice_number,json=invoiceNumber,proto3" json:"invoice_number,omitempty"`
-	Status             string                 `protobuf:"bytes,11,opt,name=status,proto3" json:"status,omitempty"` // e.g., "pending", "quality_check", "completed", "partial"
+	Status             string                 `protobuf:"bytes,11,opt,name=status,proto3" json:"status,omitempty"`
 	ReceiverId         string                 `protobuf:"bytes,12,opt,name=receiver_id,json=receiverId,proto3" json:"receiver_id,omitempty"`
 	ReceiverName       string                 `protobuf:"bytes,13,opt,name=receiver_name,json=receiverName,proto3" json:"receiver_name,omitempty"`
 	ReceiverSignature  string                 `protobuf:"bytes,14,opt,name=receiver_signature,json=receiverSignature,proto3" json:"receiver_signature,omitempty"`
@@ -1301,9 +1309,9 @@ type StockAdjustment struct {
 	AdjustmentNumber    string                 `protobuf:"bytes,2,opt,name=adjustment_number,json=adjustmentNumber,proto3" json:"adjustment_number,omitempty"`
 	StoreId             string                 `protobuf:"bytes,3,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	StoreName           string                 `protobuf:"bytes,4,opt,name=store_name,json=storeName,proto3" json:"store_name,omitempty"`
-	Reason              string                 `protobuf:"bytes,5,opt,name=reason,proto3" json:"reason,omitempty"` // e.g., "expired", "damaged", "theft", "correction"
+	Reason              string                 `protobuf:"bytes,5,opt,name=reason,proto3" json:"reason,omitempty"`
 	Notes               string                 `protobuf:"bytes,6,opt,name=notes,proto3" json:"notes,omitempty"`
-	Status              string                 `protobuf:"bytes,7,opt,name=status,proto3" json:"status,omitempty"` // e.g., "pending", "approved", "completed"
+	Status              string                 `protobuf:"bytes,7,opt,name=status,proto3" json:"status,omitempty"`
 	AuthorizerId        string                 `protobuf:"bytes,8,opt,name=authorizer_id,json=authorizerId,proto3" json:"authorizer_id,omitempty"`
 	AuthorizerName      string                 `protobuf:"bytes,9,opt,name=authorizer_name,json=authorizerName,proto3" json:"authorizer_name,omitempty"`
 	AuthorizerSignature string                 `protobuf:"bytes,10,opt,name=authorizer_signature,json=authorizerSignature,proto3" json:"authorizer_signature,omitempty"`
@@ -1521,7 +1529,7 @@ type InterStoreTransfer struct {
 	SourceStoreName      string                    `protobuf:"bytes,4,opt,name=source_store_name,json=sourceStoreName,proto3" json:"source_store_name,omitempty"`
 	DestinationStoreId   string                    `protobuf:"bytes,5,opt,name=destination_store_id,json=destinationStoreId,proto3" json:"destination_store_id,omitempty"`
 	DestinationStoreName string                    `protobuf:"bytes,6,opt,name=destination_store_name,json=destinationStoreName,proto3" json:"destination_store_name,omitempty"`
-	Status               string                    `protobuf:"bytes,7,opt,name=status,proto3" json:"status,omitempty"` // e.g., "pending", "approved", "in_transit", "received"
+	Status               string                    `protobuf:"bytes,7,opt,name=status,proto3" json:"status,omitempty"`
 	RequestorId          string                    `protobuf:"bytes,8,opt,name=requestor_id,json=requestorId,proto3" json:"requestor_id,omitempty"`
 	RequestorName        string                    `protobuf:"bytes,9,opt,name=requestor_name,json=requestorName,proto3" json:"requestor_name,omitempty"`
 	RequestorSignature   string                    `protobuf:"bytes,10,opt,name=requestor_signature,json=requestorSignature,proto3" json:"requestor_signature,omitempty"`
@@ -4444,6 +4452,7 @@ func (x *CreateRequisitionRequest) GetRequisition() *Requisition {
 type CreateRequisitionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	RequisitionId string                 `protobuf:"bytes,2,opt,name=requisition_id,json=requisitionId,proto3" json:"requisition_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4481,6 +4490,13 @@ func (*CreateRequisitionResponse) Descriptor() ([]byte, []int) {
 func (x *CreateRequisitionResponse) GetId() string {
 	if x != nil {
 		return x.Id
+	}
+	return ""
+}
+
+func (x *CreateRequisitionResponse) GetRequisitionId() string {
+	if x != nil {
+		return x.RequisitionId
 	}
 	return ""
 }
@@ -8961,7 +8977,7 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\x11quantity_approved\x18\x04 \x01(\x01R\x10quantityApproved\x12&\n" +
 	"\x0funit_of_measure\x18\x05 \x01(\tR\runitOfMeasure\x120\n" +
 	"\x14estimated_unit_price\x18\x06 \x01(\x01R\x12estimatedUnitPrice\x12\x14\n" +
-	"\x05notes\x18\a \x01(\tR\x05notes\"\xac\x05\n" +
+	"\x05notes\x18\a \x01(\tR\x05notes\"\xcd\x05\n" +
 	"\vRequisition\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12-\n" +
 	"\x12requisition_number\x18\x02 \x01(\tR\x11requisitionNumber\x12!\n" +
@@ -8985,7 +9001,9 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"created_at\x18\x10 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
 	"updated_at\x18\x11 \x01(\tR\tupdatedAt\x123\n" +
-	"\x05items\x18\x12 \x03(\v2\x1d.supply_chain.RequisitionItemR\x05items\"\x96\x01\n" +
+	"\x05items\x18\x12 \x03(\v2\x1d.supply_chain.RequisitionItemR\x05items\x12\x1f\n" +
+	"\vtracking_id\x18\x13 \x01(\tR\n" +
+	"trackingId\"\x96\x01\n" +
 	"\aLPOItem\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\tR\x06itemId\x12\x1b\n" +
 	"\titem_name\x18\x02 \x01(\tR\bitemName\x12-\n" +
@@ -9300,9 +9318,10 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\x16DeleteSupplierResponse\x12\x18\n" +
 	"\amessage\x18\x01 \x01(\tR\amessage\"W\n" +
 	"\x18CreateRequisitionRequest\x12;\n" +
-	"\vrequisition\x18\x01 \x01(\v2\x19.supply_chain.RequisitionR\vrequisition\"+\n" +
+	"\vrequisition\x18\x01 \x01(\v2\x19.supply_chain.RequisitionR\vrequisition\"R\n" +
 	"\x19CreateRequisitionResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"\xe6\x01\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12%\n" +
+	"\x0erequisition_id\x18\x02 \x01(\tR\rrequisitionId\"\xe6\x01\n" +
 	"\x19ApproveRequisitionRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1f\n" +
 	"\vapprover_id\x18\x02 \x01(\tR\n" +

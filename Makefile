@@ -23,32 +23,32 @@ endef
 all: $(patsubst $(PROTO_DIR)/%.proto,%,$(PROTO_FILES))
 
 # Individual proto targets
-appointment_service:
-	$(call PROTOC_CMD,appointment-service,appointment_service)
+# appointment_service:
+# 	$(call PROTOC_CMD,appointment-service,appointment_service)
 
-billing_service:
-	$(call PROTOC_CMD,billing-service,billing_service)
+# billing_service:
+# 	$(call PROTOC_CMD,billing-service,billing_service)
 
-chat_service:
-	$(call PROTOC_CMD,chat-service,chat_service)
+# chat_service:
+# 	$(call PROTOC_CMD,chat-service,chat_service)
 
-human_resource_service:
-	$(call PROTOC_CMD,human-resource-service,human_resource_service)
+# human_resource_service:
+# 	$(call PROTOC_CMD,human-resource-service,human_resource_service)
 
-issue_report_service:
-	$(call PROTOC_CMD,issue-report-service,issue_report_service)
+# issue_report_service:
+# 	$(call PROTOC_CMD,issue-report-service,issue_report_service)
 
-laboratory_service:
-	$(call PROTOC_CMD,laboratory-service,laboratory_service)
+# laboratory_service:
+# 	$(call PROTOC_CMD,laboratory-service,laboratory_service)
 
-medical_records_service:
-	$(call PROTOC_CMD,medical-records-service,medical_records_service)
+# medical_records_service:
+# 	$(call PROTOC_CMD,medical-records-service,medical_records_service)
 
-patient_service:
-	$(call PROTOC_CMD,patient-service,patient_service)
+# patient_service:
+# 	$(call PROTOC_CMD,patient-service,patient_service)
 
-route_permissions_service:
-	$(call PROTOC_CMD,route-permissions-service,route_permissions_service)
+# route_permissions_service:
+# 	$(call PROTOC_CMD,route-permissions-service,route_permissions_service)
 
 pharmacy_service:
 	$(call PROTOC_CMD,pharmacy-service,pharmacy_service)
@@ -56,16 +56,16 @@ pharmacy_service:
 supply_chain_service:
 	$(call PROTOC_CMD,supply-chain-service,supply_chain_service)
 
-user_service:
-	$(call PROTOC_CMD,user-service,user_service)
+# user_service:
+# 	$(call PROTOC_CMD,user-service,user_service)
 
-ward_service:
-	$(call PROTOC_CMD,ward-service,ward_service)
+# ward_service:
+# 	$(call PROTOC_CMD,ward-service,ward_service)
 
-analytics_service:
-	$(call PROTOC_CMD,analytics-service,analytics_service)
+# analytics_service:
+# 	$(call PROTOC_CMD,analytics-service,analytics_service)
 
-encounter_service:
-	$(call PROTOC_CMD,encounter-service,encounter_service)
+# encounter_service:
+# 	$(call PROTOC_CMD,encounter-service,encounter_service)
 
 .PHONY: all $(patsubst $(PROTO_DIR)/%.proto,%,$(PROTO_FILES))

@@ -579,6 +579,7 @@ message CreateStockRequestItemRequest {
   int32 request_id = 1;
   int32 medication_id = 2;
   int32 requested_quantity = 3;
+  int32 store_id = 4;
 }
 
 message CreateStockRequestItemResponse {
@@ -810,6 +811,7 @@ message CreateMedicationResponse {
 
 message GetMedicationRequest {
   int32 medication_id = 1;
+  int32 store_id = 2;
 }
 
 message GetMedicationResponse {
@@ -848,7 +850,9 @@ message DeleteMedicationResponse {
   string message = 2;
 }
 
-message ListMedicationsRequest {}
+message ListMedicationsRequest {
+  int32 store_id = 1;
+}
 
 message ListMedicationsResponse {
   repeated Medication medications = 1;
@@ -934,6 +938,7 @@ message CreateMedicationScheduleRequest {
   string time_slots = 7;
   string notes = 8;
   string status = 9;
+  int32 store_id = 10;
 }
 
 message CreateMedicationScheduleResponse {
