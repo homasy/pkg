@@ -20,17 +20,17 @@ type MessageHandler func(message []byte) error
 
 // Consumer is a Kafka consumer
 type Consumer struct {
-	consumer sarama.ConsumerGroup
-	topic    string
-	handlers map[string]MessageHandler
-	ready    chan bool
-	mu       sync.Mutex
+	consumer   sarama.ConsumerGroup
+	topic      string
+	handlers   map[string]MessageHandler
+	ready      chan bool
+	readyOnce  sync.Once
+	mu         sync.Mutex
 }
 
 // ConsumerGroupHandler implements sarama.ConsumerGroupHandler
 type ConsumerGroupHandler struct {
 	consumer *Consumer
-	ready    chan bool
 }
 
 // NewConsumer creates a new Kafka consumer
@@ -78,7 +78,6 @@ func (c *Consumer) Start(ctx context.Context) error {
 			// Consume messages
 			handler := &ConsumerGroupHandler{
 				consumer: c,
-				ready:    c.ready,
 			}
 			
 			err := c.consumer.Consume(ctx, []string{c.topic}, handler)
@@ -114,7 +113,10 @@ func (c *Consumer) Start(ctx context.Context) error {
 
 // Setup is run at the beginning of a new session
 func (h *ConsumerGroupHandler) Setup(sarama.ConsumerGroupSession) error {
-	close(h.ready)
+	// Only close the ready channel once to avoid panic on channel close
+	h.consumer.readyOnce.Do(func() {
+		close(h.consumer.ready)
+	})
 	return nil
 }
 
