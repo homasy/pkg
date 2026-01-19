@@ -48,6 +48,7 @@ type StockItem struct {
 	CreatedAt        string                 `protobuf:"bytes,19,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	UpdatedAt        string                 `protobuf:"bytes,20,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	QuantityInStore  float64                `protobuf:"fixed64,21,opt,name=quantity_in_store,json=quantityInStore,proto3" json:"quantity_in_store,omitempty"`
+	BinLocation      string                 `protobuf:"bytes,22,opt,name=bin_location,json=binLocation,proto3" json:"bin_location,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -220,6 +221,13 @@ func (x *StockItem) GetQuantityInStore() float64 {
 		return x.QuantityInStore
 	}
 	return 0
+}
+
+func (x *StockItem) GetBinLocation() string {
+	if x != nil {
+		return x.BinLocation
+	}
+	return ""
 }
 
 // Message for a store location
@@ -1734,6 +1742,7 @@ type InterStoreTransferItem struct {
 	ReceivedQuantity float64                `protobuf:"fixed64,5,opt,name=received_quantity,json=receivedQuantity,proto3" json:"received_quantity,omitempty"`
 	UnitOfMeasure    string                 `protobuf:"bytes,6,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
 	Notes            string                 `protobuf:"bytes,7,opt,name=notes,proto3" json:"notes,omitempty"`
+	BinLocation      string                 `protobuf:"bytes,8,opt,name=bin_location,json=binLocation,proto3" json:"bin_location,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -1806,6 +1815,13 @@ func (x *InterStoreTransferItem) GetUnitOfMeasure() string {
 func (x *InterStoreTransferItem) GetNotes() string {
 	if x != nil {
 		return x.Notes
+	}
+	return ""
+}
+
+func (x *InterStoreTransferItem) GetBinLocation() string {
+	if x != nil {
+		return x.BinLocation
 	}
 	return ""
 }
@@ -8538,6 +8554,7 @@ type StockQuantity struct {
 	Quantity      float64                `protobuf:"fixed64,4,opt,name=quantity,proto3" json:"quantity,omitempty"`
 	Category      string                 `protobuf:"bytes,5,opt,name=category,proto3" json:"category,omitempty"`
 	UnitOfMeasure string                 `protobuf:"bytes,6,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
+	BinLocation   string                 `protobuf:"bytes,7,opt,name=bin_location,json=binLocation,proto3" json:"bin_location,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -8610,6 +8627,13 @@ func (x *StockQuantity) GetCategory() string {
 func (x *StockQuantity) GetUnitOfMeasure() string {
 	if x != nil {
 		return x.UnitOfMeasure
+	}
+	return ""
+}
+
+func (x *StockQuantity) GetBinLocation() string {
+	if x != nil {
+		return x.BinLocation
 	}
 	return ""
 }
@@ -8918,11 +8942,123 @@ func (x *ReduceStockInStoreResponse) GetMessage() string {
 	return ""
 }
 
+type UpdateBinLocationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	StoreId       string                 `protobuf:"bytes,1,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
+	ItemId        string                 `protobuf:"bytes,2,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
+	BinLocation   string                 `protobuf:"bytes,3,opt,name=bin_location,json=binLocation,proto3" json:"bin_location,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateBinLocationRequest) Reset() {
+	*x = UpdateBinLocationRequest{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateBinLocationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateBinLocationRequest) ProtoMessage() {}
+
+func (x *UpdateBinLocationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateBinLocationRequest.ProtoReflect.Descriptor instead.
+func (*UpdateBinLocationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{146}
+}
+
+func (x *UpdateBinLocationRequest) GetStoreId() string {
+	if x != nil {
+		return x.StoreId
+	}
+	return ""
+}
+
+func (x *UpdateBinLocationRequest) GetItemId() string {
+	if x != nil {
+		return x.ItemId
+	}
+	return ""
+}
+
+func (x *UpdateBinLocationRequest) GetBinLocation() string {
+	if x != nil {
+		return x.BinLocation
+	}
+	return ""
+}
+
+type UpdateBinLocationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateBinLocationResponse) Reset() {
+	*x = UpdateBinLocationResponse{}
+	mi := &file_proto_supply_chain_service_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateBinLocationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateBinLocationResponse) ProtoMessage() {}
+
+func (x *UpdateBinLocationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_supply_chain_service_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateBinLocationResponse.ProtoReflect.Descriptor instead.
+func (*UpdateBinLocationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_supply_chain_service_proto_rawDescGZIP(), []int{147}
+}
+
+func (x *UpdateBinLocationResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *UpdateBinLocationResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 var File_proto_supply_chain_service_proto protoreflect.FileDescriptor
 
 const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\n" +
-	" proto/supply_chain_service.proto\x12\fsupply_chain\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8b\x05\n" +
+	" proto/supply_chain_service.proto\x12\fsupply_chain\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xae\x05\n" +
 	"\tStockItem\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -8947,7 +9083,8 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"created_at\x18\x13 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
 	"updated_at\x18\x14 \x01(\tR\tupdatedAt\x12*\n" +
-	"\x11quantity_in_store\x18\x15 \x01(\x01R\x0fquantityInStore\"\xb6\x01\n" +
+	"\x11quantity_in_store\x18\x15 \x01(\x01R\x0fquantityInStore\x12!\n" +
+	"\fbin_location\x18\x16 \x01(\tR\vbinLocation\"\xb6\x01\n" +
 	"\x05Store\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1a\n" +
@@ -9135,14 +9272,15 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"created_at\x18\x13 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
 	"updated_at\x18\x14 \x01(\tR\tupdatedAt\x12:\n" +
-	"\x05items\x18\x15 \x03(\v2$.supply_chain.InterStoreTransferItemR\x05items\"\xe6\x01\n" +
+	"\x05items\x18\x15 \x03(\v2$.supply_chain.InterStoreTransferItemR\x05items\"\x89\x02\n" +
 	"\x16InterStoreTransferItem\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\tR\x06itemId\x12\x1b\n" +
 	"\titem_name\x18\x02 \x01(\tR\bitemName\x12+\n" +
 	"\x11transfer_quantity\x18\x04 \x01(\x01R\x10transferQuantity\x12+\n" +
 	"\x11received_quantity\x18\x05 \x01(\x01R\x10receivedQuantity\x12&\n" +
 	"\x0funit_of_measure\x18\x06 \x01(\tR\runitOfMeasure\x12\x14\n" +
-	"\x05notes\x18\a \x01(\tR\x05notes\"\x96\x05\n" +
+	"\x05notes\x18\a \x01(\tR\x05notes\x12!\n" +
+	"\fbin_location\x18\b \x01(\tR\vbinLocation\"\x96\x05\n" +
 	"\n" +
 	"CreditNote\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12,\n" +
@@ -9577,14 +9715,15 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\vactive_only\x18\x01 \x01(\bR\n" +
 	"activeOnly\"b\n" +
 	"\x1aListMedicalSchemesResponse\x12D\n" +
-	"\x0fmedical_schemes\x18\x01 \x03(\v2\x1b.supply_chain.MedicalSchemeR\x0emedicalSchemes\"\xc0\x01\n" +
+	"\x0fmedical_schemes\x18\x01 \x03(\v2\x1b.supply_chain.MedicalSchemeR\x0emedicalSchemes\"\xe3\x01\n" +
 	"\rStockQuantity\x12\x19\n" +
 	"\bstore_id\x18\x01 \x01(\tR\astoreId\x12\x17\n" +
 	"\aitem_id\x18\x02 \x01(\tR\x06itemId\x12\x1b\n" +
 	"\titem_name\x18\x03 \x01(\tR\bitemName\x12\x1a\n" +
 	"\bquantity\x18\x04 \x01(\x01R\bquantity\x12\x1a\n" +
 	"\bcategory\x18\x05 \x01(\tR\bcategory\x12&\n" +
-	"\x0funit_of_measure\x18\x06 \x01(\tR\runitOfMeasure\";\n" +
+	"\x0funit_of_measure\x18\x06 \x01(\tR\runitOfMeasure\x12!\n" +
+	"\fbin_location\x18\a \x01(\tR\vbinLocation\";\n" +
 	"\x1eGetStoreStockQuantitiesRequest\x12\x19\n" +
 	"\bstore_id\x18\x01 \x01(\tR\astoreId\"^\n" +
 	"\x1fGetStoreStockQuantitiesResponse\x12;\n" +
@@ -9604,7 +9743,14 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\bquantity\x18\x03 \x01(\x01R\bquantity\"P\n" +
 	"\x1aReduceStockInStoreResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage2\xaeB\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"q\n" +
+	"\x18UpdateBinLocationRequest\x12\x19\n" +
+	"\bstore_id\x18\x01 \x01(\tR\astoreId\x12\x17\n" +
+	"\aitem_id\x18\x02 \x01(\tR\x06itemId\x12!\n" +
+	"\fbin_location\x18\x03 \x01(\tR\vbinLocation\"O\n" +
+	"\x19UpdateBinLocationResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage2\xc3C\n" +
 	"\x12SupplyChainService\x12z\n" +
 	"\x0fCreateStockItem\x12$.supply_chain.CreateStockItemRequest\x1a%.supply_chain.CreateStockItemResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/stock-items\x12s\n" +
 	"\fGetStockItem\x12!.supply_chain.GetStockItemRequest\x1a\".supply_chain.GetStockItemResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/stock-items/{id}\x12\x7f\n" +
@@ -9675,7 +9821,8 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\x12ListMedicalSchemes\x12'.supply_chain.ListMedicalSchemesRequest\x1a(.supply_chain.ListMedicalSchemesResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/medical-schemes\x12\xa6\x01\n" +
 	"\x17GetStoreStockQuantities\x12,.supply_chain.GetStoreStockQuantitiesRequest\x1a-.supply_chain.GetStoreStockQuantitiesResponse\".\x82\xd3\xe4\x93\x02(\x12&/v1/stores/{store_id}/stock-quantities\x12\xb3\x01\n" +
 	"\x16GetItemQuantityInStore\x12+.supply_chain.GetItemQuantityInStoreRequest\x1a,.supply_chain.GetItemQuantityInStoreResponse\">\x82\xd3\xe4\x93\x028\x126/v1/stock-quantities/stores/{store_id}/items/{item_id}\x12\x8f\x01\n" +
-	"\x12ReduceStockInStore\x12'.supply_chain.ReduceStockInStoreRequest\x1a(.supply_chain.ReduceStockInStoreResponse\"&\x82\xd3\xe4\x93\x02 :\x01*\"\x1b/v1/stock-quantities/reduceB%Z#./shared/supply-chain-service/protob\x06proto3"
+	"\x12ReduceStockInStore\x12'.supply_chain.ReduceStockInStoreRequest\x1a(.supply_chain.ReduceStockInStoreResponse\"&\x82\xd3\xe4\x93\x02 :\x01*\"\x1b/v1/stock-quantities/reduce\x12\x92\x01\n" +
+	"\x11UpdateBinLocation\x12&.supply_chain.UpdateBinLocationRequest\x1a'.supply_chain.UpdateBinLocationResponse\",\x82\xd3\xe4\x93\x02&:\x01*\x1a!/v1/stock-quantities/bin-locationB%Z#./shared/supply-chain-service/protob\x06proto3"
 
 var (
 	file_proto_supply_chain_service_proto_rawDescOnce sync.Once
@@ -9689,7 +9836,7 @@ func file_proto_supply_chain_service_proto_rawDescGZIP() []byte {
 	return file_proto_supply_chain_service_proto_rawDescData
 }
 
-var file_proto_supply_chain_service_proto_msgTypes = make([]protoimpl.MessageInfo, 146)
+var file_proto_supply_chain_service_proto_msgTypes = make([]protoimpl.MessageInfo, 148)
 var file_proto_supply_chain_service_proto_goTypes = []any{
 	(*StockItem)(nil),                            // 0: supply_chain.StockItem
 	(*Store)(nil),                                // 1: supply_chain.Store
@@ -9837,7 +9984,9 @@ var file_proto_supply_chain_service_proto_goTypes = []any{
 	(*GetItemQuantityInStoreResponse)(nil),       // 143: supply_chain.GetItemQuantityInStoreResponse
 	(*ReduceStockInStoreRequest)(nil),            // 144: supply_chain.ReduceStockInStoreRequest
 	(*ReduceStockInStoreResponse)(nil),           // 145: supply_chain.ReduceStockInStoreResponse
-	(*timestamppb.Timestamp)(nil),                // 146: google.protobuf.Timestamp
+	(*UpdateBinLocationRequest)(nil),             // 146: supply_chain.UpdateBinLocationRequest
+	(*UpdateBinLocationResponse)(nil),            // 147: supply_chain.UpdateBinLocationResponse
+	(*timestamppb.Timestamp)(nil),                // 148: google.protobuf.Timestamp
 }
 var file_proto_supply_chain_service_proto_depIdxs = []int32{
 	3,   // 0: supply_chain.Requisition.items:type_name -> supply_chain.RequisitionItem
@@ -9846,9 +9995,9 @@ var file_proto_supply_chain_service_proto_depIdxs = []int32{
 	10,  // 3: supply_chain.StockAdjustment.items:type_name -> supply_chain.StockAdjustmentItem
 	12,  // 4: supply_chain.InterStoreTransfer.items:type_name -> supply_chain.InterStoreTransferItem
 	14,  // 5: supply_chain.CreditNote.items:type_name -> supply_chain.CreditNoteItem
-	146, // 6: supply_chain.PriceList.created_at:type_name -> google.protobuf.Timestamp
-	146, // 7: supply_chain.PriceListItem.valid_from:type_name -> google.protobuf.Timestamp
-	146, // 8: supply_chain.PriceListItem.valid_to:type_name -> google.protobuf.Timestamp
+	148, // 6: supply_chain.PriceList.created_at:type_name -> google.protobuf.Timestamp
+	148, // 7: supply_chain.PriceListItem.valid_from:type_name -> google.protobuf.Timestamp
+	148, // 8: supply_chain.PriceListItem.valid_to:type_name -> google.protobuf.Timestamp
 	0,   // 9: supply_chain.CreateStockItemRequest.item:type_name -> supply_chain.StockItem
 	0,   // 10: supply_chain.GetStockItemResponse.item:type_name -> supply_chain.StockItem
 	0,   // 11: supply_chain.UpdateStockItemRequest.item:type_name -> supply_chain.StockItem
@@ -9889,11 +10038,11 @@ var file_proto_supply_chain_service_proto_depIdxs = []int32{
 	13,  // 46: supply_chain.ListCreditNotesResponse.credit_notes:type_name -> supply_chain.CreditNote
 	15,  // 47: supply_chain.GetPriceListResponse.price_list:type_name -> supply_chain.PriceList
 	15,  // 48: supply_chain.ListPriceListsResponse.price_lists:type_name -> supply_chain.PriceList
-	146, // 49: supply_chain.CreatePriceListItemRequest.valid_from:type_name -> google.protobuf.Timestamp
-	146, // 50: supply_chain.CreatePriceListItemRequest.valid_to:type_name -> google.protobuf.Timestamp
+	148, // 49: supply_chain.CreatePriceListItemRequest.valid_from:type_name -> google.protobuf.Timestamp
+	148, // 50: supply_chain.CreatePriceListItemRequest.valid_to:type_name -> google.protobuf.Timestamp
 	16,  // 51: supply_chain.GetPriceListItemResponse.price_list_item:type_name -> supply_chain.PriceListItem
-	146, // 52: supply_chain.UpdatePriceListItemRequest.valid_from:type_name -> google.protobuf.Timestamp
-	146, // 53: supply_chain.UpdatePriceListItemRequest.valid_to:type_name -> google.protobuf.Timestamp
+	148, // 52: supply_chain.UpdatePriceListItemRequest.valid_from:type_name -> google.protobuf.Timestamp
+	148, // 53: supply_chain.UpdatePriceListItemRequest.valid_to:type_name -> google.protobuf.Timestamp
 	16,  // 54: supply_chain.ListPriceListItemsResponse.price_list_items:type_name -> supply_chain.PriceListItem
 	16,  // 55: supply_chain.GetPriceListItemsByPriceListResponse.price_list_items:type_name -> supply_chain.PriceListItem
 	17,  // 56: supply_chain.GetMedicalSchemeResponse.medical_scheme:type_name -> supply_chain.MedicalScheme
@@ -9963,72 +10112,74 @@ var file_proto_supply_chain_service_proto_depIdxs = []int32{
 	140, // 120: supply_chain.SupplyChainService.GetStoreStockQuantities:input_type -> supply_chain.GetStoreStockQuantitiesRequest
 	142, // 121: supply_chain.SupplyChainService.GetItemQuantityInStore:input_type -> supply_chain.GetItemQuantityInStoreRequest
 	144, // 122: supply_chain.SupplyChainService.ReduceStockInStore:input_type -> supply_chain.ReduceStockInStoreRequest
-	25,  // 123: supply_chain.SupplyChainService.CreateStockItem:output_type -> supply_chain.CreateStockItemResponse
-	27,  // 124: supply_chain.SupplyChainService.GetStockItem:output_type -> supply_chain.GetStockItemResponse
-	29,  // 125: supply_chain.SupplyChainService.UpdateStockItem:output_type -> supply_chain.UpdateStockItemResponse
-	31,  // 126: supply_chain.SupplyChainService.DeleteStockItem:output_type -> supply_chain.DeleteStockItemResponse
-	19,  // 127: supply_chain.SupplyChainService.ReduceStockItem:output_type -> supply_chain.ReduceStockItemResponse
-	21,  // 128: supply_chain.SupplyChainService.ReduceStockFromStore:output_type -> supply_chain.ReduceStockFromStoreResponse
-	23,  // 129: supply_chain.SupplyChainService.ManualStockUpdate:output_type -> supply_chain.ManualStockUpdateResponse
-	33,  // 130: supply_chain.SupplyChainService.ListStockItems:output_type -> supply_chain.ListStockItemsResponse
-	35,  // 131: supply_chain.SupplyChainService.GetStockLevels:output_type -> supply_chain.GetStockLevelsResponse
-	37,  // 132: supply_chain.SupplyChainService.GetExpiringItems:output_type -> supply_chain.GetExpiringItemsResponse
-	39,  // 133: supply_chain.SupplyChainService.GetItemsBelowReorderLevel:output_type -> supply_chain.GetItemsBelowReorderLevelResponse
-	41,  // 134: supply_chain.SupplyChainService.CreateStore:output_type -> supply_chain.CreateStoreResponse
-	43,  // 135: supply_chain.SupplyChainService.ListStores:output_type -> supply_chain.ListStoresResponse
-	45,  // 136: supply_chain.SupplyChainService.GetStore:output_type -> supply_chain.GetStoreResponse
-	47,  // 137: supply_chain.SupplyChainService.UpdateStore:output_type -> supply_chain.UpdateStoreResponse
-	49,  // 138: supply_chain.SupplyChainService.DeleteStore:output_type -> supply_chain.DeleteStoreResponse
-	51,  // 139: supply_chain.SupplyChainService.CreateSupplier:output_type -> supply_chain.CreateSupplierResponse
-	53,  // 140: supply_chain.SupplyChainService.ListSuppliers:output_type -> supply_chain.ListSuppliersResponse
-	55,  // 141: supply_chain.SupplyChainService.GetSupplier:output_type -> supply_chain.GetSupplierResponse
-	57,  // 142: supply_chain.SupplyChainService.UpdateSupplier:output_type -> supply_chain.UpdateSupplierResponse
-	59,  // 143: supply_chain.SupplyChainService.DeleteSupplier:output_type -> supply_chain.DeleteSupplierResponse
-	61,  // 144: supply_chain.SupplyChainService.CreateRequisition:output_type -> supply_chain.CreateRequisitionResponse
-	63,  // 145: supply_chain.SupplyChainService.ApproveRequisition:output_type -> supply_chain.ApproveRequisitionResponse
-	65,  // 146: supply_chain.SupplyChainService.GetRequisition:output_type -> supply_chain.GetRequisitionResponse
-	67,  // 147: supply_chain.SupplyChainService.ListRequisitions:output_type -> supply_chain.ListRequisitionsResponse
-	69,  // 148: supply_chain.SupplyChainService.CreateLPO:output_type -> supply_chain.CreateLPOResponse
-	71,  // 149: supply_chain.SupplyChainService.ApproveLPO:output_type -> supply_chain.ApproveLPOResponse
-	73,  // 150: supply_chain.SupplyChainService.GetLPO:output_type -> supply_chain.GetLPOResponse
-	75,  // 151: supply_chain.SupplyChainService.ListLPOs:output_type -> supply_chain.ListLPOsResponse
-	77,  // 152: supply_chain.SupplyChainService.CreateGRN:output_type -> supply_chain.CreateGRNResponse
-	79,  // 153: supply_chain.SupplyChainService.PerformQualityCheck:output_type -> supply_chain.PerformQualityCheckResponse
-	81,  // 154: supply_chain.SupplyChainService.GetGRN:output_type -> supply_chain.GetGRNResponse
-	83,  // 155: supply_chain.SupplyChainService.ListGRNs:output_type -> supply_chain.ListGRNsResponse
-	85,  // 156: supply_chain.SupplyChainService.CreateStockAdjustment:output_type -> supply_chain.CreateStockAdjustmentResponse
-	91,  // 157: supply_chain.SupplyChainService.ListStockAdjustments:output_type -> supply_chain.ListStockAdjustmentsResponse
-	87,  // 158: supply_chain.SupplyChainService.ApproveStockAdjustment:output_type -> supply_chain.ApproveStockAdjustmentResponse
-	89,  // 159: supply_chain.SupplyChainService.GetStockAdjustment:output_type -> supply_chain.GetStockAdjustmentResponse
-	93,  // 160: supply_chain.SupplyChainService.CreateInterStoreTransfer:output_type -> supply_chain.CreateInterStoreTransferResponse
-	95,  // 161: supply_chain.SupplyChainService.ApproveInterStoreTransfer:output_type -> supply_chain.ApproveInterStoreTransferResponse
-	97,  // 162: supply_chain.SupplyChainService.ReceiveInterStoreTransfer:output_type -> supply_chain.ReceiveInterStoreTransferResponse
-	99,  // 163: supply_chain.SupplyChainService.GetInterStoreTransfer:output_type -> supply_chain.GetInterStoreTransferResponse
-	101, // 164: supply_chain.SupplyChainService.ListInterStoreTransfers:output_type -> supply_chain.ListInterStoreTransfersResponse
-	103, // 165: supply_chain.SupplyChainService.CreateCreditNote:output_type -> supply_chain.CreateCreditNoteResponse
-	105, // 166: supply_chain.SupplyChainService.ApproveCreditNote:output_type -> supply_chain.ApproveCreditNoteResponse
-	107, // 167: supply_chain.SupplyChainService.GetCreditNote:output_type -> supply_chain.GetCreditNoteResponse
-	109, // 168: supply_chain.SupplyChainService.ListCreditNotes:output_type -> supply_chain.ListCreditNotesResponse
-	111, // 169: supply_chain.SupplyChainService.CreatePriceList:output_type -> supply_chain.CreatePriceListResponse
-	113, // 170: supply_chain.SupplyChainService.GetPriceList:output_type -> supply_chain.GetPriceListResponse
-	115, // 171: supply_chain.SupplyChainService.UpdatePriceList:output_type -> supply_chain.UpdatePriceListResponse
-	117, // 172: supply_chain.SupplyChainService.ListPriceLists:output_type -> supply_chain.ListPriceListsResponse
-	119, // 173: supply_chain.SupplyChainService.CreatePriceListItem:output_type -> supply_chain.CreatePriceListItemResponse
-	121, // 174: supply_chain.SupplyChainService.GetPriceListItem:output_type -> supply_chain.GetPriceListItemResponse
-	123, // 175: supply_chain.SupplyChainService.UpdatePriceListItem:output_type -> supply_chain.UpdatePriceListItemResponse
-	125, // 176: supply_chain.SupplyChainService.DeletePriceListItem:output_type -> supply_chain.DeletePriceListItemResponse
-	127, // 177: supply_chain.SupplyChainService.ListPriceListItems:output_type -> supply_chain.ListPriceListItemsResponse
-	129, // 178: supply_chain.SupplyChainService.GetPriceListItemsByPriceList:output_type -> supply_chain.GetPriceListItemsByPriceListResponse
-	131, // 179: supply_chain.SupplyChainService.CreateMedicalScheme:output_type -> supply_chain.CreateMedicalSchemeResponse
-	134, // 180: supply_chain.SupplyChainService.GetMedicalScheme:output_type -> supply_chain.GetMedicalSchemeResponse
-	134, // 181: supply_chain.SupplyChainService.GetMedicalSchemeByName:output_type -> supply_chain.GetMedicalSchemeResponse
-	136, // 182: supply_chain.SupplyChainService.UpdateMedicalScheme:output_type -> supply_chain.UpdateMedicalSchemeResponse
-	138, // 183: supply_chain.SupplyChainService.ListMedicalSchemes:output_type -> supply_chain.ListMedicalSchemesResponse
-	141, // 184: supply_chain.SupplyChainService.GetStoreStockQuantities:output_type -> supply_chain.GetStoreStockQuantitiesResponse
-	143, // 185: supply_chain.SupplyChainService.GetItemQuantityInStore:output_type -> supply_chain.GetItemQuantityInStoreResponse
-	145, // 186: supply_chain.SupplyChainService.ReduceStockInStore:output_type -> supply_chain.ReduceStockInStoreResponse
-	123, // [123:187] is the sub-list for method output_type
-	59,  // [59:123] is the sub-list for method input_type
+	146, // 123: supply_chain.SupplyChainService.UpdateBinLocation:input_type -> supply_chain.UpdateBinLocationRequest
+	25,  // 124: supply_chain.SupplyChainService.CreateStockItem:output_type -> supply_chain.CreateStockItemResponse
+	27,  // 125: supply_chain.SupplyChainService.GetStockItem:output_type -> supply_chain.GetStockItemResponse
+	29,  // 126: supply_chain.SupplyChainService.UpdateStockItem:output_type -> supply_chain.UpdateStockItemResponse
+	31,  // 127: supply_chain.SupplyChainService.DeleteStockItem:output_type -> supply_chain.DeleteStockItemResponse
+	19,  // 128: supply_chain.SupplyChainService.ReduceStockItem:output_type -> supply_chain.ReduceStockItemResponse
+	21,  // 129: supply_chain.SupplyChainService.ReduceStockFromStore:output_type -> supply_chain.ReduceStockFromStoreResponse
+	23,  // 130: supply_chain.SupplyChainService.ManualStockUpdate:output_type -> supply_chain.ManualStockUpdateResponse
+	33,  // 131: supply_chain.SupplyChainService.ListStockItems:output_type -> supply_chain.ListStockItemsResponse
+	35,  // 132: supply_chain.SupplyChainService.GetStockLevels:output_type -> supply_chain.GetStockLevelsResponse
+	37,  // 133: supply_chain.SupplyChainService.GetExpiringItems:output_type -> supply_chain.GetExpiringItemsResponse
+	39,  // 134: supply_chain.SupplyChainService.GetItemsBelowReorderLevel:output_type -> supply_chain.GetItemsBelowReorderLevelResponse
+	41,  // 135: supply_chain.SupplyChainService.CreateStore:output_type -> supply_chain.CreateStoreResponse
+	43,  // 136: supply_chain.SupplyChainService.ListStores:output_type -> supply_chain.ListStoresResponse
+	45,  // 137: supply_chain.SupplyChainService.GetStore:output_type -> supply_chain.GetStoreResponse
+	47,  // 138: supply_chain.SupplyChainService.UpdateStore:output_type -> supply_chain.UpdateStoreResponse
+	49,  // 139: supply_chain.SupplyChainService.DeleteStore:output_type -> supply_chain.DeleteStoreResponse
+	51,  // 140: supply_chain.SupplyChainService.CreateSupplier:output_type -> supply_chain.CreateSupplierResponse
+	53,  // 141: supply_chain.SupplyChainService.ListSuppliers:output_type -> supply_chain.ListSuppliersResponse
+	55,  // 142: supply_chain.SupplyChainService.GetSupplier:output_type -> supply_chain.GetSupplierResponse
+	57,  // 143: supply_chain.SupplyChainService.UpdateSupplier:output_type -> supply_chain.UpdateSupplierResponse
+	59,  // 144: supply_chain.SupplyChainService.DeleteSupplier:output_type -> supply_chain.DeleteSupplierResponse
+	61,  // 145: supply_chain.SupplyChainService.CreateRequisition:output_type -> supply_chain.CreateRequisitionResponse
+	63,  // 146: supply_chain.SupplyChainService.ApproveRequisition:output_type -> supply_chain.ApproveRequisitionResponse
+	65,  // 147: supply_chain.SupplyChainService.GetRequisition:output_type -> supply_chain.GetRequisitionResponse
+	67,  // 148: supply_chain.SupplyChainService.ListRequisitions:output_type -> supply_chain.ListRequisitionsResponse
+	69,  // 149: supply_chain.SupplyChainService.CreateLPO:output_type -> supply_chain.CreateLPOResponse
+	71,  // 150: supply_chain.SupplyChainService.ApproveLPO:output_type -> supply_chain.ApproveLPOResponse
+	73,  // 151: supply_chain.SupplyChainService.GetLPO:output_type -> supply_chain.GetLPOResponse
+	75,  // 152: supply_chain.SupplyChainService.ListLPOs:output_type -> supply_chain.ListLPOsResponse
+	77,  // 153: supply_chain.SupplyChainService.CreateGRN:output_type -> supply_chain.CreateGRNResponse
+	79,  // 154: supply_chain.SupplyChainService.PerformQualityCheck:output_type -> supply_chain.PerformQualityCheckResponse
+	81,  // 155: supply_chain.SupplyChainService.GetGRN:output_type -> supply_chain.GetGRNResponse
+	83,  // 156: supply_chain.SupplyChainService.ListGRNs:output_type -> supply_chain.ListGRNsResponse
+	85,  // 157: supply_chain.SupplyChainService.CreateStockAdjustment:output_type -> supply_chain.CreateStockAdjustmentResponse
+	91,  // 158: supply_chain.SupplyChainService.ListStockAdjustments:output_type -> supply_chain.ListStockAdjustmentsResponse
+	87,  // 159: supply_chain.SupplyChainService.ApproveStockAdjustment:output_type -> supply_chain.ApproveStockAdjustmentResponse
+	89,  // 160: supply_chain.SupplyChainService.GetStockAdjustment:output_type -> supply_chain.GetStockAdjustmentResponse
+	93,  // 161: supply_chain.SupplyChainService.CreateInterStoreTransfer:output_type -> supply_chain.CreateInterStoreTransferResponse
+	95,  // 162: supply_chain.SupplyChainService.ApproveInterStoreTransfer:output_type -> supply_chain.ApproveInterStoreTransferResponse
+	97,  // 163: supply_chain.SupplyChainService.ReceiveInterStoreTransfer:output_type -> supply_chain.ReceiveInterStoreTransferResponse
+	99,  // 164: supply_chain.SupplyChainService.GetInterStoreTransfer:output_type -> supply_chain.GetInterStoreTransferResponse
+	101, // 165: supply_chain.SupplyChainService.ListInterStoreTransfers:output_type -> supply_chain.ListInterStoreTransfersResponse
+	103, // 166: supply_chain.SupplyChainService.CreateCreditNote:output_type -> supply_chain.CreateCreditNoteResponse
+	105, // 167: supply_chain.SupplyChainService.ApproveCreditNote:output_type -> supply_chain.ApproveCreditNoteResponse
+	107, // 168: supply_chain.SupplyChainService.GetCreditNote:output_type -> supply_chain.GetCreditNoteResponse
+	109, // 169: supply_chain.SupplyChainService.ListCreditNotes:output_type -> supply_chain.ListCreditNotesResponse
+	111, // 170: supply_chain.SupplyChainService.CreatePriceList:output_type -> supply_chain.CreatePriceListResponse
+	113, // 171: supply_chain.SupplyChainService.GetPriceList:output_type -> supply_chain.GetPriceListResponse
+	115, // 172: supply_chain.SupplyChainService.UpdatePriceList:output_type -> supply_chain.UpdatePriceListResponse
+	117, // 173: supply_chain.SupplyChainService.ListPriceLists:output_type -> supply_chain.ListPriceListsResponse
+	119, // 174: supply_chain.SupplyChainService.CreatePriceListItem:output_type -> supply_chain.CreatePriceListItemResponse
+	121, // 175: supply_chain.SupplyChainService.GetPriceListItem:output_type -> supply_chain.GetPriceListItemResponse
+	123, // 176: supply_chain.SupplyChainService.UpdatePriceListItem:output_type -> supply_chain.UpdatePriceListItemResponse
+	125, // 177: supply_chain.SupplyChainService.DeletePriceListItem:output_type -> supply_chain.DeletePriceListItemResponse
+	127, // 178: supply_chain.SupplyChainService.ListPriceListItems:output_type -> supply_chain.ListPriceListItemsResponse
+	129, // 179: supply_chain.SupplyChainService.GetPriceListItemsByPriceList:output_type -> supply_chain.GetPriceListItemsByPriceListResponse
+	131, // 180: supply_chain.SupplyChainService.CreateMedicalScheme:output_type -> supply_chain.CreateMedicalSchemeResponse
+	134, // 181: supply_chain.SupplyChainService.GetMedicalScheme:output_type -> supply_chain.GetMedicalSchemeResponse
+	134, // 182: supply_chain.SupplyChainService.GetMedicalSchemeByName:output_type -> supply_chain.GetMedicalSchemeResponse
+	136, // 183: supply_chain.SupplyChainService.UpdateMedicalScheme:output_type -> supply_chain.UpdateMedicalSchemeResponse
+	138, // 184: supply_chain.SupplyChainService.ListMedicalSchemes:output_type -> supply_chain.ListMedicalSchemesResponse
+	141, // 185: supply_chain.SupplyChainService.GetStoreStockQuantities:output_type -> supply_chain.GetStoreStockQuantitiesResponse
+	143, // 186: supply_chain.SupplyChainService.GetItemQuantityInStore:output_type -> supply_chain.GetItemQuantityInStoreResponse
+	145, // 187: supply_chain.SupplyChainService.ReduceStockInStore:output_type -> supply_chain.ReduceStockInStoreResponse
+	147, // 188: supply_chain.SupplyChainService.UpdateBinLocation:output_type -> supply_chain.UpdateBinLocationResponse
+	124, // [124:189] is the sub-list for method output_type
+	59,  // [59:124] is the sub-list for method input_type
 	59,  // [59:59] is the sub-list for extension type_name
 	59,  // [59:59] is the sub-list for extension extendee
 	0,   // [0:59] is the sub-list for field type_name
@@ -10045,7 +10196,7 @@ func file_proto_supply_chain_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_supply_chain_service_proto_rawDesc), len(file_proto_supply_chain_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   146,
+			NumMessages:   148,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

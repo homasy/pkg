@@ -85,6 +85,7 @@ const (
 	SupplyChainService_GetStoreStockQuantities_FullMethodName      = "/supply_chain.SupplyChainService/GetStoreStockQuantities"
 	SupplyChainService_GetItemQuantityInStore_FullMethodName       = "/supply_chain.SupplyChainService/GetItemQuantityInStore"
 	SupplyChainService_ReduceStockInStore_FullMethodName           = "/supply_chain.SupplyChainService/ReduceStockInStore"
+	SupplyChainService_UpdateBinLocation_FullMethodName            = "/supply_chain.SupplyChainService/UpdateBinLocation"
 )
 
 // SupplyChainServiceClient is the client API for SupplyChainService service.
@@ -169,6 +170,7 @@ type SupplyChainServiceClient interface {
 	GetStoreStockQuantities(ctx context.Context, in *GetStoreStockQuantitiesRequest, opts ...grpc.CallOption) (*GetStoreStockQuantitiesResponse, error)
 	GetItemQuantityInStore(ctx context.Context, in *GetItemQuantityInStoreRequest, opts ...grpc.CallOption) (*GetItemQuantityInStoreResponse, error)
 	ReduceStockInStore(ctx context.Context, in *ReduceStockInStoreRequest, opts ...grpc.CallOption) (*ReduceStockInStoreResponse, error)
+	UpdateBinLocation(ctx context.Context, in *UpdateBinLocationRequest, opts ...grpc.CallOption) (*UpdateBinLocationResponse, error)
 }
 
 type supplyChainServiceClient struct {
@@ -819,6 +821,16 @@ func (c *supplyChainServiceClient) ReduceStockInStore(ctx context.Context, in *R
 	return out, nil
 }
 
+func (c *supplyChainServiceClient) UpdateBinLocation(ctx context.Context, in *UpdateBinLocationRequest, opts ...grpc.CallOption) (*UpdateBinLocationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateBinLocationResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_UpdateBinLocation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // SupplyChainServiceServer is the server API for SupplyChainService service.
 // All implementations must embed UnimplementedSupplyChainServiceServer
 // for forward compatibility.
@@ -901,6 +913,7 @@ type SupplyChainServiceServer interface {
 	GetStoreStockQuantities(context.Context, *GetStoreStockQuantitiesRequest) (*GetStoreStockQuantitiesResponse, error)
 	GetItemQuantityInStore(context.Context, *GetItemQuantityInStoreRequest) (*GetItemQuantityInStoreResponse, error)
 	ReduceStockInStore(context.Context, *ReduceStockInStoreRequest) (*ReduceStockInStoreResponse, error)
+	UpdateBinLocation(context.Context, *UpdateBinLocationRequest) (*UpdateBinLocationResponse, error)
 	mustEmbedUnimplementedSupplyChainServiceServer()
 }
 
@@ -1102,6 +1115,9 @@ func (UnimplementedSupplyChainServiceServer) GetItemQuantityInStore(context.Cont
 }
 func (UnimplementedSupplyChainServiceServer) ReduceStockInStore(context.Context, *ReduceStockInStoreRequest) (*ReduceStockInStoreResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReduceStockInStore not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) UpdateBinLocation(context.Context, *UpdateBinLocationRequest) (*UpdateBinLocationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateBinLocation not implemented")
 }
 func (UnimplementedSupplyChainServiceServer) mustEmbedUnimplementedSupplyChainServiceServer() {}
 func (UnimplementedSupplyChainServiceServer) testEmbeddedByValue()                            {}
@@ -2276,6 +2292,24 @@ func _SupplyChainService_ReduceStockInStore_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SupplyChainService_UpdateBinLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateBinLocationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).UpdateBinLocation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_UpdateBinLocation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).UpdateBinLocation(ctx, req.(*UpdateBinLocationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // SupplyChainService_ServiceDesc is the grpc.ServiceDesc for SupplyChainService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2538,6 +2572,10 @@ var SupplyChainService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ReduceStockInStore",
 			Handler:    _SupplyChainService_ReduceStockInStore_Handler,
+		},
+		{
+			MethodName: "UpdateBinLocation",
+			Handler:    _SupplyChainService_UpdateBinLocation_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

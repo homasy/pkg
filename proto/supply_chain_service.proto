@@ -31,6 +31,7 @@ message StockItem {
   string created_at = 19 [json_name="createdAt"];
   string updated_at = 20 [json_name="updatedAt"];
   double quantity_in_store = 21 [json_name="quantityInStore"];
+  string bin_location = 22 [json_name="binLocation"];
 }
 
 // Message for a store location
@@ -222,6 +223,7 @@ message InterStoreTransferItem {
   double received_quantity = 5 [json_name="receivedQuantity"];
   string unit_of_measure = 6 [json_name="unitOfMeasure"];
   string notes = 7 [json_name="notes"];
+  string bin_location = 8 [json_name="binLocation"];
 }
 
 // Message for credit note
@@ -752,6 +754,13 @@ service SupplyChainService {
   rpc ReduceStockInStore (ReduceStockInStoreRequest) returns (ReduceStockInStoreResponse) {
     option (google.api.http) = {
       post: "/v1/stock-quantities/reduce"
+      body: "*"
+    };
+  }
+
+  rpc UpdateBinLocation (UpdateBinLocationRequest) returns (UpdateBinLocationResponse) {
+    option (google.api.http) = {
+      put: "/v1/stock-quantities/bin-location"
       body: "*"
     };
   }
@@ -1323,6 +1332,7 @@ message StockQuantity {
   double quantity = 4;
   string category = 5;
   string unit_of_measure = 6;
+  string bin_location = 7;
 }
 
 message GetStoreStockQuantitiesRequest {
@@ -1350,6 +1360,17 @@ message ReduceStockInStoreRequest {
 }
 
 message ReduceStockInStoreResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message UpdateBinLocationRequest {
+  string store_id = 1;
+  string item_id = 2;
+  string bin_location = 3;
+}
+
+message UpdateBinLocationResponse {
   bool success = 1;
   string message = 2;
 }
