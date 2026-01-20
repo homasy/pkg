@@ -705,6 +705,7 @@ message GetPrescriptionItemResponse {
   string dosage = 5;
   int32 quantity = 6;
   string instructions = 7;
+  int32 store_id = 8;
 }
 message UpdatePrescriptionItemRequest {
   int32 item_id = 1;

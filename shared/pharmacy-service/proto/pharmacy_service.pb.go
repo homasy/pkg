@@ -2805,6 +2805,7 @@ type GetPrescriptionItemResponse struct {
 	Dosage         string                 `protobuf:"bytes,5,opt,name=dosage,proto3" json:"dosage,omitempty"`
 	Quantity       int32                  `protobuf:"varint,6,opt,name=quantity,proto3" json:"quantity,omitempty"`
 	Instructions   string                 `protobuf:"bytes,7,opt,name=instructions,proto3" json:"instructions,omitempty"`
+	StoreId        int32                  `protobuf:"varint,8,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -2886,6 +2887,13 @@ func (x *GetPrescriptionItemResponse) GetInstructions() string {
 		return x.Instructions
 	}
 	return ""
+}
+
+func (x *GetPrescriptionItemResponse) GetStoreId() int32 {
+	if x != nil {
+		return x.StoreId
+	}
+	return 0
 }
 
 type UpdatePrescriptionItemRequest struct {
@@ -8415,7 +8423,7 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"5\n" +
 	"\x1aGetPrescriptionItemRequest\x12\x17\n" +
-	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\"\x85\x02\n" +
+	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\"\xa0\x02\n" +
 	"\x1bGetPrescriptionItemResponse\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\x12'\n" +
 	"\x0fprescription_id\x18\x02 \x01(\x05R\x0eprescriptionId\x12#\n" +
@@ -8423,7 +8431,8 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\x0fmedication_name\x18\x04 \x01(\tR\x0emedicationName\x12\x16\n" +
 	"\x06dosage\x18\x05 \x01(\tR\x06dosage\x12\x1a\n" +
 	"\bquantity\x18\x06 \x01(\x05R\bquantity\x12\"\n" +
-	"\finstructions\x18\a \x01(\tR\finstructions\"\xde\x01\n" +
+	"\finstructions\x18\a \x01(\tR\finstructions\x12\x19\n" +
+	"\bstore_id\x18\b \x01(\x05R\astoreId\"\xde\x01\n" +
 	"\x1dUpdatePrescriptionItemRequest\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\x12'\n" +
 	"\x0fprescription_id\x18\x02 \x01(\x05R\x0eprescriptionId\x12#\n" +
