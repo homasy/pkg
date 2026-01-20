@@ -50,11 +50,11 @@ all: $(patsubst $(PROTO_DIR)/%.proto,%,$(PROTO_FILES))
 # route_permissions_service:
 # 	$(call PROTOC_CMD,route-permissions-service,route_permissions_service)
 
-# pharmacy_service:
-# 	$(call PROTOC_CMD,pharmacy-service,pharmacy_service)
+pharmacy_service:
+	$(call PROTOC_CMD,pharmacy-service,pharmacy_service)
 
-supply_chain_service:
-	$(call PROTOC_CMD,supply-chain-service,supply_chain_service)
+# supply_chain_service:
+# 	$(call PROTOC_CMD,supply-chain-service,supply_chain_service)
 
 # user_service:
 # 	$(call PROTOC_CMD,user-service,user_service)
