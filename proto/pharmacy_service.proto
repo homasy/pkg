@@ -928,6 +928,7 @@ message MedicationSchedule {
   string notes = 10;
   string status = 11;
   string created_at = 12;
+  int32 store_id = 13;
 }
 
 message CreateMedicationScheduleRequest {

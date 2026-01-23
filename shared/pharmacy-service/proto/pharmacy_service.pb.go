@@ -4869,6 +4869,7 @@ type MedicationSchedule struct {
 	Notes          string                 `protobuf:"bytes,10,opt,name=notes,proto3" json:"notes,omitempty"`
 	Status         string                 `protobuf:"bytes,11,opt,name=status,proto3" json:"status,omitempty"`
 	CreatedAt      string                 `protobuf:"bytes,12,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	StoreId        int32                  `protobuf:"varint,13,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -4985,6 +4986,13 @@ func (x *MedicationSchedule) GetCreatedAt() string {
 		return x.CreatedAt
 	}
 	return ""
+}
+
+func (x *MedicationSchedule) GetStoreId() int32 {
+	if x != nil {
+		return x.StoreId
+	}
+	return 0
 }
 
 type CreateMedicationScheduleRequest struct {
@@ -8580,7 +8588,7 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\x19GetSingleCategoryResponse\x12\x1f\n" +
 	"\vcategory_id\x18\x01 \x01(\x05R\n" +
 	"categoryId\x12#\n" +
-	"\rcategory_name\x18\x02 \x01(\tR\fcategoryName\"\xfe\x02\n" +
+	"\rcategory_name\x18\x02 \x01(\tR\fcategoryName\"\x99\x03\n" +
 	"\x12MedicationSchedule\x12\x1f\n" +
 	"\vschedule_id\x18\x01 \x01(\x05R\n" +
 	"scheduleId\x12\x1d\n" +
@@ -8599,7 +8607,8 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	" \x01(\tR\x05notes\x12\x16\n" +
 	"\x06status\x18\v \x01(\tR\x06status\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\f \x01(\tR\tcreatedAt\"\xbd\x02\n" +
+	"created_at\x18\f \x01(\tR\tcreatedAt\x12\x19\n" +
+	"\bstore_id\x18\r \x01(\x05R\astoreId\"\xbd\x02\n" +
 	"\x1fCreateMedicationScheduleRequest\x12\x1d\n" +
 	"\n" +
 	"patient_id\x18\x01 \x01(\x05R\tpatientId\x12#\n" +
