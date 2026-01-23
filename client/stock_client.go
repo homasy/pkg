@@ -202,3 +202,10 @@ func (c *StockClient) ListStores(ctx context.Context, req *supplypb.ListStoresRe
 	}
 	return c.client.ListStores(ctx, req)
 }
+// GetItemQuantityInStore gets the quantity of an item in a specific store
+func (c *StockClient) GetItemQuantityInStore(ctx context.Context, req *supplypb.GetItemQuantityInStoreRequest) (*supplypb.GetItemQuantityInStoreResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.client.GetItemQuantityInStore(ctx, req)
+}
