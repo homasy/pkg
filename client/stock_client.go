@@ -202,10 +202,19 @@ func (c *StockClient) ListStores(ctx context.Context, req *supplypb.ListStoresRe
 	}
 	return c.client.ListStores(ctx, req)
 }
+
 // GetItemQuantityInStore gets the quantity of an item in a specific store
 func (c *StockClient) GetItemQuantityInStore(ctx context.Context, req *supplypb.GetItemQuantityInStoreRequest) (*supplypb.GetItemQuantityInStoreResponse, error) {
 	if err := c.Connect(); err != nil {
 		return nil, err
 	}
 	return c.client.GetItemQuantityInStore(ctx, req)
+}
+
+// GetStoreStockQuantities gets all stock quantities for a specific store
+func (c *StockClient) GetStoreStockQuantities(ctx context.Context, req *supplypb.GetStoreStockQuantitiesRequest) (*supplypb.GetStoreStockQuantitiesResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.client.GetStoreStockQuantities(ctx, req)
 }
