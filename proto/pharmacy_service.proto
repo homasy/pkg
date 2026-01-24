@@ -929,6 +929,7 @@ message MedicationSchedule {
   string status = 11;
   string created_at = 12;
   int32 store_id = 13;
+  float stock_quantity = 14;
 }
 
 message CreateMedicationScheduleRequest {
