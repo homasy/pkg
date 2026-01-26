@@ -360,6 +360,14 @@ message ListBedsResponse {
     repeated GetBedResponse beds = 1;
 }
 
+// Bed message for repository layer
+message Bed {
+    int32 bed_id = 1;
+    int32 ward_id = 2;
+    string bed_number = 3;
+    string status = 4;
+}
+
 message CreateWardRequest {
   string ward_name = 1;
   string ward_type = 2;
@@ -409,4 +417,13 @@ message ListWardsRequest {}
 
 message ListWardsResponse {
   repeated GetWardResponse wards = 1;
+}
+
+// Ward message for repository layer
+message Ward {
+  int32 ward_id = 1;
+  string ward_name = 2;
+  string ward_type = 3;
+  string ward_status = 4;
+  int32 total_beds = 5;
 }

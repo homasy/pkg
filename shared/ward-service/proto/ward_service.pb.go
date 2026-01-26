@@ -2038,6 +2038,75 @@ func (x *ListBedsResponse) GetBeds() []*GetBedResponse {
 	return nil
 }
 
+// Bed message for repository layer
+type Bed struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	BedId         int32                  `protobuf:"varint,1,opt,name=bed_id,json=bedId,proto3" json:"bed_id,omitempty"`
+	WardId        int32                  `protobuf:"varint,2,opt,name=ward_id,json=wardId,proto3" json:"ward_id,omitempty"`
+	BedNumber     string                 `protobuf:"bytes,3,opt,name=bed_number,json=bedNumber,proto3" json:"bed_number,omitempty"`
+	Status        string                 `protobuf:"bytes,4,opt,name=status,proto3" json:"status,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bed) Reset() {
+	*x = Bed{}
+	mi := &file_proto_ward_service_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bed) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bed) ProtoMessage() {}
+
+func (x *Bed) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ward_service_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bed.ProtoReflect.Descriptor instead.
+func (*Bed) Descriptor() ([]byte, []int) {
+	return file_proto_ward_service_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *Bed) GetBedId() int32 {
+	if x != nil {
+		return x.BedId
+	}
+	return 0
+}
+
+func (x *Bed) GetWardId() int32 {
+	if x != nil {
+		return x.WardId
+	}
+	return 0
+}
+
+func (x *Bed) GetBedNumber() string {
+	if x != nil {
+		return x.BedNumber
+	}
+	return ""
+}
+
+func (x *Bed) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
 type CreateWardRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	WardName      string                 `protobuf:"bytes,1,opt,name=ward_name,json=wardName,proto3" json:"ward_name,omitempty"`
@@ -2049,7 +2118,7 @@ type CreateWardRequest struct {
 
 func (x *CreateWardRequest) Reset() {
 	*x = CreateWardRequest{}
-	mi := &file_proto_ward_service_proto_msgTypes[37]
+	mi := &file_proto_ward_service_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2061,7 +2130,7 @@ func (x *CreateWardRequest) String() string {
 func (*CreateWardRequest) ProtoMessage() {}
 
 func (x *CreateWardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ward_service_proto_msgTypes[37]
+	mi := &file_proto_ward_service_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2074,7 +2143,7 @@ func (x *CreateWardRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateWardRequest.ProtoReflect.Descriptor instead.
 func (*CreateWardRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ward_service_proto_rawDescGZIP(), []int{37}
+	return file_proto_ward_service_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *CreateWardRequest) GetWardName() string {
@@ -2108,7 +2177,7 @@ type CreateWardResponse struct {
 
 func (x *CreateWardResponse) Reset() {
 	*x = CreateWardResponse{}
-	mi := &file_proto_ward_service_proto_msgTypes[38]
+	mi := &file_proto_ward_service_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2120,7 +2189,7 @@ func (x *CreateWardResponse) String() string {
 func (*CreateWardResponse) ProtoMessage() {}
 
 func (x *CreateWardResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ward_service_proto_msgTypes[38]
+	mi := &file_proto_ward_service_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2133,7 +2202,7 @@ func (x *CreateWardResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateWardResponse.ProtoReflect.Descriptor instead.
 func (*CreateWardResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ward_service_proto_rawDescGZIP(), []int{38}
+	return file_proto_ward_service_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *CreateWardResponse) GetWardId() int32 {
@@ -2159,7 +2228,7 @@ type GetWardRequest struct {
 
 func (x *GetWardRequest) Reset() {
 	*x = GetWardRequest{}
-	mi := &file_proto_ward_service_proto_msgTypes[39]
+	mi := &file_proto_ward_service_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2171,7 +2240,7 @@ func (x *GetWardRequest) String() string {
 func (*GetWardRequest) ProtoMessage() {}
 
 func (x *GetWardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ward_service_proto_msgTypes[39]
+	mi := &file_proto_ward_service_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2184,7 +2253,7 @@ func (x *GetWardRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWardRequest.ProtoReflect.Descriptor instead.
 func (*GetWardRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ward_service_proto_rawDescGZIP(), []int{39}
+	return file_proto_ward_service_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *GetWardRequest) GetWardId() int32 {
@@ -2207,7 +2276,7 @@ type GetWardResponse struct {
 
 func (x *GetWardResponse) Reset() {
 	*x = GetWardResponse{}
-	mi := &file_proto_ward_service_proto_msgTypes[40]
+	mi := &file_proto_ward_service_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2219,7 +2288,7 @@ func (x *GetWardResponse) String() string {
 func (*GetWardResponse) ProtoMessage() {}
 
 func (x *GetWardResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ward_service_proto_msgTypes[40]
+	mi := &file_proto_ward_service_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2232,7 +2301,7 @@ func (x *GetWardResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWardResponse.ProtoReflect.Descriptor instead.
 func (*GetWardResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ward_service_proto_rawDescGZIP(), []int{40}
+	return file_proto_ward_service_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *GetWardResponse) GetWardId() int32 {
@@ -2283,7 +2352,7 @@ type UpdateWardRequest struct {
 
 func (x *UpdateWardRequest) Reset() {
 	*x = UpdateWardRequest{}
-	mi := &file_proto_ward_service_proto_msgTypes[41]
+	mi := &file_proto_ward_service_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2295,7 +2364,7 @@ func (x *UpdateWardRequest) String() string {
 func (*UpdateWardRequest) ProtoMessage() {}
 
 func (x *UpdateWardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ward_service_proto_msgTypes[41]
+	mi := &file_proto_ward_service_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2308,7 +2377,7 @@ func (x *UpdateWardRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateWardRequest.ProtoReflect.Descriptor instead.
 func (*UpdateWardRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ward_service_proto_rawDescGZIP(), []int{41}
+	return file_proto_ward_service_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *UpdateWardRequest) GetWardId() int32 {
@@ -2356,7 +2425,7 @@ type UpdateWardResponse struct {
 
 func (x *UpdateWardResponse) Reset() {
 	*x = UpdateWardResponse{}
-	mi := &file_proto_ward_service_proto_msgTypes[42]
+	mi := &file_proto_ward_service_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2368,7 +2437,7 @@ func (x *UpdateWardResponse) String() string {
 func (*UpdateWardResponse) ProtoMessage() {}
 
 func (x *UpdateWardResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ward_service_proto_msgTypes[42]
+	mi := &file_proto_ward_service_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2381,7 +2450,7 @@ func (x *UpdateWardResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateWardResponse.ProtoReflect.Descriptor instead.
 func (*UpdateWardResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ward_service_proto_rawDescGZIP(), []int{42}
+	return file_proto_ward_service_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *UpdateWardResponse) GetSuccess() bool {
@@ -2407,7 +2476,7 @@ type DeleteWardRequest struct {
 
 func (x *DeleteWardRequest) Reset() {
 	*x = DeleteWardRequest{}
-	mi := &file_proto_ward_service_proto_msgTypes[43]
+	mi := &file_proto_ward_service_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2419,7 +2488,7 @@ func (x *DeleteWardRequest) String() string {
 func (*DeleteWardRequest) ProtoMessage() {}
 
 func (x *DeleteWardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ward_service_proto_msgTypes[43]
+	mi := &file_proto_ward_service_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2432,7 +2501,7 @@ func (x *DeleteWardRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteWardRequest.ProtoReflect.Descriptor instead.
 func (*DeleteWardRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ward_service_proto_rawDescGZIP(), []int{43}
+	return file_proto_ward_service_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *DeleteWardRequest) GetWardId() int32 {
@@ -2452,7 +2521,7 @@ type DeleteWardResponse struct {
 
 func (x *DeleteWardResponse) Reset() {
 	*x = DeleteWardResponse{}
-	mi := &file_proto_ward_service_proto_msgTypes[44]
+	mi := &file_proto_ward_service_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2464,7 +2533,7 @@ func (x *DeleteWardResponse) String() string {
 func (*DeleteWardResponse) ProtoMessage() {}
 
 func (x *DeleteWardResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ward_service_proto_msgTypes[44]
+	mi := &file_proto_ward_service_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2477,7 +2546,7 @@ func (x *DeleteWardResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteWardResponse.ProtoReflect.Descriptor instead.
 func (*DeleteWardResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ward_service_proto_rawDescGZIP(), []int{44}
+	return file_proto_ward_service_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *DeleteWardResponse) GetSuccess() bool {
@@ -2502,7 +2571,7 @@ type ListWardsRequest struct {
 
 func (x *ListWardsRequest) Reset() {
 	*x = ListWardsRequest{}
-	mi := &file_proto_ward_service_proto_msgTypes[45]
+	mi := &file_proto_ward_service_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2514,7 +2583,7 @@ func (x *ListWardsRequest) String() string {
 func (*ListWardsRequest) ProtoMessage() {}
 
 func (x *ListWardsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ward_service_proto_msgTypes[45]
+	mi := &file_proto_ward_service_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2527,7 +2596,7 @@ func (x *ListWardsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListWardsRequest.ProtoReflect.Descriptor instead.
 func (*ListWardsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ward_service_proto_rawDescGZIP(), []int{45}
+	return file_proto_ward_service_proto_rawDescGZIP(), []int{46}
 }
 
 type ListWardsResponse struct {
@@ -2539,7 +2608,7 @@ type ListWardsResponse struct {
 
 func (x *ListWardsResponse) Reset() {
 	*x = ListWardsResponse{}
-	mi := &file_proto_ward_service_proto_msgTypes[46]
+	mi := &file_proto_ward_service_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2551,7 +2620,7 @@ func (x *ListWardsResponse) String() string {
 func (*ListWardsResponse) ProtoMessage() {}
 
 func (x *ListWardsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ward_service_proto_msgTypes[46]
+	mi := &file_proto_ward_service_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2564,7 +2633,7 @@ func (x *ListWardsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListWardsResponse.ProtoReflect.Descriptor instead.
 func (*ListWardsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ward_service_proto_rawDescGZIP(), []int{46}
+	return file_proto_ward_service_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *ListWardsResponse) GetWards() []*GetWardResponse {
@@ -2572,6 +2641,83 @@ func (x *ListWardsResponse) GetWards() []*GetWardResponse {
 		return x.Wards
 	}
 	return nil
+}
+
+// Ward message for repository layer
+type Ward struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	WardId        int32                  `protobuf:"varint,1,opt,name=ward_id,json=wardId,proto3" json:"ward_id,omitempty"`
+	WardName      string                 `protobuf:"bytes,2,opt,name=ward_name,json=wardName,proto3" json:"ward_name,omitempty"`
+	WardType      string                 `protobuf:"bytes,3,opt,name=ward_type,json=wardType,proto3" json:"ward_type,omitempty"`
+	WardStatus    string                 `protobuf:"bytes,4,opt,name=ward_status,json=wardStatus,proto3" json:"ward_status,omitempty"`
+	TotalBeds     int32                  `protobuf:"varint,5,opt,name=total_beds,json=totalBeds,proto3" json:"total_beds,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Ward) Reset() {
+	*x = Ward{}
+	mi := &file_proto_ward_service_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Ward) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Ward) ProtoMessage() {}
+
+func (x *Ward) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ward_service_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Ward.ProtoReflect.Descriptor instead.
+func (*Ward) Descriptor() ([]byte, []int) {
+	return file_proto_ward_service_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *Ward) GetWardId() int32 {
+	if x != nil {
+		return x.WardId
+	}
+	return 0
+}
+
+func (x *Ward) GetWardName() string {
+	if x != nil {
+		return x.WardName
+	}
+	return ""
+}
+
+func (x *Ward) GetWardType() string {
+	if x != nil {
+		return x.WardType
+	}
+	return ""
+}
+
+func (x *Ward) GetWardStatus() string {
+	if x != nil {
+		return x.WardStatus
+	}
+	return ""
+}
+
+func (x *Ward) GetTotalBeds() int32 {
+	if x != nil {
+		return x.TotalBeds
+	}
+	return 0
 }
 
 var File_proto_ward_service_proto protoreflect.FileDescriptor
@@ -2720,7 +2866,13 @@ const file_proto_ward_service_proto_rawDesc = "" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"\x11\n" +
 	"\x0fListBedsRequest\"D\n" +
 	"\x10ListBedsResponse\x120\n" +
-	"\x04beds\x18\x01 \x03(\v2\x1c.ward_service.GetBedResponseR\x04beds\"i\n" +
+	"\x04beds\x18\x01 \x03(\v2\x1c.ward_service.GetBedResponseR\x04beds\"l\n" +
+	"\x03Bed\x12\x15\n" +
+	"\x06bed_id\x18\x01 \x01(\x05R\x05bedId\x12\x17\n" +
+	"\award_id\x18\x02 \x01(\x05R\x06wardId\x12\x1d\n" +
+	"\n" +
+	"bed_number\x18\x03 \x01(\tR\tbedNumber\x12\x16\n" +
+	"\x06status\x18\x04 \x01(\tR\x06status\"i\n" +
 	"\x11CreateWardRequest\x12\x1b\n" +
 	"\tward_name\x18\x01 \x01(\tR\bwardName\x12\x1b\n" +
 	"\tward_type\x18\x02 \x01(\tR\bwardType\x12\x1a\n" +
@@ -2752,7 +2904,15 @@ const file_proto_ward_service_proto_rawDesc = "" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"\x12\n" +
 	"\x10ListWardsRequest\"H\n" +
 	"\x11ListWardsResponse\x123\n" +
-	"\x05wards\x18\x01 \x03(\v2\x1d.ward_service.GetWardResponseR\x05wards2\xec\x13\n" +
+	"\x05wards\x18\x01 \x03(\v2\x1d.ward_service.GetWardResponseR\x05wards\"\x99\x01\n" +
+	"\x04Ward\x12\x17\n" +
+	"\award_id\x18\x01 \x01(\x05R\x06wardId\x12\x1b\n" +
+	"\tward_name\x18\x02 \x01(\tR\bwardName\x12\x1b\n" +
+	"\tward_type\x18\x03 \x01(\tR\bwardType\x12\x1f\n" +
+	"\vward_status\x18\x04 \x01(\tR\n" +
+	"wardStatus\x12\x1d\n" +
+	"\n" +
+	"total_beds\x18\x05 \x01(\x05R\ttotalBeds2\xec\x13\n" +
 	"\vWardService\x12a\n" +
 	"\tCreateBed\x12\x1e.ward_service.CreateBedRequest\x1a\x1f.ward_service.CreateBedResponse\"\x13\x82\xd3\xe4\x93\x02\r:\x01*\"\b/v1/beds\x12^\n" +
 	"\x06GetBed\x12\x1b.ward_service.GetBedRequest\x1a\x1c.ward_service.GetBedResponse\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/v1/beds/{bed_id}\x12j\n" +
@@ -2793,7 +2953,7 @@ func file_proto_ward_service_proto_rawDescGZIP() []byte {
 	return file_proto_ward_service_proto_rawDescData
 }
 
-var file_proto_ward_service_proto_msgTypes = make([]protoimpl.MessageInfo, 47)
+var file_proto_ward_service_proto_msgTypes = make([]protoimpl.MessageInfo, 49)
 var file_proto_ward_service_proto_goTypes = []any{
 	(*Transfer)(nil),                // 0: ward_service.Transfer
 	(*TransferPatientRequest)(nil),  // 1: ward_service.TransferPatientRequest
@@ -2832,16 +2992,18 @@ var file_proto_ward_service_proto_goTypes = []any{
 	(*DeleteBedResponse)(nil),       // 34: ward_service.DeleteBedResponse
 	(*ListBedsRequest)(nil),         // 35: ward_service.ListBedsRequest
 	(*ListBedsResponse)(nil),        // 36: ward_service.ListBedsResponse
-	(*CreateWardRequest)(nil),       // 37: ward_service.CreateWardRequest
-	(*CreateWardResponse)(nil),      // 38: ward_service.CreateWardResponse
-	(*GetWardRequest)(nil),          // 39: ward_service.GetWardRequest
-	(*GetWardResponse)(nil),         // 40: ward_service.GetWardResponse
-	(*UpdateWardRequest)(nil),       // 41: ward_service.UpdateWardRequest
-	(*UpdateWardResponse)(nil),      // 42: ward_service.UpdateWardResponse
-	(*DeleteWardRequest)(nil),       // 43: ward_service.DeleteWardRequest
-	(*DeleteWardResponse)(nil),      // 44: ward_service.DeleteWardResponse
-	(*ListWardsRequest)(nil),        // 45: ward_service.ListWardsRequest
-	(*ListWardsResponse)(nil),       // 46: ward_service.ListWardsResponse
+	(*Bed)(nil),                     // 37: ward_service.Bed
+	(*CreateWardRequest)(nil),       // 38: ward_service.CreateWardRequest
+	(*CreateWardResponse)(nil),      // 39: ward_service.CreateWardResponse
+	(*GetWardRequest)(nil),          // 40: ward_service.GetWardRequest
+	(*GetWardResponse)(nil),         // 41: ward_service.GetWardResponse
+	(*UpdateWardRequest)(nil),       // 42: ward_service.UpdateWardRequest
+	(*UpdateWardResponse)(nil),      // 43: ward_service.UpdateWardResponse
+	(*DeleteWardRequest)(nil),       // 44: ward_service.DeleteWardRequest
+	(*DeleteWardResponse)(nil),      // 45: ward_service.DeleteWardResponse
+	(*ListWardsRequest)(nil),        // 46: ward_service.ListWardsRequest
+	(*ListWardsResponse)(nil),       // 47: ward_service.ListWardsResponse
+	(*Ward)(nil),                    // 48: ward_service.Ward
 }
 var file_proto_ward_service_proto_depIdxs = []int32{
 	0,  // 0: ward_service.GetTransferResponse.transfer:type_name -> ward_service.Transfer
@@ -2851,17 +3013,17 @@ var file_proto_ward_service_proto_depIdxs = []int32{
 	16, // 4: ward_service.GetAdmissionResponse.admission:type_name -> ward_service.Admission
 	16, // 5: ward_service.ListAdmissionsResponse.admissions:type_name -> ward_service.Admission
 	30, // 6: ward_service.ListBedsResponse.beds:type_name -> ward_service.GetBedResponse
-	40, // 7: ward_service.ListWardsResponse.wards:type_name -> ward_service.GetWardResponse
+	41, // 7: ward_service.ListWardsResponse.wards:type_name -> ward_service.GetWardResponse
 	27, // 8: ward_service.WardService.CreateBed:input_type -> ward_service.CreateBedRequest
 	29, // 9: ward_service.WardService.GetBed:input_type -> ward_service.GetBedRequest
 	31, // 10: ward_service.WardService.UpdateBed:input_type -> ward_service.UpdateBedRequest
 	33, // 11: ward_service.WardService.DeleteBed:input_type -> ward_service.DeleteBedRequest
 	35, // 12: ward_service.WardService.ListBeds:input_type -> ward_service.ListBedsRequest
-	37, // 13: ward_service.WardService.CreateWard:input_type -> ward_service.CreateWardRequest
-	39, // 14: ward_service.WardService.GetWard:input_type -> ward_service.GetWardRequest
-	41, // 15: ward_service.WardService.UpdateWard:input_type -> ward_service.UpdateWardRequest
-	43, // 16: ward_service.WardService.DeleteWard:input_type -> ward_service.DeleteWardRequest
-	45, // 17: ward_service.WardService.ListWards:input_type -> ward_service.ListWardsRequest
+	38, // 13: ward_service.WardService.CreateWard:input_type -> ward_service.CreateWardRequest
+	40, // 14: ward_service.WardService.GetWard:input_type -> ward_service.GetWardRequest
+	42, // 15: ward_service.WardService.UpdateWard:input_type -> ward_service.UpdateWardRequest
+	44, // 16: ward_service.WardService.DeleteWard:input_type -> ward_service.DeleteWardRequest
+	46, // 17: ward_service.WardService.ListWards:input_type -> ward_service.ListWardsRequest
 	17, // 18: ward_service.WardService.CreateAdmission:input_type -> ward_service.CreateAdmissionRequest
 	19, // 19: ward_service.WardService.GetAdmission:input_type -> ward_service.GetAdmissionRequest
 	21, // 20: ward_service.WardService.ListAdmissions:input_type -> ward_service.ListAdmissionsRequest
@@ -2879,11 +3041,11 @@ var file_proto_ward_service_proto_depIdxs = []int32{
 	32, // 32: ward_service.WardService.UpdateBed:output_type -> ward_service.UpdateBedResponse
 	34, // 33: ward_service.WardService.DeleteBed:output_type -> ward_service.DeleteBedResponse
 	36, // 34: ward_service.WardService.ListBeds:output_type -> ward_service.ListBedsResponse
-	38, // 35: ward_service.WardService.CreateWard:output_type -> ward_service.CreateWardResponse
-	40, // 36: ward_service.WardService.GetWard:output_type -> ward_service.GetWardResponse
-	42, // 37: ward_service.WardService.UpdateWard:output_type -> ward_service.UpdateWardResponse
-	44, // 38: ward_service.WardService.DeleteWard:output_type -> ward_service.DeleteWardResponse
-	46, // 39: ward_service.WardService.ListWards:output_type -> ward_service.ListWardsResponse
+	39, // 35: ward_service.WardService.CreateWard:output_type -> ward_service.CreateWardResponse
+	41, // 36: ward_service.WardService.GetWard:output_type -> ward_service.GetWardResponse
+	43, // 37: ward_service.WardService.UpdateWard:output_type -> ward_service.UpdateWardResponse
+	45, // 38: ward_service.WardService.DeleteWard:output_type -> ward_service.DeleteWardResponse
+	47, // 39: ward_service.WardService.ListWards:output_type -> ward_service.ListWardsResponse
 	18, // 40: ward_service.WardService.CreateAdmission:output_type -> ward_service.CreateAdmissionResponse
 	20, // 41: ward_service.WardService.GetAdmission:output_type -> ward_service.GetAdmissionResponse
 	22, // 42: ward_service.WardService.ListAdmissions:output_type -> ward_service.ListAdmissionsResponse
@@ -2914,7 +3076,7 @@ func file_proto_ward_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_ward_service_proto_rawDesc), len(file_proto_ward_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   47,
+			NumMessages:   49,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
