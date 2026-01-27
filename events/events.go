@@ -157,6 +157,9 @@ const (
     ServiceRecordCreated        = "service_record.created"
     ServiceRecordStatusUpdated  = "service_record.status_updated"
     ServiceRecordBilled         = "service_record.billed"
+    ServiceRecordDeleted        = "service_record.deleted"
+    ServiceRecordCancelled      = "service_record.cancelled"
+    ServiceRecordPriceUpdated   = "service_record.price_updated"
 
 
 	PermissionAdded = "permission.added"
@@ -457,6 +460,42 @@ func ServiceRecordStatusUpdatedEvent(recordID, status string) ([]byte, error) {
         RecordID: recordID,
         Data: map[string]string{
             "status": status,
+        },
+    }
+    return json.Marshal(event)
+}
+
+func ServiceRecordDeletedEvent(recordID, patientID, reason string) ([]byte, error) {
+    event := ServiceRecordEvent{
+        RecordID:  recordID,
+        PatientID: patientID,
+        Data: map[string]string{
+            "reason": reason,
+        },
+    }
+    return json.Marshal(event)
+}
+
+func ServiceRecordCancelledEvent(recordID, patientID, reason string, refundAmount float64) ([]byte, error) {
+    event := ServiceRecordEvent{
+        RecordID:  recordID,
+        PatientID: patientID,
+        Data: map[string]interface{}{
+            "reason":         reason,
+            "refund_amount":  refundAmount,
+        },
+    }
+    return json.Marshal(event)
+}
+
+func ServiceRecordPriceUpdatedEvent(recordID, patientID string, oldAmount, newAmount float64, reason string) ([]byte, error) {
+    event := ServiceRecordEvent{
+        RecordID:  recordID,
+        PatientID: patientID,
+        Data: map[string]interface{}{
+            "old_amount": oldAmount,
+            "new_amount": newAmount,
+            "reason":     reason,
         },
     }
     return json.Marshal(event)
