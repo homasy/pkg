@@ -94,6 +94,26 @@ service BillingService {
         };
     }
 
+    rpc DeleteServiceRecord (DeleteServiceRecordRequest) returns (DeleteServiceRecordResponse) {
+        option (google.api.http) = {
+            delete: "/v1/service-records/{record_id}"
+        };
+    }
+
+    rpc CancelServiceRecord (CancelServiceRecordRequest) returns (CancelServiceRecordResponse) {
+        option (google.api.http) = {
+            post: "/v1/service-records/{record_id}/cancel"
+            body: "*"
+        };
+    }
+
+    rpc UpdateServiceRecordPrice (UpdateServiceRecordPriceRequest) returns (UpdateServiceRecordPriceResponse) {
+        option (google.api.http) = {
+            patch: "/v1/service-records/{record_id}/price"
+            body: "*"
+        };
+    }
+
     rpc GetServiceRecordsByPatient (GetServiceRecordsByPatientRequest) returns (GetServiceRecordsByPatientResponse) {
         option (google.api.http) = {
             get: "/v1/service-records/patient/{patient_id}"
@@ -346,6 +366,43 @@ message UpdateServiceRecordStatusRequest {
 
 message UpdateServiceRecordStatusResponse {
     bool success = 1;
+}
+
+message DeleteServiceRecordRequest {
+    string record_id = 1;
+    string reason = 2;  // Optional reason for deletion
+}
+
+message DeleteServiceRecordResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message CancelServiceRecordRequest {
+    string record_id = 1;
+    string reason = 2;  // Reason for cancellation
+    bool refund = 3;    // Whether to refund the amount
+}
+
+message CancelServiceRecordResponse {
+    bool success = 1;
+    string message = 2;
+    double refund_amount = 3;  // Amount refunded if applicable
+}
+
+message UpdateServiceRecordPriceRequest {
+    string record_id = 1;
+    double new_amount = 2;      // New service amount
+    string reason = 3;          // Reason for price change (e.g., "discount", "correction")
+    double previous_amount = 4; // Previous amount for audit trail
+}
+
+message UpdateServiceRecordPriceResponse {
+    bool success = 1;
+    string message = 2;
+    double old_amount = 3;
+    double new_amount = 4;
+    double difference = 5;      // Difference between new and old (negative for discount)
 }
 
 message GetServiceRecordsByPatientRequest {

@@ -26,8 +26,8 @@ all: $(patsubst $(PROTO_DIR)/%.proto,%,$(PROTO_FILES))
 # appointment_service:
 # 	$(call PROTOC_CMD,appointment-service,appointment_service)
 
-# billing_service:
-# 	$(call PROTOC_CMD,billing-service,billing_service)
+billing_service:
+	$(call PROTOC_CMD,billing-service,billing_service)
 
 # chat_service:
 # 	$(call PROTOC_CMD,chat-service,chat_service)
@@ -59,8 +59,8 @@ all: $(patsubst $(PROTO_DIR)/%.proto,%,$(PROTO_FILES))
 # user_service:
 # 	$(call PROTOC_CMD,user-service,user_service)
 
-ward_service:
-	$(call PROTOC_CMD,ward-service,ward_service)
+# ward_service:
+# 	$(call PROTOC_CMD,ward-service,ward_service)
 
 # analytics_service:
 # 	$(call PROTOC_CMD,analytics-service,analytics_service)

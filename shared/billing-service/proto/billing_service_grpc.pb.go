@@ -32,6 +32,9 @@ const (
 	BillingService_SendInvoiceEmail_FullMethodName           = "/billing_service.BillingService/SendInvoiceEmail"
 	BillingService_CreateServiceRecord_FullMethodName        = "/billing_service.BillingService/CreateServiceRecord"
 	BillingService_UpdateServiceRecordStatus_FullMethodName  = "/billing_service.BillingService/UpdateServiceRecordStatus"
+	BillingService_DeleteServiceRecord_FullMethodName        = "/billing_service.BillingService/DeleteServiceRecord"
+	BillingService_CancelServiceRecord_FullMethodName        = "/billing_service.BillingService/CancelServiceRecord"
+	BillingService_UpdateServiceRecordPrice_FullMethodName   = "/billing_service.BillingService/UpdateServiceRecordPrice"
 	BillingService_GetServiceRecordsByPatient_FullMethodName = "/billing_service.BillingService/GetServiceRecordsByPatient"
 	BillingService_GenerateInvoiceFromRecords_FullMethodName = "/billing_service.BillingService/GenerateInvoiceFromRecords"
 	BillingService_ListServiceRecords_FullMethodName         = "/billing_service.BillingService/ListServiceRecords"
@@ -68,6 +71,9 @@ type BillingServiceClient interface {
 	// Service Record Management
 	CreateServiceRecord(ctx context.Context, in *CreateServiceRecordRequest, opts ...grpc.CallOption) (*CreateServiceRecordResponse, error)
 	UpdateServiceRecordStatus(ctx context.Context, in *UpdateServiceRecordStatusRequest, opts ...grpc.CallOption) (*UpdateServiceRecordStatusResponse, error)
+	DeleteServiceRecord(ctx context.Context, in *DeleteServiceRecordRequest, opts ...grpc.CallOption) (*DeleteServiceRecordResponse, error)
+	CancelServiceRecord(ctx context.Context, in *CancelServiceRecordRequest, opts ...grpc.CallOption) (*CancelServiceRecordResponse, error)
+	UpdateServiceRecordPrice(ctx context.Context, in *UpdateServiceRecordPriceRequest, opts ...grpc.CallOption) (*UpdateServiceRecordPriceResponse, error)
 	GetServiceRecordsByPatient(ctx context.Context, in *GetServiceRecordsByPatientRequest, opts ...grpc.CallOption) (*GetServiceRecordsByPatientResponse, error)
 	GenerateInvoiceFromRecords(ctx context.Context, in *GenerateInvoiceFromRecordsRequest, opts ...grpc.CallOption) (*CreateInvoiceResponse, error)
 	ListServiceRecords(ctx context.Context, in *ListServiceRecordsRequest, opts ...grpc.CallOption) (*ListServiceRecordsResponse, error)
@@ -199,6 +205,36 @@ func (c *billingServiceClient) UpdateServiceRecordStatus(ctx context.Context, in
 	return out, nil
 }
 
+func (c *billingServiceClient) DeleteServiceRecord(ctx context.Context, in *DeleteServiceRecordRequest, opts ...grpc.CallOption) (*DeleteServiceRecordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteServiceRecordResponse)
+	err := c.cc.Invoke(ctx, BillingService_DeleteServiceRecord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *billingServiceClient) CancelServiceRecord(ctx context.Context, in *CancelServiceRecordRequest, opts ...grpc.CallOption) (*CancelServiceRecordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelServiceRecordResponse)
+	err := c.cc.Invoke(ctx, BillingService_CancelServiceRecord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *billingServiceClient) UpdateServiceRecordPrice(ctx context.Context, in *UpdateServiceRecordPriceRequest, opts ...grpc.CallOption) (*UpdateServiceRecordPriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateServiceRecordPriceResponse)
+	err := c.cc.Invoke(ctx, BillingService_UpdateServiceRecordPrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *billingServiceClient) GetServiceRecordsByPatient(ctx context.Context, in *GetServiceRecordsByPatientRequest, opts ...grpc.CallOption) (*GetServiceRecordsByPatientResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetServiceRecordsByPatientResponse)
@@ -296,6 +332,9 @@ type BillingServiceServer interface {
 	// Service Record Management
 	CreateServiceRecord(context.Context, *CreateServiceRecordRequest) (*CreateServiceRecordResponse, error)
 	UpdateServiceRecordStatus(context.Context, *UpdateServiceRecordStatusRequest) (*UpdateServiceRecordStatusResponse, error)
+	DeleteServiceRecord(context.Context, *DeleteServiceRecordRequest) (*DeleteServiceRecordResponse, error)
+	CancelServiceRecord(context.Context, *CancelServiceRecordRequest) (*CancelServiceRecordResponse, error)
+	UpdateServiceRecordPrice(context.Context, *UpdateServiceRecordPriceRequest) (*UpdateServiceRecordPriceResponse, error)
 	GetServiceRecordsByPatient(context.Context, *GetServiceRecordsByPatientRequest) (*GetServiceRecordsByPatientResponse, error)
 	GenerateInvoiceFromRecords(context.Context, *GenerateInvoiceFromRecordsRequest) (*CreateInvoiceResponse, error)
 	ListServiceRecords(context.Context, *ListServiceRecordsRequest) (*ListServiceRecordsResponse, error)
@@ -349,6 +388,15 @@ func (UnimplementedBillingServiceServer) CreateServiceRecord(context.Context, *C
 }
 func (UnimplementedBillingServiceServer) UpdateServiceRecordStatus(context.Context, *UpdateServiceRecordStatusRequest) (*UpdateServiceRecordStatusResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateServiceRecordStatus not implemented")
+}
+func (UnimplementedBillingServiceServer) DeleteServiceRecord(context.Context, *DeleteServiceRecordRequest) (*DeleteServiceRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteServiceRecord not implemented")
+}
+func (UnimplementedBillingServiceServer) CancelServiceRecord(context.Context, *CancelServiceRecordRequest) (*CancelServiceRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CancelServiceRecord not implemented")
+}
+func (UnimplementedBillingServiceServer) UpdateServiceRecordPrice(context.Context, *UpdateServiceRecordPriceRequest) (*UpdateServiceRecordPriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateServiceRecordPrice not implemented")
 }
 func (UnimplementedBillingServiceServer) GetServiceRecordsByPatient(context.Context, *GetServiceRecordsByPatientRequest) (*GetServiceRecordsByPatientResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetServiceRecordsByPatient not implemented")
@@ -590,6 +638,60 @@ func _BillingService_UpdateServiceRecordStatus_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _BillingService_DeleteServiceRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteServiceRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BillingServiceServer).DeleteServiceRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BillingService_DeleteServiceRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BillingServiceServer).DeleteServiceRecord(ctx, req.(*DeleteServiceRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BillingService_CancelServiceRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelServiceRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BillingServiceServer).CancelServiceRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BillingService_CancelServiceRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BillingServiceServer).CancelServiceRecord(ctx, req.(*CancelServiceRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BillingService_UpdateServiceRecordPrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateServiceRecordPriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BillingServiceServer).UpdateServiceRecordPrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BillingService_UpdateServiceRecordPrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BillingServiceServer).UpdateServiceRecordPrice(ctx, req.(*UpdateServiceRecordPriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _BillingService_GetServiceRecordsByPatient_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetServiceRecordsByPatientRequest)
 	if err := dec(in); err != nil {
@@ -766,6 +868,18 @@ var BillingService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateServiceRecordStatus",
 			Handler:    _BillingService_UpdateServiceRecordStatus_Handler,
+		},
+		{
+			MethodName: "DeleteServiceRecord",
+			Handler:    _BillingService_DeleteServiceRecord_Handler,
+		},
+		{
+			MethodName: "CancelServiceRecord",
+			Handler:    _BillingService_CancelServiceRecord_Handler,
+		},
+		{
+			MethodName: "UpdateServiceRecordPrice",
+			Handler:    _BillingService_UpdateServiceRecordPrice_Handler,
 		},
 		{
 			MethodName: "GetServiceRecordsByPatient",
