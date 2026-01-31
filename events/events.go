@@ -100,10 +100,12 @@ const (
 	// Requisition events
 	RequisitionCreated  = "requisition.created"
 	RequisitionApproved = "requisition.approved"
+	RequisitionRejected = "requisition.rejected"
 
 	// LPO events
 	LPOCreated  = "lpo.created"
 	LPOApproved = "lpo.approved"
+	LPORejected = "lpo.rejected"
 
 	// GRN events
 	GRNCreated        = "grn.created"
@@ -112,10 +114,12 @@ const (
 	// Stock Adjustment events
 	StockAdjustmentCreated  = "stock_adjustment.created"
 	StockAdjustmentApproved = "stock_adjustment.approved"
+	StockAdjustmentRejected = "stock_adjustment.rejected"
 
 	// Transfer events
 	TransferCreated   = "transfer.created"
 	TransferApproved  = "transfer.approved"
+	TransferRejected  = "transfer.rejected"
 	TransferReceived  = "transfer.received"
 
 	// Credit Note events
