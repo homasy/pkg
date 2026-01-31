@@ -485,6 +485,13 @@ service SupplyChainService {
     };
   }
   
+  rpc RejectRequisition (RejectRequisitionRequest) returns (RejectRequisitionResponse) {
+    option (google.api.http) = {
+      post: "/v1/requisitions/{id}/reject"
+      body: "*"
+    };
+  }
+  
   rpc GetRequisition (GetRequisitionRequest) returns (GetRequisitionResponse) {
     option (google.api.http) = {
       get: "/v1/requisitions/{id}"
@@ -508,6 +515,13 @@ service SupplyChainService {
   rpc ApproveLPO (ApproveLPORequest) returns (ApproveLPOResponse) {
     option (google.api.http) = {
       post: "/v1/lpos/{id}/approve"
+      body: "*"
+    };
+  }
+  
+  rpc RejectLPO (RejectLPORequest) returns (RejectLPOResponse) {
+    option (google.api.http) = {
+      post: "/v1/lpos/{id}/reject"
       body: "*"
     };
   }
@@ -572,6 +586,13 @@ service SupplyChainService {
     };
   }
   
+  rpc RejectStockAdjustment (RejectStockAdjustmentRequest) returns (RejectStockAdjustmentResponse) {
+    option (google.api.http) = {
+      post: "/v1/stock-adjustments/{id}/reject"
+      body: "*"
+    };
+  }
+  
   rpc GetStockAdjustment (GetStockAdjustmentRequest) returns (GetStockAdjustmentResponse) {
     option (google.api.http) = {
       get: "/v1/stock-adjustments/{id}"
@@ -589,6 +610,13 @@ service SupplyChainService {
   rpc ApproveInterStoreTransfer (ApproveInterStoreTransferRequest) returns (ApproveInterStoreTransferResponse) {
     option (google.api.http) = {
       post: "/v1/inter-store-transfers/{id}/approve"
+      body: "*"
+    };
+  }
+  
+  rpc RejectInterStoreTransfer (RejectInterStoreTransferRequest) returns (RejectInterStoreTransferResponse) {
+    option (google.api.http) = {
+      post: "/v1/inter-store-transfers/{id}/reject"
       body: "*"
     };
   }
@@ -941,6 +969,18 @@ message ApproveRequisitionResponse {
   bool success = 1;
 }
 
+message RejectRequisitionRequest {
+  string id = 1;
+  string rejecter_id = 2;
+  string rejecter_name = 3;
+  string rejecter_signature = 4;
+  string rejection_reason = 5;
+}
+
+message RejectRequisitionResponse {
+  bool success = 1;
+}
+
 message GetRequisitionRequest {
   string id = 1;
 }
@@ -975,6 +1015,18 @@ message ApproveLPORequest {
 }
 
 message ApproveLPOResponse {
+  bool success = 1;
+}
+
+message RejectLPORequest {
+  string id = 1;
+  string rejecter_id = 2;
+  string rejecter_name = 3;
+  string rejecter_signature = 4;
+  string rejection_reason = 5;
+}
+
+message RejectLPOResponse {
   bool success = 1;
 }
 
@@ -1055,6 +1107,18 @@ message ApproveStockAdjustmentResponse {
   bool success = 1;
 }
 
+message RejectStockAdjustmentRequest {
+  string id = 1;
+  string rejecter_id = 2;
+  string rejecter_name = 3;
+  string rejecter_signature = 4;
+  string rejection_reason = 5;
+}
+
+message RejectStockAdjustmentResponse {
+  bool success = 1;
+}
+
 message GetStockAdjustmentRequest {
   string id = 1;
 }
@@ -1092,6 +1156,18 @@ message ApproveInterStoreTransferRequest {
 }
 
 message ApproveInterStoreTransferResponse {
+  bool success = 1;
+}
+
+message RejectInterStoreTransferRequest {
+  string id = 1;
+  string rejecter_id = 2;
+  string rejecter_name = 3;
+  string rejecter_signature = 4;
+  string rejection_reason = 5;
+}
+
+message RejectInterStoreTransferResponse {
   bool success = 1;
 }
 

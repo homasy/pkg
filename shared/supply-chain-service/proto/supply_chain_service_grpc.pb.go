@@ -44,10 +44,12 @@ const (
 	SupplyChainService_DeleteSupplier_FullMethodName               = "/supply_chain.SupplyChainService/DeleteSupplier"
 	SupplyChainService_CreateRequisition_FullMethodName            = "/supply_chain.SupplyChainService/CreateRequisition"
 	SupplyChainService_ApproveRequisition_FullMethodName           = "/supply_chain.SupplyChainService/ApproveRequisition"
+	SupplyChainService_RejectRequisition_FullMethodName            = "/supply_chain.SupplyChainService/RejectRequisition"
 	SupplyChainService_GetRequisition_FullMethodName               = "/supply_chain.SupplyChainService/GetRequisition"
 	SupplyChainService_ListRequisitions_FullMethodName             = "/supply_chain.SupplyChainService/ListRequisitions"
 	SupplyChainService_CreateLPO_FullMethodName                    = "/supply_chain.SupplyChainService/CreateLPO"
 	SupplyChainService_ApproveLPO_FullMethodName                   = "/supply_chain.SupplyChainService/ApproveLPO"
+	SupplyChainService_RejectLPO_FullMethodName                    = "/supply_chain.SupplyChainService/RejectLPO"
 	SupplyChainService_GetLPO_FullMethodName                       = "/supply_chain.SupplyChainService/GetLPO"
 	SupplyChainService_ListLPOs_FullMethodName                     = "/supply_chain.SupplyChainService/ListLPOs"
 	SupplyChainService_CreateGRN_FullMethodName                    = "/supply_chain.SupplyChainService/CreateGRN"
@@ -57,9 +59,11 @@ const (
 	SupplyChainService_CreateStockAdjustment_FullMethodName        = "/supply_chain.SupplyChainService/CreateStockAdjustment"
 	SupplyChainService_ListStockAdjustments_FullMethodName         = "/supply_chain.SupplyChainService/ListStockAdjustments"
 	SupplyChainService_ApproveStockAdjustment_FullMethodName       = "/supply_chain.SupplyChainService/ApproveStockAdjustment"
+	SupplyChainService_RejectStockAdjustment_FullMethodName        = "/supply_chain.SupplyChainService/RejectStockAdjustment"
 	SupplyChainService_GetStockAdjustment_FullMethodName           = "/supply_chain.SupplyChainService/GetStockAdjustment"
 	SupplyChainService_CreateInterStoreTransfer_FullMethodName     = "/supply_chain.SupplyChainService/CreateInterStoreTransfer"
 	SupplyChainService_ApproveInterStoreTransfer_FullMethodName    = "/supply_chain.SupplyChainService/ApproveInterStoreTransfer"
+	SupplyChainService_RejectInterStoreTransfer_FullMethodName     = "/supply_chain.SupplyChainService/RejectInterStoreTransfer"
 	SupplyChainService_ReceiveInterStoreTransfer_FullMethodName    = "/supply_chain.SupplyChainService/ReceiveInterStoreTransfer"
 	SupplyChainService_GetInterStoreTransfer_FullMethodName        = "/supply_chain.SupplyChainService/GetInterStoreTransfer"
 	SupplyChainService_ListInterStoreTransfers_FullMethodName      = "/supply_chain.SupplyChainService/ListInterStoreTransfers"
@@ -120,11 +124,13 @@ type SupplyChainServiceClient interface {
 	// Requisition Management
 	CreateRequisition(ctx context.Context, in *CreateRequisitionRequest, opts ...grpc.CallOption) (*CreateRequisitionResponse, error)
 	ApproveRequisition(ctx context.Context, in *ApproveRequisitionRequest, opts ...grpc.CallOption) (*ApproveRequisitionResponse, error)
+	RejectRequisition(ctx context.Context, in *RejectRequisitionRequest, opts ...grpc.CallOption) (*RejectRequisitionResponse, error)
 	GetRequisition(ctx context.Context, in *GetRequisitionRequest, opts ...grpc.CallOption) (*GetRequisitionResponse, error)
 	ListRequisitions(ctx context.Context, in *ListRequisitionsRequest, opts ...grpc.CallOption) (*ListRequisitionsResponse, error)
 	// LPO Management
 	CreateLPO(ctx context.Context, in *CreateLPORequest, opts ...grpc.CallOption) (*CreateLPOResponse, error)
 	ApproveLPO(ctx context.Context, in *ApproveLPORequest, opts ...grpc.CallOption) (*ApproveLPOResponse, error)
+	RejectLPO(ctx context.Context, in *RejectLPORequest, opts ...grpc.CallOption) (*RejectLPOResponse, error)
 	GetLPO(ctx context.Context, in *GetLPORequest, opts ...grpc.CallOption) (*GetLPOResponse, error)
 	ListLPOs(ctx context.Context, in *ListLPOsRequest, opts ...grpc.CallOption) (*ListLPOsResponse, error)
 	// GRN Management
@@ -136,10 +142,12 @@ type SupplyChainServiceClient interface {
 	CreateStockAdjustment(ctx context.Context, in *CreateStockAdjustmentRequest, opts ...grpc.CallOption) (*CreateStockAdjustmentResponse, error)
 	ListStockAdjustments(ctx context.Context, in *ListStockAdjustmentsRequest, opts ...grpc.CallOption) (*ListStockAdjustmentsResponse, error)
 	ApproveStockAdjustment(ctx context.Context, in *ApproveStockAdjustmentRequest, opts ...grpc.CallOption) (*ApproveStockAdjustmentResponse, error)
+	RejectStockAdjustment(ctx context.Context, in *RejectStockAdjustmentRequest, opts ...grpc.CallOption) (*RejectStockAdjustmentResponse, error)
 	GetStockAdjustment(ctx context.Context, in *GetStockAdjustmentRequest, opts ...grpc.CallOption) (*GetStockAdjustmentResponse, error)
 	// Inter-Store Transfer
 	CreateInterStoreTransfer(ctx context.Context, in *CreateInterStoreTransferRequest, opts ...grpc.CallOption) (*CreateInterStoreTransferResponse, error)
 	ApproveInterStoreTransfer(ctx context.Context, in *ApproveInterStoreTransferRequest, opts ...grpc.CallOption) (*ApproveInterStoreTransferResponse, error)
+	RejectInterStoreTransfer(ctx context.Context, in *RejectInterStoreTransferRequest, opts ...grpc.CallOption) (*RejectInterStoreTransferResponse, error)
 	ReceiveInterStoreTransfer(ctx context.Context, in *ReceiveInterStoreTransferRequest, opts ...grpc.CallOption) (*ReceiveInterStoreTransferResponse, error)
 	GetInterStoreTransfer(ctx context.Context, in *GetInterStoreTransferRequest, opts ...grpc.CallOption) (*GetInterStoreTransferResponse, error)
 	ListInterStoreTransfers(ctx context.Context, in *ListInterStoreTransfersRequest, opts ...grpc.CallOption) (*ListInterStoreTransfersResponse, error)
@@ -411,6 +419,16 @@ func (c *supplyChainServiceClient) ApproveRequisition(ctx context.Context, in *A
 	return out, nil
 }
 
+func (c *supplyChainServiceClient) RejectRequisition(ctx context.Context, in *RejectRequisitionRequest, opts ...grpc.CallOption) (*RejectRequisitionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RejectRequisitionResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_RejectRequisition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *supplyChainServiceClient) GetRequisition(ctx context.Context, in *GetRequisitionRequest, opts ...grpc.CallOption) (*GetRequisitionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetRequisitionResponse)
@@ -445,6 +463,16 @@ func (c *supplyChainServiceClient) ApproveLPO(ctx context.Context, in *ApproveLP
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ApproveLPOResponse)
 	err := c.cc.Invoke(ctx, SupplyChainService_ApproveLPO_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) RejectLPO(ctx context.Context, in *RejectLPORequest, opts ...grpc.CallOption) (*RejectLPOResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RejectLPOResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_RejectLPO_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -541,6 +569,16 @@ func (c *supplyChainServiceClient) ApproveStockAdjustment(ctx context.Context, i
 	return out, nil
 }
 
+func (c *supplyChainServiceClient) RejectStockAdjustment(ctx context.Context, in *RejectStockAdjustmentRequest, opts ...grpc.CallOption) (*RejectStockAdjustmentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RejectStockAdjustmentResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_RejectStockAdjustment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *supplyChainServiceClient) GetStockAdjustment(ctx context.Context, in *GetStockAdjustmentRequest, opts ...grpc.CallOption) (*GetStockAdjustmentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStockAdjustmentResponse)
@@ -565,6 +603,16 @@ func (c *supplyChainServiceClient) ApproveInterStoreTransfer(ctx context.Context
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ApproveInterStoreTransferResponse)
 	err := c.cc.Invoke(ctx, SupplyChainService_ApproveInterStoreTransfer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *supplyChainServiceClient) RejectInterStoreTransfer(ctx context.Context, in *RejectInterStoreTransferRequest, opts ...grpc.CallOption) (*RejectInterStoreTransferResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RejectInterStoreTransferResponse)
+	err := c.cc.Invoke(ctx, SupplyChainService_RejectInterStoreTransfer_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -863,11 +911,13 @@ type SupplyChainServiceServer interface {
 	// Requisition Management
 	CreateRequisition(context.Context, *CreateRequisitionRequest) (*CreateRequisitionResponse, error)
 	ApproveRequisition(context.Context, *ApproveRequisitionRequest) (*ApproveRequisitionResponse, error)
+	RejectRequisition(context.Context, *RejectRequisitionRequest) (*RejectRequisitionResponse, error)
 	GetRequisition(context.Context, *GetRequisitionRequest) (*GetRequisitionResponse, error)
 	ListRequisitions(context.Context, *ListRequisitionsRequest) (*ListRequisitionsResponse, error)
 	// LPO Management
 	CreateLPO(context.Context, *CreateLPORequest) (*CreateLPOResponse, error)
 	ApproveLPO(context.Context, *ApproveLPORequest) (*ApproveLPOResponse, error)
+	RejectLPO(context.Context, *RejectLPORequest) (*RejectLPOResponse, error)
 	GetLPO(context.Context, *GetLPORequest) (*GetLPOResponse, error)
 	ListLPOs(context.Context, *ListLPOsRequest) (*ListLPOsResponse, error)
 	// GRN Management
@@ -879,10 +929,12 @@ type SupplyChainServiceServer interface {
 	CreateStockAdjustment(context.Context, *CreateStockAdjustmentRequest) (*CreateStockAdjustmentResponse, error)
 	ListStockAdjustments(context.Context, *ListStockAdjustmentsRequest) (*ListStockAdjustmentsResponse, error)
 	ApproveStockAdjustment(context.Context, *ApproveStockAdjustmentRequest) (*ApproveStockAdjustmentResponse, error)
+	RejectStockAdjustment(context.Context, *RejectStockAdjustmentRequest) (*RejectStockAdjustmentResponse, error)
 	GetStockAdjustment(context.Context, *GetStockAdjustmentRequest) (*GetStockAdjustmentResponse, error)
 	// Inter-Store Transfer
 	CreateInterStoreTransfer(context.Context, *CreateInterStoreTransferRequest) (*CreateInterStoreTransferResponse, error)
 	ApproveInterStoreTransfer(context.Context, *ApproveInterStoreTransferRequest) (*ApproveInterStoreTransferResponse, error)
+	RejectInterStoreTransfer(context.Context, *RejectInterStoreTransferRequest) (*RejectInterStoreTransferResponse, error)
 	ReceiveInterStoreTransfer(context.Context, *ReceiveInterStoreTransferRequest) (*ReceiveInterStoreTransferResponse, error)
 	GetInterStoreTransfer(context.Context, *GetInterStoreTransferRequest) (*GetInterStoreTransferResponse, error)
 	ListInterStoreTransfers(context.Context, *ListInterStoreTransfersRequest) (*ListInterStoreTransfersResponse, error)
@@ -993,6 +1045,9 @@ func (UnimplementedSupplyChainServiceServer) CreateRequisition(context.Context, 
 func (UnimplementedSupplyChainServiceServer) ApproveRequisition(context.Context, *ApproveRequisitionRequest) (*ApproveRequisitionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveRequisition not implemented")
 }
+func (UnimplementedSupplyChainServiceServer) RejectRequisition(context.Context, *RejectRequisitionRequest) (*RejectRequisitionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RejectRequisition not implemented")
+}
 func (UnimplementedSupplyChainServiceServer) GetRequisition(context.Context, *GetRequisitionRequest) (*GetRequisitionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRequisition not implemented")
 }
@@ -1004,6 +1059,9 @@ func (UnimplementedSupplyChainServiceServer) CreateLPO(context.Context, *CreateL
 }
 func (UnimplementedSupplyChainServiceServer) ApproveLPO(context.Context, *ApproveLPORequest) (*ApproveLPOResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveLPO not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) RejectLPO(context.Context, *RejectLPORequest) (*RejectLPOResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RejectLPO not implemented")
 }
 func (UnimplementedSupplyChainServiceServer) GetLPO(context.Context, *GetLPORequest) (*GetLPOResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetLPO not implemented")
@@ -1032,6 +1090,9 @@ func (UnimplementedSupplyChainServiceServer) ListStockAdjustments(context.Contex
 func (UnimplementedSupplyChainServiceServer) ApproveStockAdjustment(context.Context, *ApproveStockAdjustmentRequest) (*ApproveStockAdjustmentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveStockAdjustment not implemented")
 }
+func (UnimplementedSupplyChainServiceServer) RejectStockAdjustment(context.Context, *RejectStockAdjustmentRequest) (*RejectStockAdjustmentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RejectStockAdjustment not implemented")
+}
 func (UnimplementedSupplyChainServiceServer) GetStockAdjustment(context.Context, *GetStockAdjustmentRequest) (*GetStockAdjustmentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStockAdjustment not implemented")
 }
@@ -1040,6 +1101,9 @@ func (UnimplementedSupplyChainServiceServer) CreateInterStoreTransfer(context.Co
 }
 func (UnimplementedSupplyChainServiceServer) ApproveInterStoreTransfer(context.Context, *ApproveInterStoreTransferRequest) (*ApproveInterStoreTransferResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveInterStoreTransfer not implemented")
+}
+func (UnimplementedSupplyChainServiceServer) RejectInterStoreTransfer(context.Context, *RejectInterStoreTransferRequest) (*RejectInterStoreTransferResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RejectInterStoreTransfer not implemented")
 }
 func (UnimplementedSupplyChainServiceServer) ReceiveInterStoreTransfer(context.Context, *ReceiveInterStoreTransferRequest) (*ReceiveInterStoreTransferResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReceiveInterStoreTransfer not implemented")
@@ -1554,6 +1618,24 @@ func _SupplyChainService_ApproveRequisition_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SupplyChainService_RejectRequisition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RejectRequisitionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).RejectRequisition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_RejectRequisition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).RejectRequisition(ctx, req.(*RejectRequisitionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _SupplyChainService_GetRequisition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRequisitionRequest)
 	if err := dec(in); err != nil {
@@ -1622,6 +1704,24 @@ func _SupplyChainService_ApproveLPO_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SupplyChainServiceServer).ApproveLPO(ctx, req.(*ApproveLPORequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_RejectLPO_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RejectLPORequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).RejectLPO(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_RejectLPO_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).RejectLPO(ctx, req.(*RejectLPORequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1788,6 +1888,24 @@ func _SupplyChainService_ApproveStockAdjustment_Handler(srv interface{}, ctx con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SupplyChainService_RejectStockAdjustment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RejectStockAdjustmentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).RejectStockAdjustment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_RejectStockAdjustment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).RejectStockAdjustment(ctx, req.(*RejectStockAdjustmentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _SupplyChainService_GetStockAdjustment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetStockAdjustmentRequest)
 	if err := dec(in); err != nil {
@@ -1838,6 +1956,24 @@ func _SupplyChainService_ApproveInterStoreTransfer_Handler(srv interface{}, ctx 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SupplyChainServiceServer).ApproveInterStoreTransfer(ctx, req.(*ApproveInterStoreTransferRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SupplyChainService_RejectInterStoreTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RejectInterStoreTransferRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupplyChainServiceServer).RejectInterStoreTransfer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupplyChainService_RejectInterStoreTransfer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupplyChainServiceServer).RejectInterStoreTransfer(ctx, req.(*RejectInterStoreTransferRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2410,6 +2546,10 @@ var SupplyChainService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _SupplyChainService_ApproveRequisition_Handler,
 		},
 		{
+			MethodName: "RejectRequisition",
+			Handler:    _SupplyChainService_RejectRequisition_Handler,
+		},
+		{
 			MethodName: "GetRequisition",
 			Handler:    _SupplyChainService_GetRequisition_Handler,
 		},
@@ -2424,6 +2564,10 @@ var SupplyChainService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ApproveLPO",
 			Handler:    _SupplyChainService_ApproveLPO_Handler,
+		},
+		{
+			MethodName: "RejectLPO",
+			Handler:    _SupplyChainService_RejectLPO_Handler,
 		},
 		{
 			MethodName: "GetLPO",
@@ -2462,6 +2606,10 @@ var SupplyChainService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _SupplyChainService_ApproveStockAdjustment_Handler,
 		},
 		{
+			MethodName: "RejectStockAdjustment",
+			Handler:    _SupplyChainService_RejectStockAdjustment_Handler,
+		},
+		{
 			MethodName: "GetStockAdjustment",
 			Handler:    _SupplyChainService_GetStockAdjustment_Handler,
 		},
@@ -2472,6 +2620,10 @@ var SupplyChainService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ApproveInterStoreTransfer",
 			Handler:    _SupplyChainService_ApproveInterStoreTransfer_Handler,
+		},
+		{
+			MethodName: "RejectInterStoreTransfer",
+			Handler:    _SupplyChainService_RejectInterStoreTransfer_Handler,
 		},
 		{
 			MethodName: "ReceiveInterStoreTransfer",

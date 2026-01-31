@@ -930,6 +930,9 @@ const (
 	PriceService_ListWardTypePrices_FullMethodName          = "/billing_service.PriceService/ListWardTypePrices"
 	PriceService_CreateWardTypePrice_FullMethodName         = "/billing_service.PriceService/CreateWardTypePrice"
 	PriceService_UpdateWardTypePrice_FullMethodName         = "/billing_service.PriceService/UpdateWardTypePrice"
+	PriceService_DeleteServicePrice_FullMethodName          = "/billing_service.PriceService/DeleteServicePrice"
+	PriceService_DeleteLabTestPrice_FullMethodName          = "/billing_service.PriceService/DeleteLabTestPrice"
+	PriceService_DeleteWardTypePrice_FullMethodName         = "/billing_service.PriceService/DeleteWardTypePrice"
 	PriceService_ExportServicePricesToCSV_FullMethodName    = "/billing_service.PriceService/ExportServicePricesToCSV"
 	PriceService_ExportLabTestPricesToCSV_FullMethodName    = "/billing_service.PriceService/ExportLabTestPricesToCSV"
 	PriceService_ExportWardTypePricesToCSV_FullMethodName   = "/billing_service.PriceService/ExportWardTypePricesToCSV"
@@ -970,6 +973,10 @@ type PriceServiceClient interface {
 	ListWardTypePrices(ctx context.Context, in *ListWardTypePricesRequest, opts ...grpc.CallOption) (*ListWardTypePricesResponse, error)
 	CreateWardTypePrice(ctx context.Context, in *CreateWardTypePriceRequest, opts ...grpc.CallOption) (*CreateWardTypePriceResponse, error)
 	UpdateWardTypePrice(ctx context.Context, in *UpdateWardTypePriceRequest, opts ...grpc.CallOption) (*UpdateWardTypePriceResponse, error)
+	// Delete Price Management
+	DeleteServicePrice(ctx context.Context, in *DeleteServicePriceRequest, opts ...grpc.CallOption) (*DeleteServicePriceResponse, error)
+	DeleteLabTestPrice(ctx context.Context, in *DeleteLabTestPriceRequest, opts ...grpc.CallOption) (*DeleteLabTestPriceResponse, error)
+	DeleteWardTypePrice(ctx context.Context, in *DeleteWardTypePriceRequest, opts ...grpc.CallOption) (*DeleteWardTypePriceResponse, error)
 	// CSV Import/Export
 	ExportServicePricesToCSV(ctx context.Context, in *ExportPricesRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[ExportCSVResponse], error)
 	ExportLabTestPricesToCSV(ctx context.Context, in *ExportPricesRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[ExportCSVResponse], error)
@@ -1141,6 +1148,36 @@ func (c *priceServiceClient) UpdateWardTypePrice(ctx context.Context, in *Update
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateWardTypePriceResponse)
 	err := c.cc.Invoke(ctx, PriceService_UpdateWardTypePrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) DeleteServicePrice(ctx context.Context, in *DeleteServicePriceRequest, opts ...grpc.CallOption) (*DeleteServicePriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteServicePriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_DeleteServicePrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) DeleteLabTestPrice(ctx context.Context, in *DeleteLabTestPriceRequest, opts ...grpc.CallOption) (*DeleteLabTestPriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteLabTestPriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_DeleteLabTestPrice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *priceServiceClient) DeleteWardTypePrice(ctx context.Context, in *DeleteWardTypePriceRequest, opts ...grpc.CallOption) (*DeleteWardTypePriceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteWardTypePriceResponse)
+	err := c.cc.Invoke(ctx, PriceService_DeleteWardTypePrice_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1347,6 +1384,10 @@ type PriceServiceServer interface {
 	ListWardTypePrices(context.Context, *ListWardTypePricesRequest) (*ListWardTypePricesResponse, error)
 	CreateWardTypePrice(context.Context, *CreateWardTypePriceRequest) (*CreateWardTypePriceResponse, error)
 	UpdateWardTypePrice(context.Context, *UpdateWardTypePriceRequest) (*UpdateWardTypePriceResponse, error)
+	// Delete Price Management
+	DeleteServicePrice(context.Context, *DeleteServicePriceRequest) (*DeleteServicePriceResponse, error)
+	DeleteLabTestPrice(context.Context, *DeleteLabTestPriceRequest) (*DeleteLabTestPriceResponse, error)
+	DeleteWardTypePrice(context.Context, *DeleteWardTypePriceRequest) (*DeleteWardTypePriceResponse, error)
 	// CSV Import/Export
 	ExportServicePricesToCSV(*ExportPricesRequest, grpc.ServerStreamingServer[ExportCSVResponse]) error
 	ExportLabTestPricesToCSV(*ExportPricesRequest, grpc.ServerStreamingServer[ExportCSVResponse]) error
@@ -1418,6 +1459,15 @@ func (UnimplementedPriceServiceServer) CreateWardTypePrice(context.Context, *Cre
 }
 func (UnimplementedPriceServiceServer) UpdateWardTypePrice(context.Context, *UpdateWardTypePriceRequest) (*UpdateWardTypePriceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateWardTypePrice not implemented")
+}
+func (UnimplementedPriceServiceServer) DeleteServicePrice(context.Context, *DeleteServicePriceRequest) (*DeleteServicePriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteServicePrice not implemented")
+}
+func (UnimplementedPriceServiceServer) DeleteLabTestPrice(context.Context, *DeleteLabTestPriceRequest) (*DeleteLabTestPriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteLabTestPrice not implemented")
+}
+func (UnimplementedPriceServiceServer) DeleteWardTypePrice(context.Context, *DeleteWardTypePriceRequest) (*DeleteWardTypePriceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteWardTypePrice not implemented")
 }
 func (UnimplementedPriceServiceServer) ExportServicePricesToCSV(*ExportPricesRequest, grpc.ServerStreamingServer[ExportCSVResponse]) error {
 	return status.Errorf(codes.Unimplemented, "method ExportServicePricesToCSV not implemented")
@@ -1755,6 +1805,60 @@ func _PriceService_UpdateWardTypePrice_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PriceService_DeleteServicePrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteServicePriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).DeleteServicePrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_DeleteServicePrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).DeleteServicePrice(ctx, req.(*DeleteServicePriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_DeleteLabTestPrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteLabTestPriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).DeleteLabTestPrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_DeleteLabTestPrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).DeleteLabTestPrice(ctx, req.(*DeleteLabTestPriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PriceService_DeleteWardTypePrice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteWardTypePriceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PriceServiceServer).DeleteWardTypePrice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PriceService_DeleteWardTypePrice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PriceServiceServer).DeleteWardTypePrice(ctx, req.(*DeleteWardTypePriceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _PriceService_ExportServicePricesToCSV_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(ExportPricesRequest)
 	if err := stream.RecvMsg(m); err != nil {
@@ -2070,6 +2174,18 @@ var PriceService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateWardTypePrice",
 			Handler:    _PriceService_UpdateWardTypePrice_Handler,
+		},
+		{
+			MethodName: "DeleteServicePrice",
+			Handler:    _PriceService_DeleteServicePrice_Handler,
+		},
+		{
+			MethodName: "DeleteLabTestPrice",
+			Handler:    _PriceService_DeleteLabTestPrice_Handler,
+		},
+		{
+			MethodName: "DeleteWardTypePrice",
+			Handler:    _PriceService_DeleteWardTypePrice_Handler,
 		},
 		{
 			MethodName: "ImportServicePricesFromCSV",

@@ -649,6 +649,25 @@ service PriceService {
     };
   }
 
+  // Delete Price Management
+  rpc DeleteServicePrice(DeleteServicePriceRequest) returns (DeleteServicePriceResponse) {
+    option (google.api.http) = {
+      delete: "/v1/prices/service-prices/{id}"
+    };
+  }
+
+  rpc DeleteLabTestPrice(DeleteLabTestPriceRequest) returns (DeleteLabTestPriceResponse) {
+    option (google.api.http) = {
+      delete: "/v1/prices/lab-test-prices/{id}"
+    };
+  }
+
+  rpc DeleteWardTypePrice(DeleteWardTypePriceRequest) returns (DeleteWardTypePriceResponse) {
+    option (google.api.http) = {
+      delete: "/v1/prices/ward-type-prices/{id}"
+    };
+  }
+
   // CSV Import/Export
   rpc ExportServicePricesToCSV(ExportPricesRequest) returns (stream ExportCSVResponse) {
     option (google.api.http) = {
@@ -992,6 +1011,34 @@ message UpdateWardTypePriceRequest {
 }
 
 message UpdateWardTypePriceResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// Delete Price Messages
+message DeleteServicePriceRequest {
+  int64 id = 1;
+}
+
+message DeleteServicePriceResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message DeleteLabTestPriceRequest {
+  int64 id = 1;
+}
+
+message DeleteLabTestPriceResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message DeleteWardTypePriceRequest {
+  int64 id = 1;
+}
+
+message DeleteWardTypePriceResponse {
   bool success = 1;
   string message = 2;
 }

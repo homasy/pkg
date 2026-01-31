@@ -765,6 +765,48 @@ func local_request_SupplyChainService_ApproveRequisition_0(ctx context.Context, 
 	return msg, metadata, err
 }
 
+func request_SupplyChainService_RejectRequisition_0(ctx context.Context, marshaler runtime.Marshaler, client SupplyChainServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq RejectRequisitionRequest
+		metadata runtime.ServerMetadata
+		err      error
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	val, ok := pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
+	}
+	protoReq.Id, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
+	}
+	msg, err := client.RejectRequisition(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+}
+
+func local_request_SupplyChainService_RejectRequisition_0(ctx context.Context, marshaler runtime.Marshaler, server SupplyChainServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq RejectRequisitionRequest
+		metadata runtime.ServerMetadata
+		err      error
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	val, ok := pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
+	}
+	protoReq.Id, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
+	}
+	msg, err := server.RejectRequisition(ctx, &protoReq)
+	return msg, metadata, err
+}
+
 func request_SupplyChainService_GetRequisition_0(ctx context.Context, marshaler runtime.Marshaler, client SupplyChainServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq GetRequisitionRequest
@@ -896,6 +938,48 @@ func local_request_SupplyChainService_ApproveLPO_0(ctx context.Context, marshale
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
 	}
 	msg, err := server.ApproveLPO(ctx, &protoReq)
+	return msg, metadata, err
+}
+
+func request_SupplyChainService_RejectLPO_0(ctx context.Context, marshaler runtime.Marshaler, client SupplyChainServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq RejectLPORequest
+		metadata runtime.ServerMetadata
+		err      error
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	val, ok := pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
+	}
+	protoReq.Id, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
+	}
+	msg, err := client.RejectLPO(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+}
+
+func local_request_SupplyChainService_RejectLPO_0(ctx context.Context, marshaler runtime.Marshaler, server SupplyChainServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq RejectLPORequest
+		metadata runtime.ServerMetadata
+		err      error
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	val, ok := pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
+	}
+	protoReq.Id, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
+	}
+	msg, err := server.RejectLPO(ctx, &protoReq)
 	return msg, metadata, err
 }
 
@@ -1199,6 +1283,48 @@ func local_request_SupplyChainService_ApproveStockAdjustment_0(ctx context.Conte
 	return msg, metadata, err
 }
 
+func request_SupplyChainService_RejectStockAdjustment_0(ctx context.Context, marshaler runtime.Marshaler, client SupplyChainServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq RejectStockAdjustmentRequest
+		metadata runtime.ServerMetadata
+		err      error
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	val, ok := pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
+	}
+	protoReq.Id, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
+	}
+	msg, err := client.RejectStockAdjustment(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+}
+
+func local_request_SupplyChainService_RejectStockAdjustment_0(ctx context.Context, marshaler runtime.Marshaler, server SupplyChainServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq RejectStockAdjustmentRequest
+		metadata runtime.ServerMetadata
+		err      error
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	val, ok := pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
+	}
+	protoReq.Id, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
+	}
+	msg, err := server.RejectStockAdjustment(ctx, &protoReq)
+	return msg, metadata, err
+}
+
 func request_SupplyChainService_GetStockAdjustment_0(ctx context.Context, marshaler runtime.Marshaler, client SupplyChainServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq GetStockAdjustmentRequest
@@ -1298,6 +1424,48 @@ func local_request_SupplyChainService_ApproveInterStoreTransfer_0(ctx context.Co
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
 	}
 	msg, err := server.ApproveInterStoreTransfer(ctx, &protoReq)
+	return msg, metadata, err
+}
+
+func request_SupplyChainService_RejectInterStoreTransfer_0(ctx context.Context, marshaler runtime.Marshaler, client SupplyChainServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq RejectInterStoreTransferRequest
+		metadata runtime.ServerMetadata
+		err      error
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	val, ok := pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
+	}
+	protoReq.Id, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
+	}
+	msg, err := client.RejectInterStoreTransfer(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+}
+
+func local_request_SupplyChainService_RejectInterStoreTransfer_0(ctx context.Context, marshaler runtime.Marshaler, server SupplyChainServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq RejectInterStoreTransferRequest
+		metadata runtime.ServerMetadata
+		err      error
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	val, ok := pathParams["id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
+	}
+	protoReq.Id, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
+	}
+	msg, err := server.RejectInterStoreTransfer(ctx, &protoReq)
 	return msg, metadata, err
 }
 
@@ -2657,6 +2825,26 @@ func RegisterSupplyChainServiceHandlerServer(ctx context.Context, mux *runtime.S
 		}
 		forward_SupplyChainService_ApproveRequisition_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
+	mux.Handle(http.MethodPost, pattern_SupplyChainService_RejectRequisition_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/supply_chain.SupplyChainService/RejectRequisition", runtime.WithHTTPPathPattern("/v1/requisitions/{id}/reject"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_SupplyChainService_RejectRequisition_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_SupplyChainService_RejectRequisition_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
 	mux.Handle(http.MethodGet, pattern_SupplyChainService_GetRequisition_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -2736,6 +2924,26 @@ func RegisterSupplyChainServiceHandlerServer(ctx context.Context, mux *runtime.S
 			return
 		}
 		forward_SupplyChainService_ApproveLPO_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
+	mux.Handle(http.MethodPost, pattern_SupplyChainService_RejectLPO_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/supply_chain.SupplyChainService/RejectLPO", runtime.WithHTTPPathPattern("/v1/lpos/{id}/reject"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_SupplyChainService_RejectLPO_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_SupplyChainService_RejectLPO_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
 	mux.Handle(http.MethodGet, pattern_SupplyChainService_GetLPO_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
@@ -2917,6 +3125,26 @@ func RegisterSupplyChainServiceHandlerServer(ctx context.Context, mux *runtime.S
 		}
 		forward_SupplyChainService_ApproveStockAdjustment_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
+	mux.Handle(http.MethodPost, pattern_SupplyChainService_RejectStockAdjustment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/supply_chain.SupplyChainService/RejectStockAdjustment", runtime.WithHTTPPathPattern("/v1/stock-adjustments/{id}/reject"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_SupplyChainService_RejectStockAdjustment_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_SupplyChainService_RejectStockAdjustment_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
 	mux.Handle(http.MethodGet, pattern_SupplyChainService_GetStockAdjustment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -2976,6 +3204,26 @@ func RegisterSupplyChainServiceHandlerServer(ctx context.Context, mux *runtime.S
 			return
 		}
 		forward_SupplyChainService_ApproveInterStoreTransfer_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
+	mux.Handle(http.MethodPost, pattern_SupplyChainService_RejectInterStoreTransfer_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/supply_chain.SupplyChainService/RejectInterStoreTransfer", runtime.WithHTTPPathPattern("/v1/inter-store-transfers/{id}/reject"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_SupplyChainService_RejectInterStoreTransfer_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_SupplyChainService_RejectInterStoreTransfer_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
 	mux.Handle(http.MethodPost, pattern_SupplyChainService_ReceiveInterStoreTransfer_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
@@ -3928,6 +4176,23 @@ func RegisterSupplyChainServiceHandlerClient(ctx context.Context, mux *runtime.S
 		}
 		forward_SupplyChainService_ApproveRequisition_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
+	mux.Handle(http.MethodPost, pattern_SupplyChainService_RejectRequisition_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/supply_chain.SupplyChainService/RejectRequisition", runtime.WithHTTPPathPattern("/v1/requisitions/{id}/reject"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_SupplyChainService_RejectRequisition_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_SupplyChainService_RejectRequisition_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
 	mux.Handle(http.MethodGet, pattern_SupplyChainService_GetRequisition_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -3995,6 +4260,23 @@ func RegisterSupplyChainServiceHandlerClient(ctx context.Context, mux *runtime.S
 			return
 		}
 		forward_SupplyChainService_ApproveLPO_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
+	mux.Handle(http.MethodPost, pattern_SupplyChainService_RejectLPO_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/supply_chain.SupplyChainService/RejectLPO", runtime.WithHTTPPathPattern("/v1/lpos/{id}/reject"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_SupplyChainService_RejectLPO_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_SupplyChainService_RejectLPO_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
 	mux.Handle(http.MethodGet, pattern_SupplyChainService_GetLPO_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
@@ -4149,6 +4431,23 @@ func RegisterSupplyChainServiceHandlerClient(ctx context.Context, mux *runtime.S
 		}
 		forward_SupplyChainService_ApproveStockAdjustment_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
+	mux.Handle(http.MethodPost, pattern_SupplyChainService_RejectStockAdjustment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/supply_chain.SupplyChainService/RejectStockAdjustment", runtime.WithHTTPPathPattern("/v1/stock-adjustments/{id}/reject"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_SupplyChainService_RejectStockAdjustment_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_SupplyChainService_RejectStockAdjustment_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
 	mux.Handle(http.MethodGet, pattern_SupplyChainService_GetStockAdjustment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -4199,6 +4498,23 @@ func RegisterSupplyChainServiceHandlerClient(ctx context.Context, mux *runtime.S
 			return
 		}
 		forward_SupplyChainService_ApproveInterStoreTransfer_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
+	mux.Handle(http.MethodPost, pattern_SupplyChainService_RejectInterStoreTransfer_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/supply_chain.SupplyChainService/RejectInterStoreTransfer", runtime.WithHTTPPathPattern("/v1/inter-store-transfers/{id}/reject"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_SupplyChainService_RejectInterStoreTransfer_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_SupplyChainService_RejectInterStoreTransfer_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
 	mux.Handle(http.MethodPost, pattern_SupplyChainService_ReceiveInterStoreTransfer_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
@@ -4669,10 +4985,12 @@ var (
 	pattern_SupplyChainService_DeleteSupplier_0               = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "suppliers", "id"}, ""))
 	pattern_SupplyChainService_CreateRequisition_0            = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "requisitions"}, ""))
 	pattern_SupplyChainService_ApproveRequisition_0           = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "requisitions", "id", "approve"}, ""))
+	pattern_SupplyChainService_RejectRequisition_0            = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "requisitions", "id", "reject"}, ""))
 	pattern_SupplyChainService_GetRequisition_0               = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "requisitions", "id"}, ""))
 	pattern_SupplyChainService_ListRequisitions_0             = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "requisitions"}, ""))
 	pattern_SupplyChainService_CreateLPO_0                    = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "lpos"}, ""))
 	pattern_SupplyChainService_ApproveLPO_0                   = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "lpos", "id", "approve"}, ""))
+	pattern_SupplyChainService_RejectLPO_0                    = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "lpos", "id", "reject"}, ""))
 	pattern_SupplyChainService_GetLPO_0                       = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "lpos", "id"}, ""))
 	pattern_SupplyChainService_ListLPOs_0                     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "lpos"}, ""))
 	pattern_SupplyChainService_CreateGRN_0                    = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "grns"}, ""))
@@ -4682,9 +5000,11 @@ var (
 	pattern_SupplyChainService_CreateStockAdjustment_0        = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "stock-adjustments"}, ""))
 	pattern_SupplyChainService_ListStockAdjustments_0         = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "stock-adjustments"}, ""))
 	pattern_SupplyChainService_ApproveStockAdjustment_0       = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "stock-adjustments", "id", "approve"}, ""))
+	pattern_SupplyChainService_RejectStockAdjustment_0        = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "stock-adjustments", "id", "reject"}, ""))
 	pattern_SupplyChainService_GetStockAdjustment_0           = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "stock-adjustments", "id"}, ""))
 	pattern_SupplyChainService_CreateInterStoreTransfer_0     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "inter-store-transfers"}, ""))
 	pattern_SupplyChainService_ApproveInterStoreTransfer_0    = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "inter-store-transfers", "id", "approve"}, ""))
+	pattern_SupplyChainService_RejectInterStoreTransfer_0     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "inter-store-transfers", "id", "reject"}, ""))
 	pattern_SupplyChainService_ReceiveInterStoreTransfer_0    = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "inter-store-transfers", "id", "receive"}, ""))
 	pattern_SupplyChainService_GetInterStoreTransfer_0        = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "inter-store-transfers", "id"}, ""))
 	pattern_SupplyChainService_ListInterStoreTransfers_0      = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "inter-store-transfers"}, ""))
@@ -4737,10 +5057,12 @@ var (
 	forward_SupplyChainService_DeleteSupplier_0               = runtime.ForwardResponseMessage
 	forward_SupplyChainService_CreateRequisition_0            = runtime.ForwardResponseMessage
 	forward_SupplyChainService_ApproveRequisition_0           = runtime.ForwardResponseMessage
+	forward_SupplyChainService_RejectRequisition_0            = runtime.ForwardResponseMessage
 	forward_SupplyChainService_GetRequisition_0               = runtime.ForwardResponseMessage
 	forward_SupplyChainService_ListRequisitions_0             = runtime.ForwardResponseMessage
 	forward_SupplyChainService_CreateLPO_0                    = runtime.ForwardResponseMessage
 	forward_SupplyChainService_ApproveLPO_0                   = runtime.ForwardResponseMessage
+	forward_SupplyChainService_RejectLPO_0                    = runtime.ForwardResponseMessage
 	forward_SupplyChainService_GetLPO_0                       = runtime.ForwardResponseMessage
 	forward_SupplyChainService_ListLPOs_0                     = runtime.ForwardResponseMessage
 	forward_SupplyChainService_CreateGRN_0                    = runtime.ForwardResponseMessage
@@ -4750,9 +5072,11 @@ var (
 	forward_SupplyChainService_CreateStockAdjustment_0        = runtime.ForwardResponseMessage
 	forward_SupplyChainService_ListStockAdjustments_0         = runtime.ForwardResponseMessage
 	forward_SupplyChainService_ApproveStockAdjustment_0       = runtime.ForwardResponseMessage
+	forward_SupplyChainService_RejectStockAdjustment_0        = runtime.ForwardResponseMessage
 	forward_SupplyChainService_GetStockAdjustment_0           = runtime.ForwardResponseMessage
 	forward_SupplyChainService_CreateInterStoreTransfer_0     = runtime.ForwardResponseMessage
 	forward_SupplyChainService_ApproveInterStoreTransfer_0    = runtime.ForwardResponseMessage
+	forward_SupplyChainService_RejectInterStoreTransfer_0     = runtime.ForwardResponseMessage
 	forward_SupplyChainService_ReceiveInterStoreTransfer_0    = runtime.ForwardResponseMessage
 	forward_SupplyChainService_GetInterStoreTransfer_0        = runtime.ForwardResponseMessage
 	forward_SupplyChainService_ListInterStoreTransfers_0      = runtime.ForwardResponseMessage
