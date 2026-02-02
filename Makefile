@@ -26,8 +26,8 @@ all: $(patsubst $(PROTO_DIR)/%.proto,%,$(PROTO_FILES))
 # appointment_service:
 # 	$(call PROTOC_CMD,appointment-service,appointment_service)
 
-billing_service:
-	$(call PROTOC_CMD,billing-service,billing_service)
+# billing_service:
+# 	$(call PROTOC_CMD,billing-service,billing_service)
 
 # chat_service:
 # 	$(call PROTOC_CMD,chat-service,chat_service)
@@ -41,8 +41,8 @@ billing_service:
 # laboratory_service:
 # 	$(call PROTOC_CMD,laboratory-service,laboratory_service)
 
-# medical_records_service:
-# 	$(call PROTOC_CMD,medical-records-service,medical_records_service)
+medical_records_service:
+	$(call PROTOC_CMD,medical-records-service,medical_records_service)
 
 # patient_service:
 # 	$(call PROTOC_CMD,patient-service,patient_service)

@@ -35,6 +35,9 @@ const (
 	MedicalRecordService_AddVitalSign_FullMethodName       = "/medical_record_service.MedicalRecordService/AddVitalSign"
 	MedicalRecordService_GetVitalSign_FullMethodName       = "/medical_record_service.MedicalRecordService/GetVitalSign"
 	MedicalRecordService_ListVitalSigns_FullMethodName     = "/medical_record_service.MedicalRecordService/ListVitalSigns"
+	MedicalRecordService_AddBMI_FullMethodName             = "/medical_record_service.MedicalRecordService/AddBMI"
+	MedicalRecordService_GetBMI_FullMethodName             = "/medical_record_service.MedicalRecordService/GetBMI"
+	MedicalRecordService_ListBMI_FullMethodName            = "/medical_record_service.MedicalRecordService/ListBMI"
 	MedicalRecordService_AddDocument_FullMethodName        = "/medical_record_service.MedicalRecordService/AddDocument"
 	MedicalRecordService_GetDocument_FullMethodName        = "/medical_record_service.MedicalRecordService/GetDocument"
 	MedicalRecordService_UpdateDocument_FullMethodName     = "/medical_record_service.MedicalRecordService/UpdateDocument"
@@ -64,6 +67,10 @@ type MedicalRecordServiceClient interface {
 	AddVitalSign(ctx context.Context, in *AddVitalSignRequest, opts ...grpc.CallOption) (*VitalSign, error)
 	GetVitalSign(ctx context.Context, in *GetVitalSignRequest, opts ...grpc.CallOption) (*VitalSign, error)
 	ListVitalSigns(ctx context.Context, in *ListVitalSignsRequest, opts ...grpc.CallOption) (*ListVitalSignsResponse, error)
+	// BMI endpoints
+	AddBMI(ctx context.Context, in *AddBMIRequest, opts ...grpc.CallOption) (*BMI, error)
+	GetBMI(ctx context.Context, in *GetBMIRequest, opts ...grpc.CallOption) (*BMI, error)
+	ListBMI(ctx context.Context, in *ListBMIRequest, opts ...grpc.CallOption) (*ListBMIResponse, error)
 	// Document endpoints
 	AddDocument(ctx context.Context, in *AddDocumentRequest, opts ...grpc.CallOption) (*Document, error)
 	GetDocument(ctx context.Context, in *GetDocumentRequest, opts ...grpc.CallOption) (*Document, error)
@@ -212,6 +219,36 @@ func (c *medicalRecordServiceClient) ListVitalSigns(ctx context.Context, in *Lis
 	return out, nil
 }
 
+func (c *medicalRecordServiceClient) AddBMI(ctx context.Context, in *AddBMIRequest, opts ...grpc.CallOption) (*BMI, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BMI)
+	err := c.cc.Invoke(ctx, MedicalRecordService_AddBMI_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *medicalRecordServiceClient) GetBMI(ctx context.Context, in *GetBMIRequest, opts ...grpc.CallOption) (*BMI, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BMI)
+	err := c.cc.Invoke(ctx, MedicalRecordService_GetBMI_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *medicalRecordServiceClient) ListBMI(ctx context.Context, in *ListBMIRequest, opts ...grpc.CallOption) (*ListBMIResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListBMIResponse)
+	err := c.cc.Invoke(ctx, MedicalRecordService_ListBMI_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *medicalRecordServiceClient) AddDocument(ctx context.Context, in *AddDocumentRequest, opts ...grpc.CallOption) (*Document, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Document)
@@ -302,6 +339,10 @@ type MedicalRecordServiceServer interface {
 	AddVitalSign(context.Context, *AddVitalSignRequest) (*VitalSign, error)
 	GetVitalSign(context.Context, *GetVitalSignRequest) (*VitalSign, error)
 	ListVitalSigns(context.Context, *ListVitalSignsRequest) (*ListVitalSignsResponse, error)
+	// BMI endpoints
+	AddBMI(context.Context, *AddBMIRequest) (*BMI, error)
+	GetBMI(context.Context, *GetBMIRequest) (*BMI, error)
+	ListBMI(context.Context, *ListBMIRequest) (*ListBMIResponse, error)
 	// Document endpoints
 	AddDocument(context.Context, *AddDocumentRequest) (*Document, error)
 	GetDocument(context.Context, *GetDocumentRequest) (*Document, error)
@@ -358,6 +399,15 @@ func (UnimplementedMedicalRecordServiceServer) GetVitalSign(context.Context, *Ge
 }
 func (UnimplementedMedicalRecordServiceServer) ListVitalSigns(context.Context, *ListVitalSignsRequest) (*ListVitalSignsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListVitalSigns not implemented")
+}
+func (UnimplementedMedicalRecordServiceServer) AddBMI(context.Context, *AddBMIRequest) (*BMI, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddBMI not implemented")
+}
+func (UnimplementedMedicalRecordServiceServer) GetBMI(context.Context, *GetBMIRequest) (*BMI, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetBMI not implemented")
+}
+func (UnimplementedMedicalRecordServiceServer) ListBMI(context.Context, *ListBMIRequest) (*ListBMIResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListBMI not implemented")
 }
 func (UnimplementedMedicalRecordServiceServer) AddDocument(context.Context, *AddDocumentRequest) (*Document, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddDocument not implemented")
@@ -635,6 +685,60 @@ func _MedicalRecordService_ListVitalSigns_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _MedicalRecordService_AddBMI_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddBMIRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MedicalRecordServiceServer).AddBMI(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MedicalRecordService_AddBMI_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MedicalRecordServiceServer).AddBMI(ctx, req.(*AddBMIRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MedicalRecordService_GetBMI_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBMIRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MedicalRecordServiceServer).GetBMI(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MedicalRecordService_GetBMI_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MedicalRecordServiceServer).GetBMI(ctx, req.(*GetBMIRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MedicalRecordService_ListBMI_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListBMIRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MedicalRecordServiceServer).ListBMI(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MedicalRecordService_ListBMI_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MedicalRecordServiceServer).ListBMI(ctx, req.(*ListBMIRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _MedicalRecordService_AddDocument_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddDocumentRequest)
 	if err := dec(in); err != nil {
@@ -819,6 +923,18 @@ var MedicalRecordService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListVitalSigns",
 			Handler:    _MedicalRecordService_ListVitalSigns_Handler,
+		},
+		{
+			MethodName: "AddBMI",
+			Handler:    _MedicalRecordService_AddBMI_Handler,
+		},
+		{
+			MethodName: "GetBMI",
+			Handler:    _MedicalRecordService_GetBMI_Handler,
+		},
+		{
+			MethodName: "ListBMI",
+			Handler:    _MedicalRecordService_ListBMI_Handler,
 		},
 		{
 			MethodName: "AddDocument",

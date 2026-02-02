@@ -96,6 +96,26 @@ service MedicalRecordService {
       get: "/v1/records/{patient_id}/vital-signs"
     };
   }
+
+  // BMI endpoints
+  rpc AddBMI(AddBMIRequest) returns (BMI) {
+    option (google.api.http) = {
+      post: "/v1/records/{patient_id}/bmi"
+      body: "*"
+    };
+  }
+
+  rpc GetBMI(GetBMIRequest) returns (BMI) {
+    option (google.api.http) = {
+      get: "/v1/bmi/{id}"
+    };
+  }
+
+  rpc ListBMI(ListBMIRequest) returns (ListBMIResponse) {
+    option (google.api.http) = {
+      get: "/v1/records/{patient_id}/bmi"
+    };
+  }
   
   // Document endpoints
   rpc AddDocument(AddDocumentRequest) returns (Document) {
@@ -345,4 +365,42 @@ message ListUsersRequest {
 
 message ListUsersResponse {
   repeated User users = 1;
+}
+
+message BMI {
+  string id = 1;
+  string patient_id = 2;
+  string admission_id = 10;
+  float weight = 3; // in kg
+  float height = 4; // in cm
+  float bmi_value = 5;
+  string category = 6; // Underweight, Normal, Overweight, Obese
+  string recorded_by = 7;
+  string notes = 8;
+  google.protobuf.Timestamp recorded_at = 9;
+}
+
+message AddBMIRequest {
+  string patient_id = 1;
+  string admission_id = 9;
+  float weight = 2;
+  float height = 3;
+  float bmi = 4;
+  string category = 5;
+  string recorded_by = 6;
+  string notes = 7;
+  google.protobuf.Timestamp recorded_at = 8;
+}
+
+message GetBMIRequest {
+  string id = 1;
+}
+
+message ListBMIRequest {
+  string patient_id = 1;
+  int32 limit = 2;
+}
+
+message ListBMIResponse {
+  repeated BMI bmi_records = 1;
 }

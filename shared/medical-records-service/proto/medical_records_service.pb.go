@@ -2002,6 +2002,370 @@ func (x *ListUsersResponse) GetUsers() []*User {
 	return nil
 }
 
+type BMI struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	PatientId     string                 `protobuf:"bytes,2,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
+	AdmissionId   string                 `protobuf:"bytes,10,opt,name=admission_id,json=admissionId,proto3" json:"admission_id,omitempty"`
+	Weight        float32                `protobuf:"fixed32,3,opt,name=weight,proto3" json:"weight,omitempty"` // in kg
+	Height        float32                `protobuf:"fixed32,4,opt,name=height,proto3" json:"height,omitempty"` // in cm
+	BmiValue      float32                `protobuf:"fixed32,5,opt,name=bmi_value,json=bmiValue,proto3" json:"bmi_value,omitempty"`
+	Category      string                 `protobuf:"bytes,6,opt,name=category,proto3" json:"category,omitempty"` // Underweight, Normal, Overweight, Obese
+	RecordedBy    string                 `protobuf:"bytes,7,opt,name=recorded_by,json=recordedBy,proto3" json:"recorded_by,omitempty"`
+	Notes         string                 `protobuf:"bytes,8,opt,name=notes,proto3" json:"notes,omitempty"`
+	RecordedAt    *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=recorded_at,json=recordedAt,proto3" json:"recorded_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BMI) Reset() {
+	*x = BMI{}
+	mi := &file_proto_medical_records_service_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BMI) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BMI) ProtoMessage() {}
+
+func (x *BMI) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_medical_records_service_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BMI.ProtoReflect.Descriptor instead.
+func (*BMI) Descriptor() ([]byte, []int) {
+	return file_proto_medical_records_service_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *BMI) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *BMI) GetPatientId() string {
+	if x != nil {
+		return x.PatientId
+	}
+	return ""
+}
+
+func (x *BMI) GetAdmissionId() string {
+	if x != nil {
+		return x.AdmissionId
+	}
+	return ""
+}
+
+func (x *BMI) GetWeight() float32 {
+	if x != nil {
+		return x.Weight
+	}
+	return 0
+}
+
+func (x *BMI) GetHeight() float32 {
+	if x != nil {
+		return x.Height
+	}
+	return 0
+}
+
+func (x *BMI) GetBmiValue() float32 {
+	if x != nil {
+		return x.BmiValue
+	}
+	return 0
+}
+
+func (x *BMI) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+func (x *BMI) GetRecordedBy() string {
+	if x != nil {
+		return x.RecordedBy
+	}
+	return ""
+}
+
+func (x *BMI) GetNotes() string {
+	if x != nil {
+		return x.Notes
+	}
+	return ""
+}
+
+func (x *BMI) GetRecordedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.RecordedAt
+	}
+	return nil
+}
+
+type AddBMIRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PatientId     string                 `protobuf:"bytes,1,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
+	AdmissionId   string                 `protobuf:"bytes,9,opt,name=admission_id,json=admissionId,proto3" json:"admission_id,omitempty"`
+	Weight        float32                `protobuf:"fixed32,2,opt,name=weight,proto3" json:"weight,omitempty"`
+	Height        float32                `protobuf:"fixed32,3,opt,name=height,proto3" json:"height,omitempty"`
+	Bmi           float32                `protobuf:"fixed32,4,opt,name=bmi,proto3" json:"bmi,omitempty"`
+	Category      string                 `protobuf:"bytes,5,opt,name=category,proto3" json:"category,omitempty"`
+	RecordedBy    string                 `protobuf:"bytes,6,opt,name=recorded_by,json=recordedBy,proto3" json:"recorded_by,omitempty"`
+	Notes         string                 `protobuf:"bytes,7,opt,name=notes,proto3" json:"notes,omitempty"`
+	RecordedAt    *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=recorded_at,json=recordedAt,proto3" json:"recorded_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddBMIRequest) Reset() {
+	*x = AddBMIRequest{}
+	mi := &file_proto_medical_records_service_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddBMIRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddBMIRequest) ProtoMessage() {}
+
+func (x *AddBMIRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_medical_records_service_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddBMIRequest.ProtoReflect.Descriptor instead.
+func (*AddBMIRequest) Descriptor() ([]byte, []int) {
+	return file_proto_medical_records_service_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *AddBMIRequest) GetPatientId() string {
+	if x != nil {
+		return x.PatientId
+	}
+	return ""
+}
+
+func (x *AddBMIRequest) GetAdmissionId() string {
+	if x != nil {
+		return x.AdmissionId
+	}
+	return ""
+}
+
+func (x *AddBMIRequest) GetWeight() float32 {
+	if x != nil {
+		return x.Weight
+	}
+	return 0
+}
+
+func (x *AddBMIRequest) GetHeight() float32 {
+	if x != nil {
+		return x.Height
+	}
+	return 0
+}
+
+func (x *AddBMIRequest) GetBmi() float32 {
+	if x != nil {
+		return x.Bmi
+	}
+	return 0
+}
+
+func (x *AddBMIRequest) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+func (x *AddBMIRequest) GetRecordedBy() string {
+	if x != nil {
+		return x.RecordedBy
+	}
+	return ""
+}
+
+func (x *AddBMIRequest) GetNotes() string {
+	if x != nil {
+		return x.Notes
+	}
+	return ""
+}
+
+func (x *AddBMIRequest) GetRecordedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.RecordedAt
+	}
+	return nil
+}
+
+type GetBMIRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBMIRequest) Reset() {
+	*x = GetBMIRequest{}
+	mi := &file_proto_medical_records_service_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBMIRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBMIRequest) ProtoMessage() {}
+
+func (x *GetBMIRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_medical_records_service_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBMIRequest.ProtoReflect.Descriptor instead.
+func (*GetBMIRequest) Descriptor() ([]byte, []int) {
+	return file_proto_medical_records_service_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetBMIRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type ListBMIRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PatientId     string                 `protobuf:"bytes,1,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
+	Limit         int32                  `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListBMIRequest) Reset() {
+	*x = ListBMIRequest{}
+	mi := &file_proto_medical_records_service_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListBMIRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListBMIRequest) ProtoMessage() {}
+
+func (x *ListBMIRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_medical_records_service_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListBMIRequest.ProtoReflect.Descriptor instead.
+func (*ListBMIRequest) Descriptor() ([]byte, []int) {
+	return file_proto_medical_records_service_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *ListBMIRequest) GetPatientId() string {
+	if x != nil {
+		return x.PatientId
+	}
+	return ""
+}
+
+func (x *ListBMIRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type ListBMIResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	BmiRecords    []*BMI                 `protobuf:"bytes,1,rep,name=bmi_records,json=bmiRecords,proto3" json:"bmi_records,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListBMIResponse) Reset() {
+	*x = ListBMIResponse{}
+	mi := &file_proto_medical_records_service_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListBMIResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListBMIResponse) ProtoMessage() {}
+
+func (x *ListBMIResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_medical_records_service_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListBMIResponse.ProtoReflect.Descriptor instead.
+func (*ListBMIResponse) Descriptor() ([]byte, []int) {
+	return file_proto_medical_records_service_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *ListBMIResponse) GetBmiRecords() []*BMI {
+	if x != nil {
+		return x.BmiRecords
+	}
+	return nil
+}
+
 var File_proto_medical_records_service_proto protoreflect.FileDescriptor
 
 const file_proto_medical_records_service_proto_rawDesc = "" +
@@ -2182,7 +2546,44 @@ const file_proto_medical_records_service_proto_rawDesc = "" +
 	"\x10ListUsersRequest\x12\x12\n" +
 	"\x04role\x18\x01 \x01(\tR\x04role\"G\n" +
 	"\x11ListUsersResponse\x122\n" +
-	"\x05users\x18\x01 \x03(\v2\x1c.medical_record_service.UserR\x05users2\xcf\x14\n" +
+	"\x05users\x18\x01 \x03(\v2\x1c.medical_record_service.UserR\x05users\"\xb4\x02\n" +
+	"\x03BMI\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
+	"\n" +
+	"patient_id\x18\x02 \x01(\tR\tpatientId\x12!\n" +
+	"\fadmission_id\x18\n" +
+	" \x01(\tR\vadmissionId\x12\x16\n" +
+	"\x06weight\x18\x03 \x01(\x02R\x06weight\x12\x16\n" +
+	"\x06height\x18\x04 \x01(\x02R\x06height\x12\x1b\n" +
+	"\tbmi_value\x18\x05 \x01(\x02R\bbmiValue\x12\x1a\n" +
+	"\bcategory\x18\x06 \x01(\tR\bcategory\x12\x1f\n" +
+	"\vrecorded_by\x18\a \x01(\tR\n" +
+	"recordedBy\x12\x14\n" +
+	"\x05notes\x18\b \x01(\tR\x05notes\x12;\n" +
+	"\vrecorded_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"recordedAt\"\xa3\x02\n" +
+	"\rAddBMIRequest\x12\x1d\n" +
+	"\n" +
+	"patient_id\x18\x01 \x01(\tR\tpatientId\x12!\n" +
+	"\fadmission_id\x18\t \x01(\tR\vadmissionId\x12\x16\n" +
+	"\x06weight\x18\x02 \x01(\x02R\x06weight\x12\x16\n" +
+	"\x06height\x18\x03 \x01(\x02R\x06height\x12\x10\n" +
+	"\x03bmi\x18\x04 \x01(\x02R\x03bmi\x12\x1a\n" +
+	"\bcategory\x18\x05 \x01(\tR\bcategory\x12\x1f\n" +
+	"\vrecorded_by\x18\x06 \x01(\tR\n" +
+	"recordedBy\x12\x14\n" +
+	"\x05notes\x18\a \x01(\tR\x05notes\x12;\n" +
+	"\vrecorded_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"recordedAt\"\x1f\n" +
+	"\rGetBMIRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"E\n" +
+	"\x0eListBMIRequest\x12\x1d\n" +
+	"\n" +
+	"patient_id\x18\x01 \x01(\tR\tpatientId\x12\x14\n" +
+	"\x05limit\x18\x02 \x01(\x05R\x05limit\"O\n" +
+	"\x0fListBMIResponse\x12<\n" +
+	"\vbmi_records\x18\x01 \x03(\v2\x1b.medical_record_service.BMIR\n" +
+	"bmiRecords2\xad\x17\n" +
 	"\x14MedicalRecordService\x12\x8d\x01\n" +
 	"\fAddDiagnosis\x12+.medical_record_service.AddDiagnosisRequest\x1a!.medical_record_service.Diagnosis\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/v1/records/{patient_id}/diagnoses\x12z\n" +
 	"\fGetDiagnosis\x12+.medical_record_service.GetDiagnosisRequest\x1a!.medical_record_service.Diagnosis\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v1/diagnoses/{id}\x12v\n" +
@@ -2198,7 +2599,10 @@ const file_proto_medical_records_service_proto_rawDesc = "" +
 	"\tListNotes\x12(.medical_record_service.ListNotesRequest\x1a).medical_record_service.ListNotesResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/v1/records/{patient_id}/notes\x12\x8f\x01\n" +
 	"\fAddVitalSign\x12+.medical_record_service.AddVitalSignRequest\x1a!.medical_record_service.VitalSign\"/\x82\xd3\xe4\x93\x02):\x01*\"$/v1/records/{patient_id}/vital-signs\x12|\n" +
 	"\fGetVitalSign\x12+.medical_record_service.GetVitalSignRequest\x1a!.medical_record_service.VitalSign\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/vital-signs/{id}\x12\x9d\x01\n" +
-	"\x0eListVitalSigns\x12-.medical_record_service.ListVitalSignsRequest\x1a..medical_record_service.ListVitalSignsResponse\",\x82\xd3\xe4\x93\x02&\x12$/v1/records/{patient_id}/vital-signs\x12\x8a\x01\n" +
+	"\x0eListVitalSigns\x12-.medical_record_service.ListVitalSignsRequest\x1a..medical_record_service.ListVitalSignsResponse\",\x82\xd3\xe4\x93\x02&\x12$/v1/records/{patient_id}/vital-signs\x12u\n" +
+	"\x06AddBMI\x12%.medical_record_service.AddBMIRequest\x1a\x1b.medical_record_service.BMI\"'\x82\xd3\xe4\x93\x02!:\x01*\"\x1c/v1/records/{patient_id}/bmi\x12b\n" +
+	"\x06GetBMI\x12%.medical_record_service.GetBMIRequest\x1a\x1b.medical_record_service.BMI\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\f/v1/bmi/{id}\x12\x80\x01\n" +
+	"\aListBMI\x12&.medical_record_service.ListBMIRequest\x1a'.medical_record_service.ListBMIResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/records/{patient_id}/bmi\x12\x8a\x01\n" +
 	"\vAddDocument\x12*.medical_record_service.AddDocumentRequest\x1a .medical_record_service.Document\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/v1/records/{patient_id}/documents\x12w\n" +
 	"\vGetDocument\x12*.medical_record_service.GetDocumentRequest\x1a .medical_record_service.Document\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v1/documents/{id}\x12s\n" +
 	"\x0eUpdateDocument\x12 .medical_record_service.Document\x1a .medical_record_service.Document\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\x1a\x12/v1/documents/{id}\x12s\n" +
@@ -2219,7 +2623,7 @@ func file_proto_medical_records_service_proto_rawDescGZIP() []byte {
 	return file_proto_medical_records_service_proto_rawDescData
 }
 
-var file_proto_medical_records_service_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
+var file_proto_medical_records_service_proto_msgTypes = make([]protoimpl.MessageInfo, 35)
 var file_proto_medical_records_service_proto_goTypes = []any{
 	(*Diagnosis)(nil),                 // 0: medical_record_service.Diagnosis
 	(*AddDiagnosisRequest)(nil),       // 1: medical_record_service.AddDiagnosisRequest
@@ -2251,70 +2655,84 @@ var file_proto_medical_records_service_proto_goTypes = []any{
 	(*User)(nil),                      // 27: medical_record_service.User
 	(*ListUsersRequest)(nil),          // 28: medical_record_service.ListUsersRequest
 	(*ListUsersResponse)(nil),         // 29: medical_record_service.ListUsersResponse
-	(*timestamppb.Timestamp)(nil),     // 30: google.protobuf.Timestamp
-	(*emptypb.Empty)(nil),             // 31: google.protobuf.Empty
+	(*BMI)(nil),                       // 30: medical_record_service.BMI
+	(*AddBMIRequest)(nil),             // 31: medical_record_service.AddBMIRequest
+	(*GetBMIRequest)(nil),             // 32: medical_record_service.GetBMIRequest
+	(*ListBMIRequest)(nil),            // 33: medical_record_service.ListBMIRequest
+	(*ListBMIResponse)(nil),           // 34: medical_record_service.ListBMIResponse
+	(*timestamppb.Timestamp)(nil),     // 35: google.protobuf.Timestamp
+	(*emptypb.Empty)(nil),             // 36: google.protobuf.Empty
 }
 var file_proto_medical_records_service_proto_depIdxs = []int32{
-	30, // 0: medical_record_service.Diagnosis.date:type_name -> google.protobuf.Timestamp
-	30, // 1: medical_record_service.AddDiagnosisRequest.date:type_name -> google.protobuf.Timestamp
+	35, // 0: medical_record_service.Diagnosis.date:type_name -> google.protobuf.Timestamp
+	35, // 1: medical_record_service.AddDiagnosisRequest.date:type_name -> google.protobuf.Timestamp
 	0,  // 2: medical_record_service.ListDiagnosesResponse.diagnoses:type_name -> medical_record_service.Diagnosis
-	30, // 3: medical_record_service.Note.created_at:type_name -> google.protobuf.Timestamp
+	35, // 3: medical_record_service.Note.created_at:type_name -> google.protobuf.Timestamp
 	7,  // 4: medical_record_service.Note.edited_by:type_name -> medical_record_service.NoteEdit
-	30, // 5: medical_record_service.NoteEdit.timestamp:type_name -> google.protobuf.Timestamp
+	35, // 5: medical_record_service.NoteEdit.timestamp:type_name -> google.protobuf.Timestamp
 	6,  // 6: medical_record_service.ListNotesResponse.notes:type_name -> medical_record_service.Note
-	30, // 7: medical_record_service.VitalSign.date:type_name -> google.protobuf.Timestamp
-	30, // 8: medical_record_service.AddVitalSignRequest.date:type_name -> google.protobuf.Timestamp
+	35, // 7: medical_record_service.VitalSign.date:type_name -> google.protobuf.Timestamp
+	35, // 8: medical_record_service.AddVitalSignRequest.date:type_name -> google.protobuf.Timestamp
 	13, // 9: medical_record_service.ListVitalSignsResponse.vital_signs:type_name -> medical_record_service.VitalSign
-	30, // 10: medical_record_service.Document.upload_date:type_name -> google.protobuf.Timestamp
+	35, // 10: medical_record_service.Document.upload_date:type_name -> google.protobuf.Timestamp
 	19, // 11: medical_record_service.Document.versions:type_name -> medical_record_service.DocumentVersion
-	30, // 12: medical_record_service.DocumentVersion.date:type_name -> google.protobuf.Timestamp
+	35, // 12: medical_record_service.DocumentVersion.date:type_name -> google.protobuf.Timestamp
 	18, // 13: medical_record_service.ListDocumentsResponse.documents:type_name -> medical_record_service.Document
 	27, // 14: medical_record_service.ListUsersResponse.users:type_name -> medical_record_service.User
-	1,  // 15: medical_record_service.MedicalRecordService.AddDiagnosis:input_type -> medical_record_service.AddDiagnosisRequest
-	2,  // 16: medical_record_service.MedicalRecordService.GetDiagnosis:input_type -> medical_record_service.GetDiagnosisRequest
-	0,  // 17: medical_record_service.MedicalRecordService.UpdateDiagnosis:input_type -> medical_record_service.Diagnosis
-	3,  // 18: medical_record_service.MedicalRecordService.DeleteDiagnosis:input_type -> medical_record_service.DeleteDiagnosisRequest
-	4,  // 19: medical_record_service.MedicalRecordService.ListDiagnoses:input_type -> medical_record_service.ListDiagnosesRequest
-	8,  // 20: medical_record_service.MedicalRecordService.AddNote:input_type -> medical_record_service.AddNoteRequest
-	9,  // 21: medical_record_service.MedicalRecordService.GetNote:input_type -> medical_record_service.GetNoteRequest
-	6,  // 22: medical_record_service.MedicalRecordService.UpdateNote:input_type -> medical_record_service.Note
-	10, // 23: medical_record_service.MedicalRecordService.DeleteNote:input_type -> medical_record_service.DeleteNoteRequest
-	11, // 24: medical_record_service.MedicalRecordService.ListNotes:input_type -> medical_record_service.ListNotesRequest
-	14, // 25: medical_record_service.MedicalRecordService.AddVitalSign:input_type -> medical_record_service.AddVitalSignRequest
-	15, // 26: medical_record_service.MedicalRecordService.GetVitalSign:input_type -> medical_record_service.GetVitalSignRequest
-	16, // 27: medical_record_service.MedicalRecordService.ListVitalSigns:input_type -> medical_record_service.ListVitalSignsRequest
-	20, // 28: medical_record_service.MedicalRecordService.AddDocument:input_type -> medical_record_service.AddDocumentRequest
-	21, // 29: medical_record_service.MedicalRecordService.GetDocument:input_type -> medical_record_service.GetDocumentRequest
-	18, // 30: medical_record_service.MedicalRecordService.UpdateDocument:input_type -> medical_record_service.Document
-	22, // 31: medical_record_service.MedicalRecordService.DeleteDocument:input_type -> medical_record_service.DeleteDocumentRequest
-	23, // 32: medical_record_service.MedicalRecordService.ListDocuments:input_type -> medical_record_service.ListDocumentsRequest
-	25, // 33: medical_record_service.MedicalRecordService.AddDocumentVersion:input_type -> medical_record_service.AddDocumentVersionRequest
-	26, // 34: medical_record_service.MedicalRecordService.ShareDocument:input_type -> medical_record_service.ShareDocumentRequest
-	0,  // 35: medical_record_service.MedicalRecordService.AddDiagnosis:output_type -> medical_record_service.Diagnosis
-	0,  // 36: medical_record_service.MedicalRecordService.GetDiagnosis:output_type -> medical_record_service.Diagnosis
-	0,  // 37: medical_record_service.MedicalRecordService.UpdateDiagnosis:output_type -> medical_record_service.Diagnosis
-	31, // 38: medical_record_service.MedicalRecordService.DeleteDiagnosis:output_type -> google.protobuf.Empty
-	5,  // 39: medical_record_service.MedicalRecordService.ListDiagnoses:output_type -> medical_record_service.ListDiagnosesResponse
-	6,  // 40: medical_record_service.MedicalRecordService.AddNote:output_type -> medical_record_service.Note
-	6,  // 41: medical_record_service.MedicalRecordService.GetNote:output_type -> medical_record_service.Note
-	6,  // 42: medical_record_service.MedicalRecordService.UpdateNote:output_type -> medical_record_service.Note
-	31, // 43: medical_record_service.MedicalRecordService.DeleteNote:output_type -> google.protobuf.Empty
-	12, // 44: medical_record_service.MedicalRecordService.ListNotes:output_type -> medical_record_service.ListNotesResponse
-	13, // 45: medical_record_service.MedicalRecordService.AddVitalSign:output_type -> medical_record_service.VitalSign
-	13, // 46: medical_record_service.MedicalRecordService.GetVitalSign:output_type -> medical_record_service.VitalSign
-	17, // 47: medical_record_service.MedicalRecordService.ListVitalSigns:output_type -> medical_record_service.ListVitalSignsResponse
-	18, // 48: medical_record_service.MedicalRecordService.AddDocument:output_type -> medical_record_service.Document
-	18, // 49: medical_record_service.MedicalRecordService.GetDocument:output_type -> medical_record_service.Document
-	18, // 50: medical_record_service.MedicalRecordService.UpdateDocument:output_type -> medical_record_service.Document
-	31, // 51: medical_record_service.MedicalRecordService.DeleteDocument:output_type -> google.protobuf.Empty
-	24, // 52: medical_record_service.MedicalRecordService.ListDocuments:output_type -> medical_record_service.ListDocumentsResponse
-	19, // 53: medical_record_service.MedicalRecordService.AddDocumentVersion:output_type -> medical_record_service.DocumentVersion
-	31, // 54: medical_record_service.MedicalRecordService.ShareDocument:output_type -> google.protobuf.Empty
-	35, // [35:55] is the sub-list for method output_type
-	15, // [15:35] is the sub-list for method input_type
-	15, // [15:15] is the sub-list for extension type_name
-	15, // [15:15] is the sub-list for extension extendee
-	0,  // [0:15] is the sub-list for field type_name
+	35, // 15: medical_record_service.BMI.recorded_at:type_name -> google.protobuf.Timestamp
+	35, // 16: medical_record_service.AddBMIRequest.recorded_at:type_name -> google.protobuf.Timestamp
+	30, // 17: medical_record_service.ListBMIResponse.bmi_records:type_name -> medical_record_service.BMI
+	1,  // 18: medical_record_service.MedicalRecordService.AddDiagnosis:input_type -> medical_record_service.AddDiagnosisRequest
+	2,  // 19: medical_record_service.MedicalRecordService.GetDiagnosis:input_type -> medical_record_service.GetDiagnosisRequest
+	0,  // 20: medical_record_service.MedicalRecordService.UpdateDiagnosis:input_type -> medical_record_service.Diagnosis
+	3,  // 21: medical_record_service.MedicalRecordService.DeleteDiagnosis:input_type -> medical_record_service.DeleteDiagnosisRequest
+	4,  // 22: medical_record_service.MedicalRecordService.ListDiagnoses:input_type -> medical_record_service.ListDiagnosesRequest
+	8,  // 23: medical_record_service.MedicalRecordService.AddNote:input_type -> medical_record_service.AddNoteRequest
+	9,  // 24: medical_record_service.MedicalRecordService.GetNote:input_type -> medical_record_service.GetNoteRequest
+	6,  // 25: medical_record_service.MedicalRecordService.UpdateNote:input_type -> medical_record_service.Note
+	10, // 26: medical_record_service.MedicalRecordService.DeleteNote:input_type -> medical_record_service.DeleteNoteRequest
+	11, // 27: medical_record_service.MedicalRecordService.ListNotes:input_type -> medical_record_service.ListNotesRequest
+	14, // 28: medical_record_service.MedicalRecordService.AddVitalSign:input_type -> medical_record_service.AddVitalSignRequest
+	15, // 29: medical_record_service.MedicalRecordService.GetVitalSign:input_type -> medical_record_service.GetVitalSignRequest
+	16, // 30: medical_record_service.MedicalRecordService.ListVitalSigns:input_type -> medical_record_service.ListVitalSignsRequest
+	31, // 31: medical_record_service.MedicalRecordService.AddBMI:input_type -> medical_record_service.AddBMIRequest
+	32, // 32: medical_record_service.MedicalRecordService.GetBMI:input_type -> medical_record_service.GetBMIRequest
+	33, // 33: medical_record_service.MedicalRecordService.ListBMI:input_type -> medical_record_service.ListBMIRequest
+	20, // 34: medical_record_service.MedicalRecordService.AddDocument:input_type -> medical_record_service.AddDocumentRequest
+	21, // 35: medical_record_service.MedicalRecordService.GetDocument:input_type -> medical_record_service.GetDocumentRequest
+	18, // 36: medical_record_service.MedicalRecordService.UpdateDocument:input_type -> medical_record_service.Document
+	22, // 37: medical_record_service.MedicalRecordService.DeleteDocument:input_type -> medical_record_service.DeleteDocumentRequest
+	23, // 38: medical_record_service.MedicalRecordService.ListDocuments:input_type -> medical_record_service.ListDocumentsRequest
+	25, // 39: medical_record_service.MedicalRecordService.AddDocumentVersion:input_type -> medical_record_service.AddDocumentVersionRequest
+	26, // 40: medical_record_service.MedicalRecordService.ShareDocument:input_type -> medical_record_service.ShareDocumentRequest
+	0,  // 41: medical_record_service.MedicalRecordService.AddDiagnosis:output_type -> medical_record_service.Diagnosis
+	0,  // 42: medical_record_service.MedicalRecordService.GetDiagnosis:output_type -> medical_record_service.Diagnosis
+	0,  // 43: medical_record_service.MedicalRecordService.UpdateDiagnosis:output_type -> medical_record_service.Diagnosis
+	36, // 44: medical_record_service.MedicalRecordService.DeleteDiagnosis:output_type -> google.protobuf.Empty
+	5,  // 45: medical_record_service.MedicalRecordService.ListDiagnoses:output_type -> medical_record_service.ListDiagnosesResponse
+	6,  // 46: medical_record_service.MedicalRecordService.AddNote:output_type -> medical_record_service.Note
+	6,  // 47: medical_record_service.MedicalRecordService.GetNote:output_type -> medical_record_service.Note
+	6,  // 48: medical_record_service.MedicalRecordService.UpdateNote:output_type -> medical_record_service.Note
+	36, // 49: medical_record_service.MedicalRecordService.DeleteNote:output_type -> google.protobuf.Empty
+	12, // 50: medical_record_service.MedicalRecordService.ListNotes:output_type -> medical_record_service.ListNotesResponse
+	13, // 51: medical_record_service.MedicalRecordService.AddVitalSign:output_type -> medical_record_service.VitalSign
+	13, // 52: medical_record_service.MedicalRecordService.GetVitalSign:output_type -> medical_record_service.VitalSign
+	17, // 53: medical_record_service.MedicalRecordService.ListVitalSigns:output_type -> medical_record_service.ListVitalSignsResponse
+	30, // 54: medical_record_service.MedicalRecordService.AddBMI:output_type -> medical_record_service.BMI
+	30, // 55: medical_record_service.MedicalRecordService.GetBMI:output_type -> medical_record_service.BMI
+	34, // 56: medical_record_service.MedicalRecordService.ListBMI:output_type -> medical_record_service.ListBMIResponse
+	18, // 57: medical_record_service.MedicalRecordService.AddDocument:output_type -> medical_record_service.Document
+	18, // 58: medical_record_service.MedicalRecordService.GetDocument:output_type -> medical_record_service.Document
+	18, // 59: medical_record_service.MedicalRecordService.UpdateDocument:output_type -> medical_record_service.Document
+	36, // 60: medical_record_service.MedicalRecordService.DeleteDocument:output_type -> google.protobuf.Empty
+	24, // 61: medical_record_service.MedicalRecordService.ListDocuments:output_type -> medical_record_service.ListDocumentsResponse
+	19, // 62: medical_record_service.MedicalRecordService.AddDocumentVersion:output_type -> medical_record_service.DocumentVersion
+	36, // 63: medical_record_service.MedicalRecordService.ShareDocument:output_type -> google.protobuf.Empty
+	41, // [41:64] is the sub-list for method output_type
+	18, // [18:41] is the sub-list for method input_type
+	18, // [18:18] is the sub-list for extension type_name
+	18, // [18:18] is the sub-list for extension extendee
+	0,  // [0:18] is the sub-list for field type_name
 }
 
 func init() { file_proto_medical_records_service_proto_init() }
@@ -2328,7 +2746,7 @@ func file_proto_medical_records_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_medical_records_service_proto_rawDesc), len(file_proto_medical_records_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   30,
+			NumMessages:   35,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

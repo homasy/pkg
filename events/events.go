@@ -48,6 +48,7 @@ const (
 	NoteUpdated          = "note.updated"
 	NoteDeleted          = "note.deleted"
 	VitalSignRecorded    = "vitalsign.recorded"
+	BMIRecorded          = "bmi.recorded"
 	DocumentUploaded     = "document.uploaded"
 	DocumentUpdated      = "document.updated"
 	DocumentDeleted      = "document.deleted"

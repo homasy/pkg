@@ -194,6 +194,14 @@ func (p *Producer) SendVitalSignEvent(eventType, vitalSignID string, data interf
 	return p.SendMessage(eventType, event)
 }
 
+func (p *Producer) SendBMIEvent(eventType, bmiID string, data interface{}) error {
+	event := map[string]interface{}{
+		"bmi_id": bmiID,
+		"data":   data,
+	}
+	return p.SendMessage(eventType, event)
+}
+
 func (p *Producer) SendDocumentEvent(eventType, documentID string, data interface{}) error {
 	event := map[string]interface{}{
 		"document_id": documentID,
