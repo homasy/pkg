@@ -471,3 +471,12 @@ func (p *Producer) SendPermissionEvent(eventType string, route string, data inte
     }
     return p.SendMessage(eventType, event)
 }
+
+func (p *Producer) SendActionPermissionEvent(eventType string, resource string, action string, data interface{}) error {
+    event := map[string]interface{}{
+        "resource": resource,
+        "action":   action,
+        "data":     data,
+    }
+    return p.SendMessage(eventType, event)
+}

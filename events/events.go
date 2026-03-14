@@ -169,6 +169,10 @@ const (
 
 	PermissionAdded = "permission.added"
     PermissionUpdated = "permission.updated"
+
+	// Action Permission service events
+	ActionPermissionAdded   = "action.permission.added"
+	ActionPermissionUpdated = "action.permission.updated"
 )
 
 // Event structs
