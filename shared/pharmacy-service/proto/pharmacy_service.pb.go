@@ -2623,6 +2623,7 @@ type CreatePrescriptionItemRequest struct {
 	Quantity       int32                  `protobuf:"varint,4,opt,name=quantity,proto3" json:"quantity,omitempty"`
 	Instructions   string                 `protobuf:"bytes,5,opt,name=instructions,proto3" json:"instructions,omitempty"`
 	StoreId        int32                  `protobuf:"varint,6,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
+	MedicationName string                 `protobuf:"bytes,7,opt,name=medication_name,json=medicationName,proto3" json:"medication_name,omitempty"` // Persisted so history is stable even if medication is renamed
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -2699,12 +2700,20 @@ func (x *CreatePrescriptionItemRequest) GetStoreId() int32 {
 	return 0
 }
 
+func (x *CreatePrescriptionItemRequest) GetMedicationName() string {
+	if x != nil {
+		return x.MedicationName
+	}
+	return ""
+}
+
 type CreatePrescriptionItemResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ItemId        int32                  `protobuf:"varint,1,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
-	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	ItemId         int32                  `protobuf:"varint,1,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
+	Message        string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	MedicationName string                 `protobuf:"bytes,3,opt,name=medication_name,json=medicationName,proto3" json:"medication_name,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *CreatePrescriptionItemResponse) Reset() {
@@ -2747,6 +2756,13 @@ func (x *CreatePrescriptionItemResponse) GetItemId() int32 {
 func (x *CreatePrescriptionItemResponse) GetMessage() string {
 	if x != nil {
 		return x.Message
+	}
+	return ""
+}
+
+func (x *CreatePrescriptionItemResponse) GetMedicationName() string {
+	if x != nil {
+		return x.MedicationName
 	}
 	return ""
 }
@@ -2904,6 +2920,7 @@ type UpdatePrescriptionItemRequest struct {
 	Dosage         string                 `protobuf:"bytes,4,opt,name=dosage,proto3" json:"dosage,omitempty"`
 	Quantity       int32                  `protobuf:"varint,5,opt,name=quantity,proto3" json:"quantity,omitempty"`
 	Instructions   string                 `protobuf:"bytes,6,opt,name=instructions,proto3" json:"instructions,omitempty"`
+	StoreId        int32                  `protobuf:"varint,7,opt,name=store_id,json=storeId,proto3" json:"store_id,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -2978,6 +2995,13 @@ func (x *UpdatePrescriptionItemRequest) GetInstructions() string {
 		return x.Instructions
 	}
 	return ""
+}
+
+func (x *UpdatePrescriptionItemRequest) GetStoreId() int32 {
+	if x != nil {
+		return x.StoreId
+	}
+	return 0
 }
 
 type UpdatePrescriptionItemResponse struct {
@@ -3200,6 +3224,7 @@ type CreatePrescriptionRequestRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	PatientId     int32                  `protobuf:"varint,1,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
 	DoctorId      int32                  `protobuf:"varint,2,opt,name=doctor_id,json=doctorId,proto3" json:"doctor_id,omitempty"`
+	DiagnosisId   string                 `protobuf:"bytes,3,opt,name=diagnosis_id,json=diagnosisId,proto3" json:"diagnosis_id,omitempty"` // Optional: UUID of the diagnosis this prescription is for
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3246,6 +3271,13 @@ func (x *CreatePrescriptionRequestRequest) GetDoctorId() int32 {
 		return x.DoctorId
 	}
 	return 0
+}
+
+func (x *CreatePrescriptionRequestRequest) GetDiagnosisId() string {
+	if x != nil {
+		return x.DiagnosisId
+	}
+	return ""
 }
 
 type CreatePrescriptionRequestResponse struct {
@@ -3506,8 +3538,11 @@ type PrescriptionRequest struct {
 	PatientName  string `protobuf:"bytes,5,opt,name=patient_name,json=patientName,proto3" json:"patient_name,omitempty"`
 	PatientEmail string `protobuf:"bytes,6,opt,name=patient_email,json=patientEmail,proto3" json:"patient_email,omitempty"`
 	// Doctor details (filtered by role)
-	DoctorId      int32  `protobuf:"varint,7,opt,name=doctor_id,json=doctorId,proto3" json:"doctor_id,omitempty"`
-	DoctorName    string `protobuf:"bytes,8,opt,name=doctor_name,json=doctorName,proto3" json:"doctor_name,omitempty"`
+	DoctorId   int32  `protobuf:"varint,7,opt,name=doctor_id,json=doctorId,proto3" json:"doctor_id,omitempty"`
+	DoctorName string `protobuf:"bytes,8,opt,name=doctor_name,json=doctorName,proto3" json:"doctor_name,omitempty"`
+	// Linked diagnosis
+	DiagnosisId   string `protobuf:"bytes,9,opt,name=diagnosis_id,json=diagnosisId,proto3" json:"diagnosis_id,omitempty"`
+	DiagnosisName string `protobuf:"bytes,10,opt,name=diagnosis_name,json=diagnosisName,proto3" json:"diagnosis_name,omitempty"` // Denormalized for display
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3594,6 +3629,20 @@ func (x *PrescriptionRequest) GetDoctorId() int32 {
 func (x *PrescriptionRequest) GetDoctorName() string {
 	if x != nil {
 		return x.DoctorName
+	}
+	return ""
+}
+
+func (x *PrescriptionRequest) GetDiagnosisId() string {
+	if x != nil {
+		return x.DiagnosisId
+	}
+	return ""
+}
+
+func (x *PrescriptionRequest) GetDiagnosisName() string {
+	if x != nil {
+		return x.DiagnosisName
 	}
 	return ""
 }
@@ -8427,17 +8476,19 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\n" +
 	"request_id\x18\x01 \x01(\x05R\trequestId\"6\n" +
 	"\x1aDeleteStockRequestResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\"\xe0\x01\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\"\x89\x02\n" +
 	"\x1dCreatePrescriptionItemRequest\x12'\n" +
 	"\x0fprescription_id\x18\x01 \x01(\x05R\x0eprescriptionId\x12#\n" +
 	"\rmedication_id\x18\x02 \x01(\x05R\fmedicationId\x12\x16\n" +
 	"\x06dosage\x18\x03 \x01(\tR\x06dosage\x12\x1a\n" +
 	"\bquantity\x18\x04 \x01(\x05R\bquantity\x12\"\n" +
 	"\finstructions\x18\x05 \x01(\tR\finstructions\x12\x19\n" +
-	"\bstore_id\x18\x06 \x01(\x05R\astoreId\"S\n" +
+	"\bstore_id\x18\x06 \x01(\x05R\astoreId\x12'\n" +
+	"\x0fmedication_name\x18\a \x01(\tR\x0emedicationName\"|\n" +
 	"\x1eCreatePrescriptionItemResponse\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\"5\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\x12'\n" +
+	"\x0fmedication_name\x18\x03 \x01(\tR\x0emedicationName\"5\n" +
 	"\x1aGetPrescriptionItemRequest\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\"\xa0\x02\n" +
 	"\x1bGetPrescriptionItemResponse\x12\x17\n" +
@@ -8448,14 +8499,15 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\x06dosage\x18\x05 \x01(\tR\x06dosage\x12\x1a\n" +
 	"\bquantity\x18\x06 \x01(\x05R\bquantity\x12\"\n" +
 	"\finstructions\x18\a \x01(\tR\finstructions\x12\x19\n" +
-	"\bstore_id\x18\b \x01(\x05R\astoreId\"\xde\x01\n" +
+	"\bstore_id\x18\b \x01(\x05R\astoreId\"\xf9\x01\n" +
 	"\x1dUpdatePrescriptionItemRequest\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\x12'\n" +
 	"\x0fprescription_id\x18\x02 \x01(\x05R\x0eprescriptionId\x12#\n" +
 	"\rmedication_id\x18\x03 \x01(\x05R\fmedicationId\x12\x16\n" +
 	"\x06dosage\x18\x04 \x01(\tR\x06dosage\x12\x1a\n" +
 	"\bquantity\x18\x05 \x01(\x05R\bquantity\x12\"\n" +
-	"\finstructions\x18\x06 \x01(\tR\finstructions\":\n" +
+	"\finstructions\x18\x06 \x01(\tR\finstructions\x12\x19\n" +
+	"\bstore_id\x18\a \x01(\x05R\astoreId\":\n" +
 	"\x1eUpdatePrescriptionItemResponse\x12\x18\n" +
 	"\amessage\x18\x01 \x01(\tR\amessage\"\x1e\n" +
 	"\x1cListPrescriptionItemsRequest\"}\n" +
@@ -8464,11 +8516,12 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\x1dDeletePrescriptionItemRequest\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\":\n" +
 	"\x1eDeletePrescriptionItemResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\"^\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\"\x81\x01\n" +
 	" CreatePrescriptionRequestRequest\x12\x1d\n" +
 	"\n" +
 	"patient_id\x18\x01 \x01(\x05R\tpatientId\x12\x1b\n" +
-	"\tdoctor_id\x18\x02 \x01(\x05R\bdoctorId\"f\n" +
+	"\tdoctor_id\x18\x02 \x01(\x05R\bdoctorId\x12!\n" +
+	"\fdiagnosis_id\x18\x03 \x01(\tR\vdiagnosisId\"f\n" +
 	"!CreatePrescriptionRequestResponse\x12'\n" +
 	"\x0fprescription_id\x18\x01 \x01(\x05R\x0eprescriptionId\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"N\n" +
@@ -8481,7 +8534,7 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\x0erequest_status\x18\x02 \x01(\tR\rrequestStatus\"X\n" +
 	"\"UpdatePrescriptionRequestsResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\"\xa9\x02\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\xf3\x02\n" +
 	"\x13PrescriptionRequest\x12'\n" +
 	"\x0fprescription_id\x18\x01 \x01(\x05R\x0eprescriptionId\x12%\n" +
 	"\x0erequest_status\x18\x02 \x01(\tR\rrequestStatus\x12\x1d\n" +
@@ -8493,7 +8546,10 @@ const file_proto_pharmacy_service_proto_rawDesc = "" +
 	"\rpatient_email\x18\x06 \x01(\tR\fpatientEmail\x12\x1b\n" +
 	"\tdoctor_id\x18\a \x01(\x05R\bdoctorId\x12\x1f\n" +
 	"\vdoctor_name\x18\b \x01(\tR\n" +
-	"doctorName\"\"\n" +
+	"doctorName\x12!\n" +
+	"\fdiagnosis_id\x18\t \x01(\tR\vdiagnosisId\x12%\n" +
+	"\x0ediagnosis_name\x18\n" +
+	" \x01(\tR\rdiagnosisName\"\"\n" +
 	" ListPrescriptionRequestsRequests\"~\n" +
 	" ListPrescriptionRequestsResponse\x12Z\n" +
 	"\x15prescription_requests\x18\x01 \x03(\v2%.pharmacy_service.PrescriptionRequestR\x14prescriptionRequests\"\xb9\x02\n" +

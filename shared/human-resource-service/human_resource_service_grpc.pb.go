@@ -4,7 +4,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.0--rc1
-// source: proto/human_resource_service.proto
+// source: human_resource_service.proto
 
 package proto
 
@@ -1455,5 +1455,5 @@ var HRService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/human_resource_service.proto",
+	Metadata: "human_resource_service.proto",
 }

@@ -28,6 +28,7 @@ const (
 	BillingService_ListInvoices_FullMethodName               = "/billing_service.BillingService/ListInvoices"
 	BillingService_GetInvoicesByPatientId_FullMethodName     = "/billing_service.BillingService/GetInvoicesByPatientId"
 	BillingService_ProcessPayment_FullMethodName             = "/billing_service.BillingService/ProcessPayment"
+	BillingService_ListInvoicePayments_FullMethodName        = "/billing_service.BillingService/ListInvoicePayments"
 	BillingService_MarkInvoiceAsPaid_FullMethodName          = "/billing_service.BillingService/MarkInvoiceAsPaid"
 	BillingService_SendInvoiceEmail_FullMethodName           = "/billing_service.BillingService/SendInvoiceEmail"
 	BillingService_CreateServiceRecord_FullMethodName        = "/billing_service.BillingService/CreateServiceRecord"
@@ -64,6 +65,8 @@ type BillingServiceClient interface {
 	GetInvoicesByPatientId(ctx context.Context, in *GetInvoicesByPatientIdRequest, opts ...grpc.CallOption) (*ListInvoicesResponse, error)
 	// Process payment for an invoice
 	ProcessPayment(ctx context.Context, in *ProcessPaymentRequest, opts ...grpc.CallOption) (*ProcessPaymentResponse, error)
+	// List payments for an invoice
+	ListInvoicePayments(ctx context.Context, in *ListInvoicePaymentsRequest, opts ...grpc.CallOption) (*ListInvoicePaymentsResponse, error)
 	// Mark invoice as paid
 	MarkInvoiceAsPaid(ctx context.Context, in *MarkInvoiceAsPaidRequest, opts ...grpc.CallOption) (*MarkInvoiceAsPaidResponse, error)
 	// Send invoice by email
@@ -159,6 +162,16 @@ func (c *billingServiceClient) ProcessPayment(ctx context.Context, in *ProcessPa
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ProcessPaymentResponse)
 	err := c.cc.Invoke(ctx, BillingService_ProcessPayment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *billingServiceClient) ListInvoicePayments(ctx context.Context, in *ListInvoicePaymentsRequest, opts ...grpc.CallOption) (*ListInvoicePaymentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListInvoicePaymentsResponse)
+	err := c.cc.Invoke(ctx, BillingService_ListInvoicePayments_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -325,6 +338,8 @@ type BillingServiceServer interface {
 	GetInvoicesByPatientId(context.Context, *GetInvoicesByPatientIdRequest) (*ListInvoicesResponse, error)
 	// Process payment for an invoice
 	ProcessPayment(context.Context, *ProcessPaymentRequest) (*ProcessPaymentResponse, error)
+	// List payments for an invoice
+	ListInvoicePayments(context.Context, *ListInvoicePaymentsRequest) (*ListInvoicePaymentsResponse, error)
 	// Mark invoice as paid
 	MarkInvoiceAsPaid(context.Context, *MarkInvoiceAsPaidRequest) (*MarkInvoiceAsPaidResponse, error)
 	// Send invoice by email
@@ -376,6 +391,9 @@ func (UnimplementedBillingServiceServer) GetInvoicesByPatientId(context.Context,
 }
 func (UnimplementedBillingServiceServer) ProcessPayment(context.Context, *ProcessPaymentRequest) (*ProcessPaymentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ProcessPayment not implemented")
+}
+func (UnimplementedBillingServiceServer) ListInvoicePayments(context.Context, *ListInvoicePaymentsRequest) (*ListInvoicePaymentsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListInvoicePayments not implemented")
 }
 func (UnimplementedBillingServiceServer) MarkInvoiceAsPaid(context.Context, *MarkInvoiceAsPaidRequest) (*MarkInvoiceAsPaidResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method MarkInvoiceAsPaid not implemented")
@@ -562,6 +580,24 @@ func _BillingService_ProcessPayment_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(BillingServiceServer).ProcessPayment(ctx, req.(*ProcessPaymentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BillingService_ListInvoicePayments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListInvoicePaymentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BillingServiceServer).ListInvoicePayments(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BillingService_ListInvoicePayments_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BillingServiceServer).ListInvoicePayments(ctx, req.(*ListInvoicePaymentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -852,6 +888,10 @@ var BillingService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ProcessPayment",
 			Handler:    _BillingService_ProcessPayment_Handler,
+		},
+		{
+			MethodName: "ListInvoicePayments",
+			Handler:    _BillingService_ListInvoicePayments_Handler,
 		},
 		{
 			MethodName: "MarkInvoiceAsPaid",
@@ -2253,5 +2293,259 @@ var PriceService_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
+	Metadata: "proto/billing_service.proto",
+}
+
+const (
+	CustomerService_CreateCustomer_FullMethodName = "/billing_service.CustomerService/CreateCustomer"
+	CustomerService_GetCustomer_FullMethodName    = "/billing_service.CustomerService/GetCustomer"
+	CustomerService_UpdateCustomer_FullMethodName = "/billing_service.CustomerService/UpdateCustomer"
+	CustomerService_DeleteCustomer_FullMethodName = "/billing_service.CustomerService/DeleteCustomer"
+	CustomerService_ListCustomers_FullMethodName  = "/billing_service.CustomerService/ListCustomers"
+)
+
+// CustomerServiceClient is the client API for CustomerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CustomerServiceClient interface {
+	CreateCustomer(ctx context.Context, in *CreateCustomerRequest, opts ...grpc.CallOption) (*CreateCustomerResponse, error)
+	GetCustomer(ctx context.Context, in *GetCustomerRequest, opts ...grpc.CallOption) (*GetCustomerResponse, error)
+	UpdateCustomer(ctx context.Context, in *UpdateCustomerRequest, opts ...grpc.CallOption) (*UpdateCustomerResponse, error)
+	DeleteCustomer(ctx context.Context, in *DeleteCustomerRequest, opts ...grpc.CallOption) (*DeleteCustomerResponse, error)
+	ListCustomers(ctx context.Context, in *ListCustomersRequest, opts ...grpc.CallOption) (*ListCustomersResponse, error)
+}
+
+type customerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCustomerServiceClient(cc grpc.ClientConnInterface) CustomerServiceClient {
+	return &customerServiceClient{cc}
+}
+
+func (c *customerServiceClient) CreateCustomer(ctx context.Context, in *CreateCustomerRequest, opts ...grpc.CallOption) (*CreateCustomerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateCustomerResponse)
+	err := c.cc.Invoke(ctx, CustomerService_CreateCustomer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customerServiceClient) GetCustomer(ctx context.Context, in *GetCustomerRequest, opts ...grpc.CallOption) (*GetCustomerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCustomerResponse)
+	err := c.cc.Invoke(ctx, CustomerService_GetCustomer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customerServiceClient) UpdateCustomer(ctx context.Context, in *UpdateCustomerRequest, opts ...grpc.CallOption) (*UpdateCustomerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateCustomerResponse)
+	err := c.cc.Invoke(ctx, CustomerService_UpdateCustomer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customerServiceClient) DeleteCustomer(ctx context.Context, in *DeleteCustomerRequest, opts ...grpc.CallOption) (*DeleteCustomerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteCustomerResponse)
+	err := c.cc.Invoke(ctx, CustomerService_DeleteCustomer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customerServiceClient) ListCustomers(ctx context.Context, in *ListCustomersRequest, opts ...grpc.CallOption) (*ListCustomersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListCustomersResponse)
+	err := c.cc.Invoke(ctx, CustomerService_ListCustomers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CustomerServiceServer is the server API for CustomerService service.
+// All implementations must embed UnimplementedCustomerServiceServer
+// for forward compatibility.
+type CustomerServiceServer interface {
+	CreateCustomer(context.Context, *CreateCustomerRequest) (*CreateCustomerResponse, error)
+	GetCustomer(context.Context, *GetCustomerRequest) (*GetCustomerResponse, error)
+	UpdateCustomer(context.Context, *UpdateCustomerRequest) (*UpdateCustomerResponse, error)
+	DeleteCustomer(context.Context, *DeleteCustomerRequest) (*DeleteCustomerResponse, error)
+	ListCustomers(context.Context, *ListCustomersRequest) (*ListCustomersResponse, error)
+	mustEmbedUnimplementedCustomerServiceServer()
+}
+
+// UnimplementedCustomerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCustomerServiceServer struct{}
+
+func (UnimplementedCustomerServiceServer) CreateCustomer(context.Context, *CreateCustomerRequest) (*CreateCustomerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCustomer not implemented")
+}
+func (UnimplementedCustomerServiceServer) GetCustomer(context.Context, *GetCustomerRequest) (*GetCustomerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCustomer not implemented")
+}
+func (UnimplementedCustomerServiceServer) UpdateCustomer(context.Context, *UpdateCustomerRequest) (*UpdateCustomerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCustomer not implemented")
+}
+func (UnimplementedCustomerServiceServer) DeleteCustomer(context.Context, *DeleteCustomerRequest) (*DeleteCustomerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteCustomer not implemented")
+}
+func (UnimplementedCustomerServiceServer) ListCustomers(context.Context, *ListCustomersRequest) (*ListCustomersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListCustomers not implemented")
+}
+func (UnimplementedCustomerServiceServer) mustEmbedUnimplementedCustomerServiceServer() {}
+func (UnimplementedCustomerServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeCustomerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CustomerServiceServer will
+// result in compilation errors.
+type UnsafeCustomerServiceServer interface {
+	mustEmbedUnimplementedCustomerServiceServer()
+}
+
+func RegisterCustomerServiceServer(s grpc.ServiceRegistrar, srv CustomerServiceServer) {
+	// If the following call pancis, it indicates UnimplementedCustomerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CustomerService_ServiceDesc, srv)
+}
+
+func _CustomerService_CreateCustomer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCustomerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomerServiceServer).CreateCustomer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomerService_CreateCustomer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomerServiceServer).CreateCustomer(ctx, req.(*CreateCustomerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomerService_GetCustomer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCustomerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomerServiceServer).GetCustomer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomerService_GetCustomer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomerServiceServer).GetCustomer(ctx, req.(*GetCustomerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomerService_UpdateCustomer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCustomerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomerServiceServer).UpdateCustomer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomerService_UpdateCustomer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomerServiceServer).UpdateCustomer(ctx, req.(*UpdateCustomerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomerService_DeleteCustomer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteCustomerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomerServiceServer).DeleteCustomer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomerService_DeleteCustomer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomerServiceServer).DeleteCustomer(ctx, req.(*DeleteCustomerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomerService_ListCustomers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListCustomersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomerServiceServer).ListCustomers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CustomerService_ListCustomers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomerServiceServer).ListCustomers(ctx, req.(*ListCustomersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CustomerService_ServiceDesc is the grpc.ServiceDesc for CustomerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CustomerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "billing_service.CustomerService",
+	HandlerType: (*CustomerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateCustomer",
+			Handler:    _CustomerService_CreateCustomer_Handler,
+		},
+		{
+			MethodName: "GetCustomer",
+			Handler:    _CustomerService_GetCustomer_Handler,
+		},
+		{
+			MethodName: "UpdateCustomer",
+			Handler:    _CustomerService_UpdateCustomer_Handler,
+		},
+		{
+			MethodName: "DeleteCustomer",
+			Handler:    _CustomerService_DeleteCustomer_Handler,
+		},
+		{
+			MethodName: "ListCustomers",
+			Handler:    _CustomerService_ListCustomers_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/billing_service.proto",
 }

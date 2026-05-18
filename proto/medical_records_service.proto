@@ -175,6 +175,7 @@ message Diagnosis {
   google.protobuf.Timestamp date = 7;
   string status = 8; // active, resolved
   string doctor = 9;
+  string encounter_id = 10;
 }
 
 message AddDiagnosisRequest {
@@ -186,6 +187,7 @@ message AddDiagnosisRequest {
   google.protobuf.Timestamp date = 6;
   string status = 7;
   string doctor = 8;
+  string encounter_id = 9;
 }
 
 message GetDiagnosisRequest {
@@ -198,12 +200,15 @@ message DeleteDiagnosisRequest {
 
 message ListDiagnosesRequest {
   string patient_id = 1;
-  string status = 2; // Optional filter: all, active, resolved
+  string status = 2;     // Optional filter: all, active, resolved
   string search_term = 3; // Optional search term
+  int32 limit = 4;        // 0 = no limit
+  int32 offset = 5;
 }
 
 message ListDiagnosesResponse {
   repeated Diagnosis diagnoses = 1;
+  int32 total = 2; // Total matching records (before pagination)
 }
 
 message Note {
@@ -214,6 +219,7 @@ message Note {
   google.protobuf.Timestamp created_at = 5;
   repeated NoteEdit edited_by = 6;
   repeated string tags = 7;
+  string encounter_id = 8;
 }
 
 message NoteEdit {
@@ -226,6 +232,7 @@ message AddNoteRequest {
   string content = 2;
   string created_by = 3;
   repeated string tags = 4;
+  string encounter_id = 5;
 }
 
 message GetNoteRequest {
@@ -301,6 +308,7 @@ message Document {
   string url = 11;
   string thumbnail_url = 12;
   string file_type = 13; // image, pdf, document
+  bytes file_data = 14;
 }
 
 message DocumentVersion {

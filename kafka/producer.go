@@ -15,6 +15,7 @@ import (
 type Producer struct {
 	producer sarama.SyncProducer
 	topic    string
+	disabled bool
 }
 
 // Event represents a Kafka event
@@ -44,9 +45,10 @@ func NewProducer(config *KafkaConfig) (*Producer, error) {
     }
     
     if err != nil {
-        return nil, fmt.Errorf("failed to create Kafka producer after retries: %v", err)
+        log.Printf("Warning: Kafka unavailable, producer running in no-op mode: %v", err)
+        return &Producer{disabled: true, topic: config.Topic}, nil
     }
-    
+
     return &Producer{
         producer: producer,
         topic:    config.Topic,
@@ -55,11 +57,17 @@ func NewProducer(config *KafkaConfig) (*Producer, error) {
 
 // Close closes the producer
 func (p *Producer) Close() error {
+	if p.disabled {
+		return nil
+	}
 	return p.producer.Close()
 }
 
 // SendMessage sends a message to Kafka
 func (p *Producer) SendMessage(eventType string, payload interface{}) error {
+	if p.disabled {
+		return nil
+	}
 	event := Event{
 		EventType: eventType,
 		Timestamp: time.Now(),

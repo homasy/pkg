@@ -2,10 +2,9 @@ syntax = "proto3";
 
 package analytics;
 
-import "google/protobuf/timestamp.proto";
-import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
 
-option go_package = "github.com/HOMASY/analytics-service/pkg/proto;analyticsv1";
+option go_package = "./shared/analytics-service/proto";
 
 // AnalyticsService defines the service for generating reports and analytics
 service AnalyticsService {
@@ -100,6 +99,25 @@ service AnalyticsService {
   rpc GetPatientBillingReport (GetPatientBillingReportRequest) returns (GetPatientBillingReportResponse) {
     option (google.api.http) = {
       get: "/v1/analytics/reports/patient-billing"
+    };
+  }
+
+  // HR Reports
+  rpc GetPayrollReport (GetPayrollReportRequest) returns (GetPayrollReportResponse) {
+    option (google.api.http) = {
+      get: "/v1/analytics/reports/hr/payroll"
+    };
+  }
+
+  rpc GetAttendanceReport (GetAttendanceReportRequest) returns (GetAttendanceReportResponse) {
+    option (google.api.http) = {
+      get: "/v1/analytics/reports/hr/attendance"
+    };
+  }
+
+  rpc GetLeaveReport (GetLeaveReportRequest) returns (GetLeaveReportResponse) {
+    option (google.api.http) = {
+      get: "/v1/analytics/reports/hr/leave"
     };
   }
 
@@ -508,4 +526,78 @@ message GetSalesByTimeReportResponse {
   repeated SalesByTimeData data = 1;
   string peak_time = 2; // Most busy period
   double peak_sales = 3;
+}
+
+// ========== HR Report Messages ==========
+
+message GetPayrollReportRequest {
+  string start_date = 1; // Format: YYYY-MM-DD
+  string end_date = 2;
+  string group_by = 3; // "month", "week"
+}
+
+message PayrollPeriodData {
+  string period = 1;
+  int32 employee_count = 2;
+  double total_gross = 3;
+  double total_net = 4;
+  double total_allowances = 5;
+  double total_deductions = 6;
+  double total_tax = 7;
+  double total_pension = 8;
+}
+
+message GetPayrollReportResponse {
+  repeated PayrollPeriodData data = 1;
+  double total_gross = 2;
+  double total_net = 3;
+  double total_allowances = 4;
+  double total_deductions = 5;
+  int32 total_records = 6;
+}
+
+message GetAttendanceReportRequest {
+  string start_date = 1;
+  string end_date = 2;
+  string group_by = 3; // "day", "week", "month"
+}
+
+message AttendancePeriodData {
+  string period = 1;
+  int32 present = 2;
+  int32 absent = 3;
+  int32 late = 4;
+  int32 total = 5;
+  double attendance_rate = 6; // percentage
+}
+
+message GetAttendanceReportResponse {
+  repeated AttendancePeriodData data = 1;
+  int32 total_present = 2;
+  int32 total_absent = 3;
+  int32 total_late = 4;
+  int32 total_records = 5;
+  double overall_attendance_rate = 6;
+}
+
+message GetLeaveReportRequest {
+  string start_date = 1;
+  string end_date = 2;
+}
+
+message LeaveTypeData {
+  string leave_type = 1;
+  int32 count = 2;
+  int32 total_days = 3;
+  int32 approved = 4;
+  int32 pending = 5;
+  int32 rejected = 6;
+}
+
+message GetLeaveReportResponse {
+  repeated LeaveTypeData by_type = 1;
+  int32 total_requests = 2;
+  int32 total_days_taken = 3;
+  int32 total_approved = 4;
+  int32 total_pending = 5;
 }

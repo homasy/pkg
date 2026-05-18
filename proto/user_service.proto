@@ -63,6 +63,38 @@ service UserService {
         };
     }
 
+  // Authentication Methods
+  // Get user by email address
+  rpc GetUserByEmail (GetUserByEmailRequest) returns (GetUserResponse) {
+    option (google.api.http) = {
+      get: "/v1/users/email/{email}"
+    };
+  }
+
+  // Get password hash for a user (internal use for auth verification)
+  rpc GetPasswordHash (GetPasswordHashRequest) returns (GetPasswordHashResponse) {
+    option (google.api.http) = {
+      post: "/v1/users/{id}/password-hash"
+      body: "*"
+    };
+  }
+
+  // Record user login attempt
+  rpc RecordLogin (RecordLoginRequest) returns (RecordLoginResponse) {
+    option (google.api.http) = {
+      post: "/v1/users/{id}/login"
+      body: "*"
+    };
+  }
+
+  // Record user logout
+  rpc RecordLogout (RecordLogoutRequest) returns (RecordLogoutResponse) {
+    option (google.api.http) = {
+      post: "/v1/users/{id}/logout"
+      body: "*"
+    };
+  }
+
   // Hospital Management
   rpc CreateHospital (CreateHospitalRequest) returns (CreateHospitalResponse) {
     option (google.api.http) = {
@@ -381,4 +413,33 @@ message ListSchemeProvidersRequest {}
 
 message ListSchemeProvidersResponse {
   repeated SchemeProvider scheme_providers = 1;
+}
+
+// Authentication Message Types
+message GetUserByEmailRequest {
+  string email = 1;
+}
+
+message GetPasswordHashRequest {
+  string id = 1;
+}
+
+message GetPasswordHashResponse {
+  string password_hash = 1;
+}
+
+message RecordLoginRequest {
+  string id = 1;
+}
+
+message RecordLoginResponse {
+  bool success = 1;
+}
+
+message RecordLogoutRequest {
+  string id = 1;
+}
+
+message RecordLogoutResponse {
+  bool success = 1;
 }

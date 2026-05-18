@@ -41,8 +41,8 @@ all: $(patsubst $(PROTO_DIR)/%.proto,%,$(PROTO_FILES))
 # laboratory_service:
 # 	$(call PROTOC_CMD,laboratory-service,laboratory_service)
 
-medical_records_service:
-	$(call PROTOC_CMD,medical-records-service,medical_records_service)
+# medical_records_service:
+# 	$(call PROTOC_CMD,medical-records-service,medical_records_service)
 
 # patient_service:
 # 	$(call PROTOC_CMD,patient-service,patient_service)
@@ -56,8 +56,8 @@ medical_records_service:
 # supply_chain_service:
 # 	$(call PROTOC_CMD,supply-chain-service,supply_chain_service)
 
-# user_service:
-# 	$(call PROTOC_CMD,user-service,user_service)
+user_service:
+	$(call PROTOC_CMD,user-service,user_service)
 
 # ward_service:
 # 	$(call PROTOC_CMD,ward-service,ward_service)

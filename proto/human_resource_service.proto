@@ -225,6 +225,33 @@ service HRService {
       get: "/v1/staff/{staff_id}/benefits"
     };
   }
+
+  // ------------------ Bank Details Endpoints ------------------
+
+  rpc GetStaffBankDetails (GetStaffBankDetailsRequest) returns (GetStaffBankDetailsResponse) {
+    option (google.api.http) = {
+      get: "/v1/staff/{staff_id}/bank-details"
+    };
+  }
+
+  rpc UpsertStaffBankDetails (UpsertStaffBankDetailsRequest) returns (UpsertStaffBankDetailsResponse) {
+    option (google.api.http) = {
+      post: "/v1/staff/{staff_id}/bank-details"
+      body: "*"
+    };
+  }
+
+  rpc DeleteStaffBankDetails (DeleteStaffBankDetailsRequest) returns (DeleteStaffBankDetailsResponse) {
+    option (google.api.http) = {
+      delete: "/v1/staff/{staff_id}/bank-details"
+    };
+  }
+
+  rpc ListAllBankDetails (ListAllBankDetailsRequest) returns (ListAllBankDetailsResponse) {
+    option (google.api.http) = {
+      get: "/v1/staff/bank-details"
+    };
+  }
 }
 
 // ------------------ Staff Messages ------------------
@@ -755,4 +782,54 @@ message ListStaffBenefitsRequest {
 
 message ListStaffBenefitsResponse {
   repeated StaffBenefit benefits = 1;
+}
+
+// ------------------ Bank Details Messages ------------------
+
+message StaffBankDetails {
+  int32 id = 1;
+  int32 staff_id = 2;
+  string bank_name = 3;
+  string account_number = 4;
+  string pan_number = 5;
+  string created_at = 6;
+  string updated_at = 7;
+  string account_holder = 8;
+}
+
+message GetStaffBankDetailsRequest {
+  int32 staff_id = 1;
+}
+
+message GetStaffBankDetailsResponse {
+  StaffBankDetails bank_details = 1;
+  string message = 2;
+}
+
+message UpsertStaffBankDetailsRequest {
+  int32 staff_id = 1;
+  string bank_name = 2;
+  string account_number = 3;
+  string pan_number = 4;
+}
+
+message UpsertStaffBankDetailsResponse {
+  StaffBankDetails bank_details = 1;
+  bool success = 2;
+  string message = 3;
+}
+
+message DeleteStaffBankDetailsRequest {
+  int32 staff_id = 1;
+}
+
+message DeleteStaffBankDetailsResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message ListAllBankDetailsRequest {}
+
+message ListAllBankDetailsResponse {
+  repeated StaffBankDetails bank_details = 1;
 }

@@ -2309,6 +2309,315 @@ func (x *ListSchemeProvidersResponse) GetSchemeProviders() []*SchemeProvider {
 	return nil
 }
 
+// Authentication Message Types
+type GetUserByEmailRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserByEmailRequest) Reset() {
+	*x = GetUserByEmailRequest{}
+	mi := &file_proto_user_service_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserByEmailRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserByEmailRequest) ProtoMessage() {}
+
+func (x *GetUserByEmailRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_user_service_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserByEmailRequest.ProtoReflect.Descriptor instead.
+func (*GetUserByEmailRequest) Descriptor() ([]byte, []int) {
+	return file_proto_user_service_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *GetUserByEmailRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+type GetPasswordHashRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPasswordHashRequest) Reset() {
+	*x = GetPasswordHashRequest{}
+	mi := &file_proto_user_service_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPasswordHashRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPasswordHashRequest) ProtoMessage() {}
+
+func (x *GetPasswordHashRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_user_service_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPasswordHashRequest.ProtoReflect.Descriptor instead.
+func (*GetPasswordHashRequest) Descriptor() ([]byte, []int) {
+	return file_proto_user_service_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetPasswordHashRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type GetPasswordHashResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PasswordHash  string                 `protobuf:"bytes,1,opt,name=password_hash,json=passwordHash,proto3" json:"password_hash,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPasswordHashResponse) Reset() {
+	*x = GetPasswordHashResponse{}
+	mi := &file_proto_user_service_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPasswordHashResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPasswordHashResponse) ProtoMessage() {}
+
+func (x *GetPasswordHashResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_user_service_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPasswordHashResponse.ProtoReflect.Descriptor instead.
+func (*GetPasswordHashResponse) Descriptor() ([]byte, []int) {
+	return file_proto_user_service_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *GetPasswordHashResponse) GetPasswordHash() string {
+	if x != nil {
+		return x.PasswordHash
+	}
+	return ""
+}
+
+type RecordLoginRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RecordLoginRequest) Reset() {
+	*x = RecordLoginRequest{}
+	mi := &file_proto_user_service_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RecordLoginRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RecordLoginRequest) ProtoMessage() {}
+
+func (x *RecordLoginRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_user_service_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RecordLoginRequest.ProtoReflect.Descriptor instead.
+func (*RecordLoginRequest) Descriptor() ([]byte, []int) {
+	return file_proto_user_service_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *RecordLoginRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type RecordLoginResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RecordLoginResponse) Reset() {
+	*x = RecordLoginResponse{}
+	mi := &file_proto_user_service_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RecordLoginResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RecordLoginResponse) ProtoMessage() {}
+
+func (x *RecordLoginResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_user_service_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RecordLoginResponse.ProtoReflect.Descriptor instead.
+func (*RecordLoginResponse) Descriptor() ([]byte, []int) {
+	return file_proto_user_service_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *RecordLoginResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+type RecordLogoutRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RecordLogoutRequest) Reset() {
+	*x = RecordLogoutRequest{}
+	mi := &file_proto_user_service_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RecordLogoutRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RecordLogoutRequest) ProtoMessage() {}
+
+func (x *RecordLogoutRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_user_service_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RecordLogoutRequest.ProtoReflect.Descriptor instead.
+func (*RecordLogoutRequest) Descriptor() ([]byte, []int) {
+	return file_proto_user_service_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *RecordLogoutRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type RecordLogoutResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RecordLogoutResponse) Reset() {
+	*x = RecordLogoutResponse{}
+	mi := &file_proto_user_service_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RecordLogoutResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RecordLogoutResponse) ProtoMessage() {}
+
+func (x *RecordLogoutResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_user_service_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RecordLogoutResponse.ProtoReflect.Descriptor instead.
+func (*RecordLogoutResponse) Descriptor() ([]byte, []int) {
+	return file_proto_user_service_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *RecordLogoutResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
 var File_proto_user_service_proto protoreflect.FileDescriptor
 
 const file_proto_user_service_proto_rawDesc = "" +
@@ -2461,7 +2770,21 @@ const file_proto_user_service_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\"\x1c\n" +
 	"\x1aListSchemeProvidersRequest\"f\n" +
 	"\x1bListSchemeProvidersResponse\x12G\n" +
-	"\x10scheme_providers\x18\x01 \x03(\v2\x1c.user_service.SchemeProviderR\x0fschemeProviders2\xbd\x12\n" +
+	"\x10scheme_providers\x18\x01 \x03(\v2\x1c.user_service.SchemeProviderR\x0fschemeProviders\"-\n" +
+	"\x15GetUserByEmailRequest\x12\x14\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\"(\n" +
+	"\x16GetPasswordHashRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\">\n" +
+	"\x17GetPasswordHashResponse\x12#\n" +
+	"\rpassword_hash\x18\x01 \x01(\tR\fpasswordHash\"$\n" +
+	"\x12RecordLoginRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"/\n" +
+	"\x13RecordLoginResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"%\n" +
+	"\x13RecordLogoutRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"0\n" +
+	"\x14RecordLogoutResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess2\xac\x16\n" +
 	"\vUserService\x12d\n" +
 	"\n" +
 	"CreateUser\x12\x1f.user_service.CreateUserRequest\x1a .user_service.CreateUserResponse\"\x13\x82\xd3\xe4\x93\x02\r:\x01*\"\b/v1/user\x12^\n" +
@@ -2473,6 +2796,10 @@ const file_proto_user_service_proto_rawDesc = "" +
 	"\tListUsers\x12\x1e.user_service.ListUsersRequest\x1a\x1f.user_service.ListUsersResponse\"\x11\x82\xd3\xe4\x93\x02\v\x12\t/v1/users\x12\x7f\n" +
 	"\x0eUpdatePassword\x12#.user_service.UpdatePasswordRequest\x1a$.user_service.UpdatePasswordResponse\"\"\x82\xd3\xe4\x93\x02\x1c:\x01*2\x17/v1/users/{id}/password\x12\x83\x01\n" +
 	"\x10UpdateUserStatus\x12%.user_service.UpdateUserStatusRequest\x1a&.user_service.UpdateUserStatusResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*2\x15/v1/users/{id}/status\x12u\n" +
+	"\x0eGetUserByEmail\x12#.user_service.GetUserByEmailRequest\x1a\x1d.user_service.GetUserResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\x12\x17/v1/users/email/{email}\x12\x87\x01\n" +
+	"\x0fGetPasswordHash\x12$.user_service.GetPasswordHashRequest\x1a%.user_service.GetPasswordHashResponse\"'\x82\xd3\xe4\x93\x02!:\x01*\"\x1c/v1/users/{id}/password-hash\x12s\n" +
+	"\vRecordLogin\x12 .user_service.RecordLoginRequest\x1a!.user_service.RecordLoginResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\"\x14/v1/users/{id}/login\x12w\n" +
+	"\fRecordLogout\x12!.user_service.RecordLogoutRequest\x1a\".user_service.RecordLogoutResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\"\x15/v1/users/{id}/logout\x12u\n" +
 	"\x0eCreateHospital\x12#.user_service.CreateHospitalRequest\x1a$.user_service.CreateHospitalResponse\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\"\r/v1/hospitals\x12n\n" +
 	"\vGetHospital\x12 .user_service.GetHospitalRequest\x1a!.user_service.GetHospitalResponse\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v1/hospitals/{id}\x12z\n" +
 	"\x0eUpdateHospital\x12#.user_service.UpdateHospitalRequest\x1a$.user_service.UpdateHospitalResponse\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\x1a\x12/v1/hospitals/{id}\x12o\n" +
@@ -2498,7 +2825,7 @@ func file_proto_user_service_proto_rawDescGZIP() []byte {
 	return file_proto_user_service_proto_rawDescData
 }
 
-var file_proto_user_service_proto_msgTypes = make([]protoimpl.MessageInfo, 40)
+var file_proto_user_service_proto_msgTypes = make([]protoimpl.MessageInfo, 47)
 var file_proto_user_service_proto_goTypes = []any{
 	(*CreateUserRequest)(nil),            // 0: user_service.CreateUserRequest
 	(*CreateUserResponse)(nil),           // 1: user_service.CreateUserResponse
@@ -2540,6 +2867,13 @@ var file_proto_user_service_proto_goTypes = []any{
 	(*DeleteSchemeProviderResponse)(nil), // 37: user_service.DeleteSchemeProviderResponse
 	(*ListSchemeProvidersRequest)(nil),   // 38: user_service.ListSchemeProvidersRequest
 	(*ListSchemeProvidersResponse)(nil),  // 39: user_service.ListSchemeProvidersResponse
+	(*GetUserByEmailRequest)(nil),        // 40: user_service.GetUserByEmailRequest
+	(*GetPasswordHashRequest)(nil),       // 41: user_service.GetPasswordHashRequest
+	(*GetPasswordHashResponse)(nil),      // 42: user_service.GetPasswordHashResponse
+	(*RecordLoginRequest)(nil),           // 43: user_service.RecordLoginRequest
+	(*RecordLoginResponse)(nil),          // 44: user_service.RecordLoginResponse
+	(*RecordLogoutRequest)(nil),          // 45: user_service.RecordLogoutRequest
+	(*RecordLogoutResponse)(nil),         // 46: user_service.RecordLogoutResponse
 }
 var file_proto_user_service_proto_depIdxs = []int32{
 	3,  // 0: user_service.ListUsersResponse.users:type_name -> user_service.GetUserResponse
@@ -2553,39 +2887,47 @@ var file_proto_user_service_proto_depIdxs = []int32{
 	8,  // 8: user_service.UserService.ListUsers:input_type -> user_service.ListUsersRequest
 	10, // 9: user_service.UserService.UpdatePassword:input_type -> user_service.UpdatePasswordRequest
 	12, // 10: user_service.UserService.UpdateUserStatus:input_type -> user_service.UpdateUserStatusRequest
-	14, // 11: user_service.UserService.CreateHospital:input_type -> user_service.CreateHospitalRequest
-	16, // 12: user_service.UserService.GetHospital:input_type -> user_service.GetHospitalRequest
-	18, // 13: user_service.UserService.UpdateHospital:input_type -> user_service.UpdateHospitalRequest
-	20, // 14: user_service.UserService.ListHospitals:input_type -> user_service.ListHospitalsRequest
-	23, // 15: user_service.UserService.CreatePaymentType:input_type -> user_service.CreatePaymentTypeRequest
-	25, // 16: user_service.UserService.UpdatePaymentType:input_type -> user_service.UpdatePaymentTypeRequest
-	27, // 17: user_service.UserService.DeletePaymentType:input_type -> user_service.DeletePaymentTypeRequest
-	29, // 18: user_service.UserService.ListPaymentTypes:input_type -> user_service.ListPaymentTypesRequest
-	32, // 19: user_service.UserService.CreateSchemeProvider:input_type -> user_service.CreateSchemeProviderRequest
-	34, // 20: user_service.UserService.UpdateSchemeProvider:input_type -> user_service.UpdateSchemeProviderRequest
-	36, // 21: user_service.UserService.DeleteSchemeProvider:input_type -> user_service.DeleteSchemeProviderRequest
-	38, // 22: user_service.UserService.ListSchemeProviders:input_type -> user_service.ListSchemeProvidersRequest
-	1,  // 23: user_service.UserService.CreateUser:output_type -> user_service.CreateUserResponse
-	3,  // 24: user_service.UserService.GetUser:output_type -> user_service.GetUserResponse
-	5,  // 25: user_service.UserService.UpdateUser:output_type -> user_service.UpdateUserResponse
-	7,  // 26: user_service.UserService.DeleteUser:output_type -> user_service.DeleteUserResponse
-	9,  // 27: user_service.UserService.ListUsers:output_type -> user_service.ListUsersResponse
-	11, // 28: user_service.UserService.UpdatePassword:output_type -> user_service.UpdatePasswordResponse
-	13, // 29: user_service.UserService.UpdateUserStatus:output_type -> user_service.UpdateUserStatusResponse
-	15, // 30: user_service.UserService.CreateHospital:output_type -> user_service.CreateHospitalResponse
-	17, // 31: user_service.UserService.GetHospital:output_type -> user_service.GetHospitalResponse
-	19, // 32: user_service.UserService.UpdateHospital:output_type -> user_service.UpdateHospitalResponse
-	21, // 33: user_service.UserService.ListHospitals:output_type -> user_service.ListHospitalsResponse
-	24, // 34: user_service.UserService.CreatePaymentType:output_type -> user_service.CreatePaymentTypeResponse
-	26, // 35: user_service.UserService.UpdatePaymentType:output_type -> user_service.UpdatePaymentTypeResponse
-	28, // 36: user_service.UserService.DeletePaymentType:output_type -> user_service.DeletePaymentTypeResponse
-	30, // 37: user_service.UserService.ListPaymentTypes:output_type -> user_service.ListPaymentTypesResponse
-	33, // 38: user_service.UserService.CreateSchemeProvider:output_type -> user_service.CreateSchemeProviderResponse
-	35, // 39: user_service.UserService.UpdateSchemeProvider:output_type -> user_service.UpdateSchemeProviderResponse
-	37, // 40: user_service.UserService.DeleteSchemeProvider:output_type -> user_service.DeleteSchemeProviderResponse
-	39, // 41: user_service.UserService.ListSchemeProviders:output_type -> user_service.ListSchemeProvidersResponse
-	23, // [23:42] is the sub-list for method output_type
-	4,  // [4:23] is the sub-list for method input_type
+	40, // 11: user_service.UserService.GetUserByEmail:input_type -> user_service.GetUserByEmailRequest
+	41, // 12: user_service.UserService.GetPasswordHash:input_type -> user_service.GetPasswordHashRequest
+	43, // 13: user_service.UserService.RecordLogin:input_type -> user_service.RecordLoginRequest
+	45, // 14: user_service.UserService.RecordLogout:input_type -> user_service.RecordLogoutRequest
+	14, // 15: user_service.UserService.CreateHospital:input_type -> user_service.CreateHospitalRequest
+	16, // 16: user_service.UserService.GetHospital:input_type -> user_service.GetHospitalRequest
+	18, // 17: user_service.UserService.UpdateHospital:input_type -> user_service.UpdateHospitalRequest
+	20, // 18: user_service.UserService.ListHospitals:input_type -> user_service.ListHospitalsRequest
+	23, // 19: user_service.UserService.CreatePaymentType:input_type -> user_service.CreatePaymentTypeRequest
+	25, // 20: user_service.UserService.UpdatePaymentType:input_type -> user_service.UpdatePaymentTypeRequest
+	27, // 21: user_service.UserService.DeletePaymentType:input_type -> user_service.DeletePaymentTypeRequest
+	29, // 22: user_service.UserService.ListPaymentTypes:input_type -> user_service.ListPaymentTypesRequest
+	32, // 23: user_service.UserService.CreateSchemeProvider:input_type -> user_service.CreateSchemeProviderRequest
+	34, // 24: user_service.UserService.UpdateSchemeProvider:input_type -> user_service.UpdateSchemeProviderRequest
+	36, // 25: user_service.UserService.DeleteSchemeProvider:input_type -> user_service.DeleteSchemeProviderRequest
+	38, // 26: user_service.UserService.ListSchemeProviders:input_type -> user_service.ListSchemeProvidersRequest
+	1,  // 27: user_service.UserService.CreateUser:output_type -> user_service.CreateUserResponse
+	3,  // 28: user_service.UserService.GetUser:output_type -> user_service.GetUserResponse
+	5,  // 29: user_service.UserService.UpdateUser:output_type -> user_service.UpdateUserResponse
+	7,  // 30: user_service.UserService.DeleteUser:output_type -> user_service.DeleteUserResponse
+	9,  // 31: user_service.UserService.ListUsers:output_type -> user_service.ListUsersResponse
+	11, // 32: user_service.UserService.UpdatePassword:output_type -> user_service.UpdatePasswordResponse
+	13, // 33: user_service.UserService.UpdateUserStatus:output_type -> user_service.UpdateUserStatusResponse
+	3,  // 34: user_service.UserService.GetUserByEmail:output_type -> user_service.GetUserResponse
+	42, // 35: user_service.UserService.GetPasswordHash:output_type -> user_service.GetPasswordHashResponse
+	44, // 36: user_service.UserService.RecordLogin:output_type -> user_service.RecordLoginResponse
+	46, // 37: user_service.UserService.RecordLogout:output_type -> user_service.RecordLogoutResponse
+	15, // 38: user_service.UserService.CreateHospital:output_type -> user_service.CreateHospitalResponse
+	17, // 39: user_service.UserService.GetHospital:output_type -> user_service.GetHospitalResponse
+	19, // 40: user_service.UserService.UpdateHospital:output_type -> user_service.UpdateHospitalResponse
+	21, // 41: user_service.UserService.ListHospitals:output_type -> user_service.ListHospitalsResponse
+	24, // 42: user_service.UserService.CreatePaymentType:output_type -> user_service.CreatePaymentTypeResponse
+	26, // 43: user_service.UserService.UpdatePaymentType:output_type -> user_service.UpdatePaymentTypeResponse
+	28, // 44: user_service.UserService.DeletePaymentType:output_type -> user_service.DeletePaymentTypeResponse
+	30, // 45: user_service.UserService.ListPaymentTypes:output_type -> user_service.ListPaymentTypesResponse
+	33, // 46: user_service.UserService.CreateSchemeProvider:output_type -> user_service.CreateSchemeProviderResponse
+	35, // 47: user_service.UserService.UpdateSchemeProvider:output_type -> user_service.UpdateSchemeProviderResponse
+	37, // 48: user_service.UserService.DeleteSchemeProvider:output_type -> user_service.DeleteSchemeProviderResponse
+	39, // 49: user_service.UserService.ListSchemeProviders:output_type -> user_service.ListSchemeProvidersResponse
+	27, // [27:50] is the sub-list for method output_type
+	4,  // [4:27] is the sub-list for method input_type
 	4,  // [4:4] is the sub-list for extension type_name
 	4,  // [4:4] is the sub-list for extension extendee
 	0,  // [0:4] is the sub-list for field type_name
@@ -2602,7 +2944,7 @@ func file_proto_user_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_user_service_proto_rawDesc), len(file_proto_user_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   40,
+			NumMessages:   47,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

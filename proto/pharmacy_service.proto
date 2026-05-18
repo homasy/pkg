@@ -684,11 +684,13 @@ message CreatePrescriptionItemRequest {
   int32 quantity = 4;
   string instructions = 5;
   int32 store_id = 6;
+  string medication_name = 7; // Persisted so history is stable even if medication is renamed
 }
 
 message CreatePrescriptionItemResponse {
   int32 item_id = 1;
   string message = 2;
+  string medication_name = 3;
 }
 
 // Get a single prescription item
@@ -714,6 +716,7 @@ message UpdatePrescriptionItemRequest {
   string dosage = 4;
   int32 quantity = 5;
   string instructions = 6;
+  int32 store_id = 7;
 }
 
 message UpdatePrescriptionItemResponse {
@@ -745,6 +748,7 @@ message DeletePrescriptionItemResponse {
 message CreatePrescriptionRequestRequest {
   int32 patient_id = 1;
   int32 doctor_id = 2;
+  string diagnosis_id = 3; // Optional: UUID of the diagnosis this prescription is for
 }
 message CreatePrescriptionRequestResponse {
   int32 prescription_id = 1;
@@ -783,6 +787,9 @@ message PrescriptionRequest {
   // Doctor details (filtered by role)
   int32 doctor_id = 7;
   string doctor_name = 8;
+  // Linked diagnosis
+  string diagnosis_id = 9;
+  string diagnosis_name = 10; // Denormalized for display
 }
 message ListPrescriptionRequestsRequests{}
 

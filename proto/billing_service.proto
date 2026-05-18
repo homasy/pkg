@@ -61,6 +61,13 @@ service BillingService {
     };
   }
 
+  // List payments for an invoice
+  rpc ListInvoicePayments (ListInvoicePaymentsRequest) returns (ListInvoicePaymentsResponse) {
+    option (google.api.http) = {
+      get: "/v1/invoices/{invoice_id}/payments"
+    };
+  }
+
   // Mark invoice as paid
   rpc MarkInvoiceAsPaid (MarkInvoiceAsPaidRequest) returns (MarkInvoiceAsPaidResponse) {
     option (google.api.http) = {
@@ -194,6 +201,7 @@ message CreateInvoiceRequest {
   double discount = 6;
   double tax_rate = 7;
   repeated InvoiceItem items = 8;
+  string patient_name = 9;
 }
 
 // Create Invoice response
@@ -222,6 +230,7 @@ message Invoice {
   repeated InvoiceItem items = 11;
   string notes = 12;
   string created_at = 13;
+  double paid_amount = 14;
 }
 
 // Get Invoice response
@@ -291,6 +300,27 @@ message ProcessPaymentResponse {
   bool success = 1;
   string payment_id = 2;
   string status = 3;
+}
+
+// List Invoice Payments
+message ListInvoicePaymentsRequest {
+  string invoice_id = 1;
+}
+
+message InvoicePayment {
+  string id = 1;
+  string invoice_id = 2;
+  string payment_method = 3;
+  double amount = 4;
+  string transaction_reference = 5;
+  string payment_date = 6;
+  string payment_scope = 7;
+  bool is_consultation_fee = 8;
+  string created_at = 9;
+}
+
+message ListInvoicePaymentsResponse {
+  repeated InvoicePayment payments = 1;
 }
 
 // Mark Invoice as Paid request
@@ -1173,4 +1203,113 @@ message CancelPriceChangeRequestRequest {
 message CancelPriceChangeRequestResponse {
   bool success = 1;
   string message = 2;
+}
+
+// ============================================================================
+// CUSTOMER SERVICE
+// ============================================================================
+
+// CustomerType defines the billing category of a customer
+enum CustomerType {
+  CASH = 0;
+  COMPANY = 1;
+  MASM = 2;
+  COMPANY_WITH_CASH_RATE = 3;
+}
+
+// Customer represents a billing customer (insurer, company, or cash patient group)
+message Customer {
+  int32 id = 1;
+  string name = 2;
+  CustomerType type = 3;
+  int32 price_list_id = 4;
+  string phone = 5;
+  string email = 6;
+  string address = 7;
+  string contact_person = 8;
+  bool is_active = 9;
+  string notes = 10;
+  string created_at = 11;
+  string updated_at = 12;
+}
+
+service CustomerService {
+  rpc CreateCustomer (CreateCustomerRequest) returns (CreateCustomerResponse) {
+    option (google.api.http) = { post: "/v1/customers" body: "*" };
+  }
+  rpc GetCustomer (GetCustomerRequest) returns (GetCustomerResponse) {
+    option (google.api.http) = { get: "/v1/customers/{id}" };
+  }
+  rpc UpdateCustomer (UpdateCustomerRequest) returns (UpdateCustomerResponse) {
+    option (google.api.http) = { put: "/v1/customers/{id}" body: "*" };
+  }
+  rpc DeleteCustomer (DeleteCustomerRequest) returns (DeleteCustomerResponse) {
+    option (google.api.http) = { delete: "/v1/customers/{id}" };
+  }
+  rpc ListCustomers (ListCustomersRequest) returns (ListCustomersResponse) {
+    option (google.api.http) = { get: "/v1/customers" };
+  }
+}
+
+message CreateCustomerRequest {
+  string name = 1;
+  CustomerType type = 2;
+  int32 price_list_id = 3;
+  string phone = 4;
+  string email = 5;
+  string address = 6;
+  string contact_person = 7;
+  bool is_active = 8;
+  string notes = 9;
+}
+
+message CreateCustomerResponse {
+  int32 id = 1;
+  bool success = 2;
+  string message = 3;
+}
+
+message GetCustomerRequest {
+  int32 id = 1;
+}
+
+message GetCustomerResponse {
+  Customer customer = 1;
+}
+
+message UpdateCustomerRequest {
+  int32 id = 1;
+  string name = 2;
+  CustomerType type = 3;
+  int32 price_list_id = 4;
+  string phone = 5;
+  string email = 6;
+  string address = 7;
+  string contact_person = 8;
+  bool is_active = 9;
+  string notes = 10;
+}
+
+message UpdateCustomerResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message DeleteCustomerRequest {
+  int32 id = 1;
+}
+
+message DeleteCustomerResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message ListCustomersRequest {
+  bool active_only = 1;
+  CustomerType type_filter = 2;
+  string search = 3;
+}
+
+message ListCustomersResponse {
+  repeated Customer customers = 1;
 }

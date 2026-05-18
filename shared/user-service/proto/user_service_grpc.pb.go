@@ -28,6 +28,10 @@ const (
 	UserService_ListUsers_FullMethodName            = "/user_service.UserService/ListUsers"
 	UserService_UpdatePassword_FullMethodName       = "/user_service.UserService/UpdatePassword"
 	UserService_UpdateUserStatus_FullMethodName     = "/user_service.UserService/UpdateUserStatus"
+	UserService_GetUserByEmail_FullMethodName       = "/user_service.UserService/GetUserByEmail"
+	UserService_GetPasswordHash_FullMethodName      = "/user_service.UserService/GetPasswordHash"
+	UserService_RecordLogin_FullMethodName          = "/user_service.UserService/RecordLogin"
+	UserService_RecordLogout_FullMethodName         = "/user_service.UserService/RecordLogout"
 	UserService_CreateHospital_FullMethodName       = "/user_service.UserService/CreateHospital"
 	UserService_GetHospital_FullMethodName          = "/user_service.UserService/GetHospital"
 	UserService_UpdateHospital_FullMethodName       = "/user_service.UserService/UpdateHospital"
@@ -62,6 +66,15 @@ type UserServiceClient interface {
 	UpdatePassword(ctx context.Context, in *UpdatePasswordRequest, opts ...grpc.CallOption) (*UpdatePasswordResponse, error)
 	// Update user status (active/inactive)
 	UpdateUserStatus(ctx context.Context, in *UpdateUserStatusRequest, opts ...grpc.CallOption) (*UpdateUserStatusResponse, error)
+	// Authentication Methods
+	// Get user by email address
+	GetUserByEmail(ctx context.Context, in *GetUserByEmailRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
+	// Get password hash for a user (internal use for auth verification)
+	GetPasswordHash(ctx context.Context, in *GetPasswordHashRequest, opts ...grpc.CallOption) (*GetPasswordHashResponse, error)
+	// Record user login attempt
+	RecordLogin(ctx context.Context, in *RecordLoginRequest, opts ...grpc.CallOption) (*RecordLoginResponse, error)
+	// Record user logout
+	RecordLogout(ctx context.Context, in *RecordLogoutRequest, opts ...grpc.CallOption) (*RecordLogoutResponse, error)
 	// Hospital Management
 	CreateHospital(ctx context.Context, in *CreateHospitalRequest, opts ...grpc.CallOption) (*CreateHospitalResponse, error)
 	GetHospital(ctx context.Context, in *GetHospitalRequest, opts ...grpc.CallOption) (*GetHospitalResponse, error)
@@ -151,6 +164,46 @@ func (c *userServiceClient) UpdateUserStatus(ctx context.Context, in *UpdateUser
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateUserStatusResponse)
 	err := c.cc.Invoke(ctx, UserService_UpdateUserStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) GetUserByEmail(ctx context.Context, in *GetUserByEmailRequest, opts ...grpc.CallOption) (*GetUserResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserResponse)
+	err := c.cc.Invoke(ctx, UserService_GetUserByEmail_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) GetPasswordHash(ctx context.Context, in *GetPasswordHashRequest, opts ...grpc.CallOption) (*GetPasswordHashResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPasswordHashResponse)
+	err := c.cc.Invoke(ctx, UserService_GetPasswordHash_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) RecordLogin(ctx context.Context, in *RecordLoginRequest, opts ...grpc.CallOption) (*RecordLoginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RecordLoginResponse)
+	err := c.cc.Invoke(ctx, UserService_RecordLogin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) RecordLogout(ctx context.Context, in *RecordLogoutRequest, opts ...grpc.CallOption) (*RecordLogoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RecordLogoutResponse)
+	err := c.cc.Invoke(ctx, UserService_RecordLogout_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -297,6 +350,15 @@ type UserServiceServer interface {
 	UpdatePassword(context.Context, *UpdatePasswordRequest) (*UpdatePasswordResponse, error)
 	// Update user status (active/inactive)
 	UpdateUserStatus(context.Context, *UpdateUserStatusRequest) (*UpdateUserStatusResponse, error)
+	// Authentication Methods
+	// Get user by email address
+	GetUserByEmail(context.Context, *GetUserByEmailRequest) (*GetUserResponse, error)
+	// Get password hash for a user (internal use for auth verification)
+	GetPasswordHash(context.Context, *GetPasswordHashRequest) (*GetPasswordHashResponse, error)
+	// Record user login attempt
+	RecordLogin(context.Context, *RecordLoginRequest) (*RecordLoginResponse, error)
+	// Record user logout
+	RecordLogout(context.Context, *RecordLogoutRequest) (*RecordLogoutResponse, error)
 	// Hospital Management
 	CreateHospital(context.Context, *CreateHospitalRequest) (*CreateHospitalResponse, error)
 	GetHospital(context.Context, *GetHospitalRequest) (*GetHospitalResponse, error)
@@ -342,6 +404,18 @@ func (UnimplementedUserServiceServer) UpdatePassword(context.Context, *UpdatePas
 }
 func (UnimplementedUserServiceServer) UpdateUserStatus(context.Context, *UpdateUserStatusRequest) (*UpdateUserStatusResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserStatus not implemented")
+}
+func (UnimplementedUserServiceServer) GetUserByEmail(context.Context, *GetUserByEmailRequest) (*GetUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserByEmail not implemented")
+}
+func (UnimplementedUserServiceServer) GetPasswordHash(context.Context, *GetPasswordHashRequest) (*GetPasswordHashResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPasswordHash not implemented")
+}
+func (UnimplementedUserServiceServer) RecordLogin(context.Context, *RecordLoginRequest) (*RecordLoginResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RecordLogin not implemented")
+}
+func (UnimplementedUserServiceServer) RecordLogout(context.Context, *RecordLogoutRequest) (*RecordLogoutResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RecordLogout not implemented")
 }
 func (UnimplementedUserServiceServer) CreateHospital(context.Context, *CreateHospitalRequest) (*CreateHospitalResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateHospital not implemented")
@@ -522,6 +596,78 @@ func _UserService_UpdateUserStatus_Handler(srv interface{}, ctx context.Context,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).UpdateUserStatus(ctx, req.(*UpdateUserStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_GetUserByEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserByEmailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).GetUserByEmail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UserService_GetUserByEmail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).GetUserByEmail(ctx, req.(*GetUserByEmailRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_GetPasswordHash_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPasswordHashRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).GetPasswordHash(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UserService_GetPasswordHash_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).GetPasswordHash(ctx, req.(*GetPasswordHashRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_RecordLogin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecordLoginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).RecordLogin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UserService_RecordLogin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).RecordLogin(ctx, req.(*RecordLoginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_RecordLogout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecordLogoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).RecordLogout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UserService_RecordLogout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).RecordLogout(ctx, req.(*RecordLogoutRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -776,6 +922,22 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateUserStatus",
 			Handler:    _UserService_UpdateUserStatus_Handler,
+		},
+		{
+			MethodName: "GetUserByEmail",
+			Handler:    _UserService_GetUserByEmail_Handler,
+		},
+		{
+			MethodName: "GetPasswordHash",
+			Handler:    _UserService_GetPasswordHash_Handler,
+		},
+		{
+			MethodName: "RecordLogin",
+			Handler:    _UserService_RecordLogin_Handler,
+		},
+		{
+			MethodName: "RecordLogout",
+			Handler:    _UserService_RecordLogout_Handler,
 		},
 		{
 			MethodName: "CreateHospital",

@@ -248,6 +248,7 @@ message CreditNote {
   string created_at = 18;
   string updated_at = 19;
   repeated CreditNoteItem items = 20;
+  double total_value = 21;
 }
 
 // Message for credit note items
@@ -262,6 +263,8 @@ message CreditNoteItem {
   string expiry_date = 8;
   string reason = 9;
   string notes = 10;
+  double unit_price = 11;
+  double total_value = 12;
 }
 
 message PriceList {
@@ -284,7 +287,7 @@ message PriceListItem {
 message MedicalScheme {
     int32 id = 1;
     string name = 2;
-    int32 price_list_id = 3;
+    int32 customer_id = 3;
     bool is_active = 4;
     double coverage_percentage = 5;        // Percentage covered by scheme (0-100)
     bool covers_consultation = 6;          // Whether scheme covers consultations
@@ -1343,7 +1346,7 @@ message GetPriceListItemsByPriceListResponse {
 // Medical Scheme Management
 message CreateMedicalSchemeRequest {
   string name = 1;
-  int32 price_list_id = 2;
+  int32 customer_id = 2;
   bool is_active = 3;
   double coverage_percentage = 4;
   bool covers_consultation = 5;
@@ -1375,7 +1378,7 @@ message GetMedicalSchemeResponse {
 message UpdateMedicalSchemeRequest {
   int32 id = 1;
   string name = 2;
-  int32 price_list_id = 3;
+  int32 customer_id = 3;
   bool is_active = 4;
   double coverage_percentage = 5;
   bool covers_consultation = 6;

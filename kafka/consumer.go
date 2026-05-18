@@ -5,7 +5,6 @@ package kafka
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"log"
 	"os"
 	"os/signal"
@@ -26,6 +25,7 @@ type Consumer struct {
 	ready      chan bool
 	readyOnce  sync.Once
 	mu         sync.Mutex
+	disabled   bool
 }
 
 // ConsumerGroupHandler implements sarama.ConsumerGroupHandler
@@ -36,12 +36,17 @@ type ConsumerGroupHandler struct {
 // NewConsumer creates a new Kafka consumer
 func NewConsumer(config *KafkaConfig) (*Consumer, error) {
 	saramaConfig := config.NewSaramaConfig()
-	
+
 	consumer, err := sarama.NewConsumerGroup(config.Brokers, config.GroupID, saramaConfig)
 	if err != nil {
-		return nil, fmt.Errorf("failed to create Kafka consumer: %v", err)
+		log.Printf("Warning: Kafka unavailable, consumer running in no-op mode: %v", err)
+		return &Consumer{
+			disabled: true,
+			topic:    config.Topic,
+			handlers: make(map[string]MessageHandler),
+		}, nil
 	}
-	
+
 	return &Consumer{
 		consumer: consumer,
 		topic:    config.Topic,
@@ -52,6 +57,9 @@ func NewConsumer(config *KafkaConfig) (*Consumer, error) {
 
 // Close closes the consumer
 func (c *Consumer) Close() error {
+	if c.disabled {
+		return nil
+	}
 	return c.consumer.Close()
 }
 
@@ -64,6 +72,9 @@ func (c *Consumer) RegisterHandler(eventType string, handler MessageHandler) {
 
 // Start starts consuming messages
 func (c *Consumer) Start(ctx context.Context) error {
+	if c.disabled {
+		return nil
+	}
 	// Create a new context with cancellation
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()

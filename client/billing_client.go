@@ -116,3 +116,31 @@ func (c *BillingClient) LookupLabTestPrice(ctx context.Context, req *billingpb.L
 	}
 	return c.priceClient.LookupLabTestPrice(ctx, req)
 }
+
+func (c *BillingClient) CreateInvoice(ctx context.Context, req *billingpb.CreateInvoiceRequest) (*billingpb.CreateInvoiceResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.client.CreateInvoice(ctx, req)
+}
+
+func (c *BillingClient) MarkInvoiceAsPaid(ctx context.Context, req *billingpb.MarkInvoiceAsPaidRequest) (*billingpb.MarkInvoiceAsPaidResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.client.MarkInvoiceAsPaid(ctx, req)
+}
+
+func (c *BillingClient) LookupServicePrice(ctx context.Context, req *billingpb.LookupServicePriceRequest) (*billingpb.LookupServicePriceResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.priceClient.LookupServicePrice(ctx, req)
+}
+
+func (c *BillingClient) GenerateInvoiceFromRecords(ctx context.Context, req *billingpb.GenerateInvoiceFromRecordsRequest) (*billingpb.CreateInvoiceResponse, error) {
+	if err := c.Connect(); err != nil {
+		return nil, err
+	}
+	return c.client.GenerateInvoiceFromRecords(ctx, req)
+}

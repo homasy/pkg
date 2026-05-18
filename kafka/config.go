@@ -20,7 +20,7 @@ type KafkaConfig struct {
 	ClientType string // Added to distinguish between different services
 }
 
-// NewKafkaConfig creates a new Kafka configuration
+// NewKafkaConfig creates a new Kafka configuration.
 func NewKafkaConfig(brokers []string, topic, groupID, username, password string, useTLS bool, clientType string) *KafkaConfig {
 	return &KafkaConfig{
 		Brokers:    brokers,
@@ -47,39 +47,7 @@ func (c *KafkaConfig) NewSaramaConfig() *sarama.Config {
 	config.Consumer.Offsets.Initial = sarama.OffsetNewest
 	config.Consumer.Group.Rebalance.Strategy = sarama.BalanceStrategyRoundRobin
 	
-	// Set client ID based on client type
-	switch c.ClientType {
-	case "patient-service":
-		config.ClientID = "patient-service"
-	case "appointment-service":
-		config.ClientID = "appointment-service"
-	case "hr-service":
-		config.ClientID = "hr-service"
-	case "issue-report-service":
-		config.ClientID = "issue-report-service"
-	case "laboratory-service":
-		config.ClientID = "laboratory-service"
-	case "user-service":
-		config.ClientID = "user-service"
-	case "medical-records-service":
-		config.ClientID = "medical-records-service"
-	case "notification-service":
-		config.ClientID = "notification-service"
-	case "billing-service":
-		config.ClientID = "billing-service"
-	case "pharmacy-service":
-		config.ClientID = "pharmacy-service"
-	case "supply-chain-service":
-		config.ClientID = "supply-chain-service"
-	case "analytics-service":
-		config.ClientID = "analytics-service"
-	case "ward-service":
-		config.ClientID = "ward-service"
-	case "route-permissions-service":
-		config.ClientID = "route-permissions-service"
-	default:
-		config.ClientID = "unknown-service"
-	}
+	config.ClientID = c.ClientType
 	
 	// Set version
 	config.Version = sarama.V2_8_0_0

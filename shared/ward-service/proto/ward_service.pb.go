@@ -923,6 +923,7 @@ type Admission struct {
 	WardName      string                 `protobuf:"bytes,9,opt,name=ward_name,json=wardName,proto3" json:"ward_name,omitempty"`
 	DoctorName    string                 `protobuf:"bytes,10,opt,name=doctor_name,json=doctorName,proto3" json:"doctor_name,omitempty"`
 	BedNumber     string                 `protobuf:"bytes,11,opt,name=bed_number,json=bedNumber,proto3" json:"bed_number,omitempty"`
+	Reason        string                 `protobuf:"bytes,12,opt,name=reason,proto3" json:"reason,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1034,12 +1035,20 @@ func (x *Admission) GetBedNumber() string {
 	return ""
 }
 
+func (x *Admission) GetReason() string {
+	if x != nil {
+		return x.Reason
+	}
+	return ""
+}
+
 type CreateAdmissionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	PatientId     int32                  `protobuf:"varint,1,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
 	DoctorId      int32                  `protobuf:"varint,2,opt,name=doctor_id,json=doctorId,proto3" json:"doctor_id,omitempty"`
 	WardId        int32                  `protobuf:"varint,3,opt,name=ward_id,json=wardId,proto3" json:"ward_id,omitempty"`
 	BedId         int32                  `protobuf:"varint,4,opt,name=bed_id,json=bedId,proto3" json:"bed_id,omitempty"`
+	Reason        string                 `protobuf:"bytes,5,opt,name=reason,proto3" json:"reason,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1100,6 +1109,13 @@ func (x *CreateAdmissionRequest) GetBedId() int32 {
 		return x.BedId
 	}
 	return 0
+}
+
+func (x *CreateAdmissionRequest) GetReason() string {
+	if x != nil {
+		return x.Reason
+	}
+	return ""
 }
 
 type CreateAdmissionResponse struct {
@@ -2790,7 +2806,7 @@ const file_proto_ward_service_proto_rawDesc = "" +
 	"\x13GetDischargeRequest\x12!\n" +
 	"\fdischarge_id\x18\x01 \x01(\x05R\vdischargeId\"M\n" +
 	"\x14GetDischargeResponse\x125\n" +
-	"\tdischarge\x18\x01 \x01(\v2\x17.ward_service.DischargeR\tdischarge\"\xd9\x02\n" +
+	"\tdischarge\x18\x01 \x01(\v2\x17.ward_service.DischargeR\tdischarge\"\xf1\x02\n" +
 	"\tAdmission\x12!\n" +
 	"\fadmission_id\x18\x01 \x01(\x05R\vadmissionId\x12\x1d\n" +
 	"\n" +
@@ -2806,13 +2822,15 @@ const file_proto_ward_service_proto_rawDesc = "" +
 	" \x01(\tR\n" +
 	"doctorName\x12\x1d\n" +
 	"\n" +
-	"bed_number\x18\v \x01(\tR\tbedNumber\"\x84\x01\n" +
+	"bed_number\x18\v \x01(\tR\tbedNumber\x12\x16\n" +
+	"\x06reason\x18\f \x01(\tR\x06reason\"\x9c\x01\n" +
 	"\x16CreateAdmissionRequest\x12\x1d\n" +
 	"\n" +
 	"patient_id\x18\x01 \x01(\x05R\tpatientId\x12\x1b\n" +
 	"\tdoctor_id\x18\x02 \x01(\x05R\bdoctorId\x12\x17\n" +
 	"\award_id\x18\x03 \x01(\x05R\x06wardId\x12\x15\n" +
-	"\x06bed_id\x18\x04 \x01(\x05R\x05bedId\"V\n" +
+	"\x06bed_id\x18\x04 \x01(\x05R\x05bedId\x12\x16\n" +
+	"\x06reason\x18\x05 \x01(\tR\x06reason\"V\n" +
 	"\x17CreateAdmissionResponse\x12!\n" +
 	"\fadmission_id\x18\x01 \x01(\x05R\vadmissionId\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"8\n" +

@@ -39,6 +39,7 @@ const (
 	AppointmentNoShow = "appointment.noshow"
 	QueueCreated       = "queue.created"
 	QueueStatusUpdated = "queue.status.updated"
+	QueueCancelled     = "queue.cancelled"
 
 	// Medical Records events
 	DiagnosisCreated     = "diagnosis.created"
@@ -1152,6 +1153,15 @@ func HandleQueueStatusUpdated(data []byte) error {
 	}
 	log.Printf("Queue status updated: %s", event.QueueID)
 	// Process the event
+	return nil
+}
+
+func HandleQueueCancelled(data []byte) error {
+	var event QueueEvent
+	if err := json.Unmarshal(data, &event); err != nil {
+		return fmt.Errorf("failed to unmarshal queue cancelled event: %v", err)
+	}
+	log.Printf("Queue cancelled: %s", event.QueueID)
 	return nil
 }
 

@@ -37,6 +37,7 @@ type Diagnosis struct {
 	Date          *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=date,proto3" json:"date,omitempty"`
 	Status        string                 `protobuf:"bytes,8,opt,name=status,proto3" json:"status,omitempty"` // active, resolved
 	Doctor        string                 `protobuf:"bytes,9,opt,name=doctor,proto3" json:"doctor,omitempty"`
+	EncounterId   string                 `protobuf:"bytes,10,opt,name=encounter_id,json=encounterId,proto3" json:"encounter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -134,6 +135,13 @@ func (x *Diagnosis) GetDoctor() string {
 	return ""
 }
 
+func (x *Diagnosis) GetEncounterId() string {
+	if x != nil {
+		return x.EncounterId
+	}
+	return ""
+}
+
 type AddDiagnosisRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	PatientId     string                 `protobuf:"bytes,1,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
@@ -144,6 +152,7 @@ type AddDiagnosisRequest struct {
 	Date          *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=date,proto3" json:"date,omitempty"`
 	Status        string                 `protobuf:"bytes,7,opt,name=status,proto3" json:"status,omitempty"`
 	Doctor        string                 `protobuf:"bytes,8,opt,name=doctor,proto3" json:"doctor,omitempty"`
+	EncounterId   string                 `protobuf:"bytes,9,opt,name=encounter_id,json=encounterId,proto3" json:"encounter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -230,6 +239,13 @@ func (x *AddDiagnosisRequest) GetStatus() string {
 func (x *AddDiagnosisRequest) GetDoctor() string {
 	if x != nil {
 		return x.Doctor
+	}
+	return ""
+}
+
+func (x *AddDiagnosisRequest) GetEncounterId() string {
+	if x != nil {
+		return x.EncounterId
 	}
 	return ""
 }
@@ -327,6 +343,8 @@ type ListDiagnosesRequest struct {
 	PatientId     string                 `protobuf:"bytes,1,opt,name=patient_id,json=patientId,proto3" json:"patient_id,omitempty"`
 	Status        string                 `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`                           // Optional filter: all, active, resolved
 	SearchTerm    string                 `protobuf:"bytes,3,opt,name=search_term,json=searchTerm,proto3" json:"search_term,omitempty"` // Optional search term
+	Limit         int32                  `protobuf:"varint,4,opt,name=limit,proto3" json:"limit,omitempty"`                            // 0 = no limit
+	Offset        int32                  `protobuf:"varint,5,opt,name=offset,proto3" json:"offset,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -382,9 +400,24 @@ func (x *ListDiagnosesRequest) GetSearchTerm() string {
 	return ""
 }
 
+func (x *ListDiagnosesRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+func (x *ListDiagnosesRequest) GetOffset() int32 {
+	if x != nil {
+		return x.Offset
+	}
+	return 0
+}
+
 type ListDiagnosesResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Diagnoses     []*Diagnosis           `protobuf:"bytes,1,rep,name=diagnoses,proto3" json:"diagnoses,omitempty"`
+	Total         int32                  `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"` // Total matching records (before pagination)
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -426,6 +459,13 @@ func (x *ListDiagnosesResponse) GetDiagnoses() []*Diagnosis {
 	return nil
 }
 
+func (x *ListDiagnosesResponse) GetTotal() int32 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
 type Note struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -435,6 +475,7 @@ type Note struct {
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	EditedBy      []*NoteEdit            `protobuf:"bytes,6,rep,name=edited_by,json=editedBy,proto3" json:"edited_by,omitempty"`
 	Tags          []string               `protobuf:"bytes,7,rep,name=tags,proto3" json:"tags,omitempty"`
+	EncounterId   string                 `protobuf:"bytes,8,opt,name=encounter_id,json=encounterId,proto3" json:"encounter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -518,6 +559,13 @@ func (x *Note) GetTags() []string {
 	return nil
 }
 
+func (x *Note) GetEncounterId() string {
+	if x != nil {
+		return x.EncounterId
+	}
+	return ""
+}
+
 type NoteEdit struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	User          string                 `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
@@ -576,6 +624,7 @@ type AddNoteRequest struct {
 	Content       string                 `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
 	CreatedBy     string                 `protobuf:"bytes,3,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
 	Tags          []string               `protobuf:"bytes,4,rep,name=tags,proto3" json:"tags,omitempty"`
+	EncounterId   string                 `protobuf:"bytes,5,opt,name=encounter_id,json=encounterId,proto3" json:"encounter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -636,6 +685,13 @@ func (x *AddNoteRequest) GetTags() []string {
 		return x.Tags
 	}
 	return nil
+}
+
+func (x *AddNoteRequest) GetEncounterId() string {
+	if x != nil {
+		return x.EncounterId
+	}
+	return ""
 }
 
 type GetNoteRequest struct {
@@ -1233,6 +1289,7 @@ type Document struct {
 	Url           string                 `protobuf:"bytes,11,opt,name=url,proto3" json:"url,omitempty"`
 	ThumbnailUrl  string                 `protobuf:"bytes,12,opt,name=thumbnail_url,json=thumbnailUrl,proto3" json:"thumbnail_url,omitempty"`
 	FileType      string                 `protobuf:"bytes,13,opt,name=file_type,json=fileType,proto3" json:"file_type,omitempty"` // image, pdf, document
+	FileData      []byte                 `protobuf:"bytes,14,opt,name=file_data,json=fileData,proto3" json:"file_data,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1356,6 +1413,13 @@ func (x *Document) GetFileType() string {
 		return x.FileType
 	}
 	return ""
+}
+
+func (x *Document) GetFileData() []byte {
+	if x != nil {
+		return x.FileData
+	}
+	return nil
 }
 
 type DocumentVersion struct {
@@ -2370,7 +2434,7 @@ var File_proto_medical_records_service_proto protoreflect.FileDescriptor
 
 const file_proto_medical_records_service_proto_rawDesc = "" +
 	"\n" +
-	"#proto/medical_records_service.proto\x12\x16medical_record_service\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1cgoogle/api/annotations.proto\"\x80\x02\n" +
+	"#proto/medical_records_service.proto\x12\x16medical_record_service\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1cgoogle/api/annotations.proto\"\xa3\x02\n" +
 	"\tDiagnosis\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
@@ -2381,7 +2445,9 @@ const file_proto_medical_records_service_proto_rawDesc = "" +
 	"\bseverity\x18\x06 \x01(\tR\bseverity\x12.\n" +
 	"\x04date\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x04date\x12\x16\n" +
 	"\x06status\x18\b \x01(\tR\x06status\x12\x16\n" +
-	"\x06doctor\x18\t \x01(\tR\x06doctor\"\xfa\x01\n" +
+	"\x06doctor\x18\t \x01(\tR\x06doctor\x12!\n" +
+	"\fencounter_id\x18\n" +
+	" \x01(\tR\vencounterId\"\x9d\x02\n" +
 	"\x13AddDiagnosisRequest\x12\x1d\n" +
 	"\n" +
 	"patient_id\x18\x01 \x01(\tR\tpatientId\x12\x12\n" +
@@ -2391,19 +2457,23 @@ const file_proto_medical_records_service_proto_rawDesc = "" +
 	"\bseverity\x18\x05 \x01(\tR\bseverity\x12.\n" +
 	"\x04date\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x04date\x12\x16\n" +
 	"\x06status\x18\a \x01(\tR\x06status\x12\x16\n" +
-	"\x06doctor\x18\b \x01(\tR\x06doctor\"%\n" +
+	"\x06doctor\x18\b \x01(\tR\x06doctor\x12!\n" +
+	"\fencounter_id\x18\t \x01(\tR\vencounterId\"%\n" +
 	"\x13GetDiagnosisRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"(\n" +
 	"\x16DeleteDiagnosisRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"n\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"\x9c\x01\n" +
 	"\x14ListDiagnosesRequest\x12\x1d\n" +
 	"\n" +
 	"patient_id\x18\x01 \x01(\tR\tpatientId\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status\x12\x1f\n" +
 	"\vsearch_term\x18\x03 \x01(\tR\n" +
-	"searchTerm\"X\n" +
+	"searchTerm\x12\x14\n" +
+	"\x05limit\x18\x04 \x01(\x05R\x05limit\x12\x16\n" +
+	"\x06offset\x18\x05 \x01(\x05R\x06offset\"n\n" +
 	"\x15ListDiagnosesResponse\x12?\n" +
-	"\tdiagnoses\x18\x01 \x03(\v2!.medical_record_service.DiagnosisR\tdiagnoses\"\xfc\x01\n" +
+	"\tdiagnoses\x18\x01 \x03(\v2!.medical_record_service.DiagnosisR\tdiagnoses\x12\x14\n" +
+	"\x05total\x18\x02 \x01(\x05R\x05total\"\x9f\x02\n" +
 	"\x04Note\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
@@ -2414,17 +2484,19 @@ const file_proto_medical_records_service_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x12=\n" +
 	"\tedited_by\x18\x06 \x03(\v2 .medical_record_service.NoteEditR\beditedBy\x12\x12\n" +
-	"\x04tags\x18\a \x03(\tR\x04tags\"X\n" +
+	"\x04tags\x18\a \x03(\tR\x04tags\x12!\n" +
+	"\fencounter_id\x18\b \x01(\tR\vencounterId\"X\n" +
 	"\bNoteEdit\x12\x12\n" +
 	"\x04user\x18\x01 \x01(\tR\x04user\x128\n" +
-	"\ttimestamp\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\"|\n" +
+	"\ttimestamp\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\"\x9f\x01\n" +
 	"\x0eAddNoteRequest\x12\x1d\n" +
 	"\n" +
 	"patient_id\x18\x01 \x01(\tR\tpatientId\x12\x18\n" +
 	"\acontent\x18\x02 \x01(\tR\acontent\x12\x1d\n" +
 	"\n" +
 	"created_by\x18\x03 \x01(\tR\tcreatedBy\x12\x12\n" +
-	"\x04tags\x18\x04 \x03(\tR\x04tags\" \n" +
+	"\x04tags\x18\x04 \x03(\tR\x04tags\x12!\n" +
+	"\fencounter_id\x18\x05 \x01(\tR\vencounterId\" \n" +
 	"\x0eGetNoteRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"#\n" +
 	"\x11DeleteNoteRequest\x12\x0e\n" +
@@ -2477,7 +2549,7 @@ const file_proto_medical_records_service_proto_rawDesc = "" +
 	"\x05limit\x18\x02 \x01(\x05R\x05limit\"\\\n" +
 	"\x16ListVitalSignsResponse\x12B\n" +
 	"\vvital_signs\x18\x01 \x03(\v2!.medical_record_service.VitalSignR\n" +
-	"vitalSigns\"\xaa\x03\n" +
+	"vitalSigns\"\xc7\x03\n" +
 	"\bDocument\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
@@ -2495,7 +2567,8 @@ const file_proto_medical_records_service_proto_rawDesc = "" +
 	" \x03(\v2'.medical_record_service.DocumentVersionR\bversions\x12\x10\n" +
 	"\x03url\x18\v \x01(\tR\x03url\x12#\n" +
 	"\rthumbnail_url\x18\f \x01(\tR\fthumbnailUrl\x12\x1b\n" +
-	"\tfile_type\x18\r \x01(\tR\bfileType\"\xbf\x01\n" +
+	"\tfile_type\x18\r \x01(\tR\bfileType\x12\x1b\n" +
+	"\tfile_data\x18\x0e \x01(\fR\bfileData\"\xbf\x01\n" +
 	"\x0fDocumentVersion\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1f\n" +
 	"\vdocument_id\x18\x02 \x01(\tR\n" +

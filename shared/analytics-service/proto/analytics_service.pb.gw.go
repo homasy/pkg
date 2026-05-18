@@ -515,6 +515,102 @@ func local_request_AnalyticsService_GetPatientBillingReport_0(ctx context.Contex
 	return msg, metadata, err
 }
 
+var filter_AnalyticsService_GetPayrollReport_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+
+func request_AnalyticsService_GetPayrollReport_0(ctx context.Context, marshaler runtime.Marshaler, client AnalyticsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq GetPayrollReportRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_AnalyticsService_GetPayrollReport_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	msg, err := client.GetPayrollReport(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+}
+
+func local_request_AnalyticsService_GetPayrollReport_0(ctx context.Context, marshaler runtime.Marshaler, server AnalyticsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq GetPayrollReportRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_AnalyticsService_GetPayrollReport_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	msg, err := server.GetPayrollReport(ctx, &protoReq)
+	return msg, metadata, err
+}
+
+var filter_AnalyticsService_GetAttendanceReport_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+
+func request_AnalyticsService_GetAttendanceReport_0(ctx context.Context, marshaler runtime.Marshaler, client AnalyticsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq GetAttendanceReportRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_AnalyticsService_GetAttendanceReport_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	msg, err := client.GetAttendanceReport(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+}
+
+func local_request_AnalyticsService_GetAttendanceReport_0(ctx context.Context, marshaler runtime.Marshaler, server AnalyticsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq GetAttendanceReportRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_AnalyticsService_GetAttendanceReport_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	msg, err := server.GetAttendanceReport(ctx, &protoReq)
+	return msg, metadata, err
+}
+
+var filter_AnalyticsService_GetLeaveReport_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+
+func request_AnalyticsService_GetLeaveReport_0(ctx context.Context, marshaler runtime.Marshaler, client AnalyticsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq GetLeaveReportRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_AnalyticsService_GetLeaveReport_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	msg, err := client.GetLeaveReport(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+}
+
+func local_request_AnalyticsService_GetLeaveReport_0(ctx context.Context, marshaler runtime.Marshaler, server AnalyticsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var (
+		protoReq GetLeaveReportRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_AnalyticsService_GetLeaveReport_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	msg, err := server.GetLeaveReport(ctx, &protoReq)
+	return msg, metadata, err
+}
+
 var filter_AnalyticsService_GetCashierPerformanceReport_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 
 func request_AnalyticsService_GetCashierPerformanceReport_0(ctx context.Context, marshaler runtime.Marshaler, client AnalyticsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -591,7 +687,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetDashboardMetrics", runtime.WithHTTPPathPattern("/v1/analytics/dashboard"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetDashboardMetrics", runtime.WithHTTPPathPattern("/v1/analytics/dashboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -611,7 +707,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetRevenueReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/revenue"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetRevenueReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/revenue"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -631,7 +727,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetPaymentMethodsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/payment-methods"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetPaymentMethodsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/payment-methods"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -651,7 +747,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetOutstandingInvoicesReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/outstanding-invoices"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetOutstandingInvoicesReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/outstanding-invoices"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -671,7 +767,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetMedicalSchemeReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/medical-schemes"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetMedicalSchemeReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/medical-schemes"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -691,7 +787,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetDepartmentRevenueReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/department-revenue"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetDepartmentRevenueReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/department-revenue"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -711,7 +807,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetPOSSalesReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/pos-sales"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetPOSSalesReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/pos-sales"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -731,7 +827,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetTopSellingMedicationsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/top-medications"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetTopSellingMedicationsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/top-medications"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -751,7 +847,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetLowStockReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/low-stock"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetLowStockReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/low-stock"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -771,7 +867,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetStockMovementReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/stock-movements"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetStockMovementReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/stock-movements"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -791,7 +887,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetExpiringMedicationsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/expiring-medications"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetExpiringMedicationsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/expiring-medications"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -811,7 +907,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetMedicationSalesTrendsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/medication-trends"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetMedicationSalesTrendsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/medication-trends"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -831,7 +927,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetPatientRegistrationReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/patient-registration"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetPatientRegistrationReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/patient-registration"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -851,7 +947,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetActivePatientReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/active-patients"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetActivePatientReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/active-patients"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -871,7 +967,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetPatientBillingReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/patient-billing"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetPatientBillingReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/patient-billing"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -885,13 +981,73 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		}
 		forward_AnalyticsService_GetPatientBillingReport_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
+	mux.Handle(http.MethodGet, pattern_AnalyticsService_GetPayrollReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetPayrollReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/hr/payroll"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_AnalyticsService_GetPayrollReport_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_AnalyticsService_GetPayrollReport_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
+	mux.Handle(http.MethodGet, pattern_AnalyticsService_GetAttendanceReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetAttendanceReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/hr/attendance"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_AnalyticsService_GetAttendanceReport_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_AnalyticsService_GetAttendanceReport_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
+	mux.Handle(http.MethodGet, pattern_AnalyticsService_GetLeaveReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetLeaveReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/hr/leave"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_AnalyticsService_GetLeaveReport_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_AnalyticsService_GetLeaveReport_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
 	mux.Handle(http.MethodGet, pattern_AnalyticsService_GetCashierPerformanceReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetCashierPerformanceReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/cashier-performance"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetCashierPerformanceReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/cashier-performance"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -911,7 +1067,7 @@ func RegisterAnalyticsServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetSalesByTimeReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/sales-by-time"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/analytics.AnalyticsService/GetSalesByTimeReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/sales-by-time"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -969,7 +1125,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetDashboardMetrics", runtime.WithHTTPPathPattern("/v1/analytics/dashboard"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetDashboardMetrics", runtime.WithHTTPPathPattern("/v1/analytics/dashboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -986,7 +1142,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetRevenueReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/revenue"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetRevenueReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/revenue"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1003,7 +1159,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetPaymentMethodsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/payment-methods"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetPaymentMethodsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/payment-methods"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1020,7 +1176,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetOutstandingInvoicesReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/outstanding-invoices"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetOutstandingInvoicesReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/outstanding-invoices"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1037,7 +1193,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetMedicalSchemeReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/medical-schemes"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetMedicalSchemeReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/medical-schemes"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1054,7 +1210,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetDepartmentRevenueReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/department-revenue"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetDepartmentRevenueReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/department-revenue"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1071,7 +1227,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetPOSSalesReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/pos-sales"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetPOSSalesReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/pos-sales"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1088,7 +1244,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetTopSellingMedicationsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/top-medications"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetTopSellingMedicationsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/top-medications"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1105,7 +1261,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetLowStockReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/low-stock"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetLowStockReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/low-stock"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1122,7 +1278,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetStockMovementReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/stock-movements"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetStockMovementReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/stock-movements"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1139,7 +1295,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetExpiringMedicationsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/expiring-medications"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetExpiringMedicationsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/expiring-medications"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1156,7 +1312,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetMedicationSalesTrendsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/medication-trends"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetMedicationSalesTrendsReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/medication-trends"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1173,7 +1329,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetPatientRegistrationReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/patient-registration"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetPatientRegistrationReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/patient-registration"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1190,7 +1346,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetActivePatientReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/active-patients"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetActivePatientReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/active-patients"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1207,7 +1363,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetPatientBillingReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/patient-billing"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetPatientBillingReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/patient-billing"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1220,11 +1376,62 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		}
 		forward_AnalyticsService_GetPatientBillingReport_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 	})
+	mux.Handle(http.MethodGet, pattern_AnalyticsService_GetPayrollReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetPayrollReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/hr/payroll"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_AnalyticsService_GetPayrollReport_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_AnalyticsService_GetPayrollReport_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
+	mux.Handle(http.MethodGet, pattern_AnalyticsService_GetAttendanceReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetAttendanceReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/hr/attendance"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_AnalyticsService_GetAttendanceReport_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_AnalyticsService_GetAttendanceReport_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
+	mux.Handle(http.MethodGet, pattern_AnalyticsService_GetLeaveReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetLeaveReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/hr/leave"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_AnalyticsService_GetLeaveReport_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		forward_AnalyticsService_GetLeaveReport_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+	})
 	mux.Handle(http.MethodGet, pattern_AnalyticsService_GetCashierPerformanceReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetCashierPerformanceReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/cashier-performance"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetCashierPerformanceReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/cashier-performance"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1241,7 +1448,7 @@ func RegisterAnalyticsServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics_service.AnalyticsService/GetSalesByTimeReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/sales-by-time"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/analytics.AnalyticsService/GetSalesByTimeReport", runtime.WithHTTPPathPattern("/v1/analytics/reports/sales-by-time"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1273,6 +1480,9 @@ var (
 	pattern_AnalyticsService_GetPatientRegistrationReport_0   = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"v1", "analytics", "reports", "patient-registration"}, ""))
 	pattern_AnalyticsService_GetActivePatientReport_0         = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"v1", "analytics", "reports", "active-patients"}, ""))
 	pattern_AnalyticsService_GetPatientBillingReport_0        = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"v1", "analytics", "reports", "patient-billing"}, ""))
+	pattern_AnalyticsService_GetPayrollReport_0               = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"v1", "analytics", "reports", "hr", "payroll"}, ""))
+	pattern_AnalyticsService_GetAttendanceReport_0            = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"v1", "analytics", "reports", "hr", "attendance"}, ""))
+	pattern_AnalyticsService_GetLeaveReport_0                 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"v1", "analytics", "reports", "hr", "leave"}, ""))
 	pattern_AnalyticsService_GetCashierPerformanceReport_0    = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"v1", "analytics", "reports", "cashier-performance"}, ""))
 	pattern_AnalyticsService_GetSalesByTimeReport_0           = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"v1", "analytics", "reports", "sales-by-time"}, ""))
 )
@@ -1293,6 +1503,9 @@ var (
 	forward_AnalyticsService_GetPatientRegistrationReport_0   = runtime.ForwardResponseMessage
 	forward_AnalyticsService_GetActivePatientReport_0         = runtime.ForwardResponseMessage
 	forward_AnalyticsService_GetPatientBillingReport_0        = runtime.ForwardResponseMessage
+	forward_AnalyticsService_GetPayrollReport_0               = runtime.ForwardResponseMessage
+	forward_AnalyticsService_GetAttendanceReport_0            = runtime.ForwardResponseMessage
+	forward_AnalyticsService_GetLeaveReport_0                 = runtime.ForwardResponseMessage
 	forward_AnalyticsService_GetCashierPerformanceReport_0    = runtime.ForwardResponseMessage
 	forward_AnalyticsService_GetSalesByTimeReport_0           = runtime.ForwardResponseMessage
 )

@@ -4,7 +4,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v5.29.0--rc1
-// source: proto/human_resource_service.proto
+// source: human_resource_service.proto
 
 package proto
 
@@ -49,7 +49,7 @@ type RegisterStaffRequest struct {
 
 func (x *RegisterStaffRequest) Reset() {
 	*x = RegisterStaffRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[0]
+	mi := &file_human_resource_service_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -61,7 +61,7 @@ func (x *RegisterStaffRequest) String() string {
 func (*RegisterStaffRequest) ProtoMessage() {}
 
 func (x *RegisterStaffRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[0]
+	mi := &file_human_resource_service_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -74,7 +74,7 @@ func (x *RegisterStaffRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterStaffRequest.ProtoReflect.Descriptor instead.
 func (*RegisterStaffRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{0}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *RegisterStaffRequest) GetFirstName() string {
@@ -206,7 +206,7 @@ type RegisterStaffResponse struct {
 
 func (x *RegisterStaffResponse) Reset() {
 	*x = RegisterStaffResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[1]
+	mi := &file_human_resource_service_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -218,7 +218,7 @@ func (x *RegisterStaffResponse) String() string {
 func (*RegisterStaffResponse) ProtoMessage() {}
 
 func (x *RegisterStaffResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[1]
+	mi := &file_human_resource_service_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -231,7 +231,7 @@ func (x *RegisterStaffResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterStaffResponse.ProtoReflect.Descriptor instead.
 func (*RegisterStaffResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{1}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *RegisterStaffResponse) GetStaffId() int32 {
@@ -257,7 +257,7 @@ type GetStaffRequest struct {
 
 func (x *GetStaffRequest) Reset() {
 	*x = GetStaffRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[2]
+	mi := &file_human_resource_service_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -269,7 +269,7 @@ func (x *GetStaffRequest) String() string {
 func (*GetStaffRequest) ProtoMessage() {}
 
 func (x *GetStaffRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[2]
+	mi := &file_human_resource_service_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -282,7 +282,7 @@ func (x *GetStaffRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStaffRequest.ProtoReflect.Descriptor instead.
 func (*GetStaffRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{2}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetStaffRequest) GetStaffId() int32 {
@@ -319,7 +319,7 @@ type GetStaffResponse struct {
 
 func (x *GetStaffResponse) Reset() {
 	*x = GetStaffResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[3]
+	mi := &file_human_resource_service_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -331,7 +331,7 @@ func (x *GetStaffResponse) String() string {
 func (*GetStaffResponse) ProtoMessage() {}
 
 func (x *GetStaffResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[3]
+	mi := &file_human_resource_service_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -344,7 +344,7 @@ func (x *GetStaffResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStaffResponse.ProtoReflect.Descriptor instead.
 func (*GetStaffResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{3}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetStaffResponse) GetStaffId() int32 {
@@ -506,7 +506,7 @@ type UpdateStaffRequest struct {
 
 func (x *UpdateStaffRequest) Reset() {
 	*x = UpdateStaffRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[4]
+	mi := &file_human_resource_service_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -518,7 +518,7 @@ func (x *UpdateStaffRequest) String() string {
 func (*UpdateStaffRequest) ProtoMessage() {}
 
 func (x *UpdateStaffRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[4]
+	mi := &file_human_resource_service_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -531,7 +531,7 @@ func (x *UpdateStaffRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateStaffRequest.ProtoReflect.Descriptor instead.
 func (*UpdateStaffRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{4}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *UpdateStaffRequest) GetStaffId() int32 {
@@ -670,7 +670,7 @@ type UpdateStaffResponse struct {
 
 func (x *UpdateStaffResponse) Reset() {
 	*x = UpdateStaffResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[5]
+	mi := &file_human_resource_service_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -682,7 +682,7 @@ func (x *UpdateStaffResponse) String() string {
 func (*UpdateStaffResponse) ProtoMessage() {}
 
 func (x *UpdateStaffResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[5]
+	mi := &file_human_resource_service_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -695,7 +695,7 @@ func (x *UpdateStaffResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateStaffResponse.ProtoReflect.Descriptor instead.
 func (*UpdateStaffResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{5}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *UpdateStaffResponse) GetSuccess() bool {
@@ -721,7 +721,7 @@ type DeleteStaffRequest struct {
 
 func (x *DeleteStaffRequest) Reset() {
 	*x = DeleteStaffRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[6]
+	mi := &file_human_resource_service_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -733,7 +733,7 @@ func (x *DeleteStaffRequest) String() string {
 func (*DeleteStaffRequest) ProtoMessage() {}
 
 func (x *DeleteStaffRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[6]
+	mi := &file_human_resource_service_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -746,7 +746,7 @@ func (x *DeleteStaffRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteStaffRequest.ProtoReflect.Descriptor instead.
 func (*DeleteStaffRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{6}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *DeleteStaffRequest) GetStaffId() int32 {
@@ -766,7 +766,7 @@ type DeleteStaffResponse struct {
 
 func (x *DeleteStaffResponse) Reset() {
 	*x = DeleteStaffResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[7]
+	mi := &file_human_resource_service_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -778,7 +778,7 @@ func (x *DeleteStaffResponse) String() string {
 func (*DeleteStaffResponse) ProtoMessage() {}
 
 func (x *DeleteStaffResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[7]
+	mi := &file_human_resource_service_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -791,7 +791,7 @@ func (x *DeleteStaffResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteStaffResponse.ProtoReflect.Descriptor instead.
 func (*DeleteStaffResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{7}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *DeleteStaffResponse) GetSuccess() bool {
@@ -816,7 +816,7 @@ type ListStaffRequest struct {
 
 func (x *ListStaffRequest) Reset() {
 	*x = ListStaffRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[8]
+	mi := &file_human_resource_service_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -828,7 +828,7 @@ func (x *ListStaffRequest) String() string {
 func (*ListStaffRequest) ProtoMessage() {}
 
 func (x *ListStaffRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[8]
+	mi := &file_human_resource_service_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -841,7 +841,7 @@ func (x *ListStaffRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListStaffRequest.ProtoReflect.Descriptor instead.
 func (*ListStaffRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{8}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{8}
 }
 
 type ListStaffResponse struct {
@@ -853,7 +853,7 @@ type ListStaffResponse struct {
 
 func (x *ListStaffResponse) Reset() {
 	*x = ListStaffResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[9]
+	mi := &file_human_resource_service_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -865,7 +865,7 @@ func (x *ListStaffResponse) String() string {
 func (*ListStaffResponse) ProtoMessage() {}
 
 func (x *ListStaffResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[9]
+	mi := &file_human_resource_service_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -878,7 +878,7 @@ func (x *ListStaffResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListStaffResponse.ProtoReflect.Descriptor instead.
 func (*ListStaffResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{9}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ListStaffResponse) GetStaffList() []*GetStaffResponse {
@@ -899,7 +899,7 @@ type IsStaffAvailableRequest struct {
 
 func (x *IsStaffAvailableRequest) Reset() {
 	*x = IsStaffAvailableRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[10]
+	mi := &file_human_resource_service_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -911,7 +911,7 @@ func (x *IsStaffAvailableRequest) String() string {
 func (*IsStaffAvailableRequest) ProtoMessage() {}
 
 func (x *IsStaffAvailableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[10]
+	mi := &file_human_resource_service_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -924,7 +924,7 @@ func (x *IsStaffAvailableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsStaffAvailableRequest.ProtoReflect.Descriptor instead.
 func (*IsStaffAvailableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{10}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *IsStaffAvailableRequest) GetStaffId() int32 {
@@ -958,7 +958,7 @@ type IsStaffAvailableResponse struct {
 
 func (x *IsStaffAvailableResponse) Reset() {
 	*x = IsStaffAvailableResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[11]
+	mi := &file_human_resource_service_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -970,7 +970,7 @@ func (x *IsStaffAvailableResponse) String() string {
 func (*IsStaffAvailableResponse) ProtoMessage() {}
 
 func (x *IsStaffAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[11]
+	mi := &file_human_resource_service_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -983,7 +983,7 @@ func (x *IsStaffAvailableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsStaffAvailableResponse.ProtoReflect.Descriptor instead.
 func (*IsStaffAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{11}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *IsStaffAvailableResponse) GetAvailable() bool {
@@ -1012,7 +1012,7 @@ type PayrollDetail struct {
 
 func (x *PayrollDetail) Reset() {
 	*x = PayrollDetail{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[12]
+	mi := &file_human_resource_service_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1024,7 +1024,7 @@ func (x *PayrollDetail) String() string {
 func (*PayrollDetail) ProtoMessage() {}
 
 func (x *PayrollDetail) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[12]
+	mi := &file_human_resource_service_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1037,7 +1037,7 @@ func (x *PayrollDetail) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PayrollDetail.ProtoReflect.Descriptor instead.
 func (*PayrollDetail) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{12}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *PayrollDetail) GetDetailId() int32 {
@@ -1084,7 +1084,7 @@ type CreatePayrollRequest struct {
 
 func (x *CreatePayrollRequest) Reset() {
 	*x = CreatePayrollRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[13]
+	mi := &file_human_resource_service_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1096,7 +1096,7 @@ func (x *CreatePayrollRequest) String() string {
 func (*CreatePayrollRequest) ProtoMessage() {}
 
 func (x *CreatePayrollRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[13]
+	mi := &file_human_resource_service_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1109,7 +1109,7 @@ func (x *CreatePayrollRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreatePayrollRequest.ProtoReflect.Descriptor instead.
 func (*CreatePayrollRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{13}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CreatePayrollRequest) GetStaffId() int32 {
@@ -1178,7 +1178,7 @@ type CreatePayrollResponse struct {
 
 func (x *CreatePayrollResponse) Reset() {
 	*x = CreatePayrollResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[14]
+	mi := &file_human_resource_service_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1190,7 +1190,7 @@ func (x *CreatePayrollResponse) String() string {
 func (*CreatePayrollResponse) ProtoMessage() {}
 
 func (x *CreatePayrollResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[14]
+	mi := &file_human_resource_service_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1203,7 +1203,7 @@ func (x *CreatePayrollResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreatePayrollResponse.ProtoReflect.Descriptor instead.
 func (*CreatePayrollResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{14}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CreatePayrollResponse) GetPayrollId() int32 {
@@ -1229,7 +1229,7 @@ type GetPayrollRequest struct {
 
 func (x *GetPayrollRequest) Reset() {
 	*x = GetPayrollRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[15]
+	mi := &file_human_resource_service_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1241,7 +1241,7 @@ func (x *GetPayrollRequest) String() string {
 func (*GetPayrollRequest) ProtoMessage() {}
 
 func (x *GetPayrollRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[15]
+	mi := &file_human_resource_service_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1254,7 +1254,7 @@ func (x *GetPayrollRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPayrollRequest.ProtoReflect.Descriptor instead.
 func (*GetPayrollRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{15}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetPayrollRequest) GetPayrollId() int32 {
@@ -1287,7 +1287,7 @@ type GetPayrollResponse struct {
 
 func (x *GetPayrollResponse) Reset() {
 	*x = GetPayrollResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[16]
+	mi := &file_human_resource_service_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1299,7 +1299,7 @@ func (x *GetPayrollResponse) String() string {
 func (*GetPayrollResponse) ProtoMessage() {}
 
 func (x *GetPayrollResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[16]
+	mi := &file_human_resource_service_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1312,7 +1312,7 @@ func (x *GetPayrollResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPayrollResponse.ProtoReflect.Descriptor instead.
 func (*GetPayrollResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{16}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *GetPayrollResponse) GetPayrollId() int32 {
@@ -1435,7 +1435,7 @@ type UpdatePayrollRequest struct {
 
 func (x *UpdatePayrollRequest) Reset() {
 	*x = UpdatePayrollRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[17]
+	mi := &file_human_resource_service_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1447,7 +1447,7 @@ func (x *UpdatePayrollRequest) String() string {
 func (*UpdatePayrollRequest) ProtoMessage() {}
 
 func (x *UpdatePayrollRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[17]
+	mi := &file_human_resource_service_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1460,7 +1460,7 @@ func (x *UpdatePayrollRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdatePayrollRequest.ProtoReflect.Descriptor instead.
 func (*UpdatePayrollRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{17}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *UpdatePayrollRequest) GetPayrollId() int32 {
@@ -1522,7 +1522,7 @@ type UpdatePayrollResponse struct {
 
 func (x *UpdatePayrollResponse) Reset() {
 	*x = UpdatePayrollResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[18]
+	mi := &file_human_resource_service_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1534,7 +1534,7 @@ func (x *UpdatePayrollResponse) String() string {
 func (*UpdatePayrollResponse) ProtoMessage() {}
 
 func (x *UpdatePayrollResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[18]
+	mi := &file_human_resource_service_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1547,7 +1547,7 @@ func (x *UpdatePayrollResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdatePayrollResponse.ProtoReflect.Descriptor instead.
 func (*UpdatePayrollResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{18}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *UpdatePayrollResponse) GetSuccess() bool {
@@ -1573,7 +1573,7 @@ type DeletePayrollRequest struct {
 
 func (x *DeletePayrollRequest) Reset() {
 	*x = DeletePayrollRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[19]
+	mi := &file_human_resource_service_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1585,7 +1585,7 @@ func (x *DeletePayrollRequest) String() string {
 func (*DeletePayrollRequest) ProtoMessage() {}
 
 func (x *DeletePayrollRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[19]
+	mi := &file_human_resource_service_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1598,7 +1598,7 @@ func (x *DeletePayrollRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeletePayrollRequest.ProtoReflect.Descriptor instead.
 func (*DeletePayrollRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{19}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *DeletePayrollRequest) GetPayrollId() int32 {
@@ -1618,7 +1618,7 @@ type DeletePayrollResponse struct {
 
 func (x *DeletePayrollResponse) Reset() {
 	*x = DeletePayrollResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[20]
+	mi := &file_human_resource_service_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1630,7 +1630,7 @@ func (x *DeletePayrollResponse) String() string {
 func (*DeletePayrollResponse) ProtoMessage() {}
 
 func (x *DeletePayrollResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[20]
+	mi := &file_human_resource_service_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1643,7 +1643,7 @@ func (x *DeletePayrollResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeletePayrollResponse.ProtoReflect.Descriptor instead.
 func (*DeletePayrollResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{20}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *DeletePayrollResponse) GetSuccess() bool {
@@ -1668,7 +1668,7 @@ type ListPayrollsRequest struct {
 
 func (x *ListPayrollsRequest) Reset() {
 	*x = ListPayrollsRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[21]
+	mi := &file_human_resource_service_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1680,7 +1680,7 @@ func (x *ListPayrollsRequest) String() string {
 func (*ListPayrollsRequest) ProtoMessage() {}
 
 func (x *ListPayrollsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[21]
+	mi := &file_human_resource_service_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1693,7 +1693,7 @@ func (x *ListPayrollsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListPayrollsRequest.ProtoReflect.Descriptor instead.
 func (*ListPayrollsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{21}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{21}
 }
 
 type ListPayrollsResponse struct {
@@ -1705,7 +1705,7 @@ type ListPayrollsResponse struct {
 
 func (x *ListPayrollsResponse) Reset() {
 	*x = ListPayrollsResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[22]
+	mi := &file_human_resource_service_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1717,7 +1717,7 @@ func (x *ListPayrollsResponse) String() string {
 func (*ListPayrollsResponse) ProtoMessage() {}
 
 func (x *ListPayrollsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[22]
+	mi := &file_human_resource_service_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1730,7 +1730,7 @@ func (x *ListPayrollsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListPayrollsResponse.ProtoReflect.Descriptor instead.
 func (*ListPayrollsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{22}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *ListPayrollsResponse) GetPayrolls() []*GetPayrollResponse {
@@ -1752,7 +1752,7 @@ type AddPayrollDetailRequest struct {
 
 func (x *AddPayrollDetailRequest) Reset() {
 	*x = AddPayrollDetailRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[23]
+	mi := &file_human_resource_service_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1764,7 +1764,7 @@ func (x *AddPayrollDetailRequest) String() string {
 func (*AddPayrollDetailRequest) ProtoMessage() {}
 
 func (x *AddPayrollDetailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[23]
+	mi := &file_human_resource_service_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1777,7 +1777,7 @@ func (x *AddPayrollDetailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddPayrollDetailRequest.ProtoReflect.Descriptor instead.
 func (*AddPayrollDetailRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{23}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *AddPayrollDetailRequest) GetPayrollId() int32 {
@@ -1819,7 +1819,7 @@ type AddPayrollDetailResponse struct {
 
 func (x *AddPayrollDetailResponse) Reset() {
 	*x = AddPayrollDetailResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[24]
+	mi := &file_human_resource_service_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1831,7 +1831,7 @@ func (x *AddPayrollDetailResponse) String() string {
 func (*AddPayrollDetailResponse) ProtoMessage() {}
 
 func (x *AddPayrollDetailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[24]
+	mi := &file_human_resource_service_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1844,7 +1844,7 @@ func (x *AddPayrollDetailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddPayrollDetailResponse.ProtoReflect.Descriptor instead.
 func (*AddPayrollDetailResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{24}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *AddPayrollDetailResponse) GetDetailId() int32 {
@@ -1878,7 +1878,7 @@ type PayItem struct {
 
 func (x *PayItem) Reset() {
 	*x = PayItem{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[25]
+	mi := &file_human_resource_service_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1890,7 +1890,7 @@ func (x *PayItem) String() string {
 func (*PayItem) ProtoMessage() {}
 
 func (x *PayItem) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[25]
+	mi := &file_human_resource_service_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1903,7 +1903,7 @@ func (x *PayItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PayItem.ProtoReflect.Descriptor instead.
 func (*PayItem) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{25}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *PayItem) GetName() string {
@@ -1929,7 +1929,7 @@ type GetPayslipRequest struct {
 
 func (x *GetPayslipRequest) Reset() {
 	*x = GetPayslipRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[26]
+	mi := &file_human_resource_service_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1941,7 +1941,7 @@ func (x *GetPayslipRequest) String() string {
 func (*GetPayslipRequest) ProtoMessage() {}
 
 func (x *GetPayslipRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[26]
+	mi := &file_human_resource_service_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1954,7 +1954,7 @@ func (x *GetPayslipRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPayslipRequest.ProtoReflect.Descriptor instead.
 func (*GetPayslipRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{26}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *GetPayslipRequest) GetPayrollId() int32 {
@@ -2002,7 +2002,7 @@ type GetPayslipResponse struct {
 
 func (x *GetPayslipResponse) Reset() {
 	*x = GetPayslipResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[27]
+	mi := &file_human_resource_service_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2014,7 +2014,7 @@ func (x *GetPayslipResponse) String() string {
 func (*GetPayslipResponse) ProtoMessage() {}
 
 func (x *GetPayslipResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[27]
+	mi := &file_human_resource_service_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2027,7 +2027,7 @@ func (x *GetPayslipResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPayslipResponse.ProtoReflect.Descriptor instead.
 func (*GetPayslipResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{27}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetPayslipResponse) GetPayslipId() string {
@@ -2211,7 +2211,7 @@ type RequestLeaveRequest struct {
 
 func (x *RequestLeaveRequest) Reset() {
 	*x = RequestLeaveRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[28]
+	mi := &file_human_resource_service_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2223,7 +2223,7 @@ func (x *RequestLeaveRequest) String() string {
 func (*RequestLeaveRequest) ProtoMessage() {}
 
 func (x *RequestLeaveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[28]
+	mi := &file_human_resource_service_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2236,7 +2236,7 @@ func (x *RequestLeaveRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLeaveRequest.ProtoReflect.Descriptor instead.
 func (*RequestLeaveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{28}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *RequestLeaveRequest) GetStaffId() int32 {
@@ -2285,7 +2285,7 @@ type RequestLeaveResponse struct {
 
 func (x *RequestLeaveResponse) Reset() {
 	*x = RequestLeaveResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[29]
+	mi := &file_human_resource_service_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2297,7 +2297,7 @@ func (x *RequestLeaveResponse) String() string {
 func (*RequestLeaveResponse) ProtoMessage() {}
 
 func (x *RequestLeaveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[29]
+	mi := &file_human_resource_service_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2310,7 +2310,7 @@ func (x *RequestLeaveResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLeaveResponse.ProtoReflect.Descriptor instead.
 func (*RequestLeaveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{29}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *RequestLeaveResponse) GetLeaveId() int32 {
@@ -2343,7 +2343,7 @@ type GetLeaveRequest struct {
 
 func (x *GetLeaveRequest) Reset() {
 	*x = GetLeaveRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[30]
+	mi := &file_human_resource_service_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2355,7 +2355,7 @@ func (x *GetLeaveRequest) String() string {
 func (*GetLeaveRequest) ProtoMessage() {}
 
 func (x *GetLeaveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[30]
+	mi := &file_human_resource_service_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2368,7 +2368,7 @@ func (x *GetLeaveRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLeaveRequest.ProtoReflect.Descriptor instead.
 func (*GetLeaveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{30}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *GetLeaveRequest) GetLeaveId() int32 {
@@ -2401,7 +2401,7 @@ type GetLeaveResponse struct {
 
 func (x *GetLeaveResponse) Reset() {
 	*x = GetLeaveResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[31]
+	mi := &file_human_resource_service_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2413,7 +2413,7 @@ func (x *GetLeaveResponse) String() string {
 func (*GetLeaveResponse) ProtoMessage() {}
 
 func (x *GetLeaveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[31]
+	mi := &file_human_resource_service_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2426,7 +2426,7 @@ func (x *GetLeaveResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLeaveResponse.ProtoReflect.Descriptor instead.
 func (*GetLeaveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{31}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *GetLeaveResponse) GetLeaveId() int32 {
@@ -2546,7 +2546,7 @@ type ApproveLeaveRequest struct {
 
 func (x *ApproveLeaveRequest) Reset() {
 	*x = ApproveLeaveRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[32]
+	mi := &file_human_resource_service_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2558,7 +2558,7 @@ func (x *ApproveLeaveRequest) String() string {
 func (*ApproveLeaveRequest) ProtoMessage() {}
 
 func (x *ApproveLeaveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[32]
+	mi := &file_human_resource_service_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2571,7 +2571,7 @@ func (x *ApproveLeaveRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApproveLeaveRequest.ProtoReflect.Descriptor instead.
 func (*ApproveLeaveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{32}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *ApproveLeaveRequest) GetLeaveId() int32 {
@@ -2612,7 +2612,7 @@ type ApproveLeaveResponse struct {
 
 func (x *ApproveLeaveResponse) Reset() {
 	*x = ApproveLeaveResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[33]
+	mi := &file_human_resource_service_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2624,7 +2624,7 @@ func (x *ApproveLeaveResponse) String() string {
 func (*ApproveLeaveResponse) ProtoMessage() {}
 
 func (x *ApproveLeaveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[33]
+	mi := &file_human_resource_service_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2637,7 +2637,7 @@ func (x *ApproveLeaveResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApproveLeaveResponse.ProtoReflect.Descriptor instead.
 func (*ApproveLeaveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{33}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *ApproveLeaveResponse) GetSuccess() bool {
@@ -2662,7 +2662,7 @@ type ListLeaveRequestsRequest struct {
 
 func (x *ListLeaveRequestsRequest) Reset() {
 	*x = ListLeaveRequestsRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[34]
+	mi := &file_human_resource_service_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2674,7 +2674,7 @@ func (x *ListLeaveRequestsRequest) String() string {
 func (*ListLeaveRequestsRequest) ProtoMessage() {}
 
 func (x *ListLeaveRequestsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[34]
+	mi := &file_human_resource_service_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2687,7 +2687,7 @@ func (x *ListLeaveRequestsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListLeaveRequestsRequest.ProtoReflect.Descriptor instead.
 func (*ListLeaveRequestsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{34}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{34}
 }
 
 type ListLeaveRequestsResponse struct {
@@ -2699,7 +2699,7 @@ type ListLeaveRequestsResponse struct {
 
 func (x *ListLeaveRequestsResponse) Reset() {
 	*x = ListLeaveRequestsResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[35]
+	mi := &file_human_resource_service_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2711,7 +2711,7 @@ func (x *ListLeaveRequestsResponse) String() string {
 func (*ListLeaveRequestsResponse) ProtoMessage() {}
 
 func (x *ListLeaveRequestsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[35]
+	mi := &file_human_resource_service_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2724,7 +2724,7 @@ func (x *ListLeaveRequestsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListLeaveRequestsResponse.ProtoReflect.Descriptor instead.
 func (*ListLeaveRequestsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{35}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *ListLeaveRequestsResponse) GetLeaveRequests() []*GetLeaveResponse {
@@ -2747,7 +2747,7 @@ type LeaveBalance struct {
 
 func (x *LeaveBalance) Reset() {
 	*x = LeaveBalance{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[36]
+	mi := &file_human_resource_service_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2759,7 +2759,7 @@ func (x *LeaveBalance) String() string {
 func (*LeaveBalance) ProtoMessage() {}
 
 func (x *LeaveBalance) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[36]
+	mi := &file_human_resource_service_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2772,7 +2772,7 @@ func (x *LeaveBalance) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LeaveBalance.ProtoReflect.Descriptor instead.
 func (*LeaveBalance) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{36}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *LeaveBalance) GetLeaveType() string {
@@ -2821,7 +2821,7 @@ type GetLeaveBalanceRequest struct {
 
 func (x *GetLeaveBalanceRequest) Reset() {
 	*x = GetLeaveBalanceRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[37]
+	mi := &file_human_resource_service_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2833,7 +2833,7 @@ func (x *GetLeaveBalanceRequest) String() string {
 func (*GetLeaveBalanceRequest) ProtoMessage() {}
 
 func (x *GetLeaveBalanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[37]
+	mi := &file_human_resource_service_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2846,7 +2846,7 @@ func (x *GetLeaveBalanceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLeaveBalanceRequest.ProtoReflect.Descriptor instead.
 func (*GetLeaveBalanceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{37}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *GetLeaveBalanceRequest) GetStaffId() int32 {
@@ -2879,7 +2879,7 @@ type GetLeaveBalanceResponse struct {
 
 func (x *GetLeaveBalanceResponse) Reset() {
 	*x = GetLeaveBalanceResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[38]
+	mi := &file_human_resource_service_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2891,7 +2891,7 @@ func (x *GetLeaveBalanceResponse) String() string {
 func (*GetLeaveBalanceResponse) ProtoMessage() {}
 
 func (x *GetLeaveBalanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[38]
+	mi := &file_human_resource_service_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2904,7 +2904,7 @@ func (x *GetLeaveBalanceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLeaveBalanceResponse.ProtoReflect.Descriptor instead.
 func (*GetLeaveBalanceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{38}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *GetLeaveBalanceResponse) GetRemaining() int32 {
@@ -2924,7 +2924,7 @@ type GetStaffLeaveBalancesRequest struct {
 
 func (x *GetStaffLeaveBalancesRequest) Reset() {
 	*x = GetStaffLeaveBalancesRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[39]
+	mi := &file_human_resource_service_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2936,7 +2936,7 @@ func (x *GetStaffLeaveBalancesRequest) String() string {
 func (*GetStaffLeaveBalancesRequest) ProtoMessage() {}
 
 func (x *GetStaffLeaveBalancesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[39]
+	mi := &file_human_resource_service_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2949,7 +2949,7 @@ func (x *GetStaffLeaveBalancesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStaffLeaveBalancesRequest.ProtoReflect.Descriptor instead.
 func (*GetStaffLeaveBalancesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{39}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *GetStaffLeaveBalancesRequest) GetStaffId() int32 {
@@ -2975,7 +2975,7 @@ type GetStaffLeaveBalancesResponse struct {
 
 func (x *GetStaffLeaveBalancesResponse) Reset() {
 	*x = GetStaffLeaveBalancesResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[40]
+	mi := &file_human_resource_service_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2987,7 +2987,7 @@ func (x *GetStaffLeaveBalancesResponse) String() string {
 func (*GetStaffLeaveBalancesResponse) ProtoMessage() {}
 
 func (x *GetStaffLeaveBalancesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[40]
+	mi := &file_human_resource_service_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3000,7 +3000,7 @@ func (x *GetStaffLeaveBalancesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStaffLeaveBalancesResponse.ProtoReflect.Descriptor instead.
 func (*GetStaffLeaveBalancesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{40}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *GetStaffLeaveBalancesResponse) GetBalances() []*LeaveBalance {
@@ -3022,7 +3022,7 @@ type SetLeaveEntitlementRequest struct {
 
 func (x *SetLeaveEntitlementRequest) Reset() {
 	*x = SetLeaveEntitlementRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[41]
+	mi := &file_human_resource_service_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3034,7 +3034,7 @@ func (x *SetLeaveEntitlementRequest) String() string {
 func (*SetLeaveEntitlementRequest) ProtoMessage() {}
 
 func (x *SetLeaveEntitlementRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[41]
+	mi := &file_human_resource_service_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3047,7 +3047,7 @@ func (x *SetLeaveEntitlementRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLeaveEntitlementRequest.ProtoReflect.Descriptor instead.
 func (*SetLeaveEntitlementRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{41}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *SetLeaveEntitlementRequest) GetStaffId() int32 {
@@ -3088,7 +3088,7 @@ type SetLeaveEntitlementResponse struct {
 
 func (x *SetLeaveEntitlementResponse) Reset() {
 	*x = SetLeaveEntitlementResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[42]
+	mi := &file_human_resource_service_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3100,7 +3100,7 @@ func (x *SetLeaveEntitlementResponse) String() string {
 func (*SetLeaveEntitlementResponse) ProtoMessage() {}
 
 func (x *SetLeaveEntitlementResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[42]
+	mi := &file_human_resource_service_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3113,7 +3113,7 @@ func (x *SetLeaveEntitlementResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLeaveEntitlementResponse.ProtoReflect.Descriptor instead.
 func (*SetLeaveEntitlementResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{42}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *SetLeaveEntitlementResponse) GetSuccess() bool {
@@ -3141,7 +3141,7 @@ type CreateDepartmentRequest struct {
 
 func (x *CreateDepartmentRequest) Reset() {
 	*x = CreateDepartmentRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[43]
+	mi := &file_human_resource_service_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3153,7 +3153,7 @@ func (x *CreateDepartmentRequest) String() string {
 func (*CreateDepartmentRequest) ProtoMessage() {}
 
 func (x *CreateDepartmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[43]
+	mi := &file_human_resource_service_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3166,7 +3166,7 @@ func (x *CreateDepartmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateDepartmentRequest.ProtoReflect.Descriptor instead.
 func (*CreateDepartmentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{43}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *CreateDepartmentRequest) GetDepartmentName() string {
@@ -3201,7 +3201,7 @@ type CreateDepartmentResponse struct {
 
 func (x *CreateDepartmentResponse) Reset() {
 	*x = CreateDepartmentResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[44]
+	mi := &file_human_resource_service_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3213,7 +3213,7 @@ func (x *CreateDepartmentResponse) String() string {
 func (*CreateDepartmentResponse) ProtoMessage() {}
 
 func (x *CreateDepartmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[44]
+	mi := &file_human_resource_service_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3226,7 +3226,7 @@ func (x *CreateDepartmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateDepartmentResponse.ProtoReflect.Descriptor instead.
 func (*CreateDepartmentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{44}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *CreateDepartmentResponse) GetDepartmentId() int32 {
@@ -3259,7 +3259,7 @@ type GetDepartmentRequest struct {
 
 func (x *GetDepartmentRequest) Reset() {
 	*x = GetDepartmentRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[45]
+	mi := &file_human_resource_service_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3271,7 +3271,7 @@ func (x *GetDepartmentRequest) String() string {
 func (*GetDepartmentRequest) ProtoMessage() {}
 
 func (x *GetDepartmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[45]
+	mi := &file_human_resource_service_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3284,7 +3284,7 @@ func (x *GetDepartmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDepartmentRequest.ProtoReflect.Descriptor instead.
 func (*GetDepartmentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{45}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *GetDepartmentRequest) GetDepartmentId() int32 {
@@ -3308,7 +3308,7 @@ type GetDepartmentResponse struct {
 
 func (x *GetDepartmentResponse) Reset() {
 	*x = GetDepartmentResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[46]
+	mi := &file_human_resource_service_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3320,7 +3320,7 @@ func (x *GetDepartmentResponse) String() string {
 func (*GetDepartmentResponse) ProtoMessage() {}
 
 func (x *GetDepartmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[46]
+	mi := &file_human_resource_service_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3333,7 +3333,7 @@ func (x *GetDepartmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDepartmentResponse.ProtoReflect.Descriptor instead.
 func (*GetDepartmentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{46}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *GetDepartmentResponse) GetDepartmentId() int32 {
@@ -3387,7 +3387,7 @@ type DeleteDepartmentRequest struct {
 
 func (x *DeleteDepartmentRequest) Reset() {
 	*x = DeleteDepartmentRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[47]
+	mi := &file_human_resource_service_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3399,7 +3399,7 @@ func (x *DeleteDepartmentRequest) String() string {
 func (*DeleteDepartmentRequest) ProtoMessage() {}
 
 func (x *DeleteDepartmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[47]
+	mi := &file_human_resource_service_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3412,7 +3412,7 @@ func (x *DeleteDepartmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteDepartmentRequest.ProtoReflect.Descriptor instead.
 func (*DeleteDepartmentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{47}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *DeleteDepartmentRequest) GetDepartmentId() int32 {
@@ -3432,7 +3432,7 @@ type DeleteDepartmentResponse struct {
 
 func (x *DeleteDepartmentResponse) Reset() {
 	*x = DeleteDepartmentResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[48]
+	mi := &file_human_resource_service_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3444,7 +3444,7 @@ func (x *DeleteDepartmentResponse) String() string {
 func (*DeleteDepartmentResponse) ProtoMessage() {}
 
 func (x *DeleteDepartmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[48]
+	mi := &file_human_resource_service_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3457,7 +3457,7 @@ func (x *DeleteDepartmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteDepartmentResponse.ProtoReflect.Descriptor instead.
 func (*DeleteDepartmentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{48}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *DeleteDepartmentResponse) GetSuccess() bool {
@@ -3486,7 +3486,7 @@ type UpdateDepartmentRequest struct {
 
 func (x *UpdateDepartmentRequest) Reset() {
 	*x = UpdateDepartmentRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[49]
+	mi := &file_human_resource_service_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3498,7 +3498,7 @@ func (x *UpdateDepartmentRequest) String() string {
 func (*UpdateDepartmentRequest) ProtoMessage() {}
 
 func (x *UpdateDepartmentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[49]
+	mi := &file_human_resource_service_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3511,7 +3511,7 @@ func (x *UpdateDepartmentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateDepartmentRequest.ProtoReflect.Descriptor instead.
 func (*UpdateDepartmentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{49}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *UpdateDepartmentRequest) GetDepartmentId() int32 {
@@ -3552,7 +3552,7 @@ type UpdateDepartmentResponse struct {
 
 func (x *UpdateDepartmentResponse) Reset() {
 	*x = UpdateDepartmentResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[50]
+	mi := &file_human_resource_service_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3564,7 +3564,7 @@ func (x *UpdateDepartmentResponse) String() string {
 func (*UpdateDepartmentResponse) ProtoMessage() {}
 
 func (x *UpdateDepartmentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[50]
+	mi := &file_human_resource_service_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3577,7 +3577,7 @@ func (x *UpdateDepartmentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateDepartmentResponse.ProtoReflect.Descriptor instead.
 func (*UpdateDepartmentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{50}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *UpdateDepartmentResponse) GetSuccess() bool {
@@ -3602,7 +3602,7 @@ type ListDepartmentsRequest struct {
 
 func (x *ListDepartmentsRequest) Reset() {
 	*x = ListDepartmentsRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[51]
+	mi := &file_human_resource_service_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3614,7 +3614,7 @@ func (x *ListDepartmentsRequest) String() string {
 func (*ListDepartmentsRequest) ProtoMessage() {}
 
 func (x *ListDepartmentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[51]
+	mi := &file_human_resource_service_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3627,7 +3627,7 @@ func (x *ListDepartmentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListDepartmentsRequest.ProtoReflect.Descriptor instead.
 func (*ListDepartmentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{51}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{51}
 }
 
 type ListDepartmentsResponse struct {
@@ -3639,7 +3639,7 @@ type ListDepartmentsResponse struct {
 
 func (x *ListDepartmentsResponse) Reset() {
 	*x = ListDepartmentsResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[52]
+	mi := &file_human_resource_service_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3651,7 +3651,7 @@ func (x *ListDepartmentsResponse) String() string {
 func (*ListDepartmentsResponse) ProtoMessage() {}
 
 func (x *ListDepartmentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[52]
+	mi := &file_human_resource_service_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3664,7 +3664,7 @@ func (x *ListDepartmentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListDepartmentsResponse.ProtoReflect.Descriptor instead.
 func (*ListDepartmentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{52}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *ListDepartmentsResponse) GetDepartments() []*GetDepartmentResponse {
@@ -3689,7 +3689,7 @@ type RecordAttendanceRequest struct {
 
 func (x *RecordAttendanceRequest) Reset() {
 	*x = RecordAttendanceRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[53]
+	mi := &file_human_resource_service_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3701,7 +3701,7 @@ func (x *RecordAttendanceRequest) String() string {
 func (*RecordAttendanceRequest) ProtoMessage() {}
 
 func (x *RecordAttendanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[53]
+	mi := &file_human_resource_service_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3714,7 +3714,7 @@ func (x *RecordAttendanceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RecordAttendanceRequest.ProtoReflect.Descriptor instead.
 func (*RecordAttendanceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{53}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *RecordAttendanceRequest) GetStaffId() int32 {
@@ -3777,7 +3777,7 @@ type RecordAttendanceResponse struct {
 
 func (x *RecordAttendanceResponse) Reset() {
 	*x = RecordAttendanceResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[54]
+	mi := &file_human_resource_service_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3789,7 +3789,7 @@ func (x *RecordAttendanceResponse) String() string {
 func (*RecordAttendanceResponse) ProtoMessage() {}
 
 func (x *RecordAttendanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[54]
+	mi := &file_human_resource_service_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3802,7 +3802,7 @@ func (x *RecordAttendanceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RecordAttendanceResponse.ProtoReflect.Descriptor instead.
 func (*RecordAttendanceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{54}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *RecordAttendanceResponse) GetAttendanceId() int32 {
@@ -3835,7 +3835,7 @@ type GetAttendanceRequest struct {
 
 func (x *GetAttendanceRequest) Reset() {
 	*x = GetAttendanceRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[55]
+	mi := &file_human_resource_service_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3847,7 +3847,7 @@ func (x *GetAttendanceRequest) String() string {
 func (*GetAttendanceRequest) ProtoMessage() {}
 
 func (x *GetAttendanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[55]
+	mi := &file_human_resource_service_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3860,7 +3860,7 @@ func (x *GetAttendanceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAttendanceRequest.ProtoReflect.Descriptor instead.
 func (*GetAttendanceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{55}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *GetAttendanceRequest) GetAttendanceId() int32 {
@@ -3892,7 +3892,7 @@ type GetAttendanceResponse struct {
 
 func (x *GetAttendanceResponse) Reset() {
 	*x = GetAttendanceResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[56]
+	mi := &file_human_resource_service_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3904,7 +3904,7 @@ func (x *GetAttendanceResponse) String() string {
 func (*GetAttendanceResponse) ProtoMessage() {}
 
 func (x *GetAttendanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[56]
+	mi := &file_human_resource_service_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3917,7 +3917,7 @@ func (x *GetAttendanceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAttendanceResponse.ProtoReflect.Descriptor instead.
 func (*GetAttendanceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{56}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *GetAttendanceResponse) GetAttendanceId() int32 {
@@ -4029,7 +4029,7 @@ type ListAttendanceRequest struct {
 
 func (x *ListAttendanceRequest) Reset() {
 	*x = ListAttendanceRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[57]
+	mi := &file_human_resource_service_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4041,7 +4041,7 @@ func (x *ListAttendanceRequest) String() string {
 func (*ListAttendanceRequest) ProtoMessage() {}
 
 func (x *ListAttendanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[57]
+	mi := &file_human_resource_service_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4054,7 +4054,7 @@ func (x *ListAttendanceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAttendanceRequest.ProtoReflect.Descriptor instead.
 func (*ListAttendanceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{57}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *ListAttendanceRequest) GetStaffId() int32 {
@@ -4087,7 +4087,7 @@ type ListAttendanceResponse struct {
 
 func (x *ListAttendanceResponse) Reset() {
 	*x = ListAttendanceResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[58]
+	mi := &file_human_resource_service_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4099,7 +4099,7 @@ func (x *ListAttendanceResponse) String() string {
 func (*ListAttendanceResponse) ProtoMessage() {}
 
 func (x *ListAttendanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[58]
+	mi := &file_human_resource_service_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4112,7 +4112,7 @@ func (x *ListAttendanceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAttendanceResponse.ProtoReflect.Descriptor instead.
 func (*ListAttendanceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{58}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *ListAttendanceResponse) GetAttendance() []*GetAttendanceResponse {
@@ -4143,7 +4143,7 @@ type DepartmentAttendanceStats struct {
 
 func (x *DepartmentAttendanceStats) Reset() {
 	*x = DepartmentAttendanceStats{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[59]
+	mi := &file_human_resource_service_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4155,7 +4155,7 @@ func (x *DepartmentAttendanceStats) String() string {
 func (*DepartmentAttendanceStats) ProtoMessage() {}
 
 func (x *DepartmentAttendanceStats) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[59]
+	mi := &file_human_resource_service_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4168,7 +4168,7 @@ func (x *DepartmentAttendanceStats) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DepartmentAttendanceStats.ProtoReflect.Descriptor instead.
 func (*DepartmentAttendanceStats) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{59}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *DepartmentAttendanceStats) GetDepartmentId() int32 {
@@ -4273,7 +4273,7 @@ type GetAttendanceStatisticsRequest struct {
 
 func (x *GetAttendanceStatisticsRequest) Reset() {
 	*x = GetAttendanceStatisticsRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[60]
+	mi := &file_human_resource_service_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4285,7 +4285,7 @@ func (x *GetAttendanceStatisticsRequest) String() string {
 func (*GetAttendanceStatisticsRequest) ProtoMessage() {}
 
 func (x *GetAttendanceStatisticsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[60]
+	mi := &file_human_resource_service_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4298,7 +4298,7 @@ func (x *GetAttendanceStatisticsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAttendanceStatisticsRequest.ProtoReflect.Descriptor instead.
 func (*GetAttendanceStatisticsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{60}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *GetAttendanceStatisticsRequest) GetDepartmentId() int32 {
@@ -4343,7 +4343,7 @@ type GetAttendanceStatisticsResponse struct {
 
 func (x *GetAttendanceStatisticsResponse) Reset() {
 	*x = GetAttendanceStatisticsResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[61]
+	mi := &file_human_resource_service_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4355,7 +4355,7 @@ func (x *GetAttendanceStatisticsResponse) String() string {
 func (*GetAttendanceStatisticsResponse) ProtoMessage() {}
 
 func (x *GetAttendanceStatisticsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[61]
+	mi := &file_human_resource_service_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4368,7 +4368,7 @@ func (x *GetAttendanceStatisticsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAttendanceStatisticsResponse.ProtoReflect.Descriptor instead.
 func (*GetAttendanceStatisticsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{61}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *GetAttendanceStatisticsResponse) GetMonth() int32 {
@@ -4479,7 +4479,7 @@ type StaffBenefit struct {
 
 func (x *StaffBenefit) Reset() {
 	*x = StaffBenefit{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[62]
+	mi := &file_human_resource_service_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4491,7 +4491,7 @@ func (x *StaffBenefit) String() string {
 func (*StaffBenefit) ProtoMessage() {}
 
 func (x *StaffBenefit) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[62]
+	mi := &file_human_resource_service_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4504,7 +4504,7 @@ func (x *StaffBenefit) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StaffBenefit.ProtoReflect.Descriptor instead.
 func (*StaffBenefit) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{62}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *StaffBenefit) GetBenefitId() int32 {
@@ -4587,7 +4587,7 @@ type AddStaffBenefitRequest struct {
 
 func (x *AddStaffBenefitRequest) Reset() {
 	*x = AddStaffBenefitRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[63]
+	mi := &file_human_resource_service_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4599,7 +4599,7 @@ func (x *AddStaffBenefitRequest) String() string {
 func (*AddStaffBenefitRequest) ProtoMessage() {}
 
 func (x *AddStaffBenefitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[63]
+	mi := &file_human_resource_service_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4612,7 +4612,7 @@ func (x *AddStaffBenefitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddStaffBenefitRequest.ProtoReflect.Descriptor instead.
 func (*AddStaffBenefitRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{63}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *AddStaffBenefitRequest) GetStaffId() int32 {
@@ -4689,7 +4689,7 @@ type AddStaffBenefitResponse struct {
 
 func (x *AddStaffBenefitResponse) Reset() {
 	*x = AddStaffBenefitResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[64]
+	mi := &file_human_resource_service_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4701,7 +4701,7 @@ func (x *AddStaffBenefitResponse) String() string {
 func (*AddStaffBenefitResponse) ProtoMessage() {}
 
 func (x *AddStaffBenefitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[64]
+	mi := &file_human_resource_service_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4714,7 +4714,7 @@ func (x *AddStaffBenefitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddStaffBenefitResponse.ProtoReflect.Descriptor instead.
 func (*AddStaffBenefitResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{64}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *AddStaffBenefitResponse) GetBenefitId() int32 {
@@ -4748,7 +4748,7 @@ type RemoveStaffBenefitRequest struct {
 
 func (x *RemoveStaffBenefitRequest) Reset() {
 	*x = RemoveStaffBenefitRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[65]
+	mi := &file_human_resource_service_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4760,7 +4760,7 @@ func (x *RemoveStaffBenefitRequest) String() string {
 func (*RemoveStaffBenefitRequest) ProtoMessage() {}
 
 func (x *RemoveStaffBenefitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[65]
+	mi := &file_human_resource_service_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4773,7 +4773,7 @@ func (x *RemoveStaffBenefitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveStaffBenefitRequest.ProtoReflect.Descriptor instead.
 func (*RemoveStaffBenefitRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{65}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *RemoveStaffBenefitRequest) GetStaffId() int32 {
@@ -4800,7 +4800,7 @@ type RemoveStaffBenefitResponse struct {
 
 func (x *RemoveStaffBenefitResponse) Reset() {
 	*x = RemoveStaffBenefitResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[66]
+	mi := &file_human_resource_service_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4812,7 +4812,7 @@ func (x *RemoveStaffBenefitResponse) String() string {
 func (*RemoveStaffBenefitResponse) ProtoMessage() {}
 
 func (x *RemoveStaffBenefitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[66]
+	mi := &file_human_resource_service_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4825,7 +4825,7 @@ func (x *RemoveStaffBenefitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveStaffBenefitResponse.ProtoReflect.Descriptor instead.
 func (*RemoveStaffBenefitResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{66}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *RemoveStaffBenefitResponse) GetSuccess() bool {
@@ -4853,7 +4853,7 @@ type ListStaffBenefitsRequest struct {
 
 func (x *ListStaffBenefitsRequest) Reset() {
 	*x = ListStaffBenefitsRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[67]
+	mi := &file_human_resource_service_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4865,7 +4865,7 @@ func (x *ListStaffBenefitsRequest) String() string {
 func (*ListStaffBenefitsRequest) ProtoMessage() {}
 
 func (x *ListStaffBenefitsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[67]
+	mi := &file_human_resource_service_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4878,7 +4878,7 @@ func (x *ListStaffBenefitsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListStaffBenefitsRequest.ProtoReflect.Descriptor instead.
 func (*ListStaffBenefitsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{67}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *ListStaffBenefitsRequest) GetStaffId() int32 {
@@ -4911,7 +4911,7 @@ type ListStaffBenefitsResponse struct {
 
 func (x *ListStaffBenefitsResponse) Reset() {
 	*x = ListStaffBenefitsResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[68]
+	mi := &file_human_resource_service_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4923,7 +4923,7 @@ func (x *ListStaffBenefitsResponse) String() string {
 func (*ListStaffBenefitsResponse) ProtoMessage() {}
 
 func (x *ListStaffBenefitsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[68]
+	mi := &file_human_resource_service_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4936,7 +4936,7 @@ func (x *ListStaffBenefitsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListStaffBenefitsResponse.ProtoReflect.Descriptor instead.
 func (*ListStaffBenefitsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{68}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *ListStaffBenefitsResponse) GetBenefits() []*StaffBenefit {
@@ -4962,7 +4962,7 @@ type StaffBankDetails struct {
 
 func (x *StaffBankDetails) Reset() {
 	*x = StaffBankDetails{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[69]
+	mi := &file_human_resource_service_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4974,7 +4974,7 @@ func (x *StaffBankDetails) String() string {
 func (*StaffBankDetails) ProtoMessage() {}
 
 func (x *StaffBankDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[69]
+	mi := &file_human_resource_service_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4987,7 +4987,7 @@ func (x *StaffBankDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StaffBankDetails.ProtoReflect.Descriptor instead.
 func (*StaffBankDetails) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{69}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *StaffBankDetails) GetId() int32 {
@@ -5055,7 +5055,7 @@ type GetStaffBankDetailsRequest struct {
 
 func (x *GetStaffBankDetailsRequest) Reset() {
 	*x = GetStaffBankDetailsRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[70]
+	mi := &file_human_resource_service_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5067,7 +5067,7 @@ func (x *GetStaffBankDetailsRequest) String() string {
 func (*GetStaffBankDetailsRequest) ProtoMessage() {}
 
 func (x *GetStaffBankDetailsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[70]
+	mi := &file_human_resource_service_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5080,7 +5080,7 @@ func (x *GetStaffBankDetailsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStaffBankDetailsRequest.ProtoReflect.Descriptor instead.
 func (*GetStaffBankDetailsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{70}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *GetStaffBankDetailsRequest) GetStaffId() int32 {
@@ -5100,7 +5100,7 @@ type GetStaffBankDetailsResponse struct {
 
 func (x *GetStaffBankDetailsResponse) Reset() {
 	*x = GetStaffBankDetailsResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[71]
+	mi := &file_human_resource_service_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5112,7 +5112,7 @@ func (x *GetStaffBankDetailsResponse) String() string {
 func (*GetStaffBankDetailsResponse) ProtoMessage() {}
 
 func (x *GetStaffBankDetailsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[71]
+	mi := &file_human_resource_service_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5125,7 +5125,7 @@ func (x *GetStaffBankDetailsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStaffBankDetailsResponse.ProtoReflect.Descriptor instead.
 func (*GetStaffBankDetailsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{71}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetStaffBankDetailsResponse) GetBankDetails() *StaffBankDetails {
@@ -5154,7 +5154,7 @@ type UpsertStaffBankDetailsRequest struct {
 
 func (x *UpsertStaffBankDetailsRequest) Reset() {
 	*x = UpsertStaffBankDetailsRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[72]
+	mi := &file_human_resource_service_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5166,7 +5166,7 @@ func (x *UpsertStaffBankDetailsRequest) String() string {
 func (*UpsertStaffBankDetailsRequest) ProtoMessage() {}
 
 func (x *UpsertStaffBankDetailsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[72]
+	mi := &file_human_resource_service_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5179,7 +5179,7 @@ func (x *UpsertStaffBankDetailsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpsertStaffBankDetailsRequest.ProtoReflect.Descriptor instead.
 func (*UpsertStaffBankDetailsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{72}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *UpsertStaffBankDetailsRequest) GetStaffId() int32 {
@@ -5221,7 +5221,7 @@ type UpsertStaffBankDetailsResponse struct {
 
 func (x *UpsertStaffBankDetailsResponse) Reset() {
 	*x = UpsertStaffBankDetailsResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[73]
+	mi := &file_human_resource_service_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5233,7 +5233,7 @@ func (x *UpsertStaffBankDetailsResponse) String() string {
 func (*UpsertStaffBankDetailsResponse) ProtoMessage() {}
 
 func (x *UpsertStaffBankDetailsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[73]
+	mi := &file_human_resource_service_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5246,7 +5246,7 @@ func (x *UpsertStaffBankDetailsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpsertStaffBankDetailsResponse.ProtoReflect.Descriptor instead.
 func (*UpsertStaffBankDetailsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{73}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *UpsertStaffBankDetailsResponse) GetBankDetails() *StaffBankDetails {
@@ -5279,7 +5279,7 @@ type DeleteStaffBankDetailsRequest struct {
 
 func (x *DeleteStaffBankDetailsRequest) Reset() {
 	*x = DeleteStaffBankDetailsRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[74]
+	mi := &file_human_resource_service_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5291,7 +5291,7 @@ func (x *DeleteStaffBankDetailsRequest) String() string {
 func (*DeleteStaffBankDetailsRequest) ProtoMessage() {}
 
 func (x *DeleteStaffBankDetailsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[74]
+	mi := &file_human_resource_service_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5304,7 +5304,7 @@ func (x *DeleteStaffBankDetailsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteStaffBankDetailsRequest.ProtoReflect.Descriptor instead.
 func (*DeleteStaffBankDetailsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{74}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *DeleteStaffBankDetailsRequest) GetStaffId() int32 {
@@ -5324,7 +5324,7 @@ type DeleteStaffBankDetailsResponse struct {
 
 func (x *DeleteStaffBankDetailsResponse) Reset() {
 	*x = DeleteStaffBankDetailsResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[75]
+	mi := &file_human_resource_service_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5336,7 +5336,7 @@ func (x *DeleteStaffBankDetailsResponse) String() string {
 func (*DeleteStaffBankDetailsResponse) ProtoMessage() {}
 
 func (x *DeleteStaffBankDetailsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[75]
+	mi := &file_human_resource_service_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5349,7 +5349,7 @@ func (x *DeleteStaffBankDetailsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteStaffBankDetailsResponse.ProtoReflect.Descriptor instead.
 func (*DeleteStaffBankDetailsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{75}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *DeleteStaffBankDetailsResponse) GetSuccess() bool {
@@ -5374,7 +5374,7 @@ type ListAllBankDetailsRequest struct {
 
 func (x *ListAllBankDetailsRequest) Reset() {
 	*x = ListAllBankDetailsRequest{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[76]
+	mi := &file_human_resource_service_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5386,7 +5386,7 @@ func (x *ListAllBankDetailsRequest) String() string {
 func (*ListAllBankDetailsRequest) ProtoMessage() {}
 
 func (x *ListAllBankDetailsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[76]
+	mi := &file_human_resource_service_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5399,7 +5399,7 @@ func (x *ListAllBankDetailsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAllBankDetailsRequest.ProtoReflect.Descriptor instead.
 func (*ListAllBankDetailsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{76}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{76}
 }
 
 type ListAllBankDetailsResponse struct {
@@ -5411,7 +5411,7 @@ type ListAllBankDetailsResponse struct {
 
 func (x *ListAllBankDetailsResponse) Reset() {
 	*x = ListAllBankDetailsResponse{}
-	mi := &file_proto_human_resource_service_proto_msgTypes[77]
+	mi := &file_human_resource_service_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5423,7 +5423,7 @@ func (x *ListAllBankDetailsResponse) String() string {
 func (*ListAllBankDetailsResponse) ProtoMessage() {}
 
 func (x *ListAllBankDetailsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_human_resource_service_proto_msgTypes[77]
+	mi := &file_human_resource_service_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5436,7 +5436,7 @@ func (x *ListAllBankDetailsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAllBankDetailsResponse.ProtoReflect.Descriptor instead.
 func (*ListAllBankDetailsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_human_resource_service_proto_rawDescGZIP(), []int{77}
+	return file_human_resource_service_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *ListAllBankDetailsResponse) GetBankDetails() []*StaffBankDetails {
@@ -5446,11 +5446,11 @@ func (x *ListAllBankDetailsResponse) GetBankDetails() []*StaffBankDetails {
 	return nil
 }
 
-var File_proto_human_resource_service_proto protoreflect.FileDescriptor
+var File_human_resource_service_proto protoreflect.FileDescriptor
 
-const file_proto_human_resource_service_proto_rawDesc = "" +
+const file_human_resource_service_proto_rawDesc = "" +
 	"\n" +
-	"\"proto/human_resource_service.proto\x12\x16human_resource_service\x1a\x1cgoogle/api/annotations.proto\"\x8a\x04\n" +
+	"\x1chuman_resource_service.proto\x12\x16human_resource_service\x1a\x1cgoogle/api/annotations.proto\"\x8a\x04\n" +
 	"\x14RegisterStaffRequest\x12\x1d\n" +
 	"\n" +
 	"first_name\x18\x01 \x01(\tR\tfirstName\x12\x1b\n" +
@@ -5976,19 +5976,19 @@ const file_proto_human_resource_service_proto_rawDesc = "" +
 	"\x12ListAllBankDetails\x121.human_resource_service.ListAllBankDetailsRequest\x1a2.human_resource_service.ListAllBankDetailsResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/staff/bank-detailsB'Z%./shared/human-resource-service/protob\x06proto3"
 
 var (
-	file_proto_human_resource_service_proto_rawDescOnce sync.Once
-	file_proto_human_resource_service_proto_rawDescData []byte
+	file_human_resource_service_proto_rawDescOnce sync.Once
+	file_human_resource_service_proto_rawDescData []byte
 )
 
-func file_proto_human_resource_service_proto_rawDescGZIP() []byte {
-	file_proto_human_resource_service_proto_rawDescOnce.Do(func() {
-		file_proto_human_resource_service_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_human_resource_service_proto_rawDesc), len(file_proto_human_resource_service_proto_rawDesc)))
+func file_human_resource_service_proto_rawDescGZIP() []byte {
+	file_human_resource_service_proto_rawDescOnce.Do(func() {
+		file_human_resource_service_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_human_resource_service_proto_rawDesc), len(file_human_resource_service_proto_rawDesc)))
 	})
-	return file_proto_human_resource_service_proto_rawDescData
+	return file_human_resource_service_proto_rawDescData
 }
 
-var file_proto_human_resource_service_proto_msgTypes = make([]protoimpl.MessageInfo, 78)
-var file_proto_human_resource_service_proto_goTypes = []any{
+var file_human_resource_service_proto_msgTypes = make([]protoimpl.MessageInfo, 78)
+var file_human_resource_service_proto_goTypes = []any{
 	(*RegisterStaffRequest)(nil),            // 0: human_resource_service.RegisterStaffRequest
 	(*RegisterStaffResponse)(nil),           // 1: human_resource_service.RegisterStaffResponse
 	(*GetStaffRequest)(nil),                 // 2: human_resource_service.GetStaffRequest
@@ -6068,7 +6068,7 @@ var file_proto_human_resource_service_proto_goTypes = []any{
 	(*ListAllBankDetailsRequest)(nil),       // 76: human_resource_service.ListAllBankDetailsRequest
 	(*ListAllBankDetailsResponse)(nil),      // 77: human_resource_service.ListAllBankDetailsResponse
 }
-var file_proto_human_resource_service_proto_depIdxs = []int32{
+var file_human_resource_service_proto_depIdxs = []int32{
 	3,  // 0: human_resource_service.ListStaffResponse.staff_list:type_name -> human_resource_service.GetStaffResponse
 	12, // 1: human_resource_service.GetPayrollResponse.details:type_name -> human_resource_service.PayrollDetail
 	62, // 2: human_resource_service.GetPayrollResponse.benefit_details:type_name -> human_resource_service.StaffBenefit
@@ -6163,26 +6163,26 @@ var file_proto_human_resource_service_proto_depIdxs = []int32{
 	0,  // [0:15] is the sub-list for field type_name
 }
 
-func init() { file_proto_human_resource_service_proto_init() }
-func file_proto_human_resource_service_proto_init() {
-	if File_proto_human_resource_service_proto != nil {
+func init() { file_human_resource_service_proto_init() }
+func file_human_resource_service_proto_init() {
+	if File_human_resource_service_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_human_resource_service_proto_rawDesc), len(file_proto_human_resource_service_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_human_resource_service_proto_rawDesc), len(file_human_resource_service_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   78,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_proto_human_resource_service_proto_goTypes,
-		DependencyIndexes: file_proto_human_resource_service_proto_depIdxs,
-		MessageInfos:      file_proto_human_resource_service_proto_msgTypes,
+		GoTypes:           file_human_resource_service_proto_goTypes,
+		DependencyIndexes: file_human_resource_service_proto_depIdxs,
+		MessageInfos:      file_human_resource_service_proto_msgTypes,
 	}.Build()
-	File_proto_human_resource_service_proto = out.File
-	file_proto_human_resource_service_proto_goTypes = nil
-	file_proto_human_resource_service_proto_depIdxs = nil
+	File_human_resource_service_proto = out.File
+	file_human_resource_service_proto_goTypes = nil
+	file_human_resource_service_proto_depIdxs = nil
 }

@@ -251,7 +251,7 @@ message GetDischargeResponse {
 // admissions Messages
 message Admission {
   int32 admission_id = 1;
-  int32 patient_id = 2; 
+  int32 patient_id = 2;
   int32 doctor_id = 3;
   int32 ward_id = 4;
   int32 bed_id = 5;
@@ -261,6 +261,7 @@ message Admission {
   string ward_name = 9;
   string doctor_name = 10;
   string bed_number = 11;
+  string reason = 12;
 }
 
 message CreateAdmissionRequest {
@@ -268,6 +269,7 @@ message CreateAdmissionRequest {
   int32 doctor_id = 2;
   int32 ward_id = 3;
   int32 bed_id = 4;
+  string reason = 5;
 }
 
 message CreateAdmissionResponse {

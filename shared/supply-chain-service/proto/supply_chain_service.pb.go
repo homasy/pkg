@@ -1849,6 +1849,7 @@ type CreditNote struct {
 	CreatedAt         string                 `protobuf:"bytes,18,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	UpdatedAt         string                 `protobuf:"bytes,19,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	Items             []*CreditNoteItem      `protobuf:"bytes,20,rep,name=items,proto3" json:"items,omitempty"`
+	TotalValue        float64                `protobuf:"fixed64,21,opt,name=total_value,json=totalValue,proto3" json:"total_value,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -2023,6 +2024,13 @@ func (x *CreditNote) GetItems() []*CreditNoteItem {
 	return nil
 }
 
+func (x *CreditNote) GetTotalValue() float64 {
+	if x != nil {
+		return x.TotalValue
+	}
+	return 0
+}
+
 // Message for credit note items
 type CreditNoteItem struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
@@ -2036,6 +2044,8 @@ type CreditNoteItem struct {
 	ExpiryDate       string                 `protobuf:"bytes,8,opt,name=expiry_date,json=expiryDate,proto3" json:"expiry_date,omitempty"`
 	Reason           string                 `protobuf:"bytes,9,opt,name=reason,proto3" json:"reason,omitempty"`
 	Notes            string                 `protobuf:"bytes,10,opt,name=notes,proto3" json:"notes,omitempty"`
+	UnitPrice        float64                `protobuf:"fixed64,11,opt,name=unit_price,json=unitPrice,proto3" json:"unit_price,omitempty"`
+	TotalValue       float64                `protobuf:"fixed64,12,opt,name=total_value,json=totalValue,proto3" json:"total_value,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -2138,6 +2148,20 @@ func (x *CreditNoteItem) GetNotes() string {
 		return x.Notes
 	}
 	return ""
+}
+
+func (x *CreditNoteItem) GetUnitPrice() float64 {
+	if x != nil {
+		return x.UnitPrice
+	}
+	return 0
+}
+
+func (x *CreditNoteItem) GetTotalValue() float64 {
+	if x != nil {
+		return x.TotalValue
+	}
+	return 0
 }
 
 type PriceList struct {
@@ -2304,7 +2328,7 @@ type MedicalScheme struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	Id                 int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name               string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	PriceListId        int32                  `protobuf:"varint,3,opt,name=price_list_id,json=priceListId,proto3" json:"price_list_id,omitempty"`
+	CustomerId         int32                  `protobuf:"varint,3,opt,name=customer_id,json=customerId,proto3" json:"customer_id,omitempty"`
 	IsActive           bool                   `protobuf:"varint,4,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
 	CoveragePercentage float64                `protobuf:"fixed64,5,opt,name=coverage_percentage,json=coveragePercentage,proto3" json:"coverage_percentage,omitempty"` // Percentage covered by scheme (0-100)
 	CoversConsultation bool                   `protobuf:"varint,6,opt,name=covers_consultation,json=coversConsultation,proto3" json:"covers_consultation,omitempty"`  // Whether scheme covers consultations
@@ -2362,9 +2386,9 @@ func (x *MedicalScheme) GetName() string {
 	return ""
 }
 
-func (x *MedicalScheme) GetPriceListId() int32 {
+func (x *MedicalScheme) GetCustomerId() int32 {
 	if x != nil {
-		return x.PriceListId
+		return x.CustomerId
 	}
 	return 0
 }
@@ -8448,7 +8472,7 @@ func (x *GetPriceListItemsByPriceListResponse) GetPriceListItems() []*PriceListI
 type CreateMedicalSchemeRequest struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	Name               string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	PriceListId        int32                  `protobuf:"varint,2,opt,name=price_list_id,json=priceListId,proto3" json:"price_list_id,omitempty"`
+	CustomerId         int32                  `protobuf:"varint,2,opt,name=customer_id,json=customerId,proto3" json:"customer_id,omitempty"`
 	IsActive           bool                   `protobuf:"varint,3,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
 	CoveragePercentage float64                `protobuf:"fixed64,4,opt,name=coverage_percentage,json=coveragePercentage,proto3" json:"coverage_percentage,omitempty"`
 	CoversConsultation bool                   `protobuf:"varint,5,opt,name=covers_consultation,json=coversConsultation,proto3" json:"covers_consultation,omitempty"`
@@ -8499,9 +8523,9 @@ func (x *CreateMedicalSchemeRequest) GetName() string {
 	return ""
 }
 
-func (x *CreateMedicalSchemeRequest) GetPriceListId() int32 {
+func (x *CreateMedicalSchemeRequest) GetCustomerId() int32 {
 	if x != nil {
-		return x.PriceListId
+		return x.CustomerId
 	}
 	return 0
 }
@@ -8757,7 +8781,7 @@ type UpdateMedicalSchemeRequest struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	Id                 int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name               string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	PriceListId        int32                  `protobuf:"varint,3,opt,name=price_list_id,json=priceListId,proto3" json:"price_list_id,omitempty"`
+	CustomerId         int32                  `protobuf:"varint,3,opt,name=customer_id,json=customerId,proto3" json:"customer_id,omitempty"`
 	IsActive           bool                   `protobuf:"varint,4,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
 	CoveragePercentage float64                `protobuf:"fixed64,5,opt,name=coverage_percentage,json=coveragePercentage,proto3" json:"coverage_percentage,omitempty"`
 	CoversConsultation bool                   `protobuf:"varint,6,opt,name=covers_consultation,json=coversConsultation,proto3" json:"covers_consultation,omitempty"`
@@ -8815,9 +8839,9 @@ func (x *UpdateMedicalSchemeRequest) GetName() string {
 	return ""
 }
 
-func (x *UpdateMedicalSchemeRequest) GetPriceListId() int32 {
+func (x *UpdateMedicalSchemeRequest) GetCustomerId() int32 {
 	if x != nil {
-		return x.PriceListId
+		return x.CustomerId
 	}
 	return 0
 }
@@ -9760,7 +9784,7 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\x11received_quantity\x18\x05 \x01(\x01R\x10receivedQuantity\x12&\n" +
 	"\x0funit_of_measure\x18\x06 \x01(\tR\runitOfMeasure\x12\x14\n" +
 	"\x05notes\x18\a \x01(\tR\x05notes\x12!\n" +
-	"\fbin_location\x18\b \x01(\tR\vbinLocation\"\x96\x05\n" +
+	"\fbin_location\x18\b \x01(\tR\vbinLocation\"\xb7\x05\n" +
 	"\n" +
 	"CreditNote\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12,\n" +
@@ -9790,7 +9814,9 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"created_at\x18\x12 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
 	"updated_at\x18\x13 \x01(\tR\tupdatedAt\x122\n" +
-	"\x05items\x18\x14 \x03(\v2\x1c.supply_chain.CreditNoteItemR\x05items\"\xe3\x02\n" +
+	"\x05items\x18\x14 \x03(\v2\x1c.supply_chain.CreditNoteItemR\x05items\x12\x1f\n" +
+	"\vtotal_value\x18\x15 \x01(\x01R\n" +
+	"totalValue\"\xa3\x03\n" +
 	"\x0eCreditNoteItem\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\tR\x06itemId\x12\x1b\n" +
 	"\titem_name\x18\x02 \x01(\tR\bitemName\x12+\n" +
@@ -9803,7 +9829,11 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"expiryDate\x12\x16\n" +
 	"\x06reason\x18\t \x01(\tR\x06reason\x12\x14\n" +
 	"\x05notes\x18\n" +
-	" \x01(\tR\x05notes\"\xa9\x01\n" +
+	" \x01(\tR\x05notes\x12\x1d\n" +
+	"\n" +
+	"unit_price\x18\v \x01(\x01R\tunitPrice\x12\x1f\n" +
+	"\vtotal_value\x18\f \x01(\x01R\n" +
+	"totalValue\"\xa9\x01\n" +
 	"\tPriceList\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -9818,11 +9848,12 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\rselling_price\x18\x04 \x01(\x01R\fsellingPrice\x129\n" +
 	"\n" +
 	"valid_from\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tvalidFrom\x125\n" +
-	"\bvalid_to\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\avalidTo\"\xdb\x03\n" +
+	"\bvalid_to\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\avalidTo\"\xd8\x03\n" +
 	"\rMedicalScheme\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\"\n" +
-	"\rprice_list_id\x18\x03 \x01(\x05R\vpriceListId\x12\x1b\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1f\n" +
+	"\vcustomer_id\x18\x03 \x01(\x05R\n" +
+	"customerId\x12\x1b\n" +
 	"\tis_active\x18\x04 \x01(\bR\bisActive\x12/\n" +
 	"\x13coverage_percentage\x18\x05 \x01(\x01R\x12coveragePercentage\x12/\n" +
 	"\x13covers_consultation\x18\x06 \x01(\bR\x12coversConsultation\x12+\n" +
@@ -10188,10 +10219,11 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"#GetPriceListItemsByPriceListRequest\x12\"\n" +
 	"\rprice_list_id\x18\x01 \x01(\x05R\vpriceListId\"m\n" +
 	"$GetPriceListItemsByPriceListResponse\x12E\n" +
-	"\x10price_list_items\x18\x01 \x03(\v2\x1b.supply_chain.PriceListItemR\x0epriceListItems\"\xd8\x03\n" +
+	"\x10price_list_items\x18\x01 \x03(\v2\x1b.supply_chain.PriceListItemR\x0epriceListItems\"\xd5\x03\n" +
 	"\x1aCreateMedicalSchemeRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12\"\n" +
-	"\rprice_list_id\x18\x02 \x01(\x05R\vpriceListId\x12\x1b\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1f\n" +
+	"\vcustomer_id\x18\x02 \x01(\x05R\n" +
+	"customerId\x12\x1b\n" +
 	"\tis_active\x18\x03 \x01(\bR\bisActive\x12/\n" +
 	"\x13coverage_percentage\x18\x04 \x01(\x01R\x12coveragePercentage\x12/\n" +
 	"\x13covers_consultation\x18\x05 \x01(\bR\x12coversConsultation\x12+\n" +
@@ -10209,11 +10241,12 @@ const file_proto_supply_chain_service_proto_rawDesc = "" +
 	"\x1dGetMedicalSchemeByNameRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\"^\n" +
 	"\x18GetMedicalSchemeResponse\x12B\n" +
-	"\x0emedical_scheme\x18\x01 \x01(\v2\x1b.supply_chain.MedicalSchemeR\rmedicalScheme\"\xe8\x03\n" +
+	"\x0emedical_scheme\x18\x01 \x01(\v2\x1b.supply_chain.MedicalSchemeR\rmedicalScheme\"\xe5\x03\n" +
 	"\x1aUpdateMedicalSchemeRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\"\n" +
-	"\rprice_list_id\x18\x03 \x01(\x05R\vpriceListId\x12\x1b\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1f\n" +
+	"\vcustomer_id\x18\x03 \x01(\x05R\n" +
+	"customerId\x12\x1b\n" +
 	"\tis_active\x18\x04 \x01(\bR\bisActive\x12/\n" +
 	"\x13coverage_percentage\x18\x05 \x01(\x01R\x12coveragePercentage\x12/\n" +
 	"\x13covers_consultation\x18\x06 \x01(\bR\x12coversConsultation\x12+\n" +
